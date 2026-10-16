@@ -1,6 +1,6 @@
 # Optaris do Brasil
 
-> A Optaris do Brasil Serviços de Tecnologia S.A. (CNPJ 60.815.759/0001-54), em Alphaville, Barueri/SP, comercializa no Brasil a Deyel, plataforma low-code com IA para software de produção, e detém com exclusividade no território brasileiro os direitos de licenciamento dos aplicativos da Consist Software Solutions Inc.
+> A Optaris do Brasil Serviços de Tecnologia S.A. (CNPJ 60.815.759/0001-54), em Alphaville, Barueri/SP, comercializa no Brasil a Deyel, plataforma de Vibe Coding com IA governada que cria aplicativos web e mobile, B2B e B2C, e automatiza processos de ponta a ponta, e detém com exclusividade no território brasileiro os direitos de licenciamento dos aplicativos da Consist Software Solutions Inc.
 
 Site: https://www.optarisbrasil.com/
 Idioma: pt-BR
@@ -11,8 +11,8 @@ Endereço no Brasil: Castelo Branco Office Park, Av. Marcos Penteado de Ulhoa Ro
 ## Deyel: aplicativos e processos que fazem sua empresa única
 A Deyel tem duas capacidades, na mesma plataforma:
 1. Aplicativos: construir apps B2B e B2C, como portais de clientes e fornecedores, apps de atendimento e sistemas internos, publicados na web, no Android e no iOS a partir de uma única construção, sem a fila do desenvolvimento tradicional. Cases: AON (sistema completo de sinistros de seguro de vida com portal para o cliente, pronto em 5 semanas, iteração 3x mais rápida, até 90% de melhoria na experiência do cliente), Banesco (app Deyel Empréstimos nas agências), Flybondi, Sky. Detalhes: https://lpbr.deyel.com/vibe-coding3/
-2. Processos: automação e orquestração de processos de ponta a ponta, com integrações, SLA controlado em tempo real e IA governada. Cases: General de Seguros, Banesco (crédito), Legaltech, Consigaz. Detalhes: https://br.deyel.com
-Slogan: Você descreve, a Deyel constrói, a sua TI governa.
+2. Processos: automação e orquestração de processos de ponta a ponta, com integrações, SLA controlado em tempo real e IA governada. Cases: General de Seguros, Banesco (crédito), Legaltec, Consigaz. Detalhes: https://br.deyel.com
+Slogan: Você descreve, a Deyel constrói, a sua empresa avança.
 - A Deyel é o orquestrador e organizador dos processos empresariais: integra ERP, CRM, legados (inclusive sem API), nuvem e APIs, e coordena sistemas, pessoas e agentes de IA de ponta a ponta.
 - Algoritmo intelectual: os processos horizontais, que atravessam áreas e sistemas (do pedido ao pagamento, da contratação à folha, do fornecedor ao contas a pagar), são a essência e o diferencial de cada empresa. Sistemas verticais são commodities; o jeito como a empresa conecta tudo é único, só ela faz desse jeito, e esse ativo precisa ser protegido. Por isso controle e visibilidade de ponta a ponta são críticos.
 - Gestão das IAs aplicadas: cada agente e cada IA atua dentro do processo, com regras, limites e auditoria.
@@ -27,7 +27,7 @@ Slogan: Você descreve, a Deyel constrói, a sua TI governa.
   - AON (seguros): sistema completo de sinistros de seguro de vida pronto em 5 semanas, iteração 3x mais rápida, até 90% de melhoria na experiência do cliente.
   - Flybondi (aéreo): processo de solicitação e autorização de compras no ar em 1 mês.
   - Sky (telecom): aplicações fiscais e de cadastro de assinantes 3x mais rápidas.
-  - Legaltech (financeiro): refinanciamento de hipotecas 50% mais rápido e 25% mais barato.
+  - Legaltec (financeiro): refinanciamento de hipotecas 50% mais rápido e 25% mais barato.
   - Consigaz (energia): vale-pedágio automatizado, integrado à Sem Parar, e compras/suprimentos em processo único.
   - Depoimento: Cooperativa Pacífico (Peru), respostas mais rápidas aos associados e mais flexibilidade.
 - Clientes: BBVA, Zurich Santander, Banco Banesco, AON, Pacífico, General de Seguros, Sky, Tramontina, Consigaz, Flybondi, Mazda, Banco Nación.
