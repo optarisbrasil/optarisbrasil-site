@@ -434,7 +434,7 @@ const fmtPhoneBR=p=>{let d=String(p||'').replace(/\D/g,'');if(!d)return '';if(d.
 const WA_NUMBER='5511955700002';
 const WA_PREFIX='Olá! Vim pelo site optarisbrasil.com e ';
 const waUrl=m=>'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(WA_PREFIX+m);
-const INTERESTS=['Plataforma','Fábrica de software','Produtos prontos','Vendor Management','Licenças Consist','Outros'];
+const INTERESTS=['Plataforma','Usina de Apps','Produtos prontos','Vendor Management','Licenças Consist','Outros'];
 const BLOCKED_DOMAINS=['gmail','googlemail','hotmail','outlook','live','msn','yahoo','ymail','icloud','me.com','mac.com','aol','proton','protonmail','gmx','zoho','uol','bol','terra','ig.com.br','globo.com','globomail','r7','oi.com.br','yandex','mail.com'];
 const isPersonalEmail=em=>{const d=(em.split('@')[1]||'').toLowerCase().trim();const label=d.split('.')[0];return BLOCKED_DOMAINS.some(b=>b.indexOf('.')>-1?(d===b||d.endsWith('.'+b)):label===b);};
 const EMPTY_FORM=i=>({firstname:'',lastname:'',email:'',company:'',jobtitle:'',phone:'',message:'',interesse:i});

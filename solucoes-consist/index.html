@@ -135,7 +135,7 @@ body{overflow-x:clip}
       <a href="../#aplicativos" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Aplicativos</a>
       <a href="../#processos-porta" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Processos</a>
       <a href="../#plataforma" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Plataforma</a>
-      <a href="../#fabrica" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Fábrica</a>
+      <a href="../#fabrica" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Usina de Apps</a>
       <a href="../#produtos-prontos" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Produtos prontos</a>
       <a href="../#demo-vendor" style="color:#fff;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px solid #e8335a;border-radius:20px;padding:0 12px;display:inline-flex;align-items:center;height:30px;white-space:nowrap;line-height:1" style-hover="background:#e8335a;color:#fff">Demos</a>
       <a href="./" aria-current="page" style="color:#9fd4ff;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;box-shadow:inset 0 -2px 0 #0496ff;padding-bottom:3px;white-space:nowrap" style-hover="color:#fff">Soluções Consist</a>
@@ -319,7 +319,7 @@ body{overflow-x:clip}
         <a href="../#aplicativos" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Aplicativos</a>
         <a href="../#processos-porta" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Processos</a>
         <a href="../#plataforma" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Deyel Plataforma</a>
-        <a href="../#fabrica" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Fábrica</a>
+        <a href="../#fabrica" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Usina de Apps</a>
         <a href="../#produtos-prontos" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Produtos prontos</a>
         <a href="../#demo-vendor" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Demos</a>
         <a href="../#deyel-no-ar" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Deyel no ar</a>
@@ -411,7 +411,7 @@ class Component extends DCLogic {
       menuOpen:!!s.menu,menuAria:s.menu?'true':'false',
       openMenu:()=>{document.body.style.overflow='hidden';this.setState({menu:true});},
       closeMenu:()=>{document.body.style.overflow='';this.setState({menu:false});},
-      menuItems:[['Aplicativos','../#aplicativos'],['Processos','../#processos-porta'],['Plataforma','../#plataforma'],['Fábrica de software','../#fabrica'],['Produtos prontos','../#produtos-prontos'],['Demos','../#demo-vendor'],['Deyel no ar','../#deyel-no-ar'],['Soluções Consist','./'],['Soluções','../#solucoes'],['Institucional','../#institucional'],['Contato','#contato']].map(x=>({t:x[0],href:x[1],target:x[2]?'_blank':'_self',rel:x[2]?'noopener':'',arrow:x[2]?'↗':'→',color:x[2]?'#ff9fb2':'#fff'})),
+      menuItems:[['Aplicativos','../#aplicativos'],['Processos','../#processos-porta'],['Plataforma','../#plataforma'],['Usina de Apps','../#fabrica'],['Produtos prontos','../#produtos-prontos'],['Demos','../#demo-vendor'],['Deyel no ar','../#deyel-no-ar'],['Soluções Consist','./'],['Soluções','../#solucoes'],['Institucional','../#institucional'],['Contato','#contato']].map(x=>({t:x[0],href:x[1],target:x[2]?'_blank':'_self',rel:x[2]?'noopener':'',arrow:x[2]?'↗':'→',color:x[2]?'#ff9fb2':'#fff'})),
       motionAttr:motion?'on':'off',
       headerBg:s.scrolled?'rgba(2,19,45,.95)':'rgba(2,19,45,.35)',
       year:new Date().getFullYear()
