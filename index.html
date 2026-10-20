@@ -153,6 +153,36 @@ body{overflow-x:clip}
 [data-ctas]{display:none}
 @media (max-width:760px){[data-ctal]{display:none}[data-ctas]{display:inline}}
 [data-ddsep]{height:1px;background:rgba(255,255,255,.12);margin:6px 10px}
+/* animação "uma construção, três saídas" */
+.tsx-wrap{width:100%;max-width:620px;margin:0 auto}
+.tsx{display:block;width:100%;height:auto;overflow:visible;font-family:Lato,"Helvetica Neue",Arial,sans-serif}
+.tsx .tsx-lbl{font-size:15px;fill:#e8335a}
+.tsx .tsx-cap{font-size:18px;fill:#e8335a;opacity:0;transition:opacity .45s}
+.tsx .tsx-tick{stroke:#e8335a;stroke-width:1.5}
+.tsx .bk,.tsx .sc{opacity:0;transform:translateY(6px) scale(.94);transform-box:fill-box;transform-origin:center;transition:opacity .35s,transform .5s cubic-bezier(.2,.9,.25,1.2)}
+.tsx.s1 .bk,.tsx.s3 .sc{opacity:1;transform:none}
+.tsx.s1 .bk[data-d="0.1"]{transition-delay:0.1s}.tsx.s1 .bk[data-d="0.75"]{transition-delay:0.75s}.tsx.s1 .bk[data-d="0.85"]{transition-delay:0.85s}.tsx.s1 .bk[data-d="0.95"]{transition-delay:0.95s}.tsx.s1 .bk[data-d="1.55"]{transition-delay:1.55s}.tsx.s1 .bk[data-d="1.65"]{transition-delay:1.65s}.tsx.s1 .bk[data-d="1.75"]{transition-delay:1.75s}.tsx.s1 .bk[data-d="2.35"]{transition-delay:2.35s}.tsx.s3 .sc[data-d="0"]{transition-delay:0.1s}.tsx.s3 .sc[data-d="0.05"]{transition-delay:0.15s}.tsx.s3 .sc[data-d="0.15"]{transition-delay:0.25s}.tsx.s3 .sc[data-d="0.25"]{transition-delay:0.35s}.tsx.s3 .sc[data-d="0.35"]{transition-delay:0.45s}.tsx.s3 .sc[data-d="0.5"]{transition-delay:0.6s}.tsx.s3 .sc[data-d="0.65"]{transition-delay:0.75s}.tsx.s3 .sc[data-d="0.8"]{transition-delay:0.9s}
+.tsx .scr{fill:#e6eaf0;transition:fill .5s}
+.tsx.s3 .scr{fill:#fff}
+.tsx .fl{transition:stroke-dashoffset .8s ease-in-out}
+.tsx.s2 .fl{stroke-dashoffset:0!important}
+.tsx .st-a{transition:opacity .3s}
+.tsx .st-b{opacity:0;transition:opacity .3s}
+.tsx.s4 .st-a{opacity:0}
+.tsx.s4 .st-b{opacity:1}
+.tsx.s4 .dev .st-a,.tsx.s4 .dev .st-b{transition-delay:.45s}
+.tsx .ring{opacity:0;transform-box:fill-box;transform-origin:center}
+.tsx.s4 .ring{animation:tsx-ring 1s ease-out .05s 2}
+.tsx.s4 .dev .ring{animation-delay:.5s}
+@keyframes tsx-ring{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.25,2)}}
+.tsx.s3 .capA{opacity:1}
+.tsx.s4 .capA{opacity:0}
+.tsx.s4 .capB{opacity:1}
+.tsx .cur{opacity:0;transition:transform .45s cubic-bezier(.4,0,.2,1),opacity .3s}
+.tsx .cur.on{opacity:1}
+.tsx .clk{opacity:0;transform-box:fill-box;transform-origin:center}
+.tsx .cur.click .clk{animation:tsx-clk .45s ease-out}
+@keyframes tsx-clk{0%{opacity:.9;transform:scale(.3)}100%{opacity:0;transform:scale(1.4)}}
 </style>
 <template id="__bundler_thumbnail" data-bg-color="#02132d"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#02132d"></rect><circle cx="600" cy="400" r="150" fill="#0496ff"></circle><text x="600" y="455" text-anchor="middle" font-family="Lato,Arial,sans-serif" font-weight="900" font-size="160" fill="#fff">O</text></svg></template>
 </helmet>
@@ -287,41 +317,24 @@ body{overflow-x:clip}
             <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Na prática, a TI ganha fôlego para dar vazão ao backlog, a lista de pedidos que cresce mais rápido do que dá para atender: a entrega fica até 80% mais rápida que no desenvolvimento tradicional.</p>
             <p style="font-size:17px;color:#02132d;font-weight:500;text-wrap:pretty">Por trás disso está a Diana, a nossa IA: ela comanda um time de IAs especialistas que faz o trabalho pesado da construção, enquanto a TI continua decidindo o que vai ao ar.</p>
           </div>
-          <div style="position:relative;padding:64px 0 92px">
-            <div data-step="1" style="display:flex;align-items:flex-end;justify-content:center;gap:clamp(14px,3vw,28px)">
-              <div style="position:relative;flex:1 1 0;max-width:400px;min-width:0">
-                <span data-step="2" style="position:absolute;left:50%;bottom:calc(100% + 26px);transform:translateX(-50%);white-space:nowrap;font-family:Lato,sans-serif;font-weight:400;color:#e8335a;font-size:clamp(15px,1.8vw,18px);line-height:1.15">navegador</span>
-                <span data-step="2" aria-hidden="true" style="position:absolute;left:50%;bottom:100%;width:1.5px;height:22px;margin-bottom:2px;background:#e8335a"></span>
-              <div style="border-radius:10px;background:#fff;box-shadow:0 30px 60px -30px rgba(2,19,45,.45);overflow:hidden;border:1px solid rgba(2,19,45,.08)">
-                <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:#02132d"><span style="width:8px;height:8px;border-radius:50%;background:#ff5d73"></span><span style="width:8px;height:8px;border-radius:50%;background:#ffc27a"></span><span style="width:8px;height:8px;border-radius:50%;background:#3ddc97"></span><span style="flex:1;margin-left:10px;height:14px;border-radius:7px;background:rgba(255,255,255,.14)"></span></div>
-                <div style="display:grid;grid-template-columns:70px minmax(0,1fr);aspect-ratio:16/11">
-                  <div style="background:#f4f8fd;padding:14px 10px;display:flex;flex-direction:column;gap:10px"><span style="height:7px;border-radius:4px;background:#0496ff"></span><span style="height:7px;width:80%;border-radius:4px;background:#d6e2f0"></span><span style="height:7px;width:90%;border-radius:4px;background:#d6e2f0"></span><span style="height:7px;width:70%;border-radius:4px;background:#d6e2f0"></span></div>
-                  <div style="padding:14px;display:flex;flex-direction:column;gap:10px">
-                    <span style="font-family:Lato,sans-serif;font-weight:900;font-size:13px">Portal do cliente</span>
-                    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px"><span style="height:38px;border-radius:6px;background:linear-gradient(135deg,#0496ff,#5b3fc4)"></span><span style="height:38px;border-radius:6px;background:#e6f3ff"></span><span style="height:38px;border-radius:6px;background:#e6f3ff"></span></div>
-                    <div style="flex:1;display:flex;flex-direction:column;gap:7px;padding:10px;border-radius:6px;border:1px solid #e5e7eb"><span style="height:7px;border-radius:4px;background:#eef1f5"></span><span style="height:7px;width:85%;border-radius:4px;background:#eef1f5"></span><span style="height:7px;width:65%;border-radius:4px;background:#eef1f5"></span><span style="align-self:flex-end;margin-top:auto;width:64px;height:18px;border-radius:4px;background:#0496ff"></span></div>
-                  </div>
-                </div>
-              </div>
-              </div>
-              <div style="position:relative;flex:0 0 auto;width:clamp(96px,22%,132px)">
-                <span data-step="2" aria-hidden="true" style="position:absolute;left:50%;top:100%;width:1.5px;height:20px;margin-top:2px;background:#e8335a"></span>
-                <span data-step="2" style="position:absolute;left:50%;top:calc(100% + 26px);transform:translateX(-50%);white-space:nowrap;font-family:Lato,sans-serif;font-weight:400;color:#e8335a;font-size:clamp(15px,1.8vw,18px);line-height:1.15">Android e iOS</span>
-              <div style="border-radius:22px;background:#02132d;padding:7px;box-shadow:0 30px 60px -26px rgba(2,19,45,.55)">
-                <div style="border-radius:16px;background:#fff;overflow:hidden;aspect-ratio:9/19;display:flex;flex-direction:column">
-                  <div style="display:flex;justify-content:center;padding:6px 0 4px"><span style="width:34px;height:5px;border-radius:3px;background:#02132d"></span></div>
-                  <div style="padding:6px 9px;display:flex;flex-direction:column;gap:7px;flex:1">
-                    <span style="font-family:Lato,sans-serif;font-weight:900;font-size:10px">Portal do cliente</span>
-                    <span style="height:34px;border-radius:6px;background:linear-gradient(135deg,#0496ff,#5b3fc4)"></span>
-                    <span style="height:22px;border-radius:6px;background:#e6f3ff"></span><span style="height:22px;border-radius:6px;background:#e6f3ff"></span>
-                    <span style="height:6px;border-radius:3px;background:#eef1f5"></span><span style="height:6px;width:70%;border-radius:3px;background:#eef1f5"></span>
-                    <span style="margin-top:auto;height:20px;border-radius:5px;background:#0496ff"></span>
-                  </div>
-                </div>
-              </div>
-              </div>
-            </div>
-            <span data-step="3" style="position:absolute;left:0;right:0;bottom:-8px;text-align:center;font-family:Lato,sans-serif;font-weight:400;color:#e8335a;font-size:clamp(15px,1.8vw,18px);line-height:1.15">uma construção, três destinos</span>
+          <div style="position:relative;padding:8px 0 0">
+<div data-step="1" class="tsx-wrap" role="img" aria-label="Animação: um aplicativo construído uma vez é publicado no navegador, no Android e no iOS, com os mesmos dados e as mesmas regras">
+<svg class="tsx" viewBox="0 0 600 570" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="tsx-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0496ff"></stop><stop offset="1" stop-color="#5b3fc4"></stop></linearGradient><linearGradient id="tsx-fg" gradientUnits="userSpaceOnUse" x1="0" y1="182" x2="0" y2="296"><stop offset="0" stop-color="#0496ff"></stop><stop offset="1" stop-color="#5b3fc4"></stop></linearGradient><filter id="tsx-sh" x="-25%" y="-20%" width="150%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#02132d" flood-opacity=".14"></feDropShadow></filter></defs>
+<text class="tsx-lbl" x="300" y="16" text-anchor="middle">construído uma vez</text><line class="tsx-tick" x1="300" y1="22" x2="300" y2="29"></line>
+<g><rect x="180" y="30" width="240" height="150" rx="12" fill="#fff" filter="url(#tsx-sh)"></rect><path d="M180 42a12 12 0 0 1 12-12h216a12 12 0 0 1 12 12v6H180z" fill="#02132d"></path><text x="192" y="42.5" font-size="8" font-weight="700" fill="#fff">Construtor Deyel</text><rect x="370" y="33" width="42" height="12" rx="6" fill="#0496ff"></rect><text x="391" y="41.5" font-size="6.5" font-weight="700" fill="#fff" text-anchor="middle">Publicar</text><rect x="190" y="58" width="18" height="18" rx="4" fill="#eef2f8"></rect><rect x="194" y="66" width="10" height="2.5" rx="1.2" fill="#b9c3d3"></rect><rect x="190" y="82" width="18" height="18" rx="4" fill="#eef2f8"></rect><rect x="194.5" y="86.5" width="9" height="9" rx="2" fill="#b9c3d3"></rect><rect x="190" y="106" width="18" height="18" rx="4" fill="#eef2f8"></rect><rect x="193.5" y="112.5" width="11" height="5" rx="2.5" fill="#b9c3d3"></rect><rect x="190" y="130" width="18" height="18" rx="4" fill="#eef2f8"></rect><rect x="193.5" y="136" width="11" height="6" rx="1.5" fill="#9fd0ff"></rect><line x1="216" y1="54" x2="216" y2="174" stroke="#edf0f4"></line>
+<g class="bk" data-d="0.1"><text x="226" y="66" font-size="10" font-weight="900" fill="#02132d">Portal do cliente</text></g><g class="bk" data-d="0.75"><rect x="226" y="74" width="56" height="22" rx="5" fill="url(#tsx-g)"></rect></g><g class="bk" data-d="0.85"><rect x="288" y="74" width="56" height="22" rx="5" fill="#e6f3ff"></rect></g><g class="bk" data-d="0.95"><rect x="350" y="74" width="56" height="22" rx="5" fill="#e6f3ff"></rect></g><g class="bk" data-d="1.55"><g class="st-a"><rect x="226" y="104" width="130" height="14" rx="7.0" fill="#fff1d6"></rect><circle cx="234.0" cy="111.0" r="2.38" fill="#e39a12"></circle><text x="241" y="113.52" font-size="7" font-weight="700" fill="#9a5c00">Pedido #1042 · em análise</text></g><g class="st-b"><rect x="226" y="104" width="130" height="14" rx="7.0" fill="#ddf5e8"></rect><circle cx="234.0" cy="111.0" r="2.38" fill="#22a06b"></circle><text x="241" y="113.52" font-size="7" font-weight="700" fill="#16794a">Pedido #1042 · aprovado</text></g><rect class="ring" x="226" y="104" width="130" height="14" rx="7.0" fill="none" stroke="#22a06b" stroke-width="1.4"></rect></g><g class="bk" data-d="1.65"><rect x="226" y="126" width="180" height="5" rx="2.5" fill="#e6e8ec"></rect></g><g class="bk" data-d="1.75"><rect x="226" y="136" width="136" height="5" rx="2.5" fill="#e6e8ec"></rect></g><g class="bk" data-d="2.35"><rect x="350" y="156" width="56" height="14" rx="5" fill="#0496ff"></rect></g></g>
+<g fill="none" stroke-linecap="round"><path d="M300 184C300 250 155 236 155 296" stroke="#cfd3dc" stroke-dasharray="2 5" stroke-width="1.5"></path><path d="M300 184C300 236 395 228 395 276" stroke="#cfd3dc" stroke-dasharray="2 5" stroke-width="1.5"></path><path d="M300 184C300 232 520 222 520 276" stroke="#cfd3dc" stroke-dasharray="2 5" stroke-width="1.5"></path><path class="fl" d="M300 184C300 250 155 236 155 296" stroke="url(#tsx-fg)" stroke-width="2.5"></path><path class="fl" d="M300 184C300 236 395 228 395 276" stroke="url(#tsx-fg)" stroke-width="2.5"></path><path class="fl" d="M300 184C300 232 520 222 520 276" stroke="url(#tsx-fg)" stroke-width="2.5"></path></g>
+<circle cx="300" cy="184" r="3.5" fill="#02132d"></circle>
+<circle class="pk" r="4.5" fill="#0496ff" cx="300" cy="184" opacity="0"></circle><circle class="pk" r="4.5" fill="#0496ff" cx="300" cy="184" opacity="0"></circle><circle class="pk" r="4.5" fill="#0496ff" cx="300" cy="184" opacity="0"></circle>
+<g class="dev"><rect x="20" y="300" width="270" height="180" rx="10" fill="#fff" filter="url(#tsx-sh)"></rect><path class="scr" d="M20 322h270v148a10 10 0 0 1-10 10H30a10 10 0 0 1-10-10z"></path><path d="M20 322h54v158H30a10 10 0 0 1-10-10z" fill="#f4f8fd"></path><path d="M20 310a10 10 0 0 1 10-10h250a10 10 0 0 1 10 10v12H20z" fill="#02132d"></path><circle cx="32" cy="311" r="3.2" fill="#ff5d73"></circle><circle cx="42" cy="311" r="3.2" fill="#ffc27a"></circle><circle cx="52" cy="311" r="3.2" fill="#3ddc97"></circle><rect x="64" y="306" width="214" height="10" rx="5" fill="#23304d"></rect><g class="sc" data-d="0"><rect x="30" y="336" width="34" height="5" rx="2.5" fill="#0496ff"></rect><rect x="30" y="348" width="28" height="5" rx="2.5" fill="#dfe4ec"></rect><rect x="30" y="358" width="32" height="5" rx="2.5" fill="#dfe4ec"></rect><rect x="30" y="368" width="24" height="5" rx="2.5" fill="#dfe4ec"></rect></g><g class="sc" data-d="0.05"><text x="84" y="342" font-size="11" font-weight="900" fill="#02132d">Portal do cliente</text></g><g class="sc" data-d="0.15"><rect x="84" y="350" width="60" height="26" rx="5" fill="url(#tsx-g)"></rect></g><g class="sc" data-d="0.25"><rect x="148" y="350" width="60" height="26" rx="5" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.35"><rect x="212" y="350" width="60" height="26" rx="5" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.5"><g class="st-a"><rect x="84" y="384" width="140" height="15" rx="7.5" fill="#fff1d6"></rect><circle cx="92.5" cy="391.5" r="2.55" fill="#e39a12"></circle><text x="100" y="394.2" font-size="7.5" font-weight="700" fill="#9a5c00">Pedido #1042 · em análise</text></g><g class="st-b"><rect x="84" y="384" width="140" height="15" rx="7.5" fill="#ddf5e8"></rect><circle cx="92.5" cy="391.5" r="2.55" fill="#22a06b"></circle><text x="100" y="394.2" font-size="7.5" font-weight="700" fill="#16794a">Pedido #1042 · aprovado</text></g><rect class="ring" x="84" y="384" width="140" height="15" rx="7.5" fill="none" stroke="#22a06b" stroke-width="1.4"></rect></g><g class="sc" data-d="0.65"><rect x="84" y="410" width="188" height="5" rx="2.5" fill="#e6e8ec"></rect><rect x="84" y="420" width="148" height="5" rx="2.5" fill="#e6e8ec"></rect></g><g class="sc" data-d="0.8"><rect x="214" y="452" width="58" height="15" rx="5" fill="#0496ff"></rect></g></g>
+<g class="dev"><rect x="445" y="328" width="2.5" height="24" rx="1" fill="#02132d"></rect><rect x="345" y="280" width="100" height="200" rx="14" fill="#02132d" filter="url(#tsx-sh)"></rect><rect class="scr" x="351" y="286" width="88" height="188" rx="9"></rect><g class="sc" data-d="0.05"><text x="359" y="310" font-size="8.5" font-weight="900" fill="#02132d">Portal do cliente</text></g><g class="sc" data-d="0.15"><rect x="359" y="318" width="72" height="18" rx="4" fill="url(#tsx-g)"></rect></g><g class="sc" data-d="0.25"><rect x="359" y="340" width="72" height="18" rx="4" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.35"><rect x="359" y="362" width="72" height="18" rx="4" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.5"><g class="st-a"><rect x="359" y="386" width="72" height="13" rx="6.5" fill="#fff1d6"></rect><circle cx="366.5" cy="392.5" r="2.21" fill="#e39a12"></circle><text x="373" y="394.59" font-size="5.8" font-weight="700" fill="#9a5c00">#1042 em análise</text></g><g class="st-b"><rect x="359" y="386" width="72" height="13" rx="6.5" fill="#ddf5e8"></rect><circle cx="366.5" cy="392.5" r="2.21" fill="#22a06b"></circle><text x="373" y="394.59" font-size="5.8" font-weight="700" fill="#16794a">#1042 aprovado</text></g><rect class="ring" x="359" y="386" width="72" height="13" rx="6.5" fill="none" stroke="#22a06b" stroke-width="1.4"></rect></g><g class="sc" data-d="0.65"><rect x="359" y="408" width="66" height="4" rx="2" fill="#e6e8ec"></rect><rect x="359" y="417" width="48" height="4" rx="2" fill="#e6e8ec"></rect></g><g class="sc" data-d="0.8"><rect x="359" y="446" width="72" height="14" rx="4" fill="#0496ff"></rect></g><circle cx="395" cy="292.5" r="2.6" fill="#02132d"></circle></g>
+<g class="dev"><rect x="467.5" y="318" width="2.5" height="14" rx="1" fill="#02132d"></rect><rect x="467.5" y="338" width="2.5" height="22" rx="1" fill="#02132d"></rect><rect x="470" y="280" width="100" height="200" rx="22" fill="#02132d" filter="url(#tsx-sh)"></rect><rect class="scr" x="476" y="286" width="88" height="188" rx="16"></rect><g class="sc" data-d="0.05"><text x="484" y="310" font-size="8.5" font-weight="900" fill="#02132d">Portal do cliente</text></g><g class="sc" data-d="0.15"><rect x="484" y="318" width="72" height="18" rx="4" fill="url(#tsx-g)"></rect></g><g class="sc" data-d="0.25"><rect x="484" y="340" width="72" height="18" rx="4" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.35"><rect x="484" y="362" width="72" height="18" rx="4" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.5"><g class="st-a"><rect x="484" y="386" width="72" height="13" rx="6.5" fill="#fff1d6"></rect><circle cx="491.5" cy="392.5" r="2.21" fill="#e39a12"></circle><text x="498" y="394.59" font-size="5.8" font-weight="700" fill="#9a5c00">#1042 em análise</text></g><g class="st-b"><rect x="484" y="386" width="72" height="13" rx="6.5" fill="#ddf5e8"></rect><circle cx="491.5" cy="392.5" r="2.21" fill="#22a06b"></circle><text x="498" y="394.59" font-size="5.8" font-weight="700" fill="#16794a">#1042 aprovado</text></g><rect class="ring" x="484" y="386" width="72" height="13" rx="6.5" fill="none" stroke="#22a06b" stroke-width="1.4"></rect></g><g class="sc" data-d="0.65"><rect x="484" y="408" width="66" height="4" rx="2" fill="#e6e8ec"></rect><rect x="484" y="417" width="48" height="4" rx="2" fill="#e6e8ec"></rect></g><g class="sc" data-d="0.8"><rect x="484" y="446" width="72" height="14" rx="4" fill="#0496ff"></rect></g><rect x="503" y="290.5" width="34" height="8" rx="4" fill="#02132d"></rect><rect x="505" y="467" width="30" height="3" rx="1.5" fill="#02132d" opacity=".35"></rect></g>
+<line class="tsx-tick" x1="155" y1="486" x2="155" y2="495"></line><line class="tsx-tick" x1="395" y1="486" x2="395" y2="495"></line><line class="tsx-tick" x1="520" y1="486" x2="520" y2="495"></line><text class="tsx-lbl" x="155" y="514" text-anchor="middle">navegador</text><text class="tsx-lbl" x="395" y="514" text-anchor="middle">Android</text><text class="tsx-lbl" x="520" y="514" text-anchor="middle">iOS</text>
+<text class="tsx-cap capA" x="300" y="556" text-anchor="middle">uma construção, três saídas</text><text class="tsx-cap capB" x="300" y="556" text-anchor="middle">mesmos dados, mesmas regras</text>
+<g class="cur"><circle class="clk" cx="0" cy="0" r="9" fill="none" stroke="#0496ff" stroke-width="2"></circle><path d="M0 0L0 13.5 3.6 10.2 6.2 15.6 8.4 14.6 5.8 9.3 10.4 9.3z" fill="#02132d" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"></path></g>
+</svg>
+</div>
           </div>
         </div>
         <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>O mesmo app, os mesmos dados, as mesmas regras. Em qualquer tela.</p>
@@ -1453,6 +1466,66 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+<script>
+/* animação "uma construção, três saídas" (seção Aplicativos) */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var svg=null,timers=[],raf=0,io=null;
+  function S(){return svg&&svg.isConnected?svg:null;}
+  function cls(c,on){var s=S();if(s)s.classList[on?'add':'remove'](c);}
+  function cur(){var s=S();return s&&s.querySelector('.cur');}
+  function move(x,y){var c=cur();if(c)c.style.transform='translate('+x+'px,'+y+'px)';}
+  function curOn(on){var c=cur();if(c)c.classList[on?'add':'remove']('on');}
+  function click(){var c=cur();if(!c)return;c.classList.remove('click');setTimeout(function(){c.classList.add('click');},20);}
+  function T(ms,fn){timers.push(setTimeout(fn,ms));}
+  function prep(s){
+    [].forEach.call(s.querySelectorAll('.fl'),function(p){var L=Math.ceil(p.getTotalLength());p.style.strokeDasharray=L;p.style.strokeDashoffset=L;});
+  }
+  function packets(){
+    var s=S();if(!s)return;var ps=s.querySelectorAll('.fl'),ks=s.querySelectorAll('.pk'),t0=performance.now(),D=900;
+    cancelAnimationFrame(raf);
+    (function f(now){var t=Math.min(1,(now-t0)/D),e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+      for(var i=0;i<ks.length;i++){var p=ps[i],L=p.getTotalLength(),pt=p.getPointAtLength(L*e);ks[i].setAttribute('cx',pt.x);ks[i].setAttribute('cy',pt.y);ks[i].setAttribute('opacity',t<.1?t*10:t>.85?(1-t)/.15:1);}
+      if(t<1)raf=requestAnimationFrame(f);})(t0);
+  }
+  function all(on){['s1','s2','s3','s4'].forEach(function(c){cls(c,on);});}
+  function cycle(){
+    timers.forEach(clearTimeout);timers=[];
+    if(!S()){svg=null;return wait();}
+    all(0);move(199,66);
+    T(250,function(){curOn(1);});
+    T(300,function(){cls('s1',1);});
+    T(550,function(){move(252,86);});
+    T(1000,function(){move(199,92);});
+    T(1350,function(){move(262,112);});
+    T(1850,function(){move(199,140);});
+    T(2150,function(){move(376,164);});
+    T(2650,function(){move(390,40);});
+    T(3150,function(){click();cls('s2',1);packets();});
+    T(3450,function(){curOn(0);});
+    T(3900,function(){cls('s3',1);});
+    T(5900,function(){move(252,84);curOn(1);});
+    T(6000,function(){move(268,112);});
+    T(6500,function(){click();cls('s4',1);});
+    T(7400,function(){curOn(0);});
+    T(10000,function(){all(0);});
+    T(10800,cycle);
+  }
+  function init(s){
+    svg=s;prep(s);
+    if(reduce){['s1','s2','s3'].forEach(function(c){cls(c,1);});return;}
+    if('IntersectionObserver' in window){
+      io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();cycle();}},{threshold:.3});io.observe(s);
+    }else cycle();
+  }
+  function wait(){
+    var s=document.querySelector('svg.tsx');if(s)return init(s);
+    var mo=new MutationObserver(function(){var s=document.querySelector('svg.tsx');if(s){mo.disconnect();init(s);}});
+    mo.observe(document.documentElement,{childList:true,subtree:true});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wait);else wait();
+})();
 </script>
 </body>
 </html>
