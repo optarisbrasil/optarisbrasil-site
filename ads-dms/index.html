@@ -558,7 +558,7 @@ body{overflow-x:clip}
           <sc-for list="{{ formFields }}" as="ff" hint-placeholder-count="6">
             <div>
               <label for="{{ ff.id }}" style="display:block;font-size:13px;color:#555;margin:12px 0 5px">{{ ff.label }}</label>
-              <input id="{{ ff.id }}" name="{{ ff.name }}" type="{{ ff.type }}" autoComplete="{{ ff.ac }}" value="{{ ff.value }}" onChange="{{ ff.onChange }}" aria-invalid="{{ ff.aria }}" style="width:100%;border:1px solid {{ ff.border }};border-radius:6px;padding:11px 12px;font-size:15px;font-family:inherit;min-height:46px"></input>
+              <input id="{{ ff.id }}" name="{{ ff.name }}" type="{{ ff.type }}" autoComplete="{{ ff.ac }}" placeholder="{{ ff.ph }}" inputMode="{{ ff.im }}" maxLength="{{ ff.ml }}" value="{{ ff.value }}" onChange="{{ ff.onChange }}" aria-invalid="{{ ff.aria }}" style="width:100%;border:1px solid {{ ff.border }};border-radius:6px;padding:11px 12px;font-size:15px;font-family:inherit;min-height:46px"></input>
               <sc-if value="{{ ff.hasErr }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:block;font-size:13px;color:#c4183c;margin-top:5px">{{ ff.err }}</span></sc-if>
             </div>
           </sc-for>
@@ -637,6 +637,8 @@ body{overflow-x:clip}
 const FORM_GUID='ec61738a-2bf9-4522-8e45-6e0b9b41673d';
 const HS_PORTAL_ID='45901870';
 const fmtPhoneBR=p=>{let d=String(p||'').replace(/\D/g,'');if(!d)return '';if(d.indexOf('55')===0&&d.length>=12)d=d.slice(2);d=d.replace(/^0+/,'');if(d.length<10)return '+55 '+d;return '+55 '+d.slice(0,2)+' '+d.slice(2);};
+const maskCelBR=v=>{let d=String(v||'').replace(/\D/g,'');if(d.indexOf('55')===0&&d.length>11)d=d.slice(2);d=d.slice(0,11);if(!d)return '';if(d.length<=2)return '('+d;if(d.length<=7)return '('+d.slice(0,2)+') '+d.slice(2);return '('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7);};
+const celOk=v=>/^[1-9][1-9]9\d{8}$/.test(String(v||'').replace(/\D/g,''));
 const WA_NUMBER='5511955700002';
 const WA_PREFIX='Olá! Vim pelo site optarisbrasil.com e ';
 const waUrl=m=>'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(WA_PREFIX+m);
@@ -646,9 +648,9 @@ const isPersonalEmail=em=>{const d=(em.split('@')[1]||'').toLowerCase().trim();c
 const EMPTY_FORM=i=>({firstname:'',lastname:'',email:'',company:'',jobtitle:'',phone:'',message:'',interesse:i});
 class Component extends DCLogic {
   formVals(){const s=this.state,f=s.f,fe=s.fe||{};
-    const set=k=>e=>{const v=e.target.value;this.setState(st=>({f:{...st.f,[k]:v},fe:{...st.fe,[k]:''}}));};
-    const FF=[['firstname','Nome*','text','given-name'],['lastname','Sobrenome','text','family-name'],['email','E-mail corporativo*','email','email'],['company','Empresa*','text','organization'],['jobtitle','Cargo','text','organization-title'],['phone','Telefone','tel','tel']];
-    return {formFields:FF.map(x=>({id:'hs-'+x[0],name:x[0],label:x[1],type:x[2],ac:x[3],value:f[x[0]],onChange:set(x[0]),err:fe[x[0]]||'',hasErr:!!fe[x[0]],aria:fe[x[0]]?'true':'false',border:fe[x[0]]?'#c4183c':'#ccc'})),
+    const set=k=>e=>{const v=k==='phone'?maskCelBR(e.target.value):e.target.value;this.setState(st=>({f:{...st.f,[k]:v},fe:{...st.fe,[k]:''}}));};
+    const FF=[['firstname','Nome*','text','given-name'],['lastname','Sobrenome','text','family-name'],['email','E-mail corporativo*','email','email'],['company','Empresa*','text','organization'],['jobtitle','Cargo','text','organization-title'],['phone','Celular / WhatsApp*','tel','tel']];
+    return {formFields:FF.map(x=>({id:'hs-'+x[0],name:x[0],label:x[1],type:x[2],ac:x[3],value:f[x[0]],onChange:set(x[0]),ph:x[0]==='phone'?'(00) 00000-0000':'',im:x[0]==='phone'?'numeric':(x[0]==='email'?'email':'text'),ml:x[0]==='phone'?20:200,err:fe[x[0]]||'',hasErr:!!fe[x[0]],aria:fe[x[0]]?'true':'false',border:fe[x[0]]?'#c4183c':'#ccc'})),
       interestOpts:INTERESTS.map(t=>{const on=f.interesse===t;return {t,on:on?'true':'false',pick:()=>this.setState(st=>({f:{...st.f,interesse:t}})),bg:on?'#0496ff':'#fff',color:on?'#fff':'#02132d',border:on?'#0496ff':'#cfd6df'};}),
       fMsg:f.message,onMsg:set('message'),
       consent:!!s.consent,onConsent:e=>{const c=e.target.checked;this.setState(st=>({consent:c,fe:{...st.fe,consent:''}}));},consentErr:fe.consent||'',hasConsentErr:!!fe.consent,
@@ -662,6 +664,7 @@ class Component extends DCLogic {
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em))fe.email='Informe um e-mail válido.';
     else if(isPersonalEmail(em))fe.email='Use seu e-mail corporativo para que nosso time possa te atender.';
     if(!f.company.trim())fe.company='Informe a empresa.';
+    if(!celOk(f.phone))fe.phone='Informe o celular com DDD, no formato (00) 00000-0000.';
     if(!this.state.consent)fe.consent='Marque o consentimento para enviarmos sua mensagem.';
     if(Object.keys(fe).length){this.setState({fe});return;}
     this.setState({fs:'sending',fe:{}});
