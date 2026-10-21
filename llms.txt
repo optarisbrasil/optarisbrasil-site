@@ -61,7 +61,7 @@ Página: https://www.optarisbrasil.com/licencas-consist/
 
 ## ConsistADS e DMS (Natural/Adabas)
 Página: https://www.optarisbrasil.com/ads-dms/
-- ConsistADS: runtime que executa aplicações Natural convertidas automaticamente sobre banco relacional, com o código-fonte inalterado. Os comandos de acesso a dados (FIND, READ, GET, STORE) são traduzidos para SQL de forma transparente: a equipe continua programando como sempre e não precisa aprender SQL (manter em SQL é opcional). Telas podem continuar as mesmas ou ir para a web sem emulador, por escolha do cliente.
+- ConsistADS: substitui o Natural/Adabas; executa as aplicações Natural convertidas automaticamente sobre banco relacional, com o código-fonte inalterado. Os comandos de acesso a dados (FIND, READ, GET, STORE) são traduzidos para SQL de forma transparente: a equipe continua programando como sempre e não precisa aprender SQL (manter em SQL é opcional). Telas podem continuar as mesmas ou ir para a web sem emulador, por escolha do cliente.
 - DMS (Data Migration System): extrai os dados do Adabas, reformata (inclusive campos multivalorados e grupos periódicos), cria as tabelas e carrega em DB2, Oracle, MySQL ou outro banco relacional, dentro ou fora do z/OS.
 - Duas rotas de plataforma: permanecer no mainframe (z/OS com DB2) ou ir para Linux, Unix ou Windows.
 - Possibilidades: migração completa (programas e dados); ficar no mainframe com DB2; sair do mainframe com recursos de compatibilidade z/OS→Linux; usar o banco relacional que a empresa já tem; abrir os dados para BI e IA sem migrar os sistemas (sob consulta); evoluir com a Deyel por cima do legado.
