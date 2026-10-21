@@ -283,7 +283,7 @@ body{overflow-x:clip}
       </div>
       <p style="font-size:14px;line-height:1.8;opacity:.92;margin-top:8px"><strong>Optaris do Brasil Serviços de Tecnologia S.A.</strong><br>Castelo Branco Office Park · Av. Marcos Penteado de Ulhoa Rodrigues, 939 — 8º andar<br>Alphaville, Barueri/SP — CEP 06460-040<br>Tel.: <a href="tel:+551128442275" style="color:#fff">+55 11 2844-2275</a></p>
     </div>
-    <form data-reveal="" noValidate="" onSubmit="{{ submit }}" style="background:#fff;border-radius:12px;padding:clamp(20px,4vw,30px);color:#333;box-shadow:0 30px 60px -24px rgba(2,19,45,.5);transition-delay:.15s">
+    <form data-reveal="" data-hs-do-not-collect="true" noValidate="" onSubmit="{{ submit }}" style="background:#fff;border-radius:12px;padding:clamp(20px,4vw,30px);color:#333;box-shadow:0 30px 60px -24px rgba(2,19,45,.5);transition-delay:.15s">
       <sc-if value="{{ fsOk }}" hint-placeholder-val="{{ false }}">
         <div role="status" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:20px 0">
           <span style="width:56px;height:56px;border-radius:50%;background:#e6f3ff;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>
@@ -316,7 +316,7 @@ body{overflow-x:clip}
           <sc-if value="{{ hasQErr }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:block;font-size:13px;color:#c4183c;margin-top:8px">{{ qErr }}</span></sc-if>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:0 14px">
-          <sc-for list="{{ formFields }}" as="ff" hint-placeholder-count="6">
+          <sc-for list="{{ formFields }}" as="ff" hint-placeholder-count="7">
             <div>
               <label for="{{ ff.id }}" style="display:block;font-size:13px;color:#555;margin:12px 0 5px">{{ ff.label }}</label>
               <input id="{{ ff.id }}" name="{{ ff.name }}" type="{{ ff.type }}" autoComplete="{{ ff.ac }}" placeholder="{{ ff.ph }}" inputMode="{{ ff.im }}" maxLength="{{ ff.ml }}" value="{{ ff.value }}" onChange="{{ ff.onChange }}" aria-invalid="{{ ff.aria }}" style="width:100%;border:1px solid {{ ff.border }};border-radius:6px;padding:11px 12px;font-size:15px;font-family:inherit;min-height:46px"></input>
@@ -460,12 +460,14 @@ const waUrl=m=>'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(WA_PREFIX+
 const INTERESTS=['Plataforma','Usina de Apps','Produtos prontos','Vendor Management','Licenças Consist','Outros'];
 const BLOCKED_DOMAINS=['gmail','googlemail','hotmail','outlook','live','msn','yahoo','ymail','icloud','me.com','mac.com','aol','proton','protonmail','gmx','zoho','uol','bol','terra','ig.com.br','globo.com','globomail','r7','oi.com.br','yandex','mail.com'];
 const isPersonalEmail=em=>{const d=(em.split('@')[1]||'').toLowerCase().trim();const label=d.split('.')[0];return BLOCKED_DOMAINS.some(b=>b.indexOf('.')>-1?(d===b||d.endsWith('.'+b)):label===b);};
-const EMPTY_FORM=i=>({firstname:'',lastname:'',email:'',company:'',jobtitle:'',phone:'',message:'',interesse:i});
+const maskCNPJ=v=>{const d=String(v||'').replace(/\D/g,'').slice(0,14);return d.replace(/^(\d{2})(\d)/,'$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3').replace(/\.(\d{3})(\d)/,'.$1/$2').replace(/(\d{4})(\d)/,'$1-$2');};
+const validCNPJ=v=>{const d=String(v||'').replace(/\D/g,'');if(d.length!==14||/^(\d)\1+$/.test(d))return false;const dv=n=>{let s=0,w=n-7;for(let i=0;i<n;i++){s+=+d[i]*w--;if(w<2)w=9;}const r=s%11;return r<2?0:11-r;};return dv(12)===+d[12]&&dv(13)===+d[13];};
+const EMPTY_FORM=i=>({firstname:'',lastname:'',email:'',company:'',cnpj:'',jobtitle:'',phone:'',message:'',interesse:i});
 class Component extends DCLogic {
   formVals(){const s=this.state,f=s.f,fe=s.fe||{};
-    const set=k=>e=>{const v=k==='phone'?maskCelBR(e.target.value):e.target.value;this.setState(st=>({f:{...st.f,[k]:v},fe:{...st.fe,[k]:''}}));};
-    const FF=[['firstname','Nome*','text','given-name'],['lastname','Sobrenome','text','family-name'],['email','E-mail corporativo*','email','email'],['company','Empresa*','text','organization'],['jobtitle','Cargo','text','organization-title'],['phone','Celular / WhatsApp*','tel','tel']];
-    return {formFields:FF.map(x=>({id:'hs-'+x[0],name:x[0],label:x[1],type:x[2],ac:x[3],value:f[x[0]],onChange:set(x[0]),ph:x[0]==='phone'?'(00) 00000-0000':'',im:x[0]==='phone'?'numeric':(x[0]==='email'?'email':'text'),ml:x[0]==='phone'?20:200,err:fe[x[0]]||'',hasErr:!!fe[x[0]],aria:fe[x[0]]?'true':'false',border:fe[x[0]]?'#c4183c':'#ccc'})),
+    const set=k=>e=>{const v=k==='phone'?maskCelBR(e.target.value):(k==='cnpj'?maskCNPJ(e.target.value):e.target.value);this.setState(st=>({f:{...st.f,[k]:v},fe:{...st.fe,[k]:''}}));};
+    const FF=[['firstname','Nome*','text','given-name'],['lastname','Sobrenome','text','family-name'],['email','E-mail corporativo*','email','email'],['company','Empresa*','text','organization'],['cnpj','CNPJ*','text','off'],['jobtitle','Cargo','text','organization-title'],['phone','Celular / WhatsApp*','tel','tel']];
+    return {formFields:FF.map(x=>({id:'hs-'+x[0],name:x[0],label:x[1],type:x[2],ac:x[3],value:f[x[0]]||'',onChange:set(x[0]),ph:x[0]==='phone'?'(00) 00000-0000':(x[0]==='cnpj'?'00.000.000/0000-00':''),im:(x[0]==='phone'||x[0]==='cnpj')?'numeric':(x[0]==='email'?'email':'text'),ml:x[0]==='phone'?20:(x[0]==='cnpj'?18:200),err:fe[x[0]]||'',hasErr:!!fe[x[0]],aria:fe[x[0]]?'true':'false',border:fe[x[0]]?'#c4183c':'#ccc'})),
       interestOpts:INTERESTS.map(t=>{const on=f.interesse===t;return {t,on:on?'true':'false',pick:()=>this.setState(st=>({f:{...st.f,interesse:t}})),bg:on?'#0496ff':'#fff',color:on?'#fff':'#02132d',border:on?'#0496ff':'#cfd6df'};}),
       fMsg:f.message,onMsg:set('message'),
       consent:!!s.consent,onConsent:e=>{const c=e.target.checked;this.setState(st=>({consent:c,fe:{...st.fe,consent:''}}));},consentErr:fe.consent||'',hasConsentErr:!!fe.consent,
@@ -479,6 +481,7 @@ class Component extends DCLogic {
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em))fe.email='Informe um e-mail válido.';
     else if(isPersonalEmail(em))fe.email='Use seu e-mail corporativo para que nosso time possa te atender.';
     if(!f.company.trim())fe.company='Informe a empresa.';
+    if(!validCNPJ(f.cnpj))fe.cnpj=String(f.cnpj||'').trim()?'Confira o CNPJ: os números não conferem.':'Informe o CNPJ da empresa.';
     if(!celOk(f.phone))fe.phone='Informe o celular com DDD, no formato (00) 00000-0000.';
     if(!this.state.cart.length){this.setState({qErr:'Adicione pelo menos um item à cotação.'});}
     if(!this.state.consent)fe.consent='Marque o consentimento para enviarmos sua mensagem.';
@@ -486,7 +489,7 @@ class Component extends DCLogic {
     this.setState({fs:'sending',fe:{}});
     try{
       const m=document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
-      const vals={firstname:f.firstname,lastname:f.lastname,email:em,company:f.company,jobtitle:f.jobtitle,phone:fmtPhoneBR(f.phone),message:('[Interesse: Licenças Consist] '+[this.quoteText(),String(f.message||'').trim()].filter(Boolean).join('\n\n')).trim()};
+      const vals={firstname:f.firstname,lastname:f.lastname,email:em,company:f.company,jobtitle:f.jobtitle,phone:fmtPhoneBR(f.phone),message:('[Interesse: Licenças Consist] '+this.fullRequest(f,em)).trim()};
       const fields=Object.keys(vals).map(k=>({name:k,value:String(vals[k]||'').trim()})).filter(x=>x.value);
       const payload={fields,context:Object.assign({pageUri:location.href,pageName:document.title},m?{hutk:m[1]}:{}),legalConsentOptions:{consent:{consentToProcess:true,text:'Concordo que a Optaris do Brasil armazene e processe meus dados para responder a este contato, conforme a LGPD e a Política de Privacidade.'}}};
       const r=await fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HS_PORTAL_ID+'/'+FORM_GUID,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
@@ -528,6 +531,14 @@ class Component extends DCLogic {
     return {qItems:items,hasCart:items.length>0,hasQErr:!!s.qErr,qErr:s.qErr||''};}
   quoteText(){const v=this.quoteView();if(!v.hasCart)return '';
     return 'Cotação '+(this.state.qNum||'')+':\n'+v.qItems.map((it,i)=>(i+1)+') '+it.app+' — '+it.tipo+' — '+it.usersTxt).join('\n');}
+  fullRequest(f,em){const L=[];L.push('PEDIDO DE COTAÇÃO — LICENÇAS CONSIST');L.push('Número: '+(this.state.qNum||'—'));
+    L.push('Data: '+new Date().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'}));L.push('');
+    L.push('CONTATO');L.push('Nome: '+[f.firstname,f.lastname].map(x=>String(x||'').trim()).filter(Boolean).join(' '));
+    if(String(f.jobtitle||'').trim())L.push('Cargo: '+f.jobtitle.trim());L.push('Empresa: '+f.company.trim());
+    if(String(f.cnpj||'').trim())L.push('CNPJ: '+maskCNPJ(f.cnpj));L.push('E-mail: '+em);L.push('Celular: '+fmtPhoneBR(f.phone));L.push('');
+    L.push('ITENS DA COTAÇÃO');this.quoteView().qItems.forEach((it,i)=>L.push((i+1)+') '+it.app+' — '+it.tipo+' — '+it.usersTxt));L.push('');
+    const msg=String(f.message||'').trim();L.push('MENSAGEM');L.push(msg||'(sem mensagem)');L.push('');
+    L.push('Página: '+location.href);return L.join('\n');}
   renderVals(){
     const s=this.state,motion=this.props.motion ?? true;
     const setF=key=>e=>{const v=e.target.value;this.setState(st=>({f:{...st.f,[key]:v}}));};
