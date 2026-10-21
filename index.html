@@ -765,21 +765,65 @@ body{overflow-x:clip}
       <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:44px;align-items:center;margin-bottom:44px">
         <div data-reveal="" style="display:flex;flex-direction:column;gap:16px">
           <span style="color:#ff9fb2;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Processos · Como resolvemos · AI Runtime</span>
-          <h3 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">A IA trabalha no processo.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#a9b8cc">e você controla o que ela faz e quanto custa.</span></h3>
-          <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">Dentro de cada processo há tarefas que pedem inteligência: ler um documento, analisar um pedido de crédito, responder um cliente. Quem faz essas tarefas são os agentes de IA, assistentes que trabalham sozinhos. Na Deyel, você escolhe: traz os agentes que a sua empresa já usa ou contrata os nossos, para rodar aplicações ou fazer essas tarefas dentro dos processos. Em qualquer caso, a sua empresa define o que cada agente pode fazer e quanto ele pode gastar, e essas regras valem em tempo real, em cada ação. Tudo o que os agentes fazem fica registrado. A parte da Deyel que aplica essas regras se chama AI Runtime.</p>
+          <h3 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Sua IA, com total governança e controle.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#a9b8cc">O agente propõe. O AI Runtime julga.</span></h3>
+          <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">Nenhum agente de IA toca os seus sistemas diretamente. Toda ação, de um agente da Deyel ou de um agente que a sua empresa já usa via MCP ou API, passa antes pelo AI Runtime. Ele confere identidade, política e limites, e decide em milissegundos: executa, bloqueia ou leva para aprovação humana.</p>
+          <ol style="list-style:none;margin:4px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px 22px">
+            <li style="display:flex;gap:10px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#ff9fb2;flex:0 0 auto">01</span><span style="font-size:14px;color:#c7d3e3"><strong style="color:#fff">Identidade.</strong> Qual agente, em nome de quem, com qual papel.</span></li>
+            <li style="display:flex;gap:10px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#ff9fb2;flex:0 0 auto">02</span><span style="font-size:14px;color:#c7d3e3"><strong style="color:#fff">Política.</strong> Ferramenta, operação e dado permitidos pela governança da empresa.</span></li>
+            <li style="display:flex;gap:10px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#ff9fb2;flex:0 0 auto">03</span><span style="font-size:14px;color:#c7d3e3"><strong style="color:#fff">Limites.</strong> Parâmetros, alçadas, iterações, tokens e teto de custo.</span></li>
+            <li style="display:flex;gap:10px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#ff9fb2;flex:0 0 auto">04</span><span style="font-size:14px;color:#c7d3e3"><strong style="color:#fff">Decisão e auditoria.</strong> Executa, bloqueia ou escala, e registra tudo.</span></li>
+          </ol>
+          <p style="font-size:15px;color:#fff;font-weight:500;text-wrap:pretty;border-left:2px solid #e8335a;padding-left:12px">As regras críticas ficam na política de governança, não no prompt. O modelo é trocável; as regras da sua empresa, não.</p>
         </div>
-        <div data-reveal="" style="transition-delay:.15s;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);overflow:hidden">
-          <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.1);font-size:12px;color:#9fb1c8">
-            <span style="position:relative;width:8px;height:8px"><span style="position:absolute;inset:0;border-radius:50%;background:#3ddc97"></span><span style="position:absolute;inset:0;border-radius:50%;background:#3ddc97;animation:pulse 1.6s ease-out infinite"></span></span>
-            AI Runtime · produção · ao vivo<span style="margin-left:auto">comportamento e custos sob controle</span>
+        <div data-reveal="" aria-label="Ilustração: o AI Runtime avalia cada ação de um agente de IA antes que ela chegue aos sistemas da empresa" style="transition-delay:.15s;border-radius:16px;background:rgba(2,10,25,.55);border:1px solid rgba(255,255,255,.12);padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:0 30px 80px -30px rgba(4,150,255,.45)">
+          <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#9fb1c8">
+            <span style="position:relative;width:8px;height:8px;flex:0 0 auto"><span style="position:absolute;inset:0;border-radius:50%;background:#3ddc97"></span><span style="position:absolute;inset:0;border-radius:50%;background:#3ddc97;animation:pulse 1.6s ease-out infinite"></span></span>
+            AI Runtime · produção · ao vivo<span style="margin-left:auto;font-family:ui-monospace,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums">{{ rjClock }}</span>
           </div>
-          <div style="display:flex;flex-direction:column">
-            <sc-for list="{{ runEvents }}" as="ev" hint-placeholder-count="4">
-              <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07);background:{{ ev.rowBg }};opacity:{{ ev.op }};transition:background .5s,opacity .5s">
-                <span style="font-size:12px;color:#9fb1c8">{{ ev.agent }}</span>
-                <span style="grid-row:span 2;font-size:12px;font-weight:500;padding:4px 10px;border-radius:20px;white-space:nowrap;background:{{ ev.bg }};color:{{ ev.color }}">{{ ev.verdict }}</span>
-                <span style="font-size:14px;color:#fff">{{ ev.action }}</span>
+          <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6f819b">Agentes que pedem para agir</div>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+            <sc-for list="{{ rjAgents }}" as="ag" hint-placeholder-count="4">
+              <div style="border-radius:8px;padding:8px 10px;border:1px solid {{ ag.border }};background:{{ ag.bg }};transition:all .4s;min-width:0">
+                <span style="display:block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:{{ ag.tagc }}">{{ ag.tag }}</span>
+                <span style="display:block;font-size:13px;line-height:1.3;color:#fff;overflow-wrap:break-word">{{ ag.name }}</span>
               </div>
+            </sc-for>
+          </div>
+          <div style="position:relative;height:30px;display:flex;justify-content:center" aria-hidden="true">
+            <span style="width:2px;height:100%;background:linear-gradient(180deg,rgba(124,196,255,.15),rgba(124,196,255,.55))"></span>
+            <span style="position:absolute;left:50%;top:{{ rjDotTop }};width:10px;height:10px;margin-left:-5px;border-radius:50%;background:#7cc4ff;box-shadow:0 0 14px #7cc4ff;opacity:{{ rjDotOp }};transition:top .8s ease,opacity .3s"></span>
+          </div>
+          <div style="border-radius:12px;border:1px solid {{ rjBoxBorder }};background:linear-gradient(160deg,rgba(4,150,255,.14),rgba(91,63,196,.16));padding:12px 14px;display:flex;flex-direction:column;gap:9px;transition:border-color .4s;box-shadow:0 0 0 1px rgba(255,255,255,.04) inset,0 0 40px -8px {{ rjGlow }}">
+            <div style="display:flex;align-items:center;gap:8px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7cc4ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+              <strong style="font-family:Lato,sans-serif;font-size:15px;color:#fff">AI Runtime</strong>
+              <span style="margin-left:auto;font-size:11px;color:#9fb1c8">julga antes de executar</span>
+            </div>
+            <div style="border-radius:8px;background:rgba(2,19,45,.7);padding:8px 10px;font-size:13px;color:#fff;min-height:38px"><span style="display:block;font-size:10.5px;color:#9fb1c8">{{ rjAgentName }} quer:</span>{{ rjAction }}</div>
+            <sc-for list="{{ rjChecks }}" as="ck" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:18px minmax(0,1fr);gap:2px 10px;align-items:start;opacity:{{ ck.op }};transition:opacity .4s">
+                <span style="width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:{{ ck.bg }};color:{{ ck.color }};border:1.5px solid {{ ck.color }};transition:all .35s">{{ ck.mark }}</span>
+                <span style="font-size:12.5px;color:#fff;line-height:1.35"><strong style="font-weight:600">{{ ck.label }}</strong><span style="color:{{ ck.dcolor }}"> · {{ ck.detail }}</span></span>
+              </div>
+            </sc-for>
+            <div style="display:flex;align-items:center;gap:8px;min-height:28px">
+              <span style="font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:{{ rjVerdictBg }};color:{{ rjVerdictColor }};opacity:{{ rjVerdictOp }};transform:translateY({{ rjVerdictTy }});transition:all .4s">{{ rjVerdict }}</span>
+            </div>
+          </div>
+          <div style="position:relative;height:30px;display:flex;justify-content:center" aria-hidden="true">
+            <span style="width:2px;height:100%;background:linear-gradient(180deg,{{ rjOutLine }},rgba(255,255,255,.08));transition:background .4s"></span>
+            <span style="position:absolute;left:50%;top:{{ rjDot2Top }};width:10px;height:10px;margin-left:-5px;border-radius:50%;background:{{ rjVerdictColor }};box-shadow:0 0 14px {{ rjVerdictColor }};opacity:{{ rjDot2Op }};transition:top .8s ease,opacity .3s"></span>
+          </div>
+          <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6f819b">Sistemas da sua empresa</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <sc-for list="{{ rjSystems }}" as="sy" hint-placeholder-count="5">
+              <span style="font-size:12px;padding:6px 10px;border-radius:6px;border:1px solid {{ sy.border }};background:{{ sy.bg }};color:{{ sy.color }};transition:all .4s;white-space:nowrap">{{ sy.name }}</span>
+            </sc-for>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:8px;display:flex;flex-direction:column;gap:4px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;line-height:1.4">
+            <span style="font-family:Roboto,Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6f819b">Trilha de auditoria</span>
+            <sc-for list="{{ rjLog }}" as="lg" hint-placeholder-count="3">
+              <span style="color:#9fb1c8;opacity:{{ lg.op }};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ lg.t }} · <span style="color:{{ lg.c }}">{{ lg.v }}</span> · {{ lg.a }}</span>
             </sc-for>
           </div>
         </div>
@@ -1346,6 +1390,35 @@ const PARTS=[
 const INTERESSES=['Deyel','Deyel · Plataforma','Deyel · Usina de Apps','Deyel · Produtos prontos','Licenças Consist Software Solutions Inc','Bottomline (Intellinx)','IBM Planning Analytics (TM1)','Glassix','RPA (UiPath / Automation Anywhere)','Outro'];
 const RUN=[['Agente de IA · Conciliação','Consultar saldo no ERP','Permitido','ok'],['Agente de crédito','Aprovar pedido acima de R$ 50 mil','Escalado para aprovação humana','esc'],['Agente da sua empresa · Atendimento','Responder cliente no WhatsApp','Permitido · registrado na trilha','ok'],['Deyel Bot · Atendimento','Exibir dados de outro cliente','Bloqueado pela política','no'],['Agente de leitura de contratos','Gasto do mês em 80% do limite','Alerta de custo ao gestor','sla'],['Agente de IA · Cadastro','Alterar regra de comissão','Bloqueado: exige papel Gestor','no']];
 const VCOL={ok:['rgba(61,220,151,.16)','#5ee6a8'],esc:['rgba(255,194,122,.16)','#ffc27a'],no:['rgba(255,138,158,.16)','#ff9fb2'],sla:['rgba(124,196,255,.16)','#7cc4ff']};
+const RJ_AGENTS=[['Agente Deyel','Digital Worker · Crédito','deyel'],['Agente Deyel','Deyel Bot · Atendimento','deyel'],['Sua empresa · MCP','Agente externo','ext'],['Sua empresa · API','Copiloto corporativo','ext']];
+const RJ_SYS=['ERP SAP','CRM','Banco de dados','WhatsApp','Aprovação humana'];
+const RJ_SC=[
+ {a:0,act:'Aprovar pedido de crédito de R$ 87 mil',d:['Digital Worker · papel Analista','Ferramenta de crédito habilitada','Acima da alçada de R$ 50 mil'],f:-1,v:'esc',vt:'Escalado para aprovação humana',sys:4,log:'Aprovar crédito R$ 87 mil'},
+ {a:2,act:'Excluir 2.430 registros do CRM',d:['Agente externo via MCP · token válido','Operação destrutiva não permitida','—'],f:1,v:'no',vt:'Bloqueado pela política',sys:1,log:'Excluir 2.430 registros do CRM'},
+ {a:0,act:'Ler contrato e atualizar o fornecedor no SAP',d:['Digital Worker · papel Compras','Leitura e atualização permitidas','Parâmetros válidos · custo 0,4% do teto'],f:-1,v:'ok',vt:'Executado e registrado',sys:0,log:'Atualizar fornecedor no SAP'},
+ {a:3,act:'Exibir dados de outro cliente',d:['Copiloto via API · usuário Atendimento','Dado fora do escopo do usuário (LGPD)','—'],f:1,v:'no',vt:'Bloqueado: dado fora do escopo',sys:2,log:'Ler dados de outro cliente'},
+ {a:2,act:'Gerar 400 resumos com modelo premium',d:['Agente externo via MCP · token válido','Ferramenta de resumo permitida','Custo previsto acima do teto mensal'],f:2,v:'no',vt:'Bloqueado: teto de custo',sys:2,log:'400 resumos com modelo premium'},
+ {a:1,act:'Responder cliente no WhatsApp',d:['Deyel Bot · canal Atendimento','Resposta dentro do roteiro aprovado','Dentro dos limites'],f:-1,v:'ok',vt:'Executado e registrado',sys:3,log:'Responder cliente no WhatsApp'}];
+const RJ_COL={ok:['rgba(61,220,151,.16)','#5ee6a8'],esc:['rgba(255,194,122,.16)','#ffc27a'],no:['rgba(255,138,158,.16)','#ff9fb2']};
+const RJ_LBL=['Identidade','Política','Limites','Decisão'];
+const rjFmt=n=>{const b=14*3600+2*60+10+n;return String(Math.floor(b/3600)).padStart(2,'0')+':'+String(Math.floor(b/60)%60).padStart(2,'0')+':'+String(b%60).padStart(2,'0');};
+const rjState=(st,mot)=>{const L=7,tot=st||0,i=Math.floor(tot/L)%RJ_SC.length,ph=mot?tot%L:6,sc=RJ_SC[i],C=RJ_COL[sc.v];
+ const agents=RJ_AGENTS.map((g,k)=>{const on=k===sc.a;return {tag:g[0],name:g[1],tagc:g[2]==='deyel'?'#7cc4ff':'#c3b5ff',border:on?(g[2]==='deyel'?'#7cc4ff':'#c3b5ff'):'rgba(255,255,255,.1)',bg:on?'rgba(124,196,255,.12)':'rgba(255,255,255,.03)'};});
+ const checks=RJ_LBL.map((l,k)=>{let mark='',bg='transparent',color='#56677f',dc='#56677f',op=.55,detail='aguardando';const dd=k<3?sc.d[k]:'';
+   const shown=k<3?ph>k:ph>=4;
+   if(shown){op=1;if(k<3){detail=dd;if(sc.f>=0&&k>sc.f){mark='–';color='#56677f';dc='#56677f';detail='não avaliado';}else if(k===sc.f){mark='✕';color='#ff8a9e';bg='rgba(255,138,158,.15)';dc='#ff9fb2';}else if(sc.v==='esc'&&k===2){mark='!';color='#ffc27a';bg='rgba(255,194,122,.15)';dc='#ffc27a';}else{mark='✓';color='#5ee6a8';bg='rgba(61,220,151,.14)';dc='#9fb1c8';}}
+     else{mark=sc.v==='ok'?'✓':sc.v==='esc'?'!':'✕';color=C[1];bg=C[0];dc=C[1];detail=sc.vt;}}
+   else if(k<3&&ph===k){op=1;mark='…';color='#7cc4ff';detail='verificando';dc='#7cc4ff';}
+   return {label:l,detail,mark,bg,color,dcolor:dc,op};});
+ const done=ph>=4,out=ph>=5;
+ const systems=RJ_SYS.map((n,k)=>{const t=k===sc.sys&&out;let bg='rgba(255,255,255,.03)',bd='rgba(255,255,255,.1)',col='#c7d3e3',name=n;
+   if(t){if(sc.v==='no'){bg='rgba(255,138,158,.1)';bd='#ff9fb2';col='#ff9fb2';name=n+' · protegido';}else{bg=C[0];bd=C[1];col=C[1];}}return {name,bg,border:bd,color:col};});
+ const log=[1,2,3].map(j=>{const q=RJ_SC[((i-j)%RJ_SC.length+RJ_SC.length)%RJ_SC.length];return {t:rjFmt((tot-tot%L)-j*L),v:q.v==='ok'?'EXECUTADO':q.v==='esc'?'ESCALADO':'BLOQUEADO',c:RJ_COL[q.v][1],a:RJ_AGENTS[q.a][1]+' · '+q.log,op:1-(j-1)*.25};});
+ if(out){log.unshift({t:rjFmt(tot),v:sc.v==='ok'?'EXECUTADO':sc.v==='esc'?'ESCALADO':'BLOQUEADO',c:C[1],a:RJ_AGENTS[sc.a][1]+' · '+sc.log,op:1});log.pop();}
+ return {rjClock:rjFmt(tot),rjAgents:agents,rjAgentName:RJ_AGENTS[sc.a][1],rjAction:sc.act,rjChecks:checks,
+  rjVerdict:sc.vt,rjVerdictBg:C[0],rjVerdictColor:C[1],rjVerdictOp:done?1:0,rjVerdictTy:done?'0px':'6px',
+  rjBoxBorder:done?C[1]:'rgba(124,196,255,.35)',rjGlow:done?C[1]:'rgba(124,196,255,.35)',
+  rjDotTop:ph===0?'0px':'22px',rjDotOp:ph<=1?1:0,rjDot2Top:out?'22px':'0px',rjDot2Op:(out&&sc.v!=='no')?1:0,rjOutLine:(out&&sc.v!=='no')?C[1]:'rgba(255,255,255,.12)',rjSystems:systems,rjLog:log};};
 const ORCH=[['CRM','sis','CRM','O pedido chega do CRM'],['Agente de crédito','ia','IA','Agente de IA analisa o crédito, dentro do limite de alçada'],['ERP SAP','sis','ERP','O limite é consultado no ERP'],['Gerente comercial','pes','PE','A exceção vai para o gerente aprovar'],['Legado AS/400','sis','LG','O estoque é reservado no legado, sem API'],['Agente de IA','ia','IA','O agente de IA emite a nota fiscal'],['Financeiro','pes','PE','O financeiro confere a cobrança'],['Nuvem · APIs','sis','API','O pagamento é confirmado via API'],['Deyel Bot','ia','IA','O Deyel Bot avisa o cliente no WhatsApp'],['Compliance','pes','PE','A trilha de auditoria fica registrada para o compliance']];
 const OC={sis:'#0496ff',pes:'#5b3fc4',ia:'#e8335a'};
 const SLA=[['Pedido recebido','App do cliente','sis',10,3,18,'Comercial'],['Análise de crédito','ERP SAP','sis',30,12,26,'Gerente de crédito'],['Validação de documentos','Agente de IA','ia',20,15,22,'Analista de cadastro'],['Aprovação de alçada','Marina · Gerente','pes',240,170,34,'Diretor financeiro'],['Homologação do fornecedor','Agente de compras','ia',60,38,28,'Gestor de compras'],['Pagamento','ERP · Contas a pagar','sis',120,20,40,'Tesouraria']];
@@ -1557,6 +1630,7 @@ class Component extends DCLogic {
       demoOn:!!s.demoOn,demoOff:!s.demoOn,startDemo:()=>{if(matchMedia('(max-width:760px)').matches){window.open('https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4','_blank','noopener');return;}this.setState({demoOn:true});},
       demoCols:['Requisição','Cotação','Aprovação','Pedido','Pagamento'],
       createPoints:[{t:'Propõe antes de agir.',d:'Você vê a solução antes de qualquer execução e corrige o rumo cedo, quando ajustar ainda é barato.'},{t:'Tudo editável.',d:'Qualquer componente gerado se ajusta no modelador visual: a IA acelera, mas a última palavra é sua.'},{t:'Aprovação humana.',d:'A publicação é sempre uma decisão da TI, que responde pelo que roda na empresa.'},{t:'Web, Android e iOS.',d:'Uma construção, três destinos de uma vez, sem manter três versões do mesmo app.'}],
+      ...rjState(s.st,this.motion()&&!matchMedia('(prefers-reduced-motion: reduce)').matches),
       runEvents:[0,1,2,3].map(j=>{const e=RUN[((s.rt||0)-j+RUN.length*4)%RUN.length],c=VCOL[e[3]];return {agent:e[0],action:e[1],verdict:e[2],bg:c[0],color:c[1],rowBg:j===0?'rgba(255,255,255,.06)':'transparent',op:1-j*.18};}),
       runTiles:[['Seus agentes ou os nossos','Traga os agentes de IA que a sua empresa já usa ou contrate os da Deyel.'],['Tarefas que pedem inteligência','Ler documentos, analisar pedidos e responder clientes, dentro do processo.'],['Controle de comportamento','Cada agente faz só o que a regra permite. O resto é bloqueado ou vai para uma pessoa.'],['Controle de custos','Limite de gasto por agente e por processo, acompanhado em tempo real.'],['Trilha de auditoria','Cada ação assinada, imutável e rastreável.'],['Permissões por papel','Cada um vê e faz só o que pode, com SSO.'],['Uptime de 99,90%','Em garantia contratual.'],['Nuvem ou on-premise','A lógica, os dados e os processos são seus.']].map((x,i)=>({bot:x[0]==='Seus agentes ou os nossos',t:x[0],d:x[1],delay:(i%4*.08)+'s'})),
       diffs:[['Integra ERPs e legados','Inclusive sistemas sem API, sem trocar o core.'],['Preço mensal fixo em reais','Sem cobrança por hora nem por uso. Você sabe o custo antes de começar.'],['Suporte em português','Time no Brasil, no seu fuso e na sua língua.'],['Contrato local','Contratação e pagamento em reais, com a Optaris do Brasil.'],['White-label para software houses','Crie, coloque a sua marca e venda como produto seu.'],['Soluções prontas','Vendor Management, CRM e RH, prontos para ajustar ao seu processo.']].map((x,i)=>({t:x[0],d:x[1],delay:(i%3*.08)+'s'})),
