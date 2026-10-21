@@ -239,6 +239,13 @@ body{overflow-x:clip}
     </symbol>
   </defs>
 </svg>
+<div data-flyers="" aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:45">
+  <sc-for list="{{ flyBots }}" as="f" hint-placeholder-count="0">
+    <div data-worker="" data-wm="fly" style="position:absolute;left:{{ f.x }};top:{{ f.y }};opacity:{{ f.op }};width:30px;height:30px;margin:-15px 0 0 -15px;transition:left {{ f.dur }} cubic-bezier(.55,.05,.9,.45) {{ f.delay }},top {{ f.dur }} cubic-bezier(.1,.55,.45,.95) {{ f.delay }},opacity .3s">
+      <div class="bot-float"><svg viewBox="0 0 48 48" width="30" height="30" style="overflow:visible"><use href="#bot-w"></use></svg></div>
+    </div>
+  </sc-for>
+</div>
 <header data-noprint="" style="position:fixed;top:0;left:0;right:0;z-index:50;background:{{ headerBg }};backdrop-filter:blur(8px);transition:background .3s">
   <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;gap:24px">
     <a href="#top" style="margin-right:auto;display:flex;align-items:center;text-decoration:none;flex:0 0 auto"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Logo-nuevo.png" alt="Optaris do Brasil — página inicial" width="140" height="28" fetchpriority="high" style="height:28px;width:auto;display:block"></img><span style="font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;font-size:15.5px;line-height:1;letter-spacing:.03em;color:#fff;margin-left:-6px;white-space:nowrap;text-decoration:none">BRASIL</span></a>
@@ -1445,11 +1452,21 @@ class Component extends DCLogic {
     const demoBots=[0,1,2,3].map(i=>{
       if(!motion)return {x:OUT[i][0],y:OUT[i][1],op:0,mode:'off',dur:'0s',delay:'0s'};
       const arrived=step>=i&&after>=0;
-      if(leave){const far=after>=16*STEPS.length+22;return {x:OUT[i][0],y:OUT[i][1],op:far?0:1,mode:'fly',dur:'1.3s',delay:(i*.15)+'s'};}
+      if(leave){return {x:NX[i],y:'72%',op:0,mode:'off',dur:'0s',delay:'0s'};}
       if(arrived){const busy=step===i;return {x:NX[i],y:busy?NY:'72%',op:1,mode:busy?'work':'wait',dur:'.7s',delay:(i*.2)+'s'};}
       return {x:IN[i][0],y:IN[i][1],op:0,mode:'off',dur:'0s',delay:'0s'};
     });
-    return {dMode,dX,dY,demoBots};
+    let flyBots=[];
+    if(motion&&leave){
+      const ph=after-16*STEPS.length;
+      if(!this._fly){const el=document.querySelector('[data-demo]');const r=el?el.getBoundingClientRect():{left:0,top:0,width:0,height:0};
+        this._fly=[.13,.375,.625,.87].map(f=>[Math.round(r.left+r.width*f)+'px',Math.round(r.top+r.height*.72)+'px']);}
+      const TG=[['-12vw','-14vh'],['-14vw','112vh'],['112vw','-16vh'],['114vw','108vh']];
+      flyBots=[0,1,2,3].map(i=>{const st=this._fly[i];
+        if(ph<2)return {x:st[0],y:st[1],op:1,dur:'0s',delay:'0s'};
+        return {x:TG[i][0],y:TG[i][1],op:ph>48?0:1,dur:(2.1+i*.25)+'s',delay:(i*.12)+'s'};});
+    } else this._fly=null;
+    return {dMode,dX,dY,demoBots,flyBots};
   }
   renderVals(){
     const s=this.state,motion=this.motion(),tvLive=(this.props.tvLive ?? true)&&!!s.tvOn&&!s.modal;
