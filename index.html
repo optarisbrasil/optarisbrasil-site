@@ -216,6 +216,10 @@ body{overflow-x:clip}
 .tsx .clk{opacity:0;transform-box:fill-box;transform-origin:center}
 .tsx .cur.click .clk{animation:tsx-clk .45s ease-out}
 @keyframes tsx-clk{0%{opacity:.9;transform:scale(.3)}100%{opacity:0;transform:scale(1.4)}}
+
+@keyframes tagIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+[data-tagline]{opacity:0;animation:tagIn .7s ease .6s forwards}
+@media (prefers-reduced-motion:reduce){[data-tagline]{animation:none;opacity:1}}
 </style>
 <template id="__bundler_thumbnail" data-bg-color="#02132d"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#02132d"></rect><circle cx="600" cy="400" r="150" fill="#0496ff"></circle><text x="600" y="455" text-anchor="middle" font-family="Lato,Arial,sans-serif" font-weight="900" font-size="160" fill="#fff">O</text></svg></template>
 </helmet>
@@ -246,7 +250,7 @@ body{overflow-x:clip}
 </div>
 <header data-noprint="" style="position:fixed;top:0;left:0;right:0;z-index:50;background:{{ headerBg }};backdrop-filter:blur(8px);transition:background .3s">
   <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;gap:24px">
-    <a href="#top" style="margin-right:auto;display:flex;align-items:center;text-decoration:none;flex:0 0 auto"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Logo-nuevo.png" alt="Optaris do Brasil — página inicial" width="140" height="28" fetchpriority="high" style="height:28px;width:auto;display:block"></img><span style="font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;font-size:15.5px;line-height:1;letter-spacing:.03em;color:#fff;margin-left:-6px;white-space:nowrap;text-decoration:none">BRASIL</span></a>
+    <a href="#top" style="margin-right:auto;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-decoration:none;flex:0 0 auto"><span style="display:flex;align-items:center"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Logo-nuevo.png" alt="Optaris do Brasil — página inicial" width="140" height="28" fetchpriority="high" style="height:28px;width:auto;display:block"></img><span style="font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;font-size:15.5px;line-height:1;letter-spacing:.03em;color:#fff;margin-left:-6px;white-space:nowrap;text-decoration:none">BRASIL</span></span><span data-tagline="" style="font-family:Roboto,Helvetica,Arial,sans-serif;font-size:11px;font-weight:400;line-height:1;letter-spacing:.06em;color:#c7d3e3;white-space:nowrap;margin-left:2px">56 anos, 3 continentes</span></a>
     <nav data-navlinks="" style="display:flex;gap:20px;align-items:center;flex-wrap:nowrap">
       <a href="#aplicativos" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Criar aplicativos</a>
       <a href="#processos-porta" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Digitalizar processos</a>
