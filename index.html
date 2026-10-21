@@ -91,7 +91,7 @@ a:hover{color:#007bff}
 h1,h2,h3,h4{font-family:Lato,Helvetica,Arial,sans-serif;margin:0;line-height:1.15}
 p{margin:0}
 :focus-visible{outline:2px solid #0496ff;outline-offset:2px}
-section{scroll-margin-top:70px}
+section{scroll-margin-top:40px}
 [data-reveal]{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 [data-reveal][data-in]{opacity:1;transform:none}
 [data-bar]{transform:scaleX(0);transform-origin:left;transition:transform 1.8s cubic-bezier(.6,0,.2,1) .3s}
@@ -99,6 +99,8 @@ section{scroll-margin-top:70px}
 [data-motion="off"] *{animation:none!important}
 [data-motion="off"] [data-reveal]{opacity:1;transform:none;transition:none}
 [data-motion="off"] [data-bar]{transform:none}
+[data-onair]{animation:onair 1.4s ease-in-out infinite;box-shadow:0 0 0 0 rgba(255,45,45,.7)}
+@keyframes onair{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,45,45,.7)}50%{opacity:.45;box-shadow:0 0 0 6px rgba(255,45,45,0)}}
 @keyframes gradMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.6);opacity:0}}
@@ -135,7 +137,7 @@ p a,span a{min-height:0}
 footer a{display:inline-flex;align-items:center}
 header{backdrop-filter:none!important}
 [style*="gradMove"],[style*="floaty"],[style*="flicker"],[style*="dash 1.2s"],[style*="ring 2.4s"]{animation:none!important}
-[data-scene]{padding-top:72px!important}
+[data-scene]{padding-top:52px!important}
 [data-onode]{width:74px!important}
 [data-anno-m]{display:none!important}
 }
@@ -196,7 +198,7 @@ body{overflow-x:clip}
       <a href="#aplicativos" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Criar aplicativos</a>
       <a href="#processos-porta" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Automatizar processos</a>
       <div data-dd=""><a href="#ofertas" aria-haspopup="true" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;gap:6px" style-hover="color:#9fd4ff">Nossas soluções<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a><div data-ddmenu="" role="menu"><a data-dditem="" href="https://br.deyel.com/" target="_blank" rel="noopener"><span style="display:block;font-size:14px;font-weight:500"><span style="font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7cc4ff;margin-right:6px">Deyel</span>Plataforma <span aria-hidden="true" style="color:#7cc4ff">↗</span></span><span style="display:block;font-size:12.5px;color:#a9b8cc;margin-top:2px">A sua TI constrói com IA, com governança</span></a><a data-dditem="" href="#fabrica"><span style="display:block;font-size:14px;font-weight:500"><span style="font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7cc4ff;margin-right:6px">Deyel</span>Usina de Apps</span><span style="display:block;font-size:12.5px;color:#a9b8cc;margin-top:2px">O nosso time constrói para você</span></a><a data-dditem="" href="#produtos-80-20"><span style="display:block;font-size:14px;font-weight:500"><span style="font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7cc4ff;margin-right:6px">Deyel</span>Produtos prontos</span><span style="display:block;font-size:12.5px;color:#a9b8cc;margin-top:2px">Comece com 80% pronto: compras, CRM, RH</span></a><div data-ddsep=""></div><a data-dditem="" href="solucoes-consist/"><span style="display:block;font-size:14px;font-weight:500">Soluções Consist</span><span style="display:block;font-size:12.5px;color:#a9b8cc;margin-top:2px">Licenças, ADS e DMS e evolução com a Deyel</span></a><a data-dditem="" href="#solucoes"><span style="display:block;font-size:14px;font-weight:500">Outras soluções e parceiros</span><span style="display:block;font-size:12.5px;color:#a9b8cc;margin-top:2px">Bottomline, IBM, RPA, BI e atendimento</span></a></div></div>
-      <a href="#demo-vendor" style="color:#fff;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px solid #e8335a;border-radius:20px;padding:0 12px;display:inline-flex;align-items:center;height:30px;white-space:nowrap;line-height:1" style-hover="background:#e8335a;color:#fff">Ver demos</a>
+      <a href="#vendor" style="color:#fff;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px solid #e8335a;border-radius:20px;padding:0 12px;display:inline-flex;align-items:center;height:30px;white-space:nowrap;line-height:1" style-hover="background:#e8335a;color:#fff">Veja Vendor</a>
       <a href="#institucional" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Quem somos</a>
       <a href="midia/" style="display:inline-flex;align-items:center;height:32px;white-space:nowrap;line-height:1;color:#fff;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase" style-hover="color:#9fd4ff">Mídia</a>
     </nav>
@@ -217,36 +219,35 @@ body{overflow-x:clip}
     </nav>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:24px">
       <a href="https://wa.me/5511955700002?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Optaris%20do%20Brasil." target="_blank" rel="noopener" style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:6px;background:#0496ff;color:#fff;text-decoration:none;font-weight:500;font-size:16px">WhatsApp</a>
-      <a href="#demo-vendor" style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:6px;background:#e8335a;color:#fff;text-decoration:none;font-weight:500;font-size:16px">Demos</a>
+      <a href="#deyel-no-ar" style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font-weight:500;font-size:16px"><span data-onair="" aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#ff2d2d;flex:0 0 auto"></span>Deyel no ar</a>
     </div>
   </div>
 </sc-if>
 <div data-mobilebar="" data-noprint="" style="position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(2,19,45,.97);border-top:1px solid rgba(255,255,255,.12)">
   
-  <a href="#demo-vendor" style="flex:1;min-height:50px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:6px;background:#e8335a;color:#fff;text-decoration:none;font-weight:500;font-size:16px"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21"></polygon></svg>Demo Vendor Management</a>
+  <a href="#deyel-no-ar" style="flex:1;min-height:50px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font-weight:500;font-size:16px"><span data-onair="" aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#ff2d2d;flex:0 0 auto"></span>Demos · Deyel no ar</a>
 </div>
 <a href="{{ waHref }}" target="_blank" rel="noopener" aria-label="Fale no WhatsApp: +55 11 95570-0002" data-wafloat="" data-noprint="" onMouseEnter="{{ waIn }}" onMouseLeave="{{ waOut }}" onFocus="{{ waIn }}" onBlur="{{ waOut }}" style="position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom));z-index:70;display:flex;align-items:center;gap:10px;text-decoration:none;min-height:58px">
   <span style="opacity:{{ waLblOp }};transform:translateX({{ waLblTx }});transition:opacity .25s,transform .25s;background:#fff;color:#02132d;font-size:15px;font-weight:500;padding:9px 16px;border-radius:22px;box-shadow:0 8px 24px rgba(2,19,45,.22);white-space:nowrap;pointer-events:none">Fale no WhatsApp</span>
   <span style="width:58px;height:58px;flex:0 0 auto;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.45)"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path></svg></span>
 </a>
 
-<section id="top" data-screen-label="01 Hero" data-noprint="" style="position:relative;min-height:92vh;display:flex;align-items:center;color:#fff;background:#02132d;overflow:hidden">
+<section id="top" data-screen-label="01 Hero" data-noprint="" style="position:relative;min-height:80vh;display:flex;align-items:center;color:#fff;background:#02132d;overflow:hidden">
   <div style="position:absolute;inset:0;background:linear-gradient(110deg,#0496ff 0%,#5b3fc4 30%,#a1238f 55%,#e8335a 78%,#f46b45 100%);background-size:240% 240%;animation:gradMove 14s ease-in-out infinite"></div>
   <div style="position:absolute;inset:0;background:url('https://deyelstage.wpenginepowered.com/wp-content/uploads/2025/06/bg-Home-Optaris.png') center/cover no-repeat"></div>
   <div style="position:absolute;width:520px;height:520px;border-radius:50%;right:-120px;top:-80px;background:radial-gradient(circle,rgba(4,150,255,.55),transparent 65%);animation:floaty 11s ease-in-out infinite"></div>
   <div style="position:absolute;width:420px;height:420px;border-radius:50%;left:-140px;bottom:-160px;background:radial-gradient(circle,rgba(244,107,69,.45),transparent 65%);animation:floaty 13s ease-in-out infinite reverse"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,19,45,.55) 0%,rgba(2,19,45,.15) 45%,rgba(2,19,45,.7) 100%)"></div>
-  <div style="position:relative;max-width:1200px;margin:0 auto;padding:130px 24px 90px;width:100%;display:flex;flex-direction:column;gap:26px">
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:110px 24px 60px;width:100%;display:flex;flex-direction:column;gap:26px">
     <div data-reveal="" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
       <span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,3vw,38px);line-height:1;letter-spacing:-.01em">Deyel Vibe Coding</span>
     </div>
     <h1 data-reveal="" style="font-size:clamp(40px,6.4vw,78px);font-weight:900;max-width:960px;text-wrap:balance;transition-delay:.1s">Aplicativos e processos que fazem sua empresa única.</h1>
-    <p data-reveal="" style="font-size:clamp(17px,1.6vw,20px);max-width:720px;color:#e8eef7;text-wrap:pretty;transition-delay:.2s">Deyel é uma plataforma para construção de soluções digitais: você descreve em português e ela cria aplicativos web e mobile para clientes, parceiros e equipes, e automatiza os processos da sua empresa de ponta a ponta. Você descreve, a Deyel constrói, a sua empresa avança.</p>
+    <p data-reveal="" style="font-size:clamp(17px,1.6vw,20px);max-width:720px;color:#e8eef7;text-wrap:pretty;transition-delay:.2s">Você conta em português o que precisa. A Deyel cria o aplicativo, na web e no celular, e coloca os processos da sua empresa para rodar de ponta a ponta.</p>
     <div data-reveal="" style="display:flex;gap:12px;flex-wrap:wrap;transition-delay:.3s">
-      <a href="#aplicativos" style="background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:14px 26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#007bff;color:#fff">Construir um aplicativo</a>
+      <a href="#aplicativos" style="background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:14px 26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#007bff;color:#fff">Criar aplicativos</a>
       <a href="#processos-porta" style="background:#fff;color:#02132d;text-decoration:none;border-radius:4px;padding:14px 26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#e6f3ff;color:#02132d">Automatizar processos</a>
-      <a href="#deyel-no-ar" style="display:flex;align-items:center;gap:10px;border:2px solid #fff;color:#fff;text-decoration:none;border-radius:4px;padding:12px 24px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#fff;color:#02132d">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21"></polygon></svg>Deyel no ar
+      <a href="#deyel-no-ar" style="display:flex;align-items:center;gap:10px;border:2px solid #fff;color:#fff;text-decoration:none;border-radius:4px;padding:12px 24px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#fff;color:#02132d"><span data-onair="" aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#ff2d2d;flex:0 0 auto"></span>Deyel no ar
       </a>
     </div>
     <div data-reveal="" style="transition-delay:.4s;max-width:900px;margin-top:6px">
@@ -265,30 +266,30 @@ body{overflow-x:clip}
   </a>
 </section>
 
-<section id="deyel" data-screen-label="02 Deyel" data-noprint="" style="padding:110px 0 40px;background:#fff">
+<section id="deyel" data-screen-label="02 Deyel" data-noprint="" style="padding:64px 0 20px;background:#fff">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-    <div id="portas" data-reveal="" style="scroll-margin-top:80px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;margin-bottom:24px">
+    <div id="portas" data-reveal="" style="scroll-margin-top:44px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;margin-bottom:24px">
       <img src="https://br.deyel.com/assets/logo-deyel.webp" alt="Logo da plataforma Deyel" loading="lazy" decoding="async" style="height:40px;width:auto"></img>
       <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(34px,4.6vw,60px);line-height:1;letter-spacing:-.01em;color:#02132d;text-wrap:balance">O que você precisa construir?</h2>
-      <p style="margin:0;font-size:17px;color:#5b6678;max-width:640px;text-wrap:pretty">A Deyel faz as duas coisas na mesma plataforma. Escolha a porta: cada uma mostra o que resolvemos, como resolvemos e para quem já resolvemos.</p>
+      <p style="margin:0;font-size:17px;color:#5b6678;max-width:640px;text-wrap:pretty">A Deyel faz as duas coisas. Escolha por onde começar: em cada porta você vê o que resolvemos, para quem já resolvemos e como.</p>
       <div style="width:100%;margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:22px">
         <article style="position:relative;display:flex;flex-direction:column;gap:18px;text-align:left;padding:36px clamp(22px,3vw,36px) 30px;border-radius:16px;background:#fff;border:1px solid #e5e7eb;box-shadow:0 24px 50px -34px rgba(2,19,45,.45);overflow:hidden">
           <span style="position:absolute;left:0;top:0;right:0;height:5px;background:linear-gradient(90deg,#0496ff,#5b3fc4)"></span>
           <span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#5b6678">Porta 01</span>
           <h3 style="margin:0;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(34px,4vw,52px);line-height:1;color:#02132d">Aplicativos</h3>
-          <p style="margin:0;font-size:17px;line-height:1.5;color:#4a5568;text-wrap:pretty">Apps e portais para clientes, parceiros e equipes, B2B e B2C, na web e no celular, sem a fila do desenvolvimento tradicional.</p>
+          <p style="margin:0;font-size:17px;line-height:1.5;color:#4a5568;text-wrap:pretty">Apps e portais para clientes, parceiros e equipes, na web e no celular, sem esperar meses.</p>
           <ol style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;border-top:1px solid #e5e7eb">
             <li style="border-bottom:1px solid #e5e7eb"><a href="#app-resolve" style="display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;min-height:52px;text-decoration:none;color:#02132d" style-hover="color:#0496ff"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#8a96a8">01</span><span style="font-size:15px;font-weight:500">O que resolvemos<span style="display:block;font-size:13px;font-weight:400;color:#5b6678">Apps web e mobile a partir de uma construção</span></span><span aria-hidden="true" style="font-size:18px">↓</span></a></li>
             <li style="border-bottom:1px solid #e5e7eb"><a href="#criar" style="display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;min-height:52px;text-decoration:none;color:#02132d" style-hover="color:#0496ff"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#8a96a8">02</span><span style="font-size:15px;font-weight:500">Como resolvemos<span style="display:block;font-size:13px;font-weight:400;color:#5b6678">Vibe Coding com a Diana</span></span><span aria-hidden="true" style="font-size:18px">↓</span></a></li>
             <li style="border-bottom:1px solid #e5e7eb"><a href="#app-cases" style="display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;min-height:52px;text-decoration:none;color:#02132d" style-hover="color:#0496ff"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#8a96a8">03</span><span style="font-size:15px;font-weight:500">Para quem já resolvemos<span style="display:block;font-size:13px;font-weight:400;color:#5b6678">AON, Banesco, Flybondi, Sky</span></span><span aria-hidden="true" style="font-size:18px">↓</span></a></li>
           </ol>
-          <a href="#aplicativos" style="align-self:flex-start;margin-top:6px;display:inline-flex;align-items:center;gap:10px;background:#02132d;color:#fff;text-decoration:none;border-radius:4px;padding:14px 22px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#0496ff;color:#fff">Construir um aplicativo<span aria-hidden="true">→</span></a>
+          <a href="#aplicativos" style="align-self:flex-start;margin-top:6px;display:inline-flex;align-items:center;gap:10px;background:#02132d;color:#fff;text-decoration:none;border-radius:4px;padding:14px 22px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#0496ff;color:#fff">Criar aplicativos<span aria-hidden="true">→</span></a>
         </article>
         <article style="position:relative;display:flex;flex-direction:column;gap:18px;text-align:left;padding:36px clamp(22px,3vw,36px) 30px;border-radius:16px;background:#fff;border:1px solid #e5e7eb;box-shadow:0 24px 50px -34px rgba(2,19,45,.45);overflow:hidden">
           <span style="position:absolute;left:0;top:0;right:0;height:5px;background:linear-gradient(90deg,#a1238f,#e8335a,#f46b45)"></span>
           <span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#5b6678">Porta 02</span>
           <h3 style="margin:0;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(34px,4vw,52px);line-height:1;color:#02132d">Processos</h3>
-          <p style="margin:0;font-size:17px;line-height:1.5;color:#4a5568;text-wrap:pretty">Automação e orquestração dos processos que atravessam áreas e sistemas, com integrações e SLA controlado em tempo real.</p>
+          <p style="margin:0;font-size:17px;line-height:1.5;color:#4a5568;text-wrap:pretty">Processos que passam por várias áreas e sistemas, rodando sozinhos e com o prazo acompanhado em tempo real.</p>
           <ol style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;border-top:1px solid #e5e7eb">
             <li style="border-bottom:1px solid #e5e7eb"><a href="#processos" style="display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;min-height:52px;text-decoration:none;color:#02132d" style-hover="color:#0496ff"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#8a96a8">01</span><span style="font-size:15px;font-weight:500">O que resolvemos<span style="display:block;font-size:13px;font-weight:400;color:#5b6678">Seu processo é o seu algoritmo</span></span><span aria-hidden="true" style="font-size:18px">↓</span></a></li>
             <li style="border-bottom:1px solid #e5e7eb"><a href="#orquestracao" style="display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;min-height:52px;text-decoration:none;color:#02132d" style-hover="color:#0496ff"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#8a96a8">02</span><span style="font-size:15px;font-weight:500">Como resolvemos<span style="display:block;font-size:13px;font-weight:400;color:#5b6678">Orquestração, SLA e AI Runtime</span></span><span aria-hidden="true" style="font-size:18px">↓</span></a></li>
@@ -299,23 +300,48 @@ body{overflow-x:clip}
       </div>
     </div>
 
-    <div id="aplicativos" style="scroll-margin-top:70px;margin:0 calc(50% - 50vw);padding:96px max(24px,calc(50vw - 600px)) 56px;background:#fff;border-top:1px solid #e5e7eb">
+    <div id="vendor" data-reveal="" style="scroll-margin-top:72px;position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:36px;align-items:center;margin:8px 0 40px;padding:clamp(24px,4vw,44px);border-radius:16px;background:#f4f8fd;border:1px solid #d6e4f5;box-shadow:0 24px 50px -34px rgba(2,19,45,.45);overflow:hidden">
+      <span style="position:absolute;left:0;top:0;right:0;height:5px;background:linear-gradient(90deg,#0496ff,#5b3fc4,#a1238f,#e8335a,#f46b45)"></span>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:#02132d;color:#fff;border-radius:999px;padding:5px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em"><span style="width:7px;height:7px;border-radius:50%;background:#e8335a"></span>Carro-chefe · pronto para usar</span>
+        <h3 style="margin:0;font-family:Lato,sans-serif;font-size:clamp(30px,3.6vw,46px);font-weight:900;line-height:1.05;color:#02132d;text-wrap:balance">Deyel Vendor Management</h3>
+        <p style="margin:0;font-size:clamp(18px,1.8vw,22px);line-height:1.35;color:#02132d;text-wrap:balance">Compras e fornecedores num fluxo só, do pedido ao pagamento.</p>
+        <p style="margin:0;color:#4a5568;font-size:16px;text-wrap:pretty">Requisição, cotação, homologação, contrato, pedido e pagamento no mesmo processo, ligado ao ERP que você já usa. Cada etapa com dono e prazo, tudo registrado, e o VendorBot para tirar dúvidas em português.</p>
+        <p style="margin:0;color:#4a5568;font-size:15px;text-wrap:pretty"><strong style="color:#02132d">Compras na Deyel, em produção:</strong> Consigaz, com compras e suprimentos num processo único, e Flybondi, que colocou a solicitação e a autorização de compras no ar em 1 mês.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:6px">
+          <a href="https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4" target="_blank" rel="noopener" onClick="{{ pickVendor }}" style="display:inline-flex;align-items:center;gap:10px;background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:14px 22px;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#007bff;color:#fff">Abrir demo guiada<span aria-hidden="true">↗</span></a>
+          <a href="https://lpbr.deyel.com/vendor3/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;border:2px solid #02132d;color:#02132d;text-decoration:none;border-radius:4px;padding:12px 20px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#02132d;color:#fff">Conhecer o produto<span aria-hidden="true">↗</span></a>
+        </div>
+        <span style="font-size:13px;color:#6b7686">A demo abre numa nova aba e só pede o seu e-mail.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ vmSteps }}" as="v" hint-placeholder-count="5">
+          <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:8px;background:{{ v.bg }};color:{{ v.color }};border:1px solid {{ v.border }};transition:all .5s;transform:{{ v.tf }}">
+            <span style="font-family:Lato,sans-serif;font-weight:900;font-size:13px;opacity:.7">{{ v.n }}</span>
+            <span style="font-weight:500;font-size:15px">{{ v.t }}</span>
+            <span style="margin-left:auto;font-size:12px;opacity:.85">{{ v.d }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div id="aplicativos" style="scroll-margin-top:40px;margin:0 calc(50% - 50vw);padding:56px max(24px,calc(50vw - 600px)) 32px;background:#fff;border-top:1px solid #e5e7eb">
       <div data-reveal="" style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 28px;align-items:end">
         <span style="grid-row:span 2;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(65px,9vw,126px);line-height:.8;background:linear-gradient(135deg,#0496ff,#5b3fc4);-webkit-background-clip:text;background-clip:text;color:transparent">01</span>
         <span style="font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#5b6678">Porta 01</span>
-        <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(31px,4.1vw,54px);line-height:1;color:#02132d">Aplicativos<span style="display:block;margin-top:8px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(18px,2vw,25px);line-height:1.2;color:#3d4a60">web e mobile, B2B e B2C, a partir de uma construção</span></h2>
+        <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(31px,4.1vw,54px);line-height:1;color:#02132d">Aplicativos<span style="display:block;margin-top:8px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(18px,2vw,25px);line-height:1.2;color:#3d4a60">na web e no celular, feitos uma vez só</span></h2>
       </div>
     </div>
-    <div id="app-resolve" data-scene="" data-screen-label="Aplicativos · 01 O que resolvemos" style="scroll-margin-top:70px;position:relative;margin:0 calc(50% - 50vw);padding:110px max(24px,calc(50vw - 600px)) 36px;background:#f6f2ea;color:#02132d;overflow:hidden">
+    <div id="app-resolve" data-scene="" data-screen-label="Aplicativos · 01 O que resolvemos" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:#f6f2ea;color:#02132d;overflow:hidden">
       <div style="position:relative">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:center">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;align-items:center">
           <div data-step="1" style="display:flex;flex-direction:column;gap:22px">
             <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Aplicativos · O que resolvemos</span>
             <h2 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Tire do papel os apps que a sua empresa precisa.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#6b7a90">Em semanas, não em meses.</span></h2>
-            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Resolvemos a parte chata de programar aplicativos e de digitalizar processos. Portal do cliente, portal do fornecedor, app de atendimento, sistema interno para a equipe: tudo aquilo que costuma esperar meses numa fila de pedidos pode sair em semanas.</p>
-            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Dá para atender quem está fora da empresa, como clientes e parceiros, e quem está dentro, como atendimento, compras, RH e financeiro. Cada aplicativo é construído uma vez só e funciona no navegador e no celular, com os mesmos dados e as mesmas regras, sem manter três versões do mesmo sistema.</p>
-            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Na prática, a TI ganha fôlego para dar vazão ao backlog, a lista de pedidos que cresce mais rápido do que dá para atender: a entrega fica até 80% mais rápida que no desenvolvimento tradicional.</p>
-            <p style="font-size:17px;color:#02132d;font-weight:500;text-wrap:pretty">Por trás disso está a Diana, a nossa IA: ela comanda um time de IAs especialistas que faz o trabalho pesado da construção, enquanto a TI continua decidindo o que vai ao ar.</p>
+            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Portal do cliente, portal do fornecedor, app de atendimento, sistema interno da equipe: aquilo que costuma esperar meses na fila pode sair em semanas.</p>
+            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Serve para quem está fora da empresa, como clientes e parceiros, e para quem está dentro, como compras, RH e financeiro. Você constrói uma vez e o app funciona no navegador e no celular, com os mesmos dados e as mesmas regras.</p>
+            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Na prática, a entrega fica até 80% mais rápida que no desenvolvimento tradicional, e a TI ganha fôlego para dar conta da lista de pedidos.</p>
+            <p style="font-size:17px;color:#02132d;font-weight:500;text-wrap:pretty">Quem faz o trabalho pesado é a Diana, a nossa IA, com um time de IAs especialistas. E a TI continua decidindo o que vai ao ar.</p>
           </div>
           <div style="position:relative;padding:8px 0 0">
 <div data-step="1" class="tsx-wrap" role="img" aria-label="Animação: um aplicativo construído uma vez é publicado no navegador, no Android e no iOS, com os mesmos dados e as mesmas regras">
@@ -337,17 +363,17 @@ body{overflow-x:clip}
 </div>
           </div>
         </div>
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>O mesmo app, os mesmos dados, as mesmas regras. Em qualquer tela.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:72px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Aplicativos · O que resolvemos</span><span>Deyel · Optaris</span></div>
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>O mesmo app, os mesmos dados, as mesmas regras. Em qualquer tela.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Aplicativos · O que resolvemos</span><span>Deyel · Optaris</span></div>
       </div>
     </div>
-    <div id="criar" data-scene="" data-screen-label="Aplicativos · 02 Como resolvemos · Vibe Coding" style="scroll-margin-top:70px;position:relative;margin:0 calc(50% - 50vw);padding:110px max(24px,calc(50vw - 600px)) 36px;background:#fff;color:#02132d;overflow:hidden">
+    <div id="criar" data-scene="" data-screen-label="Aplicativos · 02 Como resolvemos · Vibe Coding" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:#fff;color:#02132d;overflow:hidden">
       <div style="position:relative">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;align-items:center;margin-bottom:96px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;align-items:center;margin-bottom:52px">
       <div data-reveal="" style="display:flex;flex-direction:column;gap:18px">
         <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Aplicativos · Como resolvemos · Deyel Vibe Coding</span>
         <h3 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Você descreve.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#6b7a90">a Diana e um time de IAs especialistas constroem.</span></h3>
-        <p style="color:#555;font-size:16px;text-wrap:pretty">Fizemos assim por um motivo simples: quem melhor conhece o processo é a área de negócio, e ela fala português, não código. Por isso a Deyel começa pela descrição. A Diana é a IA que coordena a construção: entende o que você escreveu e distribui o trabalho entre IAs especialistas, cada uma cuidando de uma parte, como dados, telas, fluxos do processo, APIs e integrações. É como ter um time inteiro de desenvolvimento trabalhando ao mesmo tempo, dentro da plataforma e já ligado aos sistemas que a sua empresa usa.</p>
+        <p style="color:#555;font-size:16px;text-wrap:pretty">Quem mais entende do processo é a área de negócio, e ela fala português, não código. Por isso tudo começa pela descrição. A Diana entende o que você escreveu e divide o trabalho entre IAs especialistas: uma cuida dos dados, outra das telas, outra dos fluxos e das integrações. É um time inteiro trabalhando ao mesmo tempo, já ligado aos sistemas da sua empresa.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px">
           <sc-for list="{{ createPoints }}" as="cp" hint-placeholder-count="4">
             <div style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#333"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:2px"><path d="M20 6 9 17l-5-5"></path></svg><span><strong style="color:#02132d">{{ cp.t }}</strong> {{ cp.d }}</span></div>
@@ -392,11 +418,11 @@ body{overflow-x:clip}
       </div>
     </div>
 
-    <div data-scene-sub="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:30px;align-items:end;margin:-40px 0 80px">
+    <div data-scene-sub="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:30px;align-items:end;margin:-24px 0 44px">
       <div data-step="2" style="display:flex;flex-direction:column;gap:6px"><svg viewBox="0 0 100 20" preserveAspectRatio="none" data-bar="" style="width:100%;height:20px;display:block" aria-hidden="true"><line x1="0.5" y1="2" x2="0.5" y2="18" stroke="#e8335a" stroke-width="1.4" vector-effect="non-scaling-stroke"></line><line x1="99.5" y1="2" x2="99.5" y2="18" stroke="#e8335a" stroke-width="1.4" vector-effect="non-scaling-stroke"></line><line x1="1" y1="10" x2="99" y2="10" stroke="#e8335a" stroke-width="1.4" vector-effect="non-scaling-stroke"></line></svg><span style="font-family:Lato,sans-serif;font-weight:400;color:#e8335a;font-size:17px;text-align:center">uma frase → uma aplicação</span></div>
       <div data-step="3" data-cnt="s6" style="display:flex;align-items:baseline;gap:14px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(48px,6vw,80px);line-height:1;color:#e8335a;font-variant-numeric:tabular-nums">{{ cS6 }}</span><span style="font-size:clamp(18px,1.8vw,22px);line-height:1.35;color:#4a5568;max-width:360px">destinos de uma vez:<br><strong style="font-family:Lato,sans-serif;font-weight:900;color:#02132d">web, Android e iOS</strong></span></div>
     </div>
-    <div data-reveal="" style="margin-bottom:96px">
+    <div data-reveal="" style="margin-bottom:52px">
       <div style="display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px">
         <h3 style="font-size:clamp(24px,2.6vw,32px);font-weight:900;color:#02132d">Descreva, construa, publique, controle.</h3>
         <span style="color:#666;font-size:15px">Da instrução ao aplicativo, em quatro passos.</span>
@@ -415,18 +441,18 @@ body{overflow-x:clip}
       </div>
     </div>
 
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>E a TI decide o que vai ao ar.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:72px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Aplicativos · Como resolvemos · Vibe Coding</span><span>Deyel · Optaris</span></div>
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>E a TI decide o que vai ao ar.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Aplicativos · Como resolvemos · Vibe Coding</span><span>Deyel · Optaris</span></div>
       </div>
     </div>
-    <div id="app-cases" data-scene="" data-screen-label="Aplicativos · 03 Para quem já resolvemos" style="scroll-margin-top:70px;position:relative;margin:0 calc(50% - 50vw);padding:110px max(24px,calc(50vw - 600px)) 36px;background:#fff;color:#02132d;overflow:hidden">
+    <div id="app-cases" data-scene="" data-screen-label="Aplicativos · 03 Para quem já resolvemos" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:#fff;color:#02132d;overflow:hidden">
       <div style="position:relative">
-        <div data-step="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px 56px;align-items:end;margin-bottom:48px">
+        <div data-step="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px 56px;align-items:end;margin-bottom:30px">
           <div style="display:flex;flex-direction:column;gap:22px">
             <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Aplicativos · Para quem já resolvemos</span>
             <h2 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Apps em produção,</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#6b7a90">com nome e resultados.</span></h2>
           </div>
-          <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Seguradoras, bancos, companhias aéreas e telecom colocaram no ar apps e portais para clientes, agências e equipes internas.</p>
+          <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Seguradoras, bancos, companhias aéreas e telecom já colocaram no ar apps e portais para clientes, agências e equipes.</p>
         </div>
         <article data-step="2" style="position:relative;margin-bottom:56px;border-radius:16px;background:radial-gradient(ellipse at 80% 0%,#0b2a55 0%,#02132d 60%);color:#fff;padding:clamp(24px,4vw,48px);overflow:hidden;box-shadow:0 40px 80px -40px rgba(2,19,45,.6)">
           <div style="position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,#0496ff,#5b3fc4)"></div>
@@ -434,7 +460,7 @@ body{overflow-x:clip}
             <div style="display:flex;flex-direction:column;gap:14px">
               <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7cc4ff">Caso em destaque · Seguros</span>
               <span style="align-self:flex-start;display:flex;align-items:center;height:56px;padding:8px 16px;background:#fff;border-radius:10px"><img src="logos/aon.webp" alt="Logo AON" loading="lazy" style="height:40px;width:auto;max-width:200px;object-fit:contain"></span><h3 style="margin:0;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(30px,3.6vw,46px);line-height:1.02">AON</h3>
-              <p style="font-size:17px;color:#fff;font-weight:500;text-wrap:pretty">Sistema completo de sinistros de seguro de vida, com portal para o cliente, construído na Deyel.</p>
+              <p style="font-size:17px;color:#fff;font-weight:500;text-wrap:pretty">Sistema completo de sinistros de seguro de vida, com portal para o cliente, feito na Deyel.</p>
             </div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:8px 0">
               <div style="display:flex;flex-direction:column;gap:4px;padding:18px 20px;border-left:1px solid rgba(255,255,255,.16)"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(34px,4vw,52px);line-height:1;color:#7cc4ff">5<span style="font-size:.45em;margin-left:6px;letter-spacing:0">semanas</span></span><span style="font-size:14px;color:#c7d3e3">para o sistema completo ficar pronto</span></div><div style="display:flex;flex-direction:column;gap:4px;padding:18px 20px;border-left:1px solid rgba(255,255,255,.16)"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(34px,4vw,52px);line-height:1;color:#7cc4ff">3x</span><span style="font-size:14px;color:#c7d3e3">iteração mais rápida</span></div><div style="display:flex;flex-direction:column;gap:4px;padding:18px 20px;border-left:1px solid rgba(255,255,255,.16)"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(34px,4vw,52px);line-height:1;color:#7cc4ff">até 90%</span><span style="font-size:14px;color:#c7d3e3">de melhoria na experiência do cliente</span></div>
@@ -450,31 +476,31 @@ body{overflow-x:clip}
             </article>
           </sc-for>
         </div>
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Do portal do cliente ao app da agência: a mesma plataforma.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:72px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Aplicativos · Para quem já resolvemos</span><span>Deyel · Optaris</span></div>
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Do portal do cliente ao app da agência: a mesma plataforma.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Aplicativos · Para quem já resolvemos</span><span>Deyel · Optaris</span></div>
       </div>
     </div>
-    <div data-reveal="" style="margin:0 calc(50% - 50vw);padding:36px max(24px,calc(50vw - 600px));background:#f4f8fd;color:#02132d;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px">
-      <div style="display:flex;flex-direction:column;gap:4px;max-width:720px"><strong style="font-family:Lato,sans-serif;font-weight:900;font-size:20px">Detalhes de Aplicativos e Vibe Coding</strong><span style="font-size:15px;color:#4a5568">Como a Diana constrói apps web e mobile e o que a TI controla em cada etapa, no site da Deyel.</span></div>
+    <div data-reveal="" style="margin:0 calc(50% - 50vw);padding:24px max(24px,calc(50vw - 600px));background:#f4f8fd;color:#02132d;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px">
+      <div style="display:flex;flex-direction:column;gap:4px;max-width:720px"><strong style="font-family:Lato,sans-serif;font-weight:900;font-size:20px">Detalhes de Aplicativos e Vibe Coding</strong><span style="font-size:15px;color:#4a5568">Como a Diana constrói os apps e o que a TI controla em cada etapa.</span></div>
       <a href="https://lpbr.deyel.com/vibe-coding3/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;border:2px solid #02132d;color:#02132d;text-decoration:none;border-radius:4px;padding:12px 20px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#02132d;color:#fff">Ver no deyel.com<span aria-hidden="true">↗</span></a>
     </div>
-    <div id="processos-porta" style="scroll-margin-top:70px;margin:0 calc(50% - 50vw);padding:96px max(24px,calc(50vw - 600px)) 56px;background:#fff;border-top:1px solid #e5e7eb">
+    <div id="processos-porta" style="scroll-margin-top:40px;margin:0 calc(50% - 50vw);padding:56px max(24px,calc(50vw - 600px)) 32px;background:#fff;border-top:1px solid #e5e7eb">
       <div data-reveal="" style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 28px;align-items:end">
         <span style="grid-row:span 2;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(65px,9vw,126px);line-height:.8;background:linear-gradient(135deg,#a1238f,#e8335a,#f46b45);-webkit-background-clip:text;background-clip:text;color:transparent">02</span>
         <span style="font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#5b6678">Porta 02</span>
-        <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(31px,4.1vw,54px);line-height:1;color:#02132d">Processos<span style="display:block;margin-top:8px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(18px,2vw,25px);line-height:1.2;color:#3d4a60">automação e orquestração de ponta a ponta, com SLA em tempo real</span></h2>
+        <h2 style="margin:0;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(31px,4.1vw,54px);line-height:1;color:#02132d">Processos<span style="display:block;margin-top:8px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(18px,2vw,25px);line-height:1.2;color:#3d4a60">rodando de ponta a ponta, com prazo acompanhado em tempo real</span></h2>
       </div>
     </div>
-    <div id="processos" data-scene="" data-screen-label="Processos · 01 O que resolvemos" style="scroll-margin-top:70px;position:relative;margin:0 calc(50% - 50vw);padding:110px max(24px,calc(50vw - 600px)) 36px;background:#f6f2ea;color:#02132d;overflow:hidden">
+    <div id="processos" data-scene="" data-screen-label="Processos · 01 O que resolvemos" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:#f6f2ea;color:#02132d;overflow:hidden">
       <div style="position:relative">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:center">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;align-items:center">
           <div data-step="1" style="display:flex;flex-direction:column;gap:22px">
             <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Processos · O que resolvemos</span>
             <h2 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Processos que andam sozinhos.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#6b7a90">E avisam antes de atrasar.</span></h2>
-            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Resolvemos a parte chata de digitalizar processos: o pedido que circula por e-mail, a aprovação que depende de planilha, a cobrança de status por telefone. Do pedido ao pagamento, da contratação à folha, do fornecedor ao contas a pagar, os processos que mais importam atravessam várias áreas e vários sistemas, e cada área enxerga só a sua parte. É aí que o prazo estoura sem que alguém perceba a tempo.</p>
-            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Dá para automatizar compras, crédito, sinistros, atendimento, cadastro de clientes e fornecedores, RH e financeiro, conectando o ERP, o CRM e os sistemas que a empresa já tem, inclusive os mais antigos, sem trocar nenhum deles. Nos casos em produção, a implantação levou de 2 a 3 meses.</p>
-            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">E há um motivo para cuidar bem deles: esses processos que atravessam a empresa são o seu algoritmo intelectual, porque só ela faz desse jeito. ERP, CRM e folha são sistemas verticais, cada um dono de uma área, e qualquer concorrente pode comprar os mesmos. O jeito como a sua empresa conecta tudo é um ativo, e esse ativo precisa ser protegido.</p>
-            <p style="font-size:17px;color:#02132d;font-weight:500;text-wrap:pretty">Por trás disso, a Diana desenha o processo com você e agentes de IA trabalham dentro dele, sempre com as regras e os limites definidos pela TI. O negócio ganha visibilidade de cada etapa e de cada prazo, e o processo fica documentado e auditável.</p>
+            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Sabe o pedido que roda por e-mail, a aprovação que depende de planilha, o status que alguém precisa cobrar por telefone? Os processos que mais importam, do pedido ao pagamento ou da contratação à folha, passam por várias áreas e sistemas, e cada área vê só a sua parte. É aí que o prazo estoura sem ninguém perceber a tempo.</p>
+            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Dá para automatizar compras, crédito, sinistros, atendimento, cadastros, RH e financeiro, ligando o ERP, o CRM e os sistemas que você já tem, inclusive os mais antigos, sem trocar nenhum. Nos clientes em produção, a implantação levou de 2 a 3 meses.</p>
+            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">E vale cuidar bem desses processos. ERP, CRM e folha qualquer concorrente compra igual. O jeito como a sua empresa conecta tudo, não: esse é só seu. É um ativo, e merece proteção.</p>
+            <p style="font-size:17px;color:#02132d;font-weight:500;text-wrap:pretty">A Diana desenha o processo com você, e agentes de IA trabalham dentro dele, sempre com as regras e os limites que a TI definiu. Você enxerga cada etapa e cada prazo, e fica tudo documentado.</p>
             <div data-step="3" data-cnt="s1" style="display:flex;align-items:baseline;gap:14px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(48px,6vw,80px);line-height:1;color:#e8335a;font-variant-numeric:tabular-nums">{{ cS1 }}</span><span style="font-size:14px;color:#5b6678;max-width:240px">conexões entre 5 sistemas e 3 processos, todas sob o mesmo controle<span style="display:block;margin-top:6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6b6252">Exemplo ilustrativo</span></span></div>
           </div>
           <div><svg viewBox="0 -44 640 496" style="width:100%;height:auto;display:block;overflow:visible" role="img" aria-label="Cinco sistemas verticais atravessados por três processos horizontais">
@@ -490,20 +516,20 @@ body{overflow-x:clip}
   </g>
 </svg></div>
         </div>
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Só você faz desse jeito. Esse ativo precisa ser protegido.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:72px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Processos · O que resolvemos</span><span>Deyel · Optaris</span></div>
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Só você faz desse jeito. Esse ativo precisa ser protegido.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Processos · O que resolvemos</span><span>Deyel · Optaris</span></div>
       </div>
     </div>
 
-    <div id="orquestracao" data-scene="" data-screen-label="Processos · 02 Como resolvemos · Orquestração" style="scroll-margin-top:70px;position:relative;margin:0 calc(50% - 50vw);padding:110px max(24px,calc(50vw - 600px)) 36px;background:radial-gradient(ellipse at 50% 35%,#0b2a55 0%,#02132d 58%,#010a19 100%);color:#fff;overflow:hidden">
+    <div id="orquestracao" data-scene="" data-screen-label="Processos · 02 Como resolvemos · Orquestração" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:radial-gradient(ellipse at 50% 35%,#0b2a55 0%,#02132d 58%,#010a19 100%);color:#fff;overflow:hidden">
       <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 220px rgba(0,0,0,.55)"></div>
       <div style="position:relative">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:center">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;align-items:center">
           <div style="order:2;display:flex;flex-direction:column;gap:20px" data-step="1">
             <span style="color:#7cc4ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Processos · Como resolvemos · Orquestração</span>
             <h3 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Sistemas, pessoas e IAs.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#a9b8cc">regidos pelo mesmo processo.</span></h3>
-            <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">Fizemos a Deyel para integrar, porque nenhum processo importante vive dentro de um sistema só. ERP, CRM, legados, nuvem e APIs, as portas de conexão entre sistemas, conversam pelo mesmo processo, que lê e grava nos dois sentidos, inclusive em sistemas antigos que não têm API.</p>
-            <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">A Deyel também gerencia as IAs aplicadas ao processo. Cada agente de IA atua dentro do fluxo como um integrante do time: com regras do que pode fazer, limites e o registro de tudo o que fez, ao lado das pessoas e dos sistemas.</p>
+            <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">Nenhum processo importante vive num sistema só. Por isso a Deyel nasceu para integrar: ERP, CRM, legados, nuvem e APIs conversam pelo mesmo processo, lendo e gravando nos dois sentidos, até em sistemas antigos sem API.</p>
+            <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">Os agentes de IA entram no fluxo como gente do time: cada um com o que pode fazer, os seus limites e o registro de tudo o que fez.</p>
             <div style="display:flex;flex-direction:column;gap:10px">
               <sc-for list="{{ orchLegend }}" as="lgd" hint-placeholder-count="3">
                 <div style="display:flex;gap:12px;align-items:flex-start"><span style="width:12px;height:12px;border-radius:50%;background:{{ lgd.c }};margin-top:5px;flex:0 0 auto"></span><span style="font-size:14px;color:#c7d3e3"><strong style="color:#fff">{{ lgd.t }}</strong> {{ lgd.d }}</span></div>
@@ -537,23 +563,23 @@ body{overflow-x:clip}
               </svg>
               <span data-step="2" style="position:absolute;left:0;right:0;top:calc(108% + 6px);text-align:center;font-family:Lato,sans-serif;font-weight:400;color:#e8335a;font-size:clamp(15px,1.9vw,19px);line-height:1.2">agentes de IA dentro do processo, com regras, limites e auditoria</span>
             </div>
-            <div aria-live="polite" style="display:flex;align-items:center;gap:10px;justify-content:center;font-size:14px;color:#fff;min-height:44px;text-align:center;margin-top:72px">
+            <div aria-live="polite" style="display:flex;align-items:center;gap:10px;justify-content:center;font-size:14px;color:#fff;min-height:44px;text-align:center;margin-top:40px">
               <span style="font-family:Lato,sans-serif;font-weight:900;color:#7cc4ff">{{ orchStep }}</span><span>{{ orchEvent }}</span>
             </div>
           </div>
         </div>
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#fff;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Cada IA com regras, limites e auditoria. Como qualquer pessoa do time.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:72px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#9fb1c8"><span>Processos · Como resolvemos · Orquestração</span><span>Deyel · Optaris</span></div>
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#fff;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Cada IA com regras, limites e auditoria. Como qualquer pessoa do time.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#9fb1c8"><span>Processos · Como resolvemos · Orquestração</span><span>Deyel · Optaris</span></div>
       </div>
     </div>
 
-    <div id="sla" data-scene="" data-screen-label="Processos · 02 Como resolvemos · SLA em tempo real" style="scroll-margin-top:70px;position:relative;margin:0 calc(50% - 50vw);padding:110px max(24px,calc(50vw - 600px)) 36px;background:#f6f2ea;color:#02132d;overflow:hidden">
+    <div id="sla" data-scene="" data-screen-label="Processos · 02 Como resolvemos · SLA em tempo real" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:#f6f2ea;color:#02132d;overflow:hidden">
       <div style="position:relative">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:center">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;align-items:center">
           <div data-step="1" style="display:flex;flex-direction:column;gap:22px">
             <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Processos · Como resolvemos · SLA em tempo real</span>
             <h3 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">O SLA é o produto.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#6b7a90">o resto é promessa.</span></h3>
-            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">SLA é o prazo combinado para cada etapa e para o processo inteiro. Descobrir o atraso depois que ele aconteceu não ajuda ninguém, por isso na Deyel cada etapa tem tempo medido, gargalo à vista e SLA em risco sinalizado antes de vencer. Quando o prazo estoura, a Deyel envia o alerta e escala automaticamente para quem decide. E você sabe quem está com cada tarefa: uma pessoa, um sistema ou um agente de IA.</p>
+            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">SLA é o prazo combinado de cada etapa. Descobrir o atraso depois não ajuda ninguém, então na Deyel cada etapa é cronometrada e o risco aparece antes de vencer. Se o prazo estoura, o alerta sai na hora e o caso sobe para quem decide. E você sempre sabe com quem está cada tarefa: uma pessoa, um sistema ou um agente de IA.</p>
           </div>
           <div style="display:flex;flex-direction:column;gap:20px">
             <div style="display:flex;flex-wrap:wrap;align-items:center;row-gap:16px">
@@ -638,19 +664,19 @@ body{overflow-x:clip}
         </div>
       </div>
 
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Quando o prazo estoura, alguém já foi avisado.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:72px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Processos · Como resolvemos · SLA em tempo real</span><span>Deyel · Optaris</span></div>
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Quando o prazo estoura, alguém já foi avisado.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Processos · Como resolvemos · SLA em tempo real</span><span>Deyel · Optaris</span></div>
       </div>
     </div>
 
-    <div id="rodar" data-scene="" data-screen-label="Processos · 02 Como resolvemos · AI Runtime" style="scroll-margin-top:70px;margin:0 calc(50% - 50vw) 96px;padding:110px max(24px,calc(50vw - 600px)) 36px;background:radial-gradient(ellipse at 50% 35%,#0b2a55 0%,#02132d 58%,#010a19 100%);color:#fff;position:relative;overflow:hidden">
+    <div id="rodar" data-scene="" data-screen-label="Processos · 02 Como resolvemos · AI Runtime" style="scroll-margin-top:40px;margin:0 calc(50% - 50vw) 52px;padding:60px max(24px,calc(50vw - 600px)) 20px;background:radial-gradient(ellipse at 50% 35%,#0b2a55 0%,#02132d 58%,#010a19 100%);color:#fff;position:relative;overflow:hidden">
       <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 220px rgba(0,0,0,.55)"></div>
       <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 100% 0%,rgba(161,35,143,.35),transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(4,150,255,.3),transparent 55%);pointer-events:none"></div>
       <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:44px;align-items:center;margin-bottom:44px">
         <div data-reveal="" style="display:flex;flex-direction:column;gap:16px">
           <span style="color:#ff9fb2;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Processos · Como resolvemos · AI Runtime</span>
           <h3 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">A IA trabalha.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#a9b8cc">a governança dita as regras.</span></h3>
-          <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">IA em produção precisa de limites tão claros quanto os de qualquer colaborador. O AI Runtime é a camada que aplica, em tempo real, as regras da sua governança sobre o que a IA pode ou não fazer. Agentes de IA executam tarefas dentro dos processos; o Deyel Expert e o Deyel Bot apoiam quem constrói e quem usa. Cada ação fica na trilha de auditoria, com o mesmo resultado para a mesma regra.</p>
+          <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">IA em produção precisa de limites claros, como qualquer colaborador. O AI Runtime aplica em tempo real as regras da sua empresa sobre o que a IA pode ou não fazer. Os agentes trabalham dentro dos processos, o Deyel Expert e o Deyel Bot ajudam quem constrói e quem usa, e cada ação fica registrada.</p>
         </div>
         <div data-reveal="" style="transition-delay:.15s;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);overflow:hidden">
           <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.1);font-size:12px;color:#9fb1c8">
@@ -676,23 +702,23 @@ body{overflow-x:clip}
           </div>
         </sc-for>
       </div>
-      <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:30px;align-items:end;margin-top:44px">
+      <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:30px;align-items:end;margin-top:28px">
         <div data-step="2" style="display:flex;flex-direction:column;gap:6px"><svg viewBox="0 0 100 20" preserveAspectRatio="none" data-bar="" style="width:100%;height:20px;display:block" aria-hidden="true"><line x1="0.5" y1="2" x2="0.5" y2="18" stroke="#e8335a" stroke-width="1.4" vector-effect="non-scaling-stroke"></line><line x1="99.5" y1="2" x2="99.5" y2="18" stroke="#e8335a" stroke-width="1.4" vector-effect="non-scaling-stroke"></line><line x1="1" y1="10" x2="99" y2="10" stroke="#e8335a" stroke-width="1.4" vector-effect="non-scaling-stroke"></line></svg><span style="font-family:Lato,sans-serif;font-weight:400;color:#e8335a;font-size:17px;text-align:center">regras aplicadas em tempo real, em cada ação</span></div>
         <div data-step="3" data-cnt="s7" style="display:flex;align-items:baseline;gap:14px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(48px,6vw,80px);line-height:1;color:#e8335a;font-variant-numeric:tabular-nums">{{ cS7 }}</span><span style="font-size:14px;color:#9fb1c8;max-width:240px">de uptime em garantia contratual</span></div>
       </div>
       <div style="position:relative">
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#fff;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Mesma regra, mesmo resultado.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:72px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#9fb1c8"><span>Processos · Como resolvemos · AI Runtime</span><span>Deyel · Optaris</span></div>
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#fff;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Mesma regra, mesmo resultado.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#9fb1c8"><span>Processos · Como resolvemos · AI Runtime</span><span>Deyel · Optaris</span></div>
       </div>
     </div>
-    <div id="cases" data-scene="" data-screen-label="Processos · 03 Para quem já resolvemos" style="scroll-margin-top:70px;position:relative;margin:0 calc(50% - 50vw);padding:110px max(24px,calc(50vw - 600px)) 36px;background:#fff;color:#02132d;overflow:hidden">
+    <div id="cases" data-scene="" data-screen-label="Processos · 03 Para quem já resolvemos" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:#fff;color:#02132d;overflow:hidden">
       <div style="position:relative">
-        <div data-step="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px 56px;align-items:end;margin-bottom:48px">
+        <div data-step="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px 56px;align-items:end;margin-bottom:30px">
           <div style="display:flex;flex-direction:column;gap:22px">
             <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Processos · Para quem já resolvemos</span>
             <h2 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Processos em produção com Deyel,</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#6b7a90">com nome e resultados.</span></h2>
           </div>
-          <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Seguradoras, bancos, serviços financeiros e energia colocaram processos críticos de pé sobre a Deyel, sem trocar o core e com a TI no controle.</p>
+          <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Seguradoras, bancos, financeiras e empresas de energia já rodam processos críticos na Deyel, sem trocar o core e com a TI no controle.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px 28px">
           <sc-for list="{{ caseStories }}" as="cs" hint-placeholder-count="3">
@@ -711,17 +737,17 @@ body{overflow-x:clip}
             <figcaption style="font-size:14px;color:#5b6678"><strong style="color:#02132d">José M. Kobashigawa Kiyán</strong> · Gerente de Operações e TI · Cooperativa Pacífico (Peru)</figcaption>
           </div>
         </figure>
-        <div data-step="3" style="margin-top:64px;padding:28px 0;border-top:1px solid rgba(2,19,45,.12);border-bottom:1px solid rgba(2,19,45,.12)">
+        <div data-step="3" style="margin-top:36px;padding:28px 0;border-top:1px solid rgba(2,19,45,.12);border-bottom:1px solid rgba(2,19,45,.12)">
           <p style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#5b6678;margin-bottom:18px">Em produção em</p>
           <div style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
-            <div style="display:flex;gap:56px;width:max-content;align-items:center;animation:marquee 140s linear infinite">
+            <div style="display:flex;gap:36px;width:max-content;align-items:center;animation:marquee 140s linear infinite">
               <sc-for list="{{ logoList }}" as="ln" hint-placeholder-count="24">
                 <img src="{{ ln.src }}" alt="{{ ln.n }}" title="{{ ln.n }}" loading="lazy" decoding="async" style="height:44px;width:auto;max-width:170px;object-fit:contain;flex:0 0 auto">
               </sc-for>
             </div>
           </div>
         </div>
-    <div data-reveal="" data-counter="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1px;background:#e5e7eb;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;margin-top:56px">
+    <div data-reveal="" data-counter="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1px;background:#e5e7eb;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;margin-top:32px">
       <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
         <div style="background:#fff;padding:30px 26px;display:flex;flex-direction:column;gap:6px">
           <span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(40px,4.4vw,56px);line-height:1;color:#02132d;font-variant-numeric:tabular-nums">{{ st.v }}</span>
@@ -730,17 +756,17 @@ body{overflow-x:clip}
       </sc-for>
     </div>
 
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>O setor muda. O processo horizontal que atravessa tudo é o mesmo.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:72px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Processos · Para quem já resolvemos</span><span>Deyel · Optaris</span></div>
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>O setor muda. O processo horizontal que atravessa tudo é o mesmo.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Processos · Para quem já resolvemos</span><span>Deyel · Optaris</span></div>
       </div>
     </div>
 
-    <div data-reveal="" style="margin-bottom:96px;text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center">
-      <p style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,4vw,48px);line-height:1.15;max-width:980px;text-wrap:balance;background:linear-gradient(110deg,#0496ff,#5b3fc4,#a1238f,#e8335a,#f46b45);background-size:200% 200%;animation:gradMove 8s ease infinite;-webkit-background-clip:text;background-clip:text;color:transparent">Velocidade de IA com governança e previsibilidade para empresas que não podem errar.</p>
+    <div data-reveal="" style="margin-bottom:52px;text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center">
+      <p style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,4vw,48px);line-height:1.15;max-width:980px;text-wrap:balance;background:linear-gradient(110deg,#0496ff,#5b3fc4,#a1238f,#e8335a,#f46b45);background-size:200% 200%;animation:gradMove 8s ease infinite;-webkit-background-clip:text;background-clip:text;color:transparent">Velocidade de IA, com regras e previsibilidade, para empresas que não podem errar.</p>
       <p style="font-size:18px;color:#555">IA que cria e IA que opera, na mesma plataforma, governada pela sua TI.</p>
     </div>
 
-    <div style="margin-bottom:96px">
+    <div style="margin-bottom:52px">
       <div data-reveal="" style="display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px">
         <h3 style="font-size:clamp(24px,2.6vw,32px);font-weight:900;color:#02132d">Feita para a operação no Brasil</h3>
         <span style="color:#666;font-size:15px">O que vem junto com a plataforma.</span>
@@ -756,45 +782,45 @@ body{overflow-x:clip}
       </div>
     </div>
 
-    <div data-reveal="" style="margin:0 calc(50% - 50vw);padding:36px max(24px,calc(50vw - 600px));background:#02132d;color:#fff;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px">
-      <div style="display:flex;flex-direction:column;gap:4px;max-width:720px"><strong style="font-family:Lato,sans-serif;font-weight:900;font-size:20px">Detalhes da orquestração de processos</strong><span style="font-size:15px;color:#c7d3e3">BPMN, integrações, SLA e AI Runtime em detalhe, no site da Deyel.</span></div>
+    <div data-reveal="" style="margin:0 calc(50% - 50vw);padding:24px max(24px,calc(50vw - 600px));background:#02132d;color:#fff;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px">
+      <div style="display:flex;flex-direction:column;gap:4px;max-width:720px"><strong style="font-family:Lato,sans-serif;font-weight:900;font-size:20px">Detalhes da orquestração de processos</strong><span style="font-size:15px;color:#c7d3e3">BPMN, integrações, SLA e AI Runtime em detalhe.</span></div>
       <a href="https://br.deyel.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;white-space:nowrap;border:2px solid #fff;color:#fff;text-decoration:none;border-radius:4px;padding:12px 20px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#fff;color:#02132d">Ver no deyel.com<span aria-hidden="true">↗</span></a>
     </div>
-    <div id="ofertas" style="scroll-margin-top:90px;margin-bottom:110px">
+    <div id="ofertas" style="scroll-margin-top:52px;margin-bottom:56px">
       <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;margin-bottom:40px">
         <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Formas de contratar · para aplicativos e processos</span>
-        <h2 style="font-size:clamp(30px,4vw,48px);font-weight:900;color:#02132d;text-wrap:balance;max-width:900px">Construa, encomende ou comece pronto, tudo na mesma plataforma.</h2>
-        <p style="font-size:17px;color:#555;max-width:760px;text-wrap:pretty">A Deyel é oferecida em três verticais: a Plataforma, para a TI e parceiros desenvolverem; a Usina de Apps, em que o time Deyel/Optaris constrói sob medida para você; e os Produtos prontos, que já começam 80% prontos.</p>
+        <h2 style="font-size:clamp(30px,4vw,48px);font-weight:900;color:#02132d;text-wrap:balance;max-width:900px">Construa, encomende ou comece pronto. Tudo na mesma plataforma.</h2>
+        <p style="font-size:17px;color:#555;max-width:760px;text-wrap:pretty">Três jeitos de usar a Deyel: a Plataforma, para a sua TI e parceiros construírem; a Usina de Apps, em que o nosso time constrói para você; e os Produtos prontos, que já chegam 80% prontos.</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:22px;align-items:stretch">
-        <div id="plataforma" data-reveal="" style="scroll-margin-top:90px;transition-delay:0s;position:relative;display:flex;flex-direction:column;gap:16px;padding:32px 28px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;overflow:hidden;transition-property:opacity,transform,box-shadow,border-color" style-hover="border-color:#0496ff;box-shadow:0 30px 60px -30px rgba(2,19,45,.35)">
+        <div id="plataforma" data-reveal="" style="scroll-margin-top:52px;transition-delay:0s;position:relative;display:flex;flex-direction:column;gap:16px;padding:32px 28px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;overflow:hidden;transition-property:opacity,transform,box-shadow,border-color" style-hover="border-color:#0496ff;box-shadow:0 30px 60px -30px rgba(2,19,45,.35)">
           <div style="position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,#0496ff,#5b3fc4,#a1238f,#e8335a,#f46b45)"></div>
           <span style="width:52px;height:52px;border-radius:12px;background:#e6f3ff;color:#0496ff;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7l10-5Z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg></span>
           <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.08em">01 · Plataforma</span>
           <h3 style="font-size:clamp(24px,2.4vw,30px);font-weight:900;color:#02132d">Construa com IA</h3>
-          <p style="font-size:15px;color:#555;text-wrap:pretty">A plataforma para desenvolver sistemas e automações com IA, com a governança da sua TI.</p>
-          <p style="font-size:13px;color:#02132d;background:#f4f8fd;border-radius:8px;padding:10px 12px"><strong>Para quem é:</strong> TI interna e parceiros que desenvolvem sistemas e automações.</p>
+          <p style="font-size:15px;color:#555;text-wrap:pretty">Para desenvolver sistemas e automações com IA, com as regras da sua TI.</p>
+          <p style="font-size:13px;color:#02132d;background:#f4f8fd;border-radius:8px;padding:10px 12px"><strong>Para quem é:</strong> TI interna e parceiros que desenvolvem.</p>
           <div style="display:flex;flex-direction:column;gap:8px"><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Vibe Coding com a Diana</span></span><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span>BPMN e integrações com ERP, CRM e legados</span></span><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span>AI Runtime para governar a IA</span></span><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span>SLA controlado em tempo real</span></span></div>
 
           <div style="margin-top:auto;padding-top:8px"><a href="#criar" onClick="{{ pickPlataforma }}" style="display:inline-block;background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:13px 22px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#007bff;color:#fff">Conhecer a plataforma</a></div>
         </div>
-        <div id="fabrica" data-reveal="" style="scroll-margin-top:90px;transition-delay:.12s;position:relative;display:flex;flex-direction:column;gap:16px;padding:32px 28px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;overflow:hidden;transition-property:opacity,transform,box-shadow,border-color" style-hover="border-color:#0496ff;box-shadow:0 30px 60px -30px rgba(2,19,45,.35)">
+        <div id="fabrica" data-reveal="" style="scroll-margin-top:52px;transition-delay:.12s;position:relative;display:flex;flex-direction:column;gap:16px;padding:32px 28px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;overflow:hidden;transition-property:opacity,transform,box-shadow,border-color" style-hover="border-color:#0496ff;box-shadow:0 30px 60px -30px rgba(2,19,45,.35)">
           <div style="position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,#0496ff,#5b3fc4,#a1238f,#e8335a,#f46b45)"></div>
           <span style="width:52px;height:52px;border-radius:12px;background:#e6f3ff;color:#0496ff;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"></path></svg></span>
           <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.08em">02 · Usina de Apps</span>
           <h3 style="font-size:clamp(24px,2.4vw,30px);font-weight:900;color:#02132d">Encomende sob medida</h3>
-          <p style="font-size:15px;color:#555;text-wrap:pretty">O time Deyel/Optaris constrói o seu sistema sob medida (tailor made) com a Deyel, com entrega rápida e a governança da plataforma.</p>
-          <p style="font-size:13px;color:#02132d;background:#f4f8fd;border-radius:8px;padding:10px 12px"><strong>Para quem é:</strong> Empresas que querem o sistema pronto, sem montar um time.</p>
+          <p style="font-size:15px;color:#555;text-wrap:pretty">O nosso time constrói o seu sistema sob medida na Deyel, com entrega rápida.</p>
+          <p style="font-size:13px;color:#02132d;background:#f4f8fd;border-radius:8px;padding:10px 12px"><strong>Para quem é:</strong> Quem quer o sistema pronto, sem montar um time.</p>
           <div style="display:flex;flex-direction:column;gap:8px"><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Levantamento com a sua área de negócio</span></span><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Construção e integração pelo time Deyel/Optaris</span></span><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Entrega rápida, sobre a mesma plataforma</span></span><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span>O que é construído continua seu</span></span></div>
 
           <div style="margin-top:auto;padding-top:8px"><a href="#contato" onClick="{{ pickFabrica }}" style="display:inline-block;background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:13px 22px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#007bff;color:#fff">Falar com a Usina de Apps</a></div>
         </div>
-        <div id="produtos-prontos" data-reveal="" style="scroll-margin-top:90px;transition-delay:.24s;position:relative;display:flex;flex-direction:column;gap:16px;padding:32px 28px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;overflow:hidden;transition-property:opacity,transform,box-shadow,border-color" style-hover="border-color:#0496ff;box-shadow:0 30px 60px -30px rgba(2,19,45,.35)">
+        <div id="produtos-prontos" data-reveal="" style="scroll-margin-top:52px;transition-delay:.24s;position:relative;display:flex;flex-direction:column;gap:16px;padding:32px 28px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;overflow:hidden;transition-property:opacity,transform,box-shadow,border-color" style-hover="border-color:#0496ff;box-shadow:0 30px 60px -30px rgba(2,19,45,.35)">
           <div style="position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,#0496ff,#5b3fc4,#a1238f,#e8335a,#f46b45)"></div>
           <span style="width:52px;height:52px;border-radius:12px;background:#e6f3ff;color:#0496ff;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"></path><path d="m3 8 9 5 9-5"></path><path d="M12 13v8"></path></svg></span>
           <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.08em">03 · Produtos prontos</span>
           <h3 style="font-size:clamp(24px,2.4vw,30px);font-weight:900;color:#02132d">Comece pronto</h3>
-          <p style="font-size:15px;color:#555;text-wrap:pretty">Produtos construídos em Deyel com as melhores práticas: 80% já vem pronto e roda assim desde o primeiro dia; os 20% você personaliza para a cultura e os processos da sua empresa, sem virar projeto infinito.</p>
+          <p style="font-size:15px;color:#555;text-wrap:pretty">Produtos feitos na Deyel com as melhores práticas: 80% já vem pronto e roda desde o primeiro dia. Os outros 20% você ajusta ao jeito da sua empresa, sem virar projeto sem fim.</p>
           <p style="font-size:13px;color:#02132d;background:#f4f8fd;border-radius:8px;padding:10px 12px"><strong>Para quem é:</strong> Quem precisa do resultado desde o primeiro dia.</p>
           <div style="display:flex;flex-direction:column;gap:8px"><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span><a href="https://lpbr.deyel.com/vendor3/" target="_blank" rel="noopener" style="color:#02132d;font-weight:500">Deyel Vendor Management</a></span></span><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Deyel CRM</span></span><span style="display:flex;gap:8px;font-size:14px;color:#333"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0496ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Deyel Gestão de RH</span></span></div>
           <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
@@ -809,13 +835,13 @@ body{overflow-x:clip}
       </div>
     </div>
 
-    <div id="produtos-80-20" data-scene="" data-screen-label="Cena 07 · Produtos prontos 80/20" style="scroll-margin-top:70px;position:relative;margin:0 calc(50% - 50vw);padding:110px max(24px,calc(50vw - 600px)) 36px;background:#f6f2ea;color:#02132d;overflow:hidden">
+    <div id="produtos-80-20" data-scene="" data-screen-label="Cena 07 · Produtos prontos 80/20" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:#f6f2ea;color:#02132d;overflow:hidden">
       <div style="position:relative">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:center">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;align-items:center">
           <div data-step="1" style="display:flex;flex-direction:column;gap:22px">
             <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Produtos prontos · Conceito 80/20</span>
             <h3 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">80% pronto no primeiro dia.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#6b7a90">20% com a cara da sua empresa.</span></h3>
-            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Deyel Vendor Management, Deyel CRM e Deyel Gestão de RH chegam com as melhores práticas e podem rodar assim desde o primeiro dia. Os 20% restantes você personaliza para a cultura e os processos da sua empresa.</p>
+            <p style="font-size:17px;color:#4a5568;text-wrap:pretty">Deyel Vendor Management, Deyel CRM e Deyel Gestão de RH já chegam com as melhores práticas e rodam desde o primeiro dia. Os 20% restantes você ajusta ao jeito da sua empresa.</p>
           </div>
           <div data-step="1"><svg viewBox="0 0 440 300" style="width:100%;max-width:480px;height:auto;display:block;margin:0 auto" role="img" aria-label="Tela de aplicação pronta: 8 de 10 blocos prontos em azul e 2 tracejados em coral para personalizar">
   <defs><filter id="shC" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#02132d" flood-opacity=".16"></feDropShadow></filter><linearGradient id="gC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0496ff"></stop><stop offset="1" stop-color="#5b3fc4"></stop></linearGradient></defs>
@@ -826,7 +852,7 @@ body{overflow-x:clip}
   <rect x="10" y="36" width="78" height="250" fill="#f4f8fd"></rect><path d="M10 286 L10 276" stroke="#f4f8fd"></path>
   <rect x="22" y="54" width="54" height="8" rx="4" fill="#0496ff"></rect><rect x="22" y="74" width="44" height="8" rx="4" fill="#d6e2f0"></rect><rect x="22" y="94" width="50" height="8" rx="4" fill="#d6e2f0"></rect><rect x="22" y="114" width="40" height="8" rx="4" fill="#d6e2f0"></rect><rect x="100" y="50" width="60" height="108" rx="7" fill="url(#gC)"></rect><rect x="110" y="64" width="28" height="6" rx="3" fill="#fff" opacity=".9"></rect><rect x="110" y="78" width="40" height="5" rx="2.5" fill="#fff" opacity=".45"></rect><rect x="110" y="90" width="34" height="5" rx="2.5" fill="#fff" opacity=".45"></rect><rect x="110" y="102" width="38" height="5" rx="2.5" fill="#fff" opacity=".45"></rect><path d="M140 144 L144 148 L151 140" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="168" y="50" width="60" height="108" rx="7" fill="url(#gC)"></rect><rect x="180" y="108" width="7" height="34" rx="2" fill="#fff" opacity=".85"></rect><rect x="191" y="120" width="7" height="22" rx="2" fill="#fff" opacity=".6"></rect><rect x="202" y="98" width="7" height="44" rx="2" fill="#fff" opacity=".85"></rect><rect x="213" y="128" width="5" height="14" rx="2" fill="#fff" opacity=".5"></rect><path d="M208 144 L212 148 L219 140" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="236" y="50" width="60" height="108" rx="7" fill="url(#gC)"></rect><circle cx="266" cy="94" r="16" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="6"></circle><path d="M266 78 A16 16 0 1 1 251 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"></path><path d="M276 144 L280 148 L287 140" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="304" y="50" width="60" height="108" rx="7" fill="url(#gC)"></rect><rect x="314" y="64" width="28" height="6" rx="3" fill="#fff" opacity=".9"></rect><rect x="314" y="78" width="40" height="5" rx="2.5" fill="#fff" opacity=".45"></rect><rect x="314" y="90" width="34" height="5" rx="2.5" fill="#fff" opacity=".45"></rect><rect x="314" y="102" width="38" height="5" rx="2.5" fill="#fff" opacity=".45"></rect><path d="M344 144 L348 148 L355 140" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="372" y="50" width="60" height="108" rx="7" fill="url(#gC)"></rect><rect x="384" y="108" width="7" height="34" rx="2" fill="#fff" opacity=".85"></rect><rect x="395" y="120" width="7" height="22" rx="2" fill="#fff" opacity=".6"></rect><rect x="406" y="98" width="7" height="44" rx="2" fill="#fff" opacity=".85"></rect><rect x="417" y="128" width="5" height="14" rx="2" fill="#fff" opacity=".5"></rect><path d="M412 144 L416 148 L423 140" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="100" y="166" width="60" height="108" rx="7" fill="url(#gC)"></rect><circle cx="130" cy="210" r="16" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="6"></circle><path d="M130 194 A16 16 0 1 1 115 216" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"></path><path d="M140 260 L144 264 L151 256" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="168" y="166" width="60" height="108" rx="7" fill="url(#gC)"></rect><rect x="178" y="180" width="28" height="6" rx="3" fill="#fff" opacity=".9"></rect><rect x="178" y="194" width="40" height="5" rx="2.5" fill="#fff" opacity=".45"></rect><rect x="178" y="206" width="34" height="5" rx="2.5" fill="#fff" opacity=".45"></rect><rect x="178" y="218" width="38" height="5" rx="2.5" fill="#fff" opacity=".45"></rect><path d="M208 260 L212 264 L219 256" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="236" y="166" width="60" height="108" rx="7" fill="url(#gC)"></rect><rect x="248" y="224" width="7" height="34" rx="2" fill="#fff" opacity=".85"></rect><rect x="259" y="236" width="7" height="22" rx="2" fill="#fff" opacity=".6"></rect><rect x="270" y="214" width="7" height="44" rx="2" fill="#fff" opacity=".85"></rect><rect x="281" y="244" width="5" height="14" rx="2" fill="#fff" opacity=".5"></rect><path d="M276 260 L280 264 L287 256" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="305" y="167" width="58" height="106" rx="7" fill="#fff5f7" stroke="#e8335a" stroke-width="2" stroke-dasharray="6 5"></rect><path d="M326 226 L340 212 L345 217 L331 231 L325 232 Z" fill="none" stroke="#e8335a" stroke-width="2" stroke-linejoin="round"></path><rect x="373" y="167" width="58" height="106" rx="7" fill="#fff5f7" stroke="#e8335a" stroke-width="2" stroke-dasharray="6 5"></rect><path d="M394 226 L408 212 L413 217 L399 231 L393 232 Z" fill="none" stroke="#e8335a" stroke-width="2" stroke-linejoin="round"></path></svg></div>
         </div>
-        <div style="margin-top:56px;display:flex;flex-direction:column;gap:10px">
+        <div style="margin-top:32px;display:flex;flex-direction:column;gap:10px">
           <div data-step="2" style="display:grid;grid-template-columns:80fr 20fr;gap:0">
             <div style="display:flex;flex-direction:column;gap:4px;padding-right:8px"><span style="font-family:Lato,sans-serif;font-weight:400;color:#e8335a;font-size:17px;text-align:center">melhores práticas, prontas</span><svg viewBox="0 0 100 20" preserveAspectRatio="none" data-bar="" style="width:100%;height:18px" aria-hidden="true"><g stroke="#e8335a" stroke-width="1.4" vector-effect="non-scaling-stroke"><line x1=".5" y1="2" x2=".5" y2="18" vector-effect="non-scaling-stroke"></line><line x1="99.5" y1="2" x2="99.5" y2="18" vector-effect="non-scaling-stroke"></line><line x1="1" y1="10" x2="99" y2="10" vector-effect="non-scaling-stroke"></line></g></svg></div>
             <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:Lato,sans-serif;font-weight:400;color:#e8335a;font-size:17px;text-align:center">sua cultura</span><svg viewBox="0 0 100 20" preserveAspectRatio="none" data-bar="" style="width:100%;height:18px" aria-hidden="true"><g stroke="#e8335a" stroke-width="1.4"><line x1="2" y1="2" x2="2" y2="18" vector-effect="non-scaling-stroke"></line><line x1="98" y1="2" x2="98" y2="18" vector-effect="non-scaling-stroke"></line><line x1="3" y1="10" x2="97" y2="10" vector-effect="non-scaling-stroke"></line></g></svg></div>
@@ -838,19 +864,19 @@ body{overflow-x:clip}
           </div>
           <span data-step="3" style="align-self:flex-end;font-family:Lato,sans-serif;font-weight:400;color:#e8335a;font-size:17px;margin-top:8px">aqui entra o jeito da sua empresa</span>
         </div>
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Sem virar projeto infinito.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:72px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Cena 07 · Produtos prontos 80/20</span><span>Deyel · Optaris</span></div>
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Sem virar projeto infinito.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Cena 07 · Produtos prontos 80/20</span><span>Deyel · Optaris</span></div>
       </div>
     </div>
 
-    <div id="demo-vendor" data-scene="" data-screen-label="Cena 08 · Demo guiada · Vendor Management" style="scroll-margin-top:70px;position:relative;margin:0 calc(50% - 50vw);padding:110px max(24px,calc(50vw - 600px)) 36px;background:radial-gradient(ellipse at 50% 35%,#0b2a55 0%,#02132d 58%,#010a19 100%);color:#fff;overflow:hidden">
+    <div id="demo-vendor" data-scene="" data-screen-label="Cena 08 · Demo guiada · Vendor Management" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:radial-gradient(ellipse at 50% 35%,#0b2a55 0%,#02132d 58%,#010a19 100%);color:#fff;overflow:hidden">
       <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 220px rgba(0,0,0,.55)"></div>
       <div style="position:relative">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:56px;align-items:center">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:36px;align-items:center">
           <div data-step="1" style="display:flex;flex-direction:column;gap:22px">
             <span style="color:#7cc4ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Demos · Deyel Vendor Management</span>
-            <h3 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Veja a Deyel em ação.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#a9b8cc">um produto inteiro, construído em poucas semanas e rodando na plataforma.</span></h3>
-            <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty"><strong style="color:#fff">Deyel Vendor Management</strong>: aplicação S2P/SRM construída com a Deyel em poucas semanas, para gestão de compras e compliance de fornecedores. Do sourcing ao pagamento, com homologação, contratos, pedidos e integração ao ERP. Faça a demo guiada no seu ritmo: ela abre o Portal de Compras em uma nova aba e pede apenas o seu e-mail.</p>
+            <h3 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Veja a Deyel em ação.</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#a9b8cc">um produto inteiro, feito em poucas semanas e rodando na plataforma.</span></h3>
+            <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty"><strong style="color:#fff">Deyel Vendor Management</strong>: gestão de compras e de fornecedores feita na Deyel em poucas semanas. Vai do sourcing ao pagamento, com homologação, contratos, pedidos e integração ao ERP. A demo guiada abre o Portal de Compras numa nova aba e só pede o seu e-mail.</p>
             <div style="display:flex;gap:12px;flex-wrap:wrap">
               <a href="https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:14px 24px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#007bff;color:#fff">Abrir demo guiada<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
             </div>
@@ -885,43 +911,26 @@ body{overflow-x:clip}
             <span data-step="2" style="position:absolute;left:0;right:0;bottom:-18px;text-align:center;font-family:Lato,sans-serif;font-weight:400;color:#e8335a;font-size:17px">do sourcing ao pagamento, no seu ritmo</span>
           </div>
         </div>
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:44px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#fff;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Não é maquete: é a Deyel rodando um produto de ponta a ponta.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:72px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#9fb1c8"><span>Cena 08 · Demo guiada · Vendor Management</span><span>Deyel · Optaris</span></div>
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#fff;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>Não é maquete: é a Deyel rodando um produto de ponta a ponta.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#9fb1c8"><span>Cena 08 · Demo guiada · Vendor Management</span><span>Deyel · Optaris</span></div>
       </div>
     </div>
 
-    <div id="vendor" data-reveal="" style="scroll-margin-top:90px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;align-items:center;margin-bottom:96px;padding:44px;border-radius:14px;background:#f4f8fd;border:1px solid #e5e7eb">
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Soluções prontas · Deyel Vendor Management</span>
-        <h3 style="font-size:clamp(26px,3vw,36px);font-weight:900;color:#02132d">Do primeiro sourcing ao pagamento, num fluxo só</h3>
-        <p style="color:#555;font-size:16px;text-wrap:pretty">A gestão de fornecedores pronta para rodar, construída em Deyel e integrada ao ERP que você já usa. Homologação de fornecedor por número, contratos e risco no mesmo processo, e o VendorBot para perguntar em português.</p>
-        <a href="https://lpbr.deyel.com/vendor3/" target="_blank" rel="noopener" style="align-self:flex-start;border:2px solid #0496ff;color:#0496ff;text-decoration:none;border-radius:4px;padding:10px 20px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#0496ff;color:#fff">Conhecer o Vendor Management</a>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <sc-for list="{{ vmSteps }}" as="v" hint-placeholder-count="5">
-          <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:8px;background:{{ v.bg }};color:{{ v.color }};border:1px solid {{ v.border }};transition:all .5s;transform:{{ v.tf }}">
-            <span style="font-family:Lato,sans-serif;font-weight:900;font-size:13px;opacity:.7">{{ v.n }}</span>
-            <span style="font-weight:500;font-size:15px">{{ v.t }}</span>
-            <span style="margin-left:auto;font-size:12px;opacity:.85">{{ v.d }}</span>
-          </div>
-        </sc-for>
-      </div>
-    </div>
 
   </div>
 </section>
 
-<section id="deyel-no-ar" data-screen-label="03 Deyel no ar" data-noprint="" data-tvzone="" style="position:relative;padding:110px 0;background:#02132d;color:#fff;overflow:hidden">
+<section id="deyel-no-ar" data-screen-label="03 Deyel no ar" data-noprint="" data-tvzone="" style="position:relative;padding:68px 0;background:#02132d;color:#fff;overflow:hidden">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 0%,rgba(4,150,255,.28),transparent 55%),radial-gradient(ellipse at 90% 100%,rgba(232,51,90,.22),transparent 55%)"></div>
   <div style="position:relative;max-width:1200px;margin:0 auto;padding:0 24px">
-    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:30px;align-items:end;margin-bottom:48px">
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:30px;align-items:end;margin-bottom:30px">
       <div style="display:flex;flex-direction:column;gap:14px">
         <span style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:#ff8a9e">
           <span style="position:relative;width:10px;height:10px"><span style="position:absolute;inset:0;border-radius:50%;background:#e8335a"></span><span style="position:absolute;inset:0;border-radius:50%;background:#e8335a;animation:pulse 1.6s ease-out infinite"></span></span>Ao vivo · youtube.com/@deyelbrasil
         </span>
         <h2 style="font-size:clamp(34px,4.6vw,58px);font-weight:900">Deyel no ar</h2>
       </div>
-      <p style="font-size:17px;color:#c7d3e3;text-wrap:pretty">Demos em vídeo: o canal Deyel Brasil no YouTube reúne simulações e explicações da plataforma em português. As telas estão ligadas, sem som, com vídeos do canal. Clique em qualquer tela para assistir com som.</p>
+      <p style="font-size:17px;color:#c7d3e3;text-wrap:pretty">Simulações e explicações da plataforma em português, no canal Deyel Brasil no YouTube. As telas já estão rodando sem som: clique em qualquer uma para assistir com som.</p>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:28px">
@@ -947,20 +956,20 @@ body{overflow-x:clip}
       </sc-for>
     </div>
 
-    <div data-reveal="" style="margin-top:56px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap">
+    <div data-reveal="" style="margin-top:32px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap">
       <a href="#contato" onClick="{{ pickDeyel }}" style="background:linear-gradient(110deg,#0496ff,#5b3fc4,#a1238f,#e8335a,#f46b45);background-size:200% 200%;animation:gradMove 6s ease infinite;color:#fff;text-decoration:none;border-radius:4px;padding:16px 32px;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.05em" style-hover="color:#fff">Quero conhecer melhor a Deyel</a>
       <a href="https://www.youtube.com/@deyelbrasil" target="_blank" rel="noopener" style="border:2px solid rgba(255,255,255,.6);color:#fff;text-decoration:none;border-radius:4px;padding:14px 26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#fff;color:#02132d">Ver o canal no YouTube</a>
     </div>
   </div>
 </section>
 
-<section id="consist" data-screen-label="04 Soluções Consist" style="padding:100px 0;background:linear-gradient(180deg,#f4f8fd 0%,#fff 100%);border-top:1px solid #e5e7eb">
+<section id="consist" data-screen-label="04 Soluções Consist" style="padding:60px 0;background:linear-gradient(180deg,#f4f8fd 0%,#fff 100%);border-top:1px solid #e5e7eb">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px;align-items:center;padding:44px;border-radius:14px;background:#fff;border:1px solid #e5e7eb;border-top:4px solid #0496ff;box-shadow:0 20px 50px -30px rgba(2,19,45,.3)">
       <div style="display:flex;flex-direction:column;gap:14px">
         <span style="align-self:flex-start;background:#e6f3ff;color:#007bff;border-radius:20px;padding:4px 14px;font-size:13px;font-weight:500">Exclusivo no Brasil</span>
         <h2 style="font-size:clamp(28px,3.4vw,40px);font-weight:900;color:#000">Produtos <span style="color:#0496ff">Consist Software Solutions Inc</span></h2>
-        <p style="color:#666;font-size:15px;text-wrap:pretty">A Optaris do Brasil detém, com exclusividade no território brasileiro, os direitos de licenciamento dos aplicativos da Consist Software Solutions Inc. Licenças novas, renovações e ampliações de usuários são contratadas diretamente com a Optaris.</p>
+        <p style="color:#666;font-size:15px;text-wrap:pretty">A Optaris do Brasil tem a exclusividade, no Brasil, do licenciamento dos aplicativos da Consist Software Solutions Inc. Licenças novas, renovações e mais usuários são contratados direto com a Optaris.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:22px">
         <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
@@ -974,14 +983,14 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section id="solucoes" data-screen-label="05 Outras soluções" data-noprint="" style="padding:110px 0;background:#fff">
+<section id="solucoes" data-screen-label="05 Outras soluções" data-noprint="" style="padding:68px 0;background:#fff">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;margin-bottom:44px;max-width:760px">
       <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Outras soluções</span>
       <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d">Produtos que geram transformação e valor</h2>
-      <p style="font-size:16px;color:#555;text-wrap:pretty">Além da Deyel, a Optaris do Brasil oferece soluções de processos de negócio, segurança e auditoria, RPA, business intelligence e customer experience com Glassix, e produtos de parceiros como Bottomline, IBM, UiPath e Automation Anywhere.</p>
+      <p style="font-size:16px;color:#555;text-wrap:pretty">Além da Deyel, a Optaris oferece soluções de processos, segurança e auditoria, RPA, BI e atendimento com Glassix, e produtos de parceiros como Bottomline, IBM, UiPath e Automation Anywhere.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:22px;margin-bottom:80px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:22px;margin-bottom:44px">
       <sc-for list="{{ solutions }}" as="so" hint-placeholder-count="5">
         <div data-reveal="" style="transition-delay:{{ so.delay }};display:flex;flex-direction:column;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff;transition-property:opacity,transform,box-shadow" style-hover="box-shadow:0 20px 40px -18px rgba(2,19,45,.25)">
           <div style="aspect-ratio:16/9;background:#f4f8fd;display:flex;align-items:center;justify-content:center;overflow:hidden">
@@ -1010,17 +1019,17 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section id="institucional" data-screen-label="06 Institucional" data-noprint="" style="padding:110px 0;background:#02132d;color:#fff">
+<section id="institucional" data-screen-label="06 Institucional" data-noprint="" style="padding:68px 0;background:#02132d;color:#fff">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;margin-bottom:60px">
-      <h2 data-reveal="" style="color:#0496ff;font-size:clamp(28px,3.4vw,42px);font-weight:900;text-wrap:balance">Nossa paixão é a tecnologia e nosso compromisso é com o cliente.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;margin-bottom:36px">
+      <h2 data-reveal="" style="color:#0496ff;font-size:clamp(28px,3.4vw,42px);font-weight:900;text-wrap:balance">Tecnologia é a nossa paixão. O cliente, o nosso compromisso.</h2>
       <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;font-size:15px;color:#dfe6f0;transition-delay:.15s">
-        <p>Somos uma empresa tecnológica que oferece soluções de software focadas no mercado latino-americano. Nos dedicamos a impulsionar a transformação digital de organizações que buscam otimizar seus processos de negócios de maneira rápida, simples e eficaz.</p>
-        <p>Nossa paixão pela tecnologia e nosso compromisso com a excelência nos impulsionam a desenvolver recursos tecnológicos que respondam às necessidades atuais e, além disso, antecipem desafios futuros.</p>
-        <p>Na Optaris, acreditamos na colaboração entre equipes de TI e especialistas de negócios como eixo central para o crescimento organizacional de uma empresa.<br>Junte-se a nós em nossa jornada rumo à excelência digital. <strong style="color:#fff">Vamos explorar juntos suas metas empresariais!</strong></p>
+        <p>Somos uma empresa de software focada na América Latina. Ajudamos empresas a melhorar os seus processos de um jeito rápido, simples e eficaz.</p>
+        <p>Criamos tecnologia que resolve o que você precisa hoje e já se prepara para o que vem depois.</p>
+        <p>Acreditamos que TI e negócio crescem juntos quando trabalham lado a lado. <strong style="color:#fff">Vamos conversar sobre os seus objetivos?</strong></p>
       </div>
     </div>
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:20px;margin-bottom:60px;padding-top:28px;border-top:1px solid rgba(255,255,255,.14)">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:20px;margin-bottom:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,.14)">
       <p style="margin:0;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.6vw,28px);line-height:1.25;color:#fff;max-width:900px;text-wrap:balance">Escritórios em três continentes: EUA, Brasil, México, Argentina, Chile, Panamá, Espanha, Portugal, Alemanha e Israel.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0">
         <div style="display:flex;flex-direction:column;gap:8px;padding:18px 20px 18px 0;border-top:2px solid #0496ff;margin-right:20px"><span style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><strong style="font-family:Lato,sans-serif;font-weight:900;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#7cc4ff">América</strong><span style="font-family:Lato,sans-serif;font-weight:900;font-size:28px;line-height:1;color:#fff">6</span></span><span style="font-size:16px;line-height:1.5;color:#dfe6f0">EUA · Brasil · México · Argentina · Chile · Panamá</span></div>
@@ -1043,12 +1052,12 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section id="perguntas" data-screen-label="07 Perguntas frequentes" data-noprint="" style="padding:110px 0;background:#f4f8fd;border-top:1px solid #e5e7eb">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:56px;align-items:start">
+<section id="perguntas" data-screen-label="07 Perguntas frequentes" data-noprint="" style="padding:68px 0;background:#f4f8fd;border-top:1px solid #e5e7eb">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:36px;align-items:start">
     <div data-reveal="" style="display:flex;flex-direction:column;gap:14px">
       <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Perguntas frequentes</span>
       <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Respostas curtas sobre low-code, Deyel e licenças Consist</h2>
-      <p style="font-size:16px;color:#555;text-wrap:pretty">As dúvidas mais comuns de quem decide, desenvolve ou mantém sistemas Consist, respondidas de forma direta.</p>
+      <p style="font-size:16px;color:#555;text-wrap:pretty">As dúvidas mais comuns de quem decide, desenvolve ou mantém sistemas Consist, sem rodeio.</p>
     </div>
     <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;transition-delay:.15s">
       <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="5">
@@ -1061,11 +1070,11 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section id="contato" data-screen-label="08 Contato" data-noprint="" style="position:relative;padding:110px 0;color:#fff;background:linear-gradient(110deg,#0496ff 0%,#5b3fc4 35%,#a1238f 62%,#e8335a 85%,#f46b45 100%);background-size:200% 200%;animation:gradMove 18s ease infinite">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:start">
+<section id="contato" data-screen-label="08 Contato" data-noprint="" style="position:relative;padding:68px 0;color:#fff;background:linear-gradient(110deg,#0496ff 0%,#5b3fc4 35%,#a1238f 62%,#e8335a 85%,#f46b45 100%);background-size:200% 200%;animation:gradMove 18s ease infinite">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;align-items:start">
     <div data-reveal="" style="display:flex;flex-direction:column;gap:16px">
-      <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;text-wrap:balance">Impulsione a transformação digital da sua empresa com tecnologia que potencializa seu negócio</h2>
-      <p style="opacity:.92">Se quiser saber mais, preencha o formulário e entraremos em contato com você.</p>
+      <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;text-wrap:balance">Vamos conversar sobre o que a sua empresa precisa?</h2>
+      <p style="opacity:.92">Preencha o formulário e a gente entra em contato.</p>
       <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px">
         <a href="mailto:comercial@optarisbrasil.com" style="display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-size:18px;font-weight:500;background:rgba(2,19,45,.25);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:14px 18px" style-hover="background:rgba(2,19,45,.45);color:#fff">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>comercial@optarisbrasil.com
@@ -1253,7 +1262,7 @@ const OC={sis:'#0496ff',pes:'#5b3fc4',ia:'#e8335a'};
 const SLA=[['Pedido recebido','App do cliente','sis',10,3,18,'Comercial'],['Análise de crédito','ERP SAP','sis',30,12,26,'Gerente de crédito'],['Validação de documentos','Agente de IA','ia',20,15,22,'Analista de cadastro'],['Aprovação de alçada','Marina · Gerente','pes',240,170,34,'Diretor financeiro'],['Homologação do fornecedor','Agente de compras','ia',60,38,28,'Gestor de compras'],['Pagamento','ERP · Contas a pagar','sis',120,20,40,'Tesouraria']];
 const TL={sis:['Sistema','rgba(4,150,255,.2)','#7cc4ff'],pes:['Pessoa','rgba(91,63,196,.3)','#c3b5ff'],ia:['Agente de IA','rgba(232,51,90,.22)','#ff9fb2']};
 const fmtM=m=>{m=Math.floor(m);return m<60?m+' min':Math.floor(m/60)+'h '+String(m%60).padStart(2,'0')+'min';};
-const VM=[['Sourcing','cotação e escolha'],['Homologação','fornecedor por número'],['Contrato','vigência e risco'],['Pedido','alçada e aprovação'],['Pagamento','integrado ao ERP']];
+const VM=[['Sourcing','cotação e escolha'],['Homologação','cadastro do fornecedor'],['Contrato','vigência e risco'],['Pedido','alçada e aprovação'],['Pagamento','integrado ao ERP']];
 
 const FORM_GUID='ec61738a-2bf9-4522-8e45-6e0b9b41673d';
 const HS_PORTAL_ID='45901870';
@@ -1380,7 +1389,7 @@ class Component extends DCLogic {
       menuOpen:!!s.menu,menuAria:s.menu?'true':'false',
       openMenu:()=>{document.body.style.overflow='hidden';this.setState({menu:true});},
       closeMenu:()=>{document.body.style.overflow='';this.setState({menu:false});},
-      menuItems:[['Criar aplicativos', '#aplicativos'], ['Automatizar processos', '#processos-porta'], ['Ver demos', '#demo-vendor'], ['Plataforma Deyel', 'https://br.deyel.com/', 1], ['Usina de Apps', '#fabrica'], ['Produtos prontos', '#produtos-80-20'], ['Soluções Consist', 'solucoes-consist/'], ['Outras soluções e parceiros', '#solucoes'], ['Quem somos', '#institucional'], ['Mídia', 'midia/'], ['Fale com a gente', '#contato']].map(x=>({t:x[0],href:x[1],target:x[2]?'_blank':'_self',rel:x[2]?'noopener':'',arrow:x[2]?'↗':'→',color:x[2]?'#ff9fb2':'#fff'})),
+      menuItems:[['Criar aplicativos', '#aplicativos'], ['Automatizar processos', '#processos-porta'], ['Veja Vendor', '#vendor'], ['Demos · Deyel no ar', '#deyel-no-ar'], ['Plataforma Deyel', 'https://br.deyel.com/', 1], ['Usina de Apps', '#fabrica'], ['Produtos prontos', '#produtos-80-20'], ['Soluções Consist', 'solucoes-consist/'], ['Outras soluções e parceiros', '#solucoes'], ['Quem somos', '#institucional'], ['Mídia', 'midia/'], ['Fale com a gente', '#contato']].map(x=>({t:x[0],href:x[1],target:x[2]?'_blank':'_self',rel:x[2]?'noopener':'',arrow:x[2]?'↗':'→',color:x[2]?'#ff9fb2':'#fff'})),
       motionAttr:motion?'on':'off',
       headerBg:s.scrolled?'rgba(2,19,45,.95)':'rgba(2,19,45,.35)',
       typedText:PROMPT.slice(0,typed),
