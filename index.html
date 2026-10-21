@@ -105,6 +105,36 @@ section{scroll-margin-top:40px}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.6);opacity:0}}
 @keyframes blink{50%{opacity:0}}
+/* robozinhos IA */
+.bot-float{animation:botBob 1.6s ease-in-out infinite}
+.bot-wing{transform-box:fill-box;transform-origin:50% 100%;animation:botFlap .11s ease-in-out infinite alternate}
+.bot-eyes{transition:transform .35s ease}
+.bot-blink{transform-box:fill-box;transform-origin:center;animation:botBlink 4.2s infinite}
+.bot-ant{animation:botGlow 1.4s ease-in-out infinite}
+@keyframes botBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes botFlap{from{transform:scaleY(1)}to{transform:scaleY(.45)}}
+@keyframes botBlink{0%,93%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes botGlow{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes botNod{0%,100%{transform:rotate(0)}30%{transform:translateY(3px) rotate(-4deg)}65%{transform:translateY(-1px) rotate(3deg)}}
+@keyframes botNote{0%{opacity:0;transform:translate(0,4px) scale(.7)}25%{opacity:1}100%{opacity:0;transform:translate(10px,-22px) scale(1.1)}}
+@keyframes botWork{0%,100%{transform:translate(0,0) rotate(0)}25%{transform:translate(-2px,1px) rotate(-8deg)}75%{transform:translate(2px,-1px) rotate(8deg)}}
+@keyframes botSpark{0%{opacity:0;transform:scale(.3)}40%{opacity:1}100%{opacity:0;transform:scale(1.4)}}
+[data-diana] .bot-head{transform-box:fill-box;transform-origin:50% 80%}
+[data-diana][data-dm="listen"] .bot-eyes{transform:translate(-2.2px,1.6px)}
+[data-diana][data-dm="ack"] .bot-eyes{transform:translate(0,0) scale(1.12)}
+[data-diana][data-dm="work"] .bot-eyes{transform:translate(-1px,2.4px)}
+[data-diana][data-dm="ack"] .bot-head{animation:botNod .5s ease-in-out 2}
+[data-diana] .bot-notes{opacity:0}
+[data-diana][data-dm="ack"] .bot-notes{opacity:1}
+[data-diana][data-dm="ack"] .bot-note{animation:botNote 1.1s ease-out infinite}
+[data-diana][data-dm="ack"] .bot-note:nth-child(2){animation-delay:.35s}
+[data-diana][data-dm="ack"] .bot-note:nth-child(3){animation-delay:.7s}
+[data-worker][data-wm="work"] .bot-body{animation:botWork .28s ease-in-out infinite}
+[data-worker] .bot-spark{opacity:0}
+[data-worker][data-wm="work"] .bot-spark{animation:botSpark .6s ease-out infinite}
+.bot-ico{display:inline-block;width:1.25em;height:1.25em;vertical-align:-.28em;margin-right:.2em}
+@media (prefers-reduced-motion:reduce){[data-bots] [data-worker]{display:none}}
+
 [data-step]{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 svg [data-step]{transform:none}
 [data-step][data-on]{opacity:1;transform:none}
@@ -159,8 +189,8 @@ body{overflow-x:clip}
 /* animação "uma construção, três saídas" */
 .tsx-wrap{width:100%;max-width:620px;margin:0 auto}
 .tsx{display:block;width:100%;height:auto;overflow:visible;font-family:Lato,"Helvetica Neue",Arial,sans-serif}
-.tsx .tsx-lbl{font-size:15px;fill:#e8335a}
-.tsx .tsx-cap{font-size:18px;fill:#e8335a;opacity:0;transition:opacity .45s}
+.tsx .tsx-lbl{font-size:15px;font-weight:600;letter-spacing:.02em;fill:#6b7686}
+.tsx .tsx-cap{font-size:19px;font-weight:700;fill:#02132d;opacity:0;transition:opacity .45s}
 .tsx .tsx-tick{stroke:#e8335a;stroke-width:1.5}
 .tsx .bk,.tsx .sc{opacity:0;transform:translateY(6px) scale(.94);transform-box:fill-box;transform-origin:center;transition:opacity .35s,transform .5s cubic-bezier(.2,.9,.25,1.2)}
 .tsx.s1 .bk,.tsx.s3 .sc{opacity:1;transform:none}
@@ -179,7 +209,7 @@ body{overflow-x:clip}
 .tsx.s4 .dev .ring{animation-delay:.5s}
 @keyframes tsx-ring{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.25,2)}}
 .tsx.s3 .capA{opacity:1}
-.tsx.s4 .capA{opacity:0}
+.tsx.s4 .capA{opacity:1}
 .tsx.s4 .capB{opacity:1}
 .tsx .cur{opacity:0;transition:transform .45s cubic-bezier(.4,0,.2,1),opacity .3s}
 .tsx .cur.on{opacity:1}
@@ -192,6 +222,23 @@ body{overflow-x:clip}
 
 <div data-motion="{{ motionAttr }}" style="overflow-x:hidden;background:#fff">
 
+<svg width="0" height="0" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <linearGradient id="botDiana" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7aa8"></stop><stop offset=".55" stop-color="#e8335a"></stop><stop offset="1" stop-color="#a1238f"></stop></linearGradient>
+    <linearGradient id="botBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5cc2ff"></stop><stop offset="1" stop-color="#2f6bff"></stop></linearGradient>
+    <symbol id="bot-w" viewBox="0 0 48 48">
+      <ellipse class="bot-wing" cx="13" cy="15" rx="8" ry="10" fill="#dff1ff" fill-opacity=".75" stroke="#9fd4ff" stroke-width="1" transform="rotate(-28 13 15)"></ellipse>
+      <ellipse class="bot-wing" cx="35" cy="15" rx="8" ry="10" fill="#dff1ff" fill-opacity=".75" stroke="#9fd4ff" stroke-width="1" transform="rotate(28 35 15)"></ellipse>
+      <line x1="24" y1="13" x2="24" y2="7" stroke="#2f6bff" stroke-width="2" stroke-linecap="round"></line>
+      <circle class="bot-ant" cx="24" cy="6" r="2.6" fill="#ffd23f"></circle>
+      <circle cx="24" cy="28" r="14" fill="url(#botBlue)"></circle>
+      <path d="M13.5 35 Q24 39.5 34.5 35" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.2" stroke-linecap="round"></path>
+      <rect x="15" y="21" width="18" height="10" rx="5" fill="#02132d"></rect>
+      <circle class="bot-blink" cx="20.5" cy="26" r="2.1" fill="#7cfcff"></circle>
+      <circle class="bot-blink" cx="27.5" cy="26" r="2.1" fill="#7cfcff"></circle>
+    </symbol>
+  </defs>
+</svg>
 <header data-noprint="" style="position:fixed;top:0;left:0;right:0;z-index:50;background:{{ headerBg }};backdrop-filter:blur(8px);transition:background .3s">
   <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;gap:24px">
     <a href="#top" style="margin-right:auto;display:flex;align-items:center;text-decoration:none;flex:0 0 auto"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Logo-nuevo.png" alt="Optaris do Brasil — página inicial" width="140" height="28" fetchpriority="high" style="height:28px;width:auto;display:block"></img><span style="font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;font-size:15.5px;line-height:1;letter-spacing:.03em;color:#fff;margin-left:-6px;white-space:nowrap;text-decoration:none">BRASIL</span></a>
@@ -321,9 +368,9 @@ body{overflow-x:clip}
           </div>
           <div style="position:relative;padding:8px 0 0">
 <div data-step="1" class="tsx-wrap" role="img" aria-label="Animação: um aplicativo construído uma vez é publicado no navegador, no Android e no iOS, com os mesmos dados e as mesmas regras">
-<svg class="tsx" viewBox="0 0 600 570" xmlns="http://www.w3.org/2000/svg">
+<svg class="tsx" viewBox="0 0 600 580" xmlns="http://www.w3.org/2000/svg">
 <defs><linearGradient id="tsx-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0496ff"></stop><stop offset="1" stop-color="#5b3fc4"></stop></linearGradient><linearGradient id="tsx-fg" gradientUnits="userSpaceOnUse" x1="0" y1="182" x2="0" y2="296"><stop offset="0" stop-color="#0496ff"></stop><stop offset="1" stop-color="#5b3fc4"></stop></linearGradient><filter id="tsx-sh" x="-25%" y="-20%" width="150%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#02132d" flood-opacity=".14"></feDropShadow></filter></defs>
-<text class="tsx-lbl" x="300" y="16" text-anchor="middle">construído uma vez</text><line class="tsx-tick" x1="300" y1="22" x2="300" y2="29"></line>
+<text class="tsx-lbl" x="300" y="16" text-anchor="middle">construído uma vez</text>
 <g><rect x="180" y="30" width="240" height="150" rx="12" fill="#fff" filter="url(#tsx-sh)"></rect><path d="M180 42a12 12 0 0 1 12-12h216a12 12 0 0 1 12 12v6H180z" fill="#02132d"></path><text x="192" y="42.5" font-size="8" font-weight="700" fill="#fff">Construtor Deyel</text><rect x="370" y="33" width="42" height="12" rx="6" fill="#0496ff"></rect><text x="391" y="41.5" font-size="6.5" font-weight="700" fill="#fff" text-anchor="middle">Publicar</text><rect x="190" y="58" width="18" height="18" rx="4" fill="#eef2f8"></rect><rect x="194" y="66" width="10" height="2.5" rx="1.2" fill="#b9c3d3"></rect><rect x="190" y="82" width="18" height="18" rx="4" fill="#eef2f8"></rect><rect x="194.5" y="86.5" width="9" height="9" rx="2" fill="#b9c3d3"></rect><rect x="190" y="106" width="18" height="18" rx="4" fill="#eef2f8"></rect><rect x="193.5" y="112.5" width="11" height="5" rx="2.5" fill="#b9c3d3"></rect><rect x="190" y="130" width="18" height="18" rx="4" fill="#eef2f8"></rect><rect x="193.5" y="136" width="11" height="6" rx="1.5" fill="#9fd0ff"></rect><line x1="216" y1="54" x2="216" y2="174" stroke="#edf0f4"></line>
 <g class="bk" data-d="0.1"><text x="226" y="66" font-size="10" font-weight="900" fill="#02132d">Portal do cliente</text></g><g class="bk" data-d="0.75"><rect x="226" y="74" width="56" height="22" rx="5" fill="url(#tsx-g)"></rect></g><g class="bk" data-d="0.85"><rect x="288" y="74" width="56" height="22" rx="5" fill="#e6f3ff"></rect></g><g class="bk" data-d="0.95"><rect x="350" y="74" width="56" height="22" rx="5" fill="#e6f3ff"></rect></g><g class="bk" data-d="1.55"><g class="st-a"><rect x="226" y="104" width="130" height="14" rx="7.0" fill="#fff1d6"></rect><circle cx="234.0" cy="111.0" r="2.38" fill="#e39a12"></circle><text x="241" y="113.52" font-size="7" font-weight="700" fill="#9a5c00">Pedido #1042 · em análise</text></g><g class="st-b"><rect x="226" y="104" width="130" height="14" rx="7.0" fill="#ddf5e8"></rect><circle cx="234.0" cy="111.0" r="2.38" fill="#22a06b"></circle><text x="241" y="113.52" font-size="7" font-weight="700" fill="#16794a">Pedido #1042 · aprovado</text></g><rect class="ring" x="226" y="104" width="130" height="14" rx="7.0" fill="none" stroke="#22a06b" stroke-width="1.4"></rect></g><g class="bk" data-d="1.65"><rect x="226" y="126" width="180" height="5" rx="2.5" fill="#e6e8ec"></rect></g><g class="bk" data-d="1.75"><rect x="226" y="136" width="136" height="5" rx="2.5" fill="#e6e8ec"></rect></g><g class="bk" data-d="2.35"><rect x="350" y="156" width="56" height="14" rx="5" fill="#0496ff"></rect></g></g>
 <g fill="none" stroke-linecap="round"><path d="M300 184C300 250 155 236 155 296" stroke="#cfd3dc" stroke-dasharray="2 5" stroke-width="1.5"></path><path d="M300 184C300 236 395 228 395 276" stroke="#cfd3dc" stroke-dasharray="2 5" stroke-width="1.5"></path><path d="M300 184C300 232 520 222 520 276" stroke="#cfd3dc" stroke-dasharray="2 5" stroke-width="1.5"></path><path class="fl" d="M300 184C300 250 155 236 155 296" stroke="url(#tsx-fg)" stroke-width="2.5"></path><path class="fl" d="M300 184C300 236 395 228 395 276" stroke="url(#tsx-fg)" stroke-width="2.5"></path><path class="fl" d="M300 184C300 232 520 222 520 276" stroke="url(#tsx-fg)" stroke-width="2.5"></path></g>
@@ -332,8 +379,8 @@ body{overflow-x:clip}
 <g class="dev"><rect x="20" y="300" width="270" height="180" rx="10" fill="#fff" filter="url(#tsx-sh)"></rect><path class="scr" d="M20 322h270v148a10 10 0 0 1-10 10H30a10 10 0 0 1-10-10z"></path><path d="M20 322h54v158H30a10 10 0 0 1-10-10z" fill="#f4f8fd"></path><path d="M20 310a10 10 0 0 1 10-10h250a10 10 0 0 1 10 10v12H20z" fill="#02132d"></path><circle cx="32" cy="311" r="3.2" fill="#ff5d73"></circle><circle cx="42" cy="311" r="3.2" fill="#ffc27a"></circle><circle cx="52" cy="311" r="3.2" fill="#3ddc97"></circle><rect x="64" y="306" width="214" height="10" rx="5" fill="#23304d"></rect><g class="sc" data-d="0"><rect x="30" y="336" width="34" height="5" rx="2.5" fill="#0496ff"></rect><rect x="30" y="348" width="28" height="5" rx="2.5" fill="#dfe4ec"></rect><rect x="30" y="358" width="32" height="5" rx="2.5" fill="#dfe4ec"></rect><rect x="30" y="368" width="24" height="5" rx="2.5" fill="#dfe4ec"></rect></g><g class="sc" data-d="0.05"><text x="84" y="342" font-size="11" font-weight="900" fill="#02132d">Portal do cliente</text></g><g class="sc" data-d="0.15"><rect x="84" y="350" width="60" height="26" rx="5" fill="url(#tsx-g)"></rect></g><g class="sc" data-d="0.25"><rect x="148" y="350" width="60" height="26" rx="5" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.35"><rect x="212" y="350" width="60" height="26" rx="5" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.5"><g class="st-a"><rect x="84" y="384" width="140" height="15" rx="7.5" fill="#fff1d6"></rect><circle cx="92.5" cy="391.5" r="2.55" fill="#e39a12"></circle><text x="100" y="394.2" font-size="7.5" font-weight="700" fill="#9a5c00">Pedido #1042 · em análise</text></g><g class="st-b"><rect x="84" y="384" width="140" height="15" rx="7.5" fill="#ddf5e8"></rect><circle cx="92.5" cy="391.5" r="2.55" fill="#22a06b"></circle><text x="100" y="394.2" font-size="7.5" font-weight="700" fill="#16794a">Pedido #1042 · aprovado</text></g><rect class="ring" x="84" y="384" width="140" height="15" rx="7.5" fill="none" stroke="#22a06b" stroke-width="1.4"></rect></g><g class="sc" data-d="0.65"><rect x="84" y="410" width="188" height="5" rx="2.5" fill="#e6e8ec"></rect><rect x="84" y="420" width="148" height="5" rx="2.5" fill="#e6e8ec"></rect></g><g class="sc" data-d="0.8"><rect x="214" y="452" width="58" height="15" rx="5" fill="#0496ff"></rect></g></g>
 <g class="dev"><rect x="445" y="328" width="2.5" height="24" rx="1" fill="#02132d"></rect><rect x="345" y="280" width="100" height="200" rx="14" fill="#02132d" filter="url(#tsx-sh)"></rect><rect class="scr" x="351" y="286" width="88" height="188" rx="9"></rect><g class="sc" data-d="0.05"><text x="359" y="310" font-size="8.5" font-weight="900" fill="#02132d">Portal do cliente</text></g><g class="sc" data-d="0.15"><rect x="359" y="318" width="72" height="18" rx="4" fill="url(#tsx-g)"></rect></g><g class="sc" data-d="0.25"><rect x="359" y="340" width="72" height="18" rx="4" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.35"><rect x="359" y="362" width="72" height="18" rx="4" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.5"><g class="st-a"><rect x="359" y="386" width="72" height="13" rx="6.5" fill="#fff1d6"></rect><circle cx="366.5" cy="392.5" r="2.21" fill="#e39a12"></circle><text x="373" y="394.59" font-size="5.8" font-weight="700" fill="#9a5c00">#1042 em análise</text></g><g class="st-b"><rect x="359" y="386" width="72" height="13" rx="6.5" fill="#ddf5e8"></rect><circle cx="366.5" cy="392.5" r="2.21" fill="#22a06b"></circle><text x="373" y="394.59" font-size="5.8" font-weight="700" fill="#16794a">#1042 aprovado</text></g><rect class="ring" x="359" y="386" width="72" height="13" rx="6.5" fill="none" stroke="#22a06b" stroke-width="1.4"></rect></g><g class="sc" data-d="0.65"><rect x="359" y="408" width="66" height="4" rx="2" fill="#e6e8ec"></rect><rect x="359" y="417" width="48" height="4" rx="2" fill="#e6e8ec"></rect></g><g class="sc" data-d="0.8"><rect x="359" y="446" width="72" height="14" rx="4" fill="#0496ff"></rect></g><circle cx="395" cy="292.5" r="2.6" fill="#02132d"></circle></g>
 <g class="dev"><rect x="467.5" y="318" width="2.5" height="14" rx="1" fill="#02132d"></rect><rect x="467.5" y="338" width="2.5" height="22" rx="1" fill="#02132d"></rect><rect x="470" y="280" width="100" height="200" rx="22" fill="#02132d" filter="url(#tsx-sh)"></rect><rect class="scr" x="476" y="286" width="88" height="188" rx="16"></rect><g class="sc" data-d="0.05"><text x="484" y="310" font-size="8.5" font-weight="900" fill="#02132d">Portal do cliente</text></g><g class="sc" data-d="0.15"><rect x="484" y="318" width="72" height="18" rx="4" fill="url(#tsx-g)"></rect></g><g class="sc" data-d="0.25"><rect x="484" y="340" width="72" height="18" rx="4" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.35"><rect x="484" y="362" width="72" height="18" rx="4" fill="#e6f3ff"></rect></g><g class="sc" data-d="0.5"><g class="st-a"><rect x="484" y="386" width="72" height="13" rx="6.5" fill="#fff1d6"></rect><circle cx="491.5" cy="392.5" r="2.21" fill="#e39a12"></circle><text x="498" y="394.59" font-size="5.8" font-weight="700" fill="#9a5c00">#1042 em análise</text></g><g class="st-b"><rect x="484" y="386" width="72" height="13" rx="6.5" fill="#ddf5e8"></rect><circle cx="491.5" cy="392.5" r="2.21" fill="#22a06b"></circle><text x="498" y="394.59" font-size="5.8" font-weight="700" fill="#16794a">#1042 aprovado</text></g><rect class="ring" x="484" y="386" width="72" height="13" rx="6.5" fill="none" stroke="#22a06b" stroke-width="1.4"></rect></g><g class="sc" data-d="0.65"><rect x="484" y="408" width="66" height="4" rx="2" fill="#e6e8ec"></rect><rect x="484" y="417" width="48" height="4" rx="2" fill="#e6e8ec"></rect></g><g class="sc" data-d="0.8"><rect x="484" y="446" width="72" height="14" rx="4" fill="#0496ff"></rect></g><rect x="503" y="290.5" width="34" height="8" rx="4" fill="#02132d"></rect><rect x="505" y="467" width="30" height="3" rx="1.5" fill="#02132d" opacity=".35"></rect></g>
-<line class="tsx-tick" x1="155" y1="486" x2="155" y2="495"></line><line class="tsx-tick" x1="395" y1="486" x2="395" y2="495"></line><line class="tsx-tick" x1="520" y1="486" x2="520" y2="495"></line><text class="tsx-lbl" x="155" y="514" text-anchor="middle">navegador</text><text class="tsx-lbl" x="395" y="514" text-anchor="middle">Android</text><text class="tsx-lbl" x="520" y="514" text-anchor="middle">iOS</text>
-<text class="tsx-cap capA" x="300" y="556" text-anchor="middle">uma construção, três saídas</text><text class="tsx-cap capB" x="300" y="556" text-anchor="middle">mesmos dados, mesmas regras</text>
+<text class="tsx-lbl" x="155" y="500" text-anchor="middle">Navegador</text><text class="tsx-lbl" x="395" y="500" text-anchor="middle">Android</text><text class="tsx-lbl" x="520" y="500" text-anchor="middle">iOS</text>
+<text class="tsx-cap capA" x="300" y="540" text-anchor="middle"><tspan x="300" dy="0">Uma conversa com a Diana, e sua solução</tspan><tspan x="300" dy="26">roda em qualquer dispositivo.</tspan></text>
 <g class="cur"><circle class="clk" cx="0" cy="0" r="9" fill="none" stroke="#0496ff" stroke-width="2"></circle><path d="M0 0L0 13.5 3.6 10.2 6.2 15.6 8.4 14.6 5.8 9.3 10.4 9.3z" fill="#02132d" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"></path></g>
 </svg>
 </div>
@@ -356,7 +403,7 @@ body{overflow-x:clip}
           </sc-for>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <span style="background:#e6f3ff;color:#007bff;border-radius:20px;padding:4px 12px;font-size:13px;font-weight:500">Diana</span>
+          <span style="background:#e6f3ff;color:#007bff;border-radius:20px;padding:4px 12px;font-size:13px;font-weight:500"><svg class="bot-ico" viewBox="0 0 48 48" aria-hidden="true"><use href="#bot-w"></use></svg>Diana</span>
           <span style="background:#e6f3ff;color:#007bff;border-radius:20px;padding:4px 12px;font-size:13px;font-weight:500">BPMN</span>
           <span style="background:#e6f3ff;color:#007bff;border-radius:20px;padding:4px 12px;font-size:13px;font-weight:500">Web · Android · iOS</span>
           <span style="background:#e6f3ff;color:#007bff;border-radius:20px;padding:4px 12px;font-size:13px;font-weight:500">Aprovação humana</span>
@@ -364,14 +411,46 @@ body{overflow-x:clip}
         <a href="https://lpbr.deyel.com/vibe-coding3/" target="_blank" rel="noopener" style="align-self:flex-start;border:2px solid #0496ff;color:#0496ff;text-decoration:none;border-radius:4px;padding:10px 20px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#0496ff;color:#fff">Ver o Vibe Coding em detalhe</a>
       </div>
 
-      <div data-reveal="" data-demo="" style="transition-delay:.15s;background:#02132d;border-radius:14px;box-shadow:0 30px 60px -20px rgba(2,19,45,.45);overflow:hidden;color:#fff">
+      <div data-reveal="" data-demo="" style="position:relative;transition-delay:.15s;background:#02132d;border-radius:14px;box-shadow:0 30px 60px -20px rgba(2,19,45,.45);overflow:hidden;color:#fff">
+        <div data-bots="" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:3">
+          <div data-diana="" data-dm="{{ dMode }}" style="position:absolute;left:{{ dX }};top:{{ dY }};width:48px;height:48px;margin:-24px 0 0 -24px;transition:left .9s cubic-bezier(.3,.7,.2,1),top .9s cubic-bezier(.3,.7,.2,1)">
+            <div class="bot-float">
+            <svg viewBox="0 0 56 56" width="48" height="48" style="overflow:visible">
+              <g class="bot-head">
+                <ellipse class="bot-wing" cx="15" cy="17" rx="9" ry="11.5" fill="#ffe3ee" fill-opacity=".8" stroke="#ffb3cb" stroke-width="1" transform="rotate(-28 15 17)"></ellipse>
+                <ellipse class="bot-wing" cx="41" cy="17" rx="9" ry="11.5" fill="#ffe3ee" fill-opacity=".8" stroke="#ffb3cb" stroke-width="1" transform="rotate(28 41 17)"></ellipse>
+                <line x1="28" y1="15" x2="28" y2="8" stroke="#a1238f" stroke-width="2.2" stroke-linecap="round"></line>
+                <path class="bot-ant" d="M28 1.5 L29.6 5 L33.3 5.3 L30.5 7.7 L31.4 11.3 L28 9.4 L24.6 11.3 L25.5 7.7 L22.7 5.3 L26.4 5 Z" fill="#ffd23f"></path>
+                <circle cx="28" cy="32" r="16.5" fill="url(#botDiana)"></circle>
+                <circle cx="22" cy="25" r="4" fill="#fff" fill-opacity=".25"></circle>
+                <rect x="16" y="25" width="24" height="12.5" rx="6.25" fill="#02132d"></rect>
+                <g class="bot-eyes"><circle class="bot-blink" cx="23" cy="31.2" r="2.6" fill="#7cfcff"></circle><circle class="bot-blink" cx="33" cy="31.2" r="2.6" fill="#7cfcff"></circle></g>
+                <path d="M24 41.5 Q28 44 32 41.5" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="1.8" stroke-linecap="round"></path>
+              </g>
+              <g class="bot-notes" style="transition:opacity .3s">
+                <text class="bot-note" x="44" y="14" font-size="11" fill="#7cfcff" font-family="Arial,sans-serif">♪</text>
+                <text class="bot-note" x="48" y="22" font-size="9" fill="#ffd23f" font-family="Arial,sans-serif">♫</text>
+                <path class="bot-note" d="M42 26 q4 -4 0 -8 M46 28 q7 -7 0 -14" fill="none" stroke="#7cfcff" stroke-width="1.4" stroke-linecap="round"></path>
+              </g>
+            </svg>
+            </div>
+          </div>
+          <sc-for list="{{ demoBots }}" as="b" hint-placeholder-count="4">
+            <div data-worker="" data-wm="{{ b.mode }}" style="position:absolute;left:{{ b.x }};top:{{ b.y }};opacity:{{ b.op }};width:28px;height:28px;margin:-14px 0 0 -14px;transition:left {{ b.dur }} cubic-bezier(.3,.7,.2,1),top {{ b.dur }} cubic-bezier(.3,.7,.2,1),opacity .45s">
+              <div class="bot-float" style="animation-delay:{{ b.delay }}">
+                <svg viewBox="0 0 48 48" width="28" height="28" style="overflow:visible"><g class="bot-body" style="transform-box:fill-box;transform-origin:center"><use href="#bot-w"></use></g><g class="bot-spark"><path d="M40 6 l1.6 3.6 3.6 1.6 -3.6 1.6 -1.6 3.6 -1.6 -3.6 -3.6 -1.6 3.6 -1.6z" fill="#ffd23f"></path></g></svg>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
         <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.1);font-size:12px;color:#9fb1c8">
           <span style="width:10px;height:10px;border-radius:50%;background:#e8335a"></span><span style="width:10px;height:10px;border-radius:50%;background:#f46b45"></span><span style="width:10px;height:10px;border-radius:50%;background:#0496ff"></span>
           <span style="margin-left:10px">Deyel · Vibe Coding</span>
           <span style="margin-left:auto;display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#7cc4ff;animation:blink 1s infinite"></span>{{ demoStatus }}</span>
         </div>
         <div style="padding:22px;display:flex;flex-direction:column;gap:18px">
-          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:14px 16px;font-size:15px;line-height:1.55;min-height:96px">
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:14px 58px 14px 16px;font-size:15px;line-height:1.55;min-height:96px">
             <span style="color:#7cc4ff;font-weight:500">Você › </span>{{ typedText }}<span style="display:inline-block;width:2px;height:16px;background:#7cc4ff;vertical-align:-2px;margin-left:2px;animation:blink 1s step-end infinite"></span>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
@@ -507,7 +586,7 @@ body{overflow-x:clip}
             <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">Os agentes de IA entram no fluxo como gente do time: cada um com o que pode fazer, os seus limites e o registro de tudo o que fez.</p>
             <div style="display:flex;flex-direction:column;gap:10px">
               <sc-for list="{{ orchLegend }}" as="lgd" hint-placeholder-count="3">
-                <div style="display:flex;gap:12px;align-items:flex-start"><span style="width:12px;height:12px;border-radius:50%;background:{{ lgd.c }};margin-top:5px;flex:0 0 auto"></span><span style="font-size:14px;color:#c7d3e3"><strong style="color:#fff">{{ lgd.t }}</strong> {{ lgd.d }}</span></div>
+                <div style="display:flex;gap:12px;align-items:flex-start"><span style="width:12px;height:12px;border-radius:50%;background:{{ lgd.c }};margin-top:5px;flex:0 0 auto"></span><span style="font-size:14px;color:#c7d3e3"><strong style="color:#fff"><sc-if value="{{ lgd.bot }}" hint-placeholder-val="{{ false }}"><svg class="bot-ico" viewBox="0 0 48 48" aria-hidden="true"><use href="#bot-w"></use></svg></sc-if>{{ lgd.t }}</strong> {{ lgd.d }}</span></div>
               </sc-for>
             </div>
             <div data-step="3" data-cnt="s2" style="display:flex;align-items:baseline;gap:14px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(48px,6vw,80px);line-height:1;color:#e8335a;font-variant-numeric:tabular-nums">{{ cS2 }}</span><span style="font-size:14px;color:#9fb1c8;max-width:240px">participantes no mesmo fluxo, 1 trilha de auditoria</span></div>
@@ -522,7 +601,7 @@ body{overflow-x:clip}
               </svg>
               <sc-for list="{{ orchNodes }}" as="on" hint-placeholder-count="10">
                 <div data-onode="" style="position:absolute;left:{{ on.left }};top:{{ on.top }};transform:translate(-50%,-19px) scale({{ on.sc }});transform-origin:50% 19px;transition:transform .4s;display:flex;flex-direction:column;align-items:center;gap:10px;width:96px;text-align:center">
-                  <span style="position:relative;width:38px;height:38px;border-radius:50%;background:{{ on.bg }};border:2px solid {{ on.c }};box-shadow:{{ on.glow }};display:flex;align-items:center;justify-content:center;color:{{ on.ic }};font-size:11px;font-weight:700;font-family:Lato,sans-serif;transition:all .4s">{{ on.k }}</span>
+                  <span style="position:relative;width:38px;height:38px;border-radius:50%;background:{{ on.bg }};border:2px solid {{ on.c }};box-shadow:{{ on.glow }};display:flex;align-items:center;justify-content:center;color:{{ on.ic }};font-size:11px;font-weight:700;font-family:Lato,sans-serif;transition:all .4s"><sc-if value="{{ on.ia }}" hint-placeholder-val="{{ false }}"><svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><use href="#bot-w"></use></svg></sc-if><sc-if value="{{ on.noia }}" hint-placeholder-val="{{ true }}">{{ on.k }}</sc-if></span>
                   <span style="font-size:11px;line-height:1.2;color:#fff;font-weight:500;background:rgba(2,19,45,.85);border-radius:4px;padding:1px 5px">{{ on.t }}</span>
                 </div>
               </sc-for>
@@ -658,7 +737,7 @@ body{overflow-x:clip}
       <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden">
         <sc-for list="{{ runTiles }}" as="rt" hint-placeholder-count="8">
           <div data-reveal="" style="background:rgba(2,19,45,.6);box-shadow:inset -1px 0 0 rgba(255,255,255,.1),inset 0 -1px 0 rgba(255,255,255,.1);padding:20px;display:flex;flex-direction:column;gap:6px;transition-delay:{{ rt.delay }}">
-            <strong style="font-family:Lato,sans-serif;font-size:16px;color:#fff">{{ rt.t }}</strong>
+            <strong style="font-family:Lato,sans-serif;font-size:16px;color:#fff"><sc-if value="{{ rt.bot }}" hint-placeholder-val="{{ false }}"><svg class="bot-ico" viewBox="0 0 48 48" aria-hidden="true"><use href="#bot-w"></use></svg></sc-if>{{ rt.t }}</strong>
             <span style="font-size:13px;color:#9fb1c8">{{ rt.d }}</span>
           </div>
         </sc-for>
@@ -1168,6 +1247,7 @@ body{overflow-x:clip}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Animação&quot;},&quot;tvLive&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Deyel no ar&quot;}}">
+const ACK=28;
 const PROMPT='Quero um processo de pedidos: o cliente pede pelo celular, o SAP analisa o crédito, o gerente aprova e o cliente recebe aviso pelo WhatsApp.';
 const STEPS=['Interpreta o pedido','Modela as entidades','Gera telas e fluxos','Conecta os sistemas'];
 const NODES=[['App','Pedido'],['SAP','Análise de crédito'],['Gerente','Aprovação'],['WhatsApp','Aviso ao cliente']];
@@ -1311,7 +1391,7 @@ class Component extends DCLogic {
     this.updateStages();
     this.demoVis=true;
     const slow=matchMedia('(max-width:760px)').matches;
-    this.iv=setInterval(()=>{if(this.demoVis&&this.motion())this.setState(s=>({tick:s.tick>=PROMPT.length+16*5+50?0:s.tick+(slow?2:1)}));},slow?110:55);
+    this.iv=setInterval(()=>{if(this.demoVis&&this.motion())this.setState(s=>({tick:s.tick>=PROMPT.length+ACK+16*5+50?0:s.tick+(slow?2:1)}));},slow?110:55);
     this.iv3=setInterval(()=>{if(this.motion())this.setState(s=>({st:(s.st||0)+1}));},1000);
     this.iv4=setInterval(()=>{if(this.motion())this.setState(s=>({orch:((s.orch||0)+1)%ORCH.length}));},1600);
     this.iv2=setInterval(()=>{if(this.motion())this.setState(s=>({vm:(s.vm+1)%VM.length,rt:((s.rt||0)+1)%RUN.length}));},1700);
@@ -1349,10 +1429,32 @@ class Component extends DCLogic {
     else{const t=T[tipo];const a=Math.max(0,Math.min(n,20)-10),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);prod=t.min+a*t.b[0]+b*t.b[1]+c*t.b[2];combo=t.c;note=n<10?'A licença de produção tem mínimo de 10 usuários.':'Mínimo de 10 usuários + adicionais por faixa. Combo fixo (até 5 usuários em Dev e em Hom).';}
     return {fixo,rLabel:tipo==='amb'?'Licença do ambiente':tipo==='ro'?'Licença Read Only':'Licença de produção',rProd:brl(prod),rCombo:combo?brl(combo):'não se aplica',rTotal:brl(prod+combo),rNote:note+' Valores anuais de lista; condições finais na proposta comercial.'};
   }
+  botVals(t,after,step,motion){
+    const PL=PROMPT.length;
+    let dMode='rest',dX='90%',dY='20%';
+    if(motion){
+      if(t<6){dMode='away';dX='112%';dY='-12%';}
+      else if(t<PL){dMode='listen';}
+      else if(after<0){dMode='ack';}
+      else if(step<STEPS.length){dMode='work';}
+    }
+    const NX=['13%','37.5%','62.5%','87%'],NY='68%';
+    const IN=[['-12%','58%'],['37%','118%'],['63%','-14%'],['112%','70%']];
+    const OUT=[['-16%','-18%'],['-14%','120%'],['116%','-20%'],['116%','118%']];
+    const leave=after>=16*STEPS.length;
+    const demoBots=[0,1,2,3].map(i=>{
+      if(!motion)return {x:OUT[i][0],y:OUT[i][1],op:0,mode:'off',dur:'0s',delay:'0s'};
+      const arrived=step>=i&&after>=0;
+      if(leave){const far=after>=16*STEPS.length+22;return {x:OUT[i][0],y:OUT[i][1],op:far?0:1,mode:'fly',dur:'1.3s',delay:(i*.15)+'s'};}
+      if(arrived){const busy=step===i;return {x:NX[i],y:busy?NY:'72%',op:1,mode:busy?'work':'wait',dur:'.7s',delay:(i*.2)+'s'};}
+      return {x:IN[i][0],y:IN[i][1],op:0,mode:'off',dur:'0s',delay:'0s'};
+    });
+    return {dMode,dX,dY,demoBots};
+  }
   renderVals(){
     const s=this.state,motion=this.motion(),tvLive=(this.props.tvLive ?? true)&&!!s.tvOn&&!s.modal;
-    const t=motion?s.tick:PROMPT.length+16*5;
-    const typed=Math.min(t,PROMPT.length),after=t-PROMPT.length,step=after<0?-1:Math.floor(after/16);
+    const t=motion?s.tick:PROMPT.length+ACK+16*5;
+    const typed=Math.min(t,PROMPT.length),after=t-PROMPT.length-ACK,step=after<0?-1:Math.floor(after/16);
     const k=s.k,sim=this.calc();
     const setF=key=>e=>{const v=e.target.value;this.setState(st=>({f:{...st.f,[key]:v}}));};
     const open=id=>()=>this.setState({modal:id});
@@ -1367,7 +1469,8 @@ class Component extends DCLogic {
       motionAttr:motion?'on':'off',
       headerBg:s.scrolled?'rgba(2,19,45,.95)':'rgba(2,19,45,.35)',
       typedText:PROMPT.slice(0,typed),
-      demoStatus:after<0?'ouvindo':done?'pronto':'modelando',
+      demoStatus:t<PROMPT.length?'ouvindo':after<0?'entendido':done?'pronto':'modelando',
+      ...this.botVals(t,after,step,motion),
       demoSteps:STEPS.map((l,i)=>{const d=step>i,c=step===i;return {label:l,mark:d?'✓':c?'•':'',bg:d?'rgba(4,150,255,.18)':c?'rgba(255,255,255,.1)':'rgba(255,255,255,.03)',color:d?'#7cc4ff':c?'#fff':'#6f819b'};}),
       demoNodes:NODES.map((n,i)=>{const v=step>=i+1;return {lane:n[0],label:n[1],op:v?1:0,tf:v?'none':'translateY(12px) scale(.94)'};}),
       publishDot:done?'#3ddc97':'#6f819b',
@@ -1393,8 +1496,8 @@ class Component extends DCLogic {
       chapters:[['01','O que resolvemos','#processos','O problema','Processos que atravessam áreas e sistemas','#e8335a'],['02','Orquestração','#orquestracao','A solução','Sistemas, pessoas e IAs no mesmo fluxo','#0496ff'],['03','SLA em tempo real','#sla','A solução','Painel vivo, de ponta a ponta','#0496ff'],['04','Criar com IA','#criar','A solução','Vibe Coding com a Diana','#0496ff'],['05','Rodar com IA','#rodar','A solução','AI Runtime em cada ação','#0496ff'],['06','Para quem','#cases','Os clientes','Cases em produção, com número','#a1238f']].map(x=>({n:x[0],t:x[1],href:x[2],g:x[3],d:x[4],c:x[5]})),
       verticals:['ERP','CRM','RH e folha','Legado','Nuvem e APIs'],
       horizontals:[['Do pedido ao pagamento','24%','#0496ff','5s','0s'],['Da contratação à folha','54%','#a1238f','6.5s','-2s'],['Do fornecedor ao contas a pagar','84%','#f46b45','5.6s','-3.4s']].map(x=>({t:x[0],top:x[1],c:x[2],dur:x[3],delay:x[4]})),
-      orchLegend:[{c:OC.sis,t:'Sistemas.',d:'ERP, CRM, legados, nuvem e APIs integrados ao mesmo fluxo.'},{c:OC.pes,t:'Pessoas.',d:'Cada tarefa com dono, prazo e alçada.'},{c:OC.ia,t:'Agentes de IA.',d:'Atuam dentro do processo, com regras, limites e auditoria.'}],
-      ...(()=>{const cur=(s.orch||0);return {orchStep:String(cur+1).padStart(2,'0')+'/'+ORCH.length,orchEvent:ORCH[cur][3],orchNodes:ORCH.map((n,i)=>{const ang=-Math.PI/2+i*2*Math.PI/ORCH.length,x=50+40*Math.cos(ang),y=50+40*Math.sin(ang),c=OC[n[1]],on=i===cur;return {ia:n[1]==='ia',t:n[0],k:n[2],x:x.toFixed(2),y:y.toFixed(2),left:x.toFixed(2)+'%',top:y.toFixed(2)+'%',c,bg:on?c:'#0b2347',ic:on?'#fff':c,glow:on?'0 0 0 6px '+c+'33, 0 0 24px '+c:'none',sc:on?1.18:1,line:on?c:'rgba(255,255,255,.22)',lw:on?.9:.35};})};})(),
+      orchLegend:[{c:OC.sis,bot:false,t:'Sistemas.',d:'ERP, CRM, legados, nuvem e APIs integrados ao mesmo fluxo.'},{c:OC.pes,bot:false,t:'Pessoas.',d:'Cada tarefa com dono, prazo e alçada.'},{c:OC.ia,bot:true,t:'Agentes de IA.',d:'Atuam dentro do processo, com regras, limites e auditoria.'}],
+      ...(()=>{const cur=(s.orch||0);return {orchStep:String(cur+1).padStart(2,'0')+'/'+ORCH.length,orchEvent:ORCH[cur][3],orchNodes:ORCH.map((n,i)=>{const ang=-Math.PI/2+i*2*Math.PI/ORCH.length,x=50+40*Math.cos(ang),y=50+40*Math.sin(ang),c=OC[n[1]],on=i===cur;return {ia:n[1]==='ia',noia:n[1]!=='ia',t:n[0],k:n[2],x:x.toFixed(2),y:y.toFixed(2),left:x.toFixed(2)+'%',top:y.toFixed(2)+'%',c,bg:on?c:'#0b2347',ic:on?'#fff':c,glow:on?'0 0 0 6px '+c+'33, 0 0 24px '+c:'none',sc:on?1.18:1,line:on?c:'rgba(255,255,255,.22)',lw:on?.9:.35};})};})(),
       ...(()=>{const t=s.st||0;let red=0,yel=0,maxP=-1,gi=0;const rows=SLA.map((r,i)=>{const cyc=r[3]*1.3,el=(r[4]+t*cyc/r[5])%cyc,p=el/r[3];if(p>maxP){maxP=p;gi=i;}const lvl=p<.7?0:p<1?1:2;if(lvl===2)red++;if(lvl===1)yel++;return {r,el,p,lvl};});
         const C=['#3ddc97','#ffc27a','#ff5d73'];
         const slaRows=rows.map((o,i)=>{const r=o.r,tl=TL[r[2]];return {etapa:r[0],quem:r[1],typeL:tl[0],typeBg:tl[1],typeC:tl[2],tempo:fmtM(o.el),sla:fmtM(r[3]),pct:Math.min(100,o.p*100).toFixed(1)+'%',c:C[o.lvl],status:o.lvl===0?'No prazo':o.lvl===1?'Em risco':'Vencido · escalado',rowBg:o.lvl===2?'rgba(255,93,115,.08)':'transparent',gargalo:i===gi};});
@@ -1407,7 +1510,7 @@ class Component extends DCLogic {
       demoCols:['Requisição','Cotação','Aprovação','Pedido','Pagamento'],
       createPoints:[{t:'Propõe antes de agir.',d:'Você vê a solução antes de qualquer execução e corrige o rumo cedo, quando ajustar ainda é barato.'},{t:'Tudo editável.',d:'Qualquer componente gerado se ajusta no modelador visual: a IA acelera, mas a última palavra é sua.'},{t:'Aprovação humana.',d:'A publicação é sempre uma decisão da TI, que responde pelo que roda na empresa.'},{t:'Web, Android e iOS.',d:'Uma construção, três destinos de uma vez, sem manter três versões do mesmo app.'}],
       runEvents:[0,1,2,3].map(j=>{const e=RUN[((s.rt||0)-j+RUN.length*4)%RUN.length],c=VCOL[e[3]];return {agent:e[0],action:e[1],verdict:e[2],bg:c[0],color:c[1],rowBg:j===0?'rgba(255,255,255,.06)':'transparent',op:1-j*.18};}),
-      runTiles:[['AI Runtime','Regras de uso de IA aplicadas em tempo real.'],['Agentes de IA','Operando dentro dos processos, com dono e prazo.'],['Deyel Expert e Deyel Bot','Assistentes 24h para quem constrói e quem usa.'],['Trilha de auditoria','Cada ação assinada, imutável e rastreável.'],['Permissões por papel','Cada um vê e faz só o que pode, com SSO.'],['Monitoramento de SLA','Ponta a ponta, 24 horas, com alerta antes de estourar.'],['Uptime de 99,90%','Em garantia contratual.'],['Nuvem ou on-premise','A lógica, os dados e os processos são seus.']].map((x,i)=>({t:x[0],d:x[1],delay:(i%4*.08)+'s'})),
+      runTiles:[['AI Runtime','Regras de uso de IA aplicadas em tempo real.'],['Agentes de IA','Operando dentro dos processos, com dono e prazo.'],['Deyel Expert e Deyel Bot','Assistentes 24h para quem constrói e quem usa.'],['Trilha de auditoria','Cada ação assinada, imutável e rastreável.'],['Permissões por papel','Cada um vê e faz só o que pode, com SSO.'],['Monitoramento de SLA','Ponta a ponta, 24 horas, com alerta antes de estourar.'],['Uptime de 99,90%','Em garantia contratual.'],['Nuvem ou on-premise','A lógica, os dados e os processos são seus.']].map((x,i)=>({bot:x[0]==='Agentes de IA',t:x[0],d:x[1],delay:(i%4*.08)+'s'})),
       diffs:[['Integra ERPs e legados','Inclusive sistemas sem API, sem trocar o core.'],['Preço mensal fixo em reais','Sem cobrança por hora nem por uso. Você sabe o custo antes de começar.'],['Suporte em português','Time no Brasil, no seu fuso e na sua língua.'],['Contrato local','Contratação e pagamento em reais, com a Optaris do Brasil.'],['White-label para software houses','Crie, coloque a sua marca e venda como produto seu.'],['Soluções prontas','Vendor Management, CRM e RH, prontos para ajustar ao seu processo.']].map((x,i)=>({t:x[0],d:x[1],delay:(i%3*.08)+'s'})),
       vmSteps:VM.map((v,i)=>{const a=i===s.vm;return {n:'0'+(i+1),t:v[0],d:v[1],bg:a?'#0496ff':'#fff',color:a?'#fff':'#02132d',border:a?'#0496ff':'#e5e7eb',tf:a?'translateX(10px)':'none'};}),
       govItems:[
