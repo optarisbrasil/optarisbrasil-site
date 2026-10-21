@@ -1,0 +1,17 @@
+O QUE SUBIR NO GITHUB (repositório optarisbrasil/optarisbrasil-site)
+
+Esta pasta já está na mesma estrutura do repositório.
+Arraste o CONTEÚDO desta pasta (não a pasta em si) para a raiz do repositório.
+
+  politica-de-licenciamento/index.html   -> NOVO (cria a pasta nova)
+  licencas-consist/index.html            -> SUBSTITUI o existente
+  sitemap.xml                            -> SUBSTITUI o existente
+
+Não apague nada do que já está no repositório.
+
+ANTES DE SUBIR: publique o formulário v2 no HubSpot ("Revisar e atualizar").
+Senão a página nova mostra o formulário com as regras antigas.
+
+Depois de subir (1 a 2 minutos), confira:
+  https://www.optarisbrasil.com/politica-de-licenciamento/
+  https://www.optarisbrasil.com/licencas-consist/#condicoes
