@@ -113,6 +113,18 @@ button.send[disabled]{opacity:.7;cursor:wait}
 .ok{grid-column:1/-1;display:none;flex-direction:column;gap:8px;padding:8px 0}
 .ok h3{font-weight:900;font-size:24px}
 .ok p{margin:0;font-size:16px;color:#3d4a60}
+.sec-dark{background:#02132d;color:#fff}
+.sec-dark .sec-head p{color:#c7d3e3}
+.sec-dark .sec-head h2 span{color:#9fb1c8}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden}
+.sitem{background:#02132d;padding:22px;display:flex;flex-direction:column;gap:6px}
+.sitem strong{font-family:Lato,sans-serif;font-weight:900;font-size:18px}
+.sitem span{font-size:14.5px;line-height:1.5;color:#c7d3e3}
+.docs{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.docs .lab2{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9fb1c8;margin-right:6px}
+.docs a{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.3);border-radius:22px;padding:9px 16px;font-size:14.5px;color:#fff;text-decoration:none}
+.docs a:hover{background:#fff;color:#02132d}
+.fine{margin:18px 0 0;font-size:12.5px;color:#7d8ba1;line-height:1.5}
 footer{background:#010a19;color:#9fb1c8;font-size:14px}
 footer .wrap{padding-top:36px;padding-bottom:36px;display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center}
 footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
@@ -127,6 +139,7 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
       <a class="hide-m" href="#beneficios">Benefícios</a>
       <a class="hide-m" href="#caminhos">Caminhos</a>
       <a class="hide-m" href="#como-funciona">Como funciona</a>
+      <a class="hide-m" href="#seguranca">Segurança</a>
       <a class="btn btn-blue" href="#cadastro" style="padding:11px 18px">Quero ser parceiro</a>
     </nav>
   </div>
@@ -238,6 +251,13 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
   </div>
 </section>
 
+<section class="sec-dark" id="seguranca" style="padding:48px 0">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between">
+    <div style="display:flex;flex-direction:column;gap:8px;max-width:720px"><span class="eyebrow" style="color:#7cc4ff">Infraestrutura e segurança</span><h2 style="font-weight:900;font-size:clamp(24px,2.6vw,32px);line-height:1.15">Seus clientes vão perguntar onde ficam os dados e quem acessa.</h2><p style="margin:0;font-size:16px;color:#c7d3e3">Nuvem AWS ou on-premise, 99,90% de uptime contratual, criptografia, SSO e trilha de auditoria. Está tudo explicado numa página só.</p></div>
+    <a class="btn btn-line" href="../seguranca/">Ver infraestrutura e segurança →</a>
+  </div>
+</section>
+
 <section class="form-sec" id="cadastro">
   <div class="wrap">
     <div class="form-intro">
@@ -272,7 +292,7 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     <span>Optaris do Brasil Serviços de Tecnologia S.A. · CNPJ 60.815.759/0001-54 · +55 11 2844-2275</span>
-    <span style="display:flex;gap:20px;flex-wrap:wrap"><a href="../">Página inicial</a><a href="../#criar">Plataforma Deyel</a><a href="https://www.linkedin.com/company/optaris/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.youtube.com/@deyelbrasil" target="_blank" rel="noopener">YouTube</a></span>
+    <span style="display:flex;gap:20px;flex-wrap:wrap"><a href="../">Página inicial</a><a href="../#criar">Plataforma Deyel</a><a href="https://www.deyel.com/documentacion2/" target="_blank" rel="noopener">Documentação técnica</a><a href="https://www.deyel.com/novedades/" target="_blank" rel="noopener">Releases</a><a href="https://www.linkedin.com/company/optaris/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.youtube.com/@deyelbrasil" target="_blank" rel="noopener">YouTube</a></span>
   </div>
 </footer>
 <a class="wa" href="https://wa.me/5511955700002?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20parceiros%20da%20Optaris." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.6-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.2 1.1z"/></svg></a>
