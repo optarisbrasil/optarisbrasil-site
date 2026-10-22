@@ -1,6 +1,6 @@
 # Optaris do Brasil
 
-> A Optaris do Brasil Serviços de Tecnologia S.A. (CNPJ 60.815.759/0001-54), em Alphaville, Barueri/SP, comercializa no Brasil a Deyel, plataforma Low Code + IA Governada que cria aplicativos web e mobile, B2B e B2C, e automatiza processos de ponta a ponta, e detém com exclusividade no território brasileiro os direitos de licenciamento dos aplicativos da Consist Software Solutions Inc.
+> A Optaris do Brasil Serviços de Tecnologia S.A. (CNPJ 60.815.759/0001-54), em Alphaville, Barueri/SP, comercializa no Brasil a Deyel, plataforma Low Code + IA Governada que cria aplicativos web e mobile, B2B e B2C, e digitaliza processos de ponta a ponta, e detém com exclusividade no território brasileiro os direitos de licenciamento dos aplicativos da Consist Software Solutions Inc.
 
 Site: https://www.optarisbrasil.com/
 Idioma: pt-BR
@@ -11,7 +11,7 @@ Endereço no Brasil: Castelo Branco Office Park, Av. Marcos Penteado de Ulhoa Ro
 ## Deyel: aplicativos e processos que fazem sua empresa única
 A Deyel tem duas capacidades, na mesma plataforma:
 1. Aplicativos: construir apps B2B e B2C, como portais de clientes e fornecedores, apps de atendimento e sistemas internos, publicados na web, no Android e no iOS a partir de uma única construção, sem a fila do desenvolvimento tradicional. Cases: AON (sistema completo de sinistros de seguro de vida com portal para o cliente, pronto em 5 semanas, iteração 3x mais rápida, até 90% de melhoria na experiência do cliente), Banesco (app Deyel Empréstimos nas agências), Flybondi, Sky. Detalhes: https://lpbr.deyel.com/vibe-coding3/
-2. Processos: automação e orquestração de processos de ponta a ponta, com integrações, SLA controlado em tempo real e IA governada. Cases: General de Seguros, Banesco (crédito), Legaltec, Consigaz. Detalhes: https://br.deyel.com
+2. Processos: digitalização e orquestração de processos de ponta a ponta, com integrações, SLA controlado em tempo real e IA governada. Cases: General de Seguros, Banesco (crédito), Legaltec, Consigaz. Detalhes: https://br.deyel.com
 Slogan: Você descreve, a Deyel constrói, a sua empresa avança.
 - A Deyel é o orquestrador e organizador dos processos empresariais: integra ERP, CRM, legados (inclusive sem API), nuvem e APIs, e coordena sistemas, pessoas e agentes de IA de ponta a ponta.
 - Algoritmo intelectual: os processos horizontais, que atravessam áreas e sistemas (do pedido ao pagamento, da contratação à folha, do fornecedor ao contas a pagar), são a essência e o diferencial de cada empresa. Sistemas verticais são commodities; o jeito como a empresa conecta tudo é único, só ela faz desse jeito, e esse ativo precisa ser protegido. Por isso controle e visibilidade de ponta a ponta são críticos.
@@ -23,12 +23,12 @@ Slogan: Você descreve, a Deyel constrói, a sua empresa avança.
 - Diferenciais locais: integra ERPs e legados, inclusive sem API; preço mensal fixo em reais, sem cobrança por uso (primeiro tier R$ 3.236/mês, 1 aplicativo, 50 usuários); suporte em português; contrato local; white-label para software houses; soluções prontas (Vendor Management, CRM, RH).
 - Casos de clientes (em produção):
   - General de Seguros (seguradora, México, mais de 50 anos): não tinha visibilidade de onde cada processo estava; passou a acompanhar todos os processos em tempo real, ponta a ponta. Implantado em 2 meses, 25% de economia frente a outras alternativas, ROI de cerca de 4 vezes o investimento.
-  - Banesco (banco, Panamá): automatizou de ponta a ponta o ciclo de crédito (originação nas agências, tramitação e desembolso) sem substituir os sistemas core. Processamento de crédito até 80% mais rápido; implantação em 3 meses.
+  - Banesco (banco, Panamá): digitalizou de ponta a ponta o ciclo de crédito (originação nas agências, tramitação e desembolso) sem substituir os sistemas core. Processamento de crédito até 80% mais rápido; implantação em 3 meses.
   - AON (seguros): sistema completo de sinistros de seguro de vida pronto em 5 semanas, iteração 3x mais rápida, até 90% de melhoria na experiência do cliente.
   - Flybondi (aéreo): processo de solicitação e autorização de compras no ar em 1 mês.
   - Sky (telecom): aplicações fiscais e de cadastro de assinantes 3x mais rápidas.
   - Legaltec (financeiro): refinanciamento de hipotecas 50% mais rápido e 25% mais barato.
-  - Consigaz (energia): Compras e Suprimentos automatizados em processo único.
+  - Consigaz (energia): Compras e Suprimentos digitalizados em processo único.
   - Depoimento: Cooperativa Pacífico (Peru), respostas mais rápidas aos associados e mais flexibilidade.
 - Clientes: BBVA, Zurich Santander, Banco Banesco, AON, Pacífico, General de Seguros, Sky, Tramontina, Consigaz, Flybondi, Mazda, Banco Nación.
 - Números: escritórios em 10 países de três continentes (EUA, Brasil, México, Argentina, Chile, Panamá, Espanha, Portugal, Alemanha e Israel); 60+ parceiros na América Latina.
@@ -88,7 +88,7 @@ Página: https://www.optarisbrasil.com/parceiros/
 - Oferece margem na revenda, capacitação e certificação, apoio em pré-venda e demos, e ambiente para desenvolver na plataforma, com contrato local da Optaris do Brasil.
 
 ## Perguntas frequentes
-- A Deyel serve para criar aplicativos ou para automatizar processos? As duas coisas, na mesma plataforma: aplicativos B2B e B2C web e mobile (Android e iOS) a partir de uma única construção, e a automação e orquestração dos processos internos de ponta a ponta, com SLA em tempo real e IA governada.
+- A Deyel serve para criar aplicativos ou para digitalizar processos? As duas coisas, na mesma plataforma: aplicativos B2B e B2C web e mobile (Android e iOS) a partir de uma única construção, e a digitalização e orquestração dos processos internos de ponta a ponta, com SLA em tempo real e IA governada.
 - O que é low-code? Desenvolvimento de software montado em modelador visual com componentes prontos, com código só onde é necessário.
 - Quem é a Optaris? A Optaris do Brasil Serviços de Tecnologia S.A., em Alphaville, Barueri/SP, comercializa a Deyel no Brasil. Escritórios em três continentes: EUA, Brasil, México, Argentina, Chile, Panamá, Espanha, Portugal, Alemanha e Israel.
 - Como pedir uma demonstração da Deyel? comercial@optarisbrasil.com ou WhatsApp +55 11 95570-0002.
