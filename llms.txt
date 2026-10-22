@@ -33,6 +33,8 @@ Slogan: Você descreve, a Deyel constrói, a sua empresa avança.
 - Clientes: BBVA, Zurich Santander, Banco Banesco, AON, Pacífico, General de Seguros, Sky, Tramontina, Consigaz, Flybondi, Mazda, Banco Nación.
 - Números: escritórios em 10 países de três continentes (EUA, Brasil, México, Argentina, Chile, Panamá, Espanha, Portugal, Alemanha e Israel); 60+ parceiros na América Latina.
 - Canal no YouTube: https://www.youtube.com/@deyelbrasil
+- LinkedIn da Deyel Brasil: https://www.linkedin.com/showcase/deyel-brasil/
+- Política de privacidade: https://br.deyel.com/privacidade/ · Termos do serviço: https://www.deyel.com/pt-br/termos-do-servico/
 - Site da Deyel no Brasil: https://br.deyel.com/
 
 ## As três verticais da Deyel
@@ -99,3 +101,8 @@ Reúne 71 publicações em 52 veículos desde outubro de 2025, com link para a f
 Página: https://www.optarisbrasil.com/publicacoes/
 - Deploy: newsletter quinzenal (quintas-feiras) sobre aplicativos, automação e IA em produção, para TI e arquitetura. Cada edição traz um caso real, um dado do Brasil com fonte e duas perguntas para o comitê. Nº 1 (08/10/2026): "O código estava congelado. Só no chat." Assinatura grátis: https://45901870.hs-sites.com/deploy
 - Contraparte: newsletter quinzenal (quintas-feiras) sobre fornecedores, risco e contratos, para compras, jurídico, risco e finanças. Nº 1 (02/10/2026): "Dez minutos que custaram US$ 400 milhões". Assinatura grátis: https://45901870.hs-sites.com/contraparte
+- Edições para leitura no site:
+  - Deploy nº 2 (22/10/2026), "Faltou um servidor.": https://www.optarisbrasil.com/publicacoes/deploy-02-faltou-um-servidor/
+  - Deploy nº 1 (08/10/2026), "O código estava congelado. Só no chat.": https://www.optarisbrasil.com/publicacoes/deploy-01-codigo-congelado/
+  - Contraparte nº 2 (15/10/2026), "Quem leu o contrato?": https://www.optarisbrasil.com/publicacoes/contraparte-02-quem-leu-o-contrato/
+  - Contraparte nº 1 (02/10/2026), "Dez minutos que custaram US$ 400 milhões": https://www.optarisbrasil.com/publicacoes/contraparte-01-dez-minutos/
