@@ -109,6 +109,41 @@ body{overflow-x:clip}
 [data-tagline]{opacity:0;animation:tagIn .7s ease .6s forwards}
 @media (prefers-reduced-motion:reduce){[data-tagline]{animation:none;opacity:1}}
 </style>
+<style id="ft-css">
+.ft{background:#fff;padding:56px 0 28px;font-size:14px;color:#333;border-top:1px solid #eef0f3}
+.ft-in{max-width:1200px;margin:0 auto;padding:0 24px}
+.ft-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr 1.1fr;gap:32px;align-items:start}
+.ft h3,.ft summary.ft-h{font-family:Lato,sans-serif;font-weight:900;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#02132d;margin:0 0 14px}
+.ft-col{display:flex;flex-direction:column;gap:9px}
+.ft a{color:#333;text-decoration:none;line-height:1.35}
+.ft a:hover{color:#0496ff}
+.ft-co{margin:0;font-size:13px;line-height:1.55;color:#555}
+.ft-social{display:flex;gap:10px;margin-top:16px}
+.ft-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid #d5dae1;border-radius:50%;color:#02132d}
+.ft-social a:hover{border-color:#0496ff;color:#0496ff}
+.ft-tel{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:8px;font-size:13.5px}
+.ft-tel strong{font-weight:700;color:#02132d}
+.ft details{margin:0}
+.ft details summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;color:#333}
+.ft details summary::-webkit-details-marker{display:none}
+.ft details summary:hover{color:#0496ff}
+.ft .ft-arw{display:inline-block;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .2s;margin-right:4px;flex:none}
+.ft details[open]>summary .ft-arw{transform:rotate(45deg)}
+.ft details .ft-sub{display:flex;flex-direction:column;gap:8px;padding:10px 0 2px 12px;margin-top:8px;border-left:2px solid #e6f3ff}
+.ft details .ft-sub a{font-size:13.5px;color:#4a5568}
+.ft-bot{border-top:1px solid #e5e7eb;margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#888;font-size:13px}
+.ft-bot a{color:#888}
+@media (max-width:980px){.ft-grid{grid-template-columns:1fr 1fr 1fr}.ft-brand{grid-column:1/-1}}
+@media (max-width:640px){
+ .ft{padding:40px 0 24px}
+ .ft-grid{grid-template-columns:1fr 1fr;gap:28px 20px}
+ .ft-tel{grid-template-columns:1fr}.ft-tel strong{font-size:12px!important;letter-spacing:.06em;text-transform:uppercase;color:#6b7686;margin-top:6px}.ft-tel a{min-height:30px!important}
+ .ft-col{gap:0}.ft h3{margin-bottom:4px}.ft a,.ft details summary{padding:6px 0;font-size:15px;min-height:42px;display:flex;align-items:center;box-sizing:border-box}
+ .ft details .ft-sub{gap:0;padding-top:0;margin-top:0}.ft-tel{row-gap:0;align-items:center}.ft-social a{min-height:0;width:44px;height:44px}
+ .ft details .ft-sub a{font-size:14.5px}
+ .ft-bot{flex-direction:column}
+}
+</style>
 </helmet>
 
 <div data-motion="{{ motionAttr }}" style="overflow-x:hidden;background:#fff">
@@ -345,47 +380,64 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<footer data-noprint="" style="background:#fff;padding:60px 0 30px;font-size:14px">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:30px">
-      <div><span style="display:flex;align-items:center;margin-bottom:16px"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Grupo-18257.png" alt="Logo Optaris Brasil" loading="lazy" decoding="async" style="height:34px;width:auto;"></img><span style="font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:300;font-size:19px;line-height:1;letter-spacing:.03em;color:#4b4f58;margin-left:-8px;white-space:nowrap">BRASIL</span></span><p>Optaris do Brasil Serviços de Tecnologia S.A.<br>CNPJ 60.815.759/0001-54</p></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start">
-        <div><strong style="display:block">Brasil</strong>+55 11 2844-2275</div>
-        <div><strong style="display:block">Argentina</strong>+54-11-5219-4600</div>
-        <div><strong style="display:block">Chile</strong>+56-9-6650-4527</div>
-        <div><strong style="display:block">México</strong>+52-55-5980-9528</div>
+<footer data-noprint="" class="ft">
+  <div class="ft-in">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <span style="display:flex;align-items:center;margin-bottom:14px"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Grupo-18257.png" alt="Logo Optaris Brasil" loading="lazy" decoding="async" style="height:34px;width:auto;"></img><span style="font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:300;font-size:19px;line-height:1;letter-spacing:.03em;color:#4b4f58;margin-left:-8px;white-space:nowrap">BRASIL</span></span>
+        <p class="ft-co">Optaris do Brasil Serviços de Tecnologia S.A.<br>CNPJ 60.815.759/0001-54</p>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/company/optaris/" target="_blank" rel="noopener" aria-label="LinkedIn da Optaris"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.03-3-1.83-3-1.83 0-2.12 1.43-2.12 2.9V21h-4V9Z"/></svg></a>
+          <a href="https://www.youtube.com/@deyelbrasil" target="_blank" rel="noopener" aria-label="YouTube Deyel Brasil"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.5-4.8.5-4.8s0-3.2-.5-4.8ZM9.7 15.1V8.9L15.5 12l-5.8 3.1Z"/></svg></a>
+        </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <p style="font-size:14px;margin:0 0 4px;color:#000;font-family:Lato,sans-serif;font-weight:700">Navegação</p>
-        <a href="../#aplicativos" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Aplicativos</a>
-        <a href="../#processos-porta" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Processos</a>
-        <a href="../#plataforma" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Deyel Plataforma</a>
-        <a href="../#fabrica" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Usina de Apps</a>
-        <a href="../#produtos-80-20" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Produtos prontos</a>
-        <a href="../#demo-vendor" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Demos</a>
-        <a href="../#deyel-no-ar" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Vídeos</a>
-        <a href="../midia/" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Mídia</a>
-        <a href="../solucoes-consist/" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Soluções Consist</a>
-        <a href="./" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Licenciamento Consist</a>
-        <a href="../politica-de-licenciamento/" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Política de licenciamento</a>
-        <a href="../ads-dms/" style="color:#333;text-decoration:none" style-hover="color:#0496ff">ConsistADS e DMS</a>
-        <a href="./#precos" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Valores e cotação</a>
-        <a href="../#solucoes" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Soluções</a>
-        <a href="../#perguntas" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Perguntas frequentes</a>
-        <a href="../seguranca/" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Infraestrutura e segurança</a>
-        <a href="../parceiros/" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Parceiros e canais</a>
-        <a href="https://www.deyel.com/documentacion2/" target="_blank" rel="noopener" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Documentação técnica</a>
-        <a href="#contato" style="color:#333;text-decoration:none" style-hover="color:#0496ff">Contato</a>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <p style="font-size:14px;margin:0 0 4px;color:#000;font-family:Lato,sans-serif;font-weight:700">Siga-nos</p>
-        <a href="https://www.linkedin.com/company/optaris/" target="_blank" rel="noopener" style="color:#333;text-decoration:none" style-hover="color:#0496ff">LinkedIn</a>
-        <a href="https://www.youtube.com/@deyelbrasil" target="_blank" rel="noopener" style="color:#333;text-decoration:none" style-hover="color:#0496ff">YouTube Deyel Brasil</a>
+      <nav class="ft-col" aria-label="Deyel">
+        <h3>Deyel</h3>
+        <a href="../#aplicativos">Aplicativos</a>
+        <a href="../#processos-porta">Processos</a>
+        <a href="../#plataforma">Deyel Plataforma</a>
+        <a href="../#fabrica">Usina de Apps</a>
+        <a href="../#produtos-80-20">Produtos prontos</a>
+        <a href="../#demo-vendor">Demos</a>
+      </nav>
+      <nav class="ft-col" aria-label="Soluções">
+        <h3>Soluções</h3>
+        <a href="../#solucoes">Produtos parceiros</a>
+        <details>
+          <summary>Consist <span class="ft-arw" aria-hidden="true"></span></summary>
+          <div class="ft-sub">
+            <a href="../solucoes-consist/">Soluções Consist</a>
+            <a href="../licencas-consist/">Licenciamento</a>
+            <a href="../ads-dms/">ConsistADS e DMS</a>
+            <a href="../licencas-consist/#precos">Lista de preços</a>
+            <a href="../politica-de-licenciamento/">Política de licenciamento</a>
+          </div>
+        </details>
+        <a href="../seguranca/">Infraestrutura e segurança</a>
+        <a href="https://www.deyel.com/documentacion2/" target="_blank" rel="noopener">Documentação técnica ↗</a>
+      </nav>
+      <nav class="ft-col" aria-label="Empresa">
+        <h3>Empresa</h3>
+        <a href="../#deyel-no-ar">Vídeos</a>
+        <a href="../midia/">Mídia</a>
+        <a href="../publicacoes/">Publicações</a>
+        <a href="../parceiros/">Parceiros e canais</a>
+        <a href="../#perguntas">Perguntas frequentes</a>
+        <a href="../#contato">Contato</a>
+      </nav>
+      <div class="ft-col ft-tels">
+        <h3>Fale conosco</h3>
+        <div class="ft-tel">
+          <strong>Brasil</strong><a href="tel:+551128442275">+55 11 2844-2275</a>
+          <strong>Argentina</strong><a href="tel:+541152194600">+54 11 5219-4600</a>
+          <strong>Chile</strong><a href="tel:+56966504527">+56 9 6650-4527</a>
+          <strong>México</strong><a href="tel:+525559809528">+52 55 5980-9528</a>
+        </div>
       </div>
     </div>
-    <div style="border-top:1px solid #e5e7eb;margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#888;font-size:13px">
+    <div class="ft-bot">
       <span>© {{ year }} Optaris do Brasil. Todos os direitos reservados.</span>
-      <span style="display:flex;gap:8px"><a href="#" style="color:#888">Termos de Serviço</a>|<a href="#" style="color:#888">Política de Privacidade</a></span>
+      <span style="display:flex;gap:8px"><a href="#">Termos de Serviço</a>|<a href="#">Política de Privacidade</a></span>
     </div>
   </div>
 </footer>
@@ -551,7 +603,7 @@ class Component extends DCLogic {
       menuOpen:!!s.menu,menuAria:s.menu?'true':'false',
       openMenu:()=>{document.body.style.overflow='hidden';this.setState({menu:true});},
       closeMenu:()=>{document.body.style.overflow='';this.setState({menu:false});},
-      menuItems:[['Criar aplicativos', '../#aplicativos'], ['Automatizar processos', '../#processos-porta'], ['Vendor Management', '../#demo-vendor'], ['Plataforma Deyel', 'https://br.deyel.com/', 1], ['Usina de Apps', '../#fabrica'], ['Produtos prontos', '../#produtos-80-20'], ['Soluções Consist', '../solucoes-consist/'], ['Produtos parceiros', '../#solucoes'], ['Seja parceiro ou canal', '../parceiros/'], ['Quem somos', '../#institucional'], ['Mídia', '../midia/'], ['Fale com a gente', '#contato']].map(x=>({t:x[0],href:x[1],target:x[2]?'_blank':'_self',rel:x[2]?'noopener':'',arrow:x[2]?'↗':'→',color:x[2]?'#ff9fb2':'#fff'})),
+      menuItems:[['Criar aplicativos', '../#aplicativos'], ['Automatizar processos', '../#processos-porta'], ['Vendor Management', '../#demo-vendor'], ['Plataforma Deyel', 'https://br.deyel.com/', 1], ['Usina de Apps', '../#fabrica'], ['Produtos prontos', '../#produtos-80-20'], ['Soluções Consist', '../solucoes-consist/'], ['Produtos parceiros', '../#solucoes'], ['Seja parceiro ou canal', '../parceiros/'], ['Quem somos', '../#institucional'], ['Mídia', '../midia/'], ['Publicações', '../publicacoes/'], ['Fale com a gente', '#contato']].map(x=>({t:x[0],href:x[1],target:x[2]?'_blank':'_self',rel:x[2]?'noopener':'',arrow:x[2]?'↗':'→',color:x[2]?'#ff9fb2':'#fff'})),
       motionAttr:motion?'on':'off',
       headerBg:s.scrolled?'rgba(2,19,45,.95)':'rgba(2,19,45,.35)',
       ccards:CCARDS.map((c,i)=>({code:c[0],sub:c[1],d:c[2],delay:(i%3*.1)+'s'})),

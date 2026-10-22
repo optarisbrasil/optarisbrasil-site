@@ -31,7 +31,7 @@ Slogan: Você descreve, a Deyel constrói, a sua empresa avança.
   - Consigaz (energia): Compras e Suprimentos automatizados em processo único.
   - Depoimento: Cooperativa Pacífico (Peru), respostas mais rápidas aos associados e mais flexibilidade.
 - Clientes: BBVA, Zurich Santander, Banco Banesco, AON, Pacífico, General de Seguros, Sky, Tramontina, Consigaz, Flybondi, Mazda, Banco Nación.
-- Números: 56 anos de engenharia de software da Optaris; escritórios em 10 países de três continentes (EUA, Brasil, México, Argentina, Chile, Panamá, Espanha, Portugal, Alemanha e Israel); 60+ parceiros na América Latina.
+- Números: escritórios em 10 países de três continentes (EUA, Brasil, México, Argentina, Chile, Panamá, Espanha, Portugal, Alemanha e Israel); 60+ parceiros na América Latina.
 - Canal no YouTube: https://www.youtube.com/@deyelbrasil
 - Site da Deyel no Brasil: https://br.deyel.com/
 
@@ -69,9 +69,21 @@ Página: https://www.optarisbrasil.com/ads-dms/
 - Começa por um assessment (inventário, linha de base de custo, mapa de pessoas, exposição regulatória). Prazo definido no assessment; projeto pode ser executado pela equipe do cliente com apoio técnico.
 - Licenciamento exclusivo no Brasil pela Optaris do Brasil.
 
-## Outras soluções
-- Processos de Negócio, Segurança e Auditoria, RPA, Business Intelligence, Customer Experience (Glassix).
-- Produtos parceiros: Bottomline (Intellinx), IBM Planning Analytics (TM1), Glassix, UiPath, Automation Anywhere.
+## Produtos parceiros
+- Bottomline (Intellinx), IBM Planning Analytics (TM1), Glassix, UiPath, Automation Anywhere.
+
+## Infraestrutura e segurança da Deyel
+Página: https://www.optarisbrasil.com/seguranca/
+- Nuvem AWS ou on-premise; 99,90% de uptime em garantia contratual; recuperação com RPO zero; data centers da AWS com ISO 27001 e relatórios SOC 1, 2 e 3 (certificações da infraestrutura AWS).
+- Dados criptografados em trânsito e em repouso; trilha de auditoria de cada acesso a dado (LGPD); processos alinhados às boas práticas do GDPR.
+- SSO com o provedor de identidade da empresa; permissões por perfil; ambientes separados de desenvolvimento e produção.
+- IA governada: nenhum agente de IA toca os sistemas diretamente; o AI Runtime confere identidade, política e limites antes de cada ação e leva para aprovação humana o que estiver fora da alçada.
+- Documentação técnica e releases: https://www.deyel.com/documentacion2/ e https://www.deyel.com/novedades/
+
+## Programa de parceiros e canais Deyel
+Página: https://www.optarisbrasil.com/parceiros/
+- Para software houses, integradores e revendas que querem entregar aplicativos e processos com IA aos seus clientes.
+- Oferece margem na revenda, capacitação e certificação, apoio em pré-venda e demos, e ambiente para desenvolver na plataforma, com contrato local da Optaris do Brasil.
 
 ## Perguntas frequentes
 - A Deyel serve para criar aplicativos ou para automatizar processos? As duas coisas, na mesma plataforma: aplicativos B2B e B2C web e mobile (Android e iOS) a partir de uma única construção, e a automação e orquestração dos processos internos de ponta a ponta, com SLA em tempo real e IA governada.
@@ -82,3 +94,8 @@ Página: https://www.optarisbrasil.com/ads-dms/
 ## Mídia (Optaris Brasil e Deyel na imprensa)
 Página: https://www.optarisbrasil.com/midia/
 Reúne 71 publicações em 52 veículos desde outubro de 2025, com link para a fonte original. Destaques: entrevista do CEO da Optaris à Exame (27/07/2026, "Gerar código com IA não basta"), entrevista ao vivo na Times Brasil | CNBC (programa Real Time, 11/11/2025; cinco trechos em vídeo na página), artigos do CEO da Optaris no IT Forum ("O paradoxo de Frankenstein", "Por que a inovação fracassa mesmo quando faz sentido") e seis trechos da entrevista ao Vozes Vistage (episódio completo: https://www.youtube.com/watch?v=p6Dzfvz-nu0).
+
+## Publicações (newsletters da Deyel Brasil)
+Página: https://www.optarisbrasil.com/publicacoes/
+- Deploy: newsletter quinzenal (quintas-feiras) sobre aplicativos, automação e IA em produção, para TI e arquitetura. Cada edição traz um caso real, um dado do Brasil com fonte e duas perguntas para o comitê. Nº 1 (08/10/2026): "O código estava congelado. Só no chat." Assinatura grátis: https://45901870.hs-sites.com/deploy
+- Contraparte: newsletter quinzenal (quintas-feiras) sobre fornecedores, risco e contratos, para compras, jurídico, risco e finanças. Nº 1 (02/10/2026): "Dez minutos que custaram US$ 400 milhões". Assinatura grátis: https://45901870.hs-sites.com/contraparte
