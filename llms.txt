@@ -1,6 +1,6 @@
 # Optaris do Brasil
 
-> A Optaris do Brasil Serviços de Tecnologia S.A. (CNPJ 60.815.759/0001-54), em Alphaville, Barueri/SP, comercializa no Brasil a Deyel, plataforma Low Code + IA Governada que cria aplicativos web e mobile, B2B e B2C, e digitaliza processos de ponta a ponta, e detém com exclusividade no território brasileiro os direitos de licenciamento dos aplicativos da Consist Software Solutions Inc.
+> A Optaris do Brasil Serviços de Tecnologia S.A. (CNPJ 60.815.759/0001-54), em Alphaville, Barueri/SP, é o centro de desenvolvimento e customização no Brasil da Deyel, plataforma Low Code + IA Governada fabricada pela Optaris, que cria aplicativos web e mobile, B2B e B2C, e digitaliza processos de ponta a ponta, e detém com exclusividade no território brasileiro os direitos de licenciamento dos aplicativos da Consist Software Solutions Inc.
 
 Fabricante: A Optaris é a fabricante da Deyel, e a Optaris do Brasil é o centro de desenvolvimento e customização da Deyel no Brasil. Clientes e parceiros no Brasil trabalham direto com o fabricante, sem intermediários, em suporte, integrações e customização.
 
@@ -45,10 +45,22 @@ Construa, encomende ou comece pronto, tudo na mesma plataforma.
 2. Usina de Apps: o time Deyel/Optaris constrói sistemas sob medida (tailor made) com a Deyel para o cliente, com entrega rápida e a governança da plataforma.
 3. Produtos prontos: Deyel Vendor Management (gestão de compras e fornecedores, S2P + SRM: https://www.optarisbrasil.com/gestao-de-compras-e-fornecedores/ e https://lpbr.deyel.com/vendor3/; demo guiada interativa do Portal de Compras (abre em nova aba): https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4), Deyel CRM e Deyel Gestão de RH. Conceito 80/20: 80% pronto com as melhores práticas, roda desde o primeiro dia; 20% personalizável para a cultura e os processos da empresa, sem virar projeto infinito.
 
+## Gestão de compras e fornecedores (Deyel Vendor Management, S2P + SRM)
+Página: https://www.optarisbrasil.com/gestao-de-compras-e-fornecedores/
+- Controla o processo de compras desde o pedido: solicitação, autorização, controle de estoque, compras, cotação, concorrência, mapa de compras, pedido, faturamento, recepção do produto, recebimento da nota fiscal e pagamento.
+- Inclui homologação e gestão de fornecedores (cadastro, avaliações de compliance, TI, financeira e operacional) e geração, assinatura e gestão de contratos.
+- Cotação pelo portal do fornecedor, com mapa de compras ranqueado: critérios qualitativos com peso, várias rodadas de proposta e divisão de volume entre fornecedores.
+- IA aplicada: busca ativa de novos fornecedores, apoio à seleção e à precificação, VendorBot e agentes de IA opcionais.
+- Integra ERP, CRM e logística por API REST e SOAP (SAP, Oracle, DB2, MySQL, AWS, entre outros).
+- 80% pronto e parametrizado para o processo da empresa; implantação em média de 2 a 3 meses; preço mensal fixo em reais, sem cobrança por uso.
+- Clientes: Consigaz, 4Network e MAC Hospitales.
+- Vídeos: demo completa (17 min) https://youtu.be/_H-JTQysDxo e resumo "do pedido ao pagamento" (1 min 22) https://youtu.be/s-B8QkGytHI
+- Demo: https://calendly.com/paulocacciari/demo-plataforma-gestao-de-compras · demo guiada: https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4
+
 ## Soluções Consist
 Página: https://www.optarisbrasil.com/solucoes-consist/
 Ponto de entrada para quem usa tecnologia Consist Software Solutions Inc no Brasil, com três frentes:
-1. Licenciamento (https://www.optarisbrasil.com/licencas-consist/): licenças novas, renovações, ampliações e Read Only.
+1. Licenciamento (https://www.optarisbrasil.com/licencas-consist/): licenças novas, renovações, ampliações e Read Only. Política de emissão e sustentação de licenças: https://www.optarisbrasil.com/politica-de-licenciamento/
 2. ConsistADS e DMS (https://www.optarisbrasil.com/ads-dms/): aplicações Natural sobre banco relacional, com o mesmo código-fonte, e migração dos dados do Adabas.
 3. Sobrevida e evolução dos aplicativos Consist com a Deyel: a Deyel lê os dados dos aplicativos em produção (GEM, HR, e-Social) e grava somente pelos canais oficiais do sistema, que continua validando todas as regras de negócio; por cima, novos processos, portais, consultas e agentes de IA.
 
@@ -88,11 +100,13 @@ Página: https://www.optarisbrasil.com/seguranca/
 Página: https://www.optarisbrasil.com/parceiros/
 - Para software houses, integradores e revendas que querem entregar aplicativos e processos com IA aos seus clientes.
 - Oferece margem na revenda, capacitação e certificação, apoio em pré-venda e demos, e ambiente para desenvolver na plataforma, com contrato local da Optaris do Brasil.
+- O parceiro trabalha com o fabricante ao lado: acesso direto ao time de produto em pré-venda, integrações e suporte, sem distribuidor no meio.
 
 ## Perguntas frequentes
 - A Deyel serve para criar aplicativos ou para digitalizar processos? As duas coisas, na mesma plataforma: aplicativos B2B e B2C web e mobile (Android e iOS) a partir de uma única construção, e a digitalização e orquestração dos processos internos de ponta a ponta, com SLA em tempo real e IA governada.
 - O que é low-code? Desenvolvimento de software montado em modelador visual com componentes prontos, com código só onde é necessário.
-- Quem é a Optaris? A Optaris do Brasil Serviços de Tecnologia S.A., em Alphaville, Barueri/SP, comercializa a Deyel no Brasil. Escritórios em três continentes: EUA, Brasil, México, Argentina, Chile, Panamá, Espanha, Portugal, Alemanha e Israel.
+- Quem é a Optaris? A Optaris é a fabricante da Deyel. A Optaris do Brasil Serviços de Tecnologia S.A., em Alphaville, Barueri/SP, é o centro de desenvolvimento e customização da Deyel no Brasil e vende, implanta e dá suporte direto, sem intermediários. Escritórios em três continentes: EUA, Brasil, México, Argentina, Chile, Panamá, Espanha, Portugal, Alemanha e Israel.
+- Preciso de um integrador ou revenda para usar a Deyel? Não. Você contrata direto com a Optaris do Brasil, que é o próprio fabricante; parceiros também têm acesso direto ao time de produto.
 - Como pedir uma demonstração da Deyel? comercial@optarisbrasil.com ou WhatsApp +55 11 95570-0002.
 
 ## Mídia (Optaris Brasil e Deyel na imprensa)
