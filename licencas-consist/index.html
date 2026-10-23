@@ -279,6 +279,7 @@ body{overflow-x:clip}
         <div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:20px;font-size:14px;color:#666"><strong style="display:block;color:#02132d;margin-bottom:6px;font-size:15px">{{ cd.t }}</strong>{{ cd.d }}</div>
       </sc-for>
     </div>
+    <p id="acesso-terceiros" style="scroll-margin-top:90px;margin:16px 0 0;padding:12px 16px;border-left:3px solid #0496ff;background:#f4f8fd;font-size:14px;color:#333;line-height:1.55;text-wrap:pretty"><strong style="color:#02132d">*</strong> O acesso de terceiros à tecnologia Consist para desenvolvimento e homologação é feito exclusivamente no ambiente AWS fornecido pela Consist Software Solutions Inc. Regras completas na <a href="../politica-de-licenciamento/" style="color:#007bff">Política de Emissão e Sustentação de Licenças Consist</a>.</p>
 
   </div>
 </section>
@@ -297,6 +298,7 @@ body{overflow-x:clip}
           <p style="padding:0 0 20px;font-size:15px;color:#555;text-wrap:pretty">{{ q.a }}</p>
         </details>
       </sc-for>
+      <p style="font-size:13px;color:#666;margin:2px 0 0 4px">* Nota sobre o acesso de terceiros: veja as <a href="#acesso-terceiros" style="color:#007bff">condições comerciais</a>.</p>
     </div>
   </div>
 </section>
@@ -491,7 +493,7 @@ const CONDS=[
  ['Ambiente avulso ou acima de 5 usuários','Ambiente de Desenvolvimento ou Homologação contratado avulso (sem licença de produção nova ou renovada), ou com mais de 5 usuários, é cotado como licença própria, pela quantidade de usuários do ambiente.'],
  ['Desenvolvimento e Homologação','Licenças de Desenvolvimento e Homologação estão sujeitas às obrigações de remessa previstas em contrato.'],
  ['Reemissão manual de licença','Pelo formulário da Consist Software Solutions Inc: atendimento padrão em até 5 dias úteis, R$ 5.000 por licença emitida; emergencial (falha de equipamento ou Licenciador indisponível) em até 4 horas, sem custo. Até o Licenciador automático entrar em operação, o formulário é sem custo para contratos Optaris. Pelo Licenciador automático, sem custo. Regras completas em optarisbrasil.com/politica-de-licenciamento.'],
- ['Sustentação','Suporte, atualização e manutenção não fazem parte da licença e podem ser contratados livremente no mercado.']];
+ ['Sustentação','Suporte, atualização e manutenção não fazem parte da licença e podem ser contratados livremente no mercado*.']];
 const FAQS=[
  ['Quem vende licenças Consist no Brasil?','A Optaris do Brasil detém, com exclusividade no território brasileiro, os direitos de licenciamento dos aplicativos da Consist Software Solutions Inc. Licenças novas, renovações e ampliações de usuários são contratadas diretamente com a Optaris.'],
  ['Quanto custa uma licença Consist?','A licença de produção parte de R$ 150.000 por ano, para até 10 usuários de um aplicativo. Os ambientes de Desenvolvimento e Homologação são um pacote adicional. O valor final depende do número de usuários, de quantos aplicativos entram no contrato e dos ambientes de Desenvolvimento e Homologação, por isso é definido na cotação.'],
@@ -499,7 +501,7 @@ const FAQS=[
  ['O que são os ambientes de Desenvolvimento e Homologação?','São 1 ambiente de Desenvolvimento e 1 de Homologação do mesmo aplicativo, contratados como pacote adicional à licença de produção. Ambientes avulsos ou com mais usuários são cotados à parte.'],
  ['O que é a licença Read Only?','Somente consulta ao ambiente de produção, sem inclusão ou alteração de dados, para até 5 usuários de 1 aplicativo. Parte de R$ 140.000 por ano.'],
  ['Quanto custa a reemissão manual de licença?','Em até 5 dias úteis, R$ 5.000 por licença emitida, pelo formulário da Consist Software Solutions Inc. Falha de equipamento ou Licenciador indisponível tem atendimento emergencial em até 4 horas, sem custo. Até o Licenciador automático entrar em operação, o formulário é sem custo para contratos Optaris. Pelo Licenciador automático, sem custo. Detalhes na Política de Emissão e Sustentação de Licenças Consist.'],
- ['Suporte e manutenção estão incluídos?','Não. Suporte, atualização e manutenção não fazem parte da licença e podem ser contratados livremente no mercado.'],
+ ['Suporte e manutenção estão incluídos?','Não. Suporte, atualização e manutenção não fazem parte da licença e podem ser contratados livremente no mercado*.'],
  ['Como pedir uma cotação de licença Consist?','Use o formulário desta página, escreva para comercial@optarisbrasil.com ou chame no WhatsApp +55 11 95570-0002. A resposta sai em até 48 horas.']];
 const INTERESSES=['Licenças Consist Software Solutions Inc','Deyel','Bottomline (Intellinx)','IBM Planning Analytics (TM1)','Glassix','RPA (UiPath / Automation Anywhere)','Outro'];
 
