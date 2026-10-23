@@ -41,7 +41,7 @@ Slogan: Você descreve, a Deyel constrói, a sua empresa avança.
 Construa, encomende ou comece pronto, tudo na mesma plataforma.
 1. Plataforma: para a TI e parceiros desenvolverem sistemas e automações com IA (Vibe Coding com a Diana, BPMN, integrações, AI Runtime, SLA em tempo real). Vibe Coding: https://lpbr.deyel.com/vibe-coding3/
 2. Usina de Apps: o time Deyel/Optaris constrói sistemas sob medida (tailor made) com a Deyel para o cliente, com entrega rápida e a governança da plataforma.
-3. Produtos prontos: Deyel Vendor Management (https://lpbr.deyel.com/vendor3/; demo guiada interativa do Portal de Compras (abre em nova aba): https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4), Deyel CRM e Deyel Gestão de RH. Conceito 80/20: 80% pronto com as melhores práticas, roda desde o primeiro dia; 20% personalizável para a cultura e os processos da empresa, sem virar projeto infinito.
+3. Produtos prontos: Deyel Vendor Management (gestão de fornecedores e compras: https://www.optarisbrasil.com/gestao-de-fornecedores/ e https://lpbr.deyel.com/vendor3/; demo guiada interativa do Portal de Compras (abre em nova aba): https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4), Deyel CRM e Deyel Gestão de RH. Conceito 80/20: 80% pronto com as melhores práticas, roda desde o primeiro dia; 20% personalizável para a cultura e os processos da empresa, sem virar projeto infinito.
 
 ## Soluções Consist
 Página: https://www.optarisbrasil.com/solucoes-consist/
