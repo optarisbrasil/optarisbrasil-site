@@ -842,6 +842,11 @@ body{overflow-x:clip}
 .nh-seg-tags{display:flex;flex-wrap:wrap;gap:8px}
 .nh-seg-tags span{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:5px 12px;font-size:12.5px;color:#e6edf6;white-space:nowrap}
 .nh-seg-foot{margin-top:22px}
+
+.nh-prova-h{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 22px;align-items:start;max-width:960px}
+.nh-prova-logo{width:72px;height:auto;border-radius:10px;box-shadow:0 10px 24px -12px rgba(2,19,45,.5);margin-top:4px}
+.nh-prova-nota{margin-top:12px;font-size:12.5px;color:#6b7280;max-width:620px;text-wrap:pretty}
+@media (max-width:640px){.nh-prova-h{grid-template-columns:1fr;gap:14px}.nh-prova-logo{width:56px}}
 </style>
 <template id="__bundler_thumbnail" data-bg-color="#02132d"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#02132d"></rect><circle cx="600" cy="400" r="150" fill="#0496ff"></circle><text x="600" y="455" text-anchor="middle" font-family="Lato,Arial,sans-serif" font-weight="900" font-size="160" fill="#fff">O</text></svg></template>
 <style id="ft-css">
@@ -1037,10 +1042,14 @@ body{overflow-x:clip}
 
     <!-- 2ª tela: a prova (AON) -->
     <div id="prova" data-reveal="" style="scroll-margin-top:52px;padding:clamp(48px,6vw,80px) 0 clamp(24px,4vw,40px)">
-      <div style="max-width:900px">
+      <div class="nh-prova-h">
+        <img src="logos/aon.webp" alt="AON" width="78" height="72" loading="lazy" decoding="async" class="nh-prova-logo">
+        <div>
         <span class="nh-kicker">Para quem já resolvemos · a prova antes da promessa</span>
         <h2 class="nh-h2" style="font-size:clamp(30px,4vw,52px);margin:14px 0 16px">Um sistema inteiro de sinistros, com portal do cliente, no ar em <span style="color:#0496ff">5 semanas</span>. Não foi uma startup. Foi a AON.</h2>
         <p style="font-size:clamp(16px,1.5vw,19px);color:#02132d;font-weight:500;max-width:720px;text-wrap:pretty">Você descreve. A Deyel constrói. A sua TI decide o que vai ao ar.</p>
+        <p class="nh-prova-nota">AON: corretora e consultoria global de seguros, resseguros e gestão de risco, com sede em Londres, presença em mais de 120 países e cerca de 60 mil funcionários.</p>
+        </div>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:22px">
         <div class="nh-stat" style="border-left-color:#0496ff"><span class="nh-stat-n" style="color:#0496ff">3x</span><span class="nh-stat-l">mais rápida a iteração</span><span class="nh-stat-d">cada ajuste pedido pelo negócio volta pronto em dias, não em sprints.</span></div>
