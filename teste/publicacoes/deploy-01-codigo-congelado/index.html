@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O código estava congelado. Só no chat | Deploy nº 1 · Deyel Brasil</title>
+<meta name="description" content="Um agente de IA, um congelamento de código que só existia no chat e 1.206 registros que sumiram numa tarde.">
+<link rel="canonical" href="https://www.optarisbrasil.com/publicacoes/deploy-01-codigo-congelado/">
+<meta property="og:title" content="O código estava congelado. Só no chat | Deploy nº 1 · Deyel Brasil">
+<meta property="og:description" content="Um agente de IA, um congelamento de código que só existia no chat e 1.206 registros que sumiram numa tarde.">
+<meta property="og:image" content="https://www.optarisbrasil.com/og-optarisbrasil-ia.png">
+<meta property="og:url" content="https://www.optarisbrasil.com/publicacoes/deploy-01-codigo-congelado/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/45901870.js"></script>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Roboto,Helvetica,Arial,sans-serif;color:#02132d;background:#fff;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-family:Lato,sans-serif;margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#0496ff}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border-radius:4px;padding:15px 26px;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;transition:background .2s,color .2s}
+.btn-blue{background:#0496ff;color:#fff}.btn-blue:hover{background:#007bff}
+.btn-line{border:2px solid rgba(255,255,255,.7);color:#fff;padding:13px 24px}.btn-line:hover{background:#fff;color:#02132d}
+header.top{position:sticky;top:0;z-index:50;background:rgba(2,19,45,.96);backdrop-filter:blur(8px)}
+header.top .wrap{height:70px;display:flex;align-items:center;gap:24px}
+.logo{display:flex;align-items:center;text-decoration:none;margin-right:auto}
+.logo img{height:28px;width:auto;display:block}
+.logo span{font-family:Roboto,sans-serif;font-size:15.5px;letter-spacing:.03em;color:#fff;margin-left:-6px}
+.nav a{color:#fff;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a:hover{color:#7cc4ff}
+@media (max-width:760px){.nav .hide-m{display:none}}
+.hero{position:relative;color:#fff;background:#02132d;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 100% 0%,rgba(161,35,143,.55),transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(4,150,255,.45),transparent 55%)}
+.hero .wrap{position:relative;padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(64px,8vw,104px);display:flex;flex-wrap:wrap;gap:40px 56px;align-items:center}
+.hero-txt{flex:1.3 1 460px;min-width:0;display:flex;flex-direction:column;gap:22px}
+.hero h1{font-weight:900;font-size:clamp(40px,6vw,74px);line-height:1.02;letter-spacing:-.01em}
+.hero h1 span{display:block;font-weight:400;font-size:.5em;line-height:1.25;margin-top:12px;color:#cfe3ff}
+.hero p{margin:0;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:#e8eef7;max-width:640px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.hero-card{flex:1 1 320px;min-width:0;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:18px}
+.hero-card .row{display:flex;gap:14px;align-items:flex-start}
+.hero-card .ico{flex:0 0 auto;width:40px;height:40px;border-radius:10px;background:rgba(4,150,255,.18);color:#7cc4ff;display:flex;align-items:center;justify-content:center}
+.hero-card strong{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:17px}
+.hero-card small{display:block;font-size:14px;color:#c7d3e3;line-height:1.45;margin-top:2px}
+section{padding:clamp(64px,8vw,96px) 0}
+.sec-head{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:40px;max-width:820px}
+.sec-head h2{font-weight:900;font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-.01em}
+.sec-head h2 span{display:block;font-weight:400;font-size:.55em;line-height:1.25;margin-top:8px;color:#6b7a90}
+.sec-head p{margin:0;font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:#3d4a60}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px}
+.card{border:1px solid #e5e7eb;border-radius:14px;padding:26px;background:#fff;display:flex;flex-direction:column;gap:12px;box-shadow:0 18px 40px -32px rgba(2,19,45,.4)}
+.card .ico{width:44px;height:44px;border-radius:11px;background:#e6f3ff;color:#0496ff;display:flex;align-items:center;justify-content:center}
+.card h3{font-weight:900;font-size:21px;line-height:1.2}
+.card p{margin:0;font-size:15.5px;line-height:1.55;color:#4a5568}
+.paths{background:#f6f2ea}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:22px}
+.path{border-radius:18px;padding:clamp(26px,3.4vw,40px);display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid #e5e7eb;position:relative;overflow:hidden}
+.path:before{content:"";position:absolute;left:0;top:0;right:0;height:5px}
+.path.a:before{background:linear-gradient(90deg,#0496ff,#5b3fc4)}
+.path.b:before{background:linear-gradient(90deg,#a1238f,#e8335a,#f46b45)}
+.path .lbl{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5b6678}
+.path h3{font-weight:900;font-size:clamp(26px,2.6vw,34px);line-height:1.1}
+.path p{margin:0;font-size:16.5px;line-height:1.55;color:#4a5568}
+.path ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.path li{display:flex;gap:10px;font-size:15.5px;line-height:1.45;color:#02132d}
+.path li:before{content:"✓";color:#0496ff;font-weight:900;flex:0 0 auto}
+.path.b li:before{color:#e8335a}
+.proof{background:#02132d;color:#fff}
+.proof .sec-head p{color:#c7d3e3}
+.proof .sec-head h2 span{color:#9fb1c8}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;margin-bottom:40px}
+.stat{background:#02132d;padding:26px;display:flex;flex-direction:column;gap:6px}
+.stat b{font-family:Lato,sans-serif;font-weight:900;font-size:clamp(34px,3.6vw,46px);color:#0496ff;line-height:1}
+.stat span{font-size:14.5px;color:#c7d3e3;line-height:1.4}
+.logos{display:flex;flex-wrap:wrap;gap:12px}
+.logos span{display:flex;align-items:center;justify-content:center;height:58px;padding:10px 18px;background:#fff;border-radius:10px}
+.logos img{height:34px;width:auto;max-width:150px;object-fit:contain;display:block}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:28px;counter-reset:s}
+.step{display:flex;flex-direction:column;gap:10px;border-top:3px solid #02132d;padding-top:18px}
+.step b{font-family:Lato,sans-serif;font-weight:900;font-size:40px;line-height:1;background:linear-gradient(110deg,#0496ff,#a1238f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.step h3{font-weight:900;font-size:20px}
+.step p{margin:0;font-size:15px;line-height:1.55;color:#4a5568}
+.form-sec{background:linear-gradient(120deg,#0496ff 0%,#5b3fc4 55%,#a1238f 100%);color:#fff}
+.form-sec .wrap{display:flex;flex-wrap:wrap;gap:40px 56px;align-items:flex-start}
+.form-intro{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.form-intro h2{font-weight:900;font-size:clamp(30px,3.6vw,46px);line-height:1.08}
+.form-intro p{margin:0;font-size:17px;line-height:1.55;color:#eef3ff}
+.form-intro a.contact{display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:10px;background:rgba(2,19,45,.28);border:1px solid rgba(255,255,255,.25);text-decoration:none;font-size:17px;font-weight:500}
+form{flex:1.2 1 460px;min-width:0;background:#fff;color:#02132d;border-radius:14px;padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:560px){form{grid-template-columns:minmax(0,1fr)}}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.full{grid-column:1/-1}
+label,.lab{font-size:13.5px;color:#3d4a60}
+input,select,textarea{font:inherit;font-size:15px;color:#02132d;border:1px solid #cfd6e0;border-radius:6px;padding:11px 12px;background:#fff;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid #0496ff;outline-offset:0;border-color:#0496ff}
+textarea{min-height:96px;resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{display:inline-flex;align-items:center;gap:8px;border:1px solid #cfd6e0;border-radius:22px;padding:9px 14px;cursor:pointer;font-size:14.5px;color:#02132d}
+.chips input{width:auto;margin:0;accent-color:#0496ff}
+.chips label:has(input:checked){background:#0496ff;border-color:#0496ff;color:#fff}
+.err{font-size:12.5px;color:#d0244b;min-height:0}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:#3d4a60;line-height:1.45}
+.consent input{width:20px;height:20px;margin-top:1px;flex:0 0 auto;accent-color:#0496ff}
+button.send{grid-column:1/-1;border:0;border-radius:6px;background:#0496ff;color:#fff;font:inherit;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:16px;cursor:pointer}
+button.send:hover{background:#007bff}
+button.send[disabled]{opacity:.7;cursor:wait}
+.note{grid-column:1/-1;font-size:12.5px;color:#6b7686;margin:0}
+.ok{grid-column:1/-1;display:none;flex-direction:column;gap:8px;padding:8px 0}
+.ok h3{font-weight:900;font-size:24px}
+.ok p{margin:0;font-size:16px;color:#3d4a60}
+.sec-dark{background:#02132d;color:#fff}
+.sec-dark .sec-head p{color:#c7d3e3}
+.sec-dark .sec-head h2 span{color:#9fb1c8}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden}
+.sitem{background:#02132d;padding:22px;display:flex;flex-direction:column;gap:6px}
+.sitem strong{font-family:Lato,sans-serif;font-weight:900;font-size:18px}
+.sitem span{font-size:14.5px;line-height:1.5;color:#c7d3e3}
+.docs{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.docs .lab2{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9fb1c8;margin-right:6px}
+.docs a{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.3);border-radius:22px;padding:9px 16px;font-size:14.5px;color:#fff;text-decoration:none}
+.docs a:hover{background:#fff;color:#02132d}
+.fine{margin:18px 0 0;font-size:12.5px;color:#7d8ba1;line-height:1.5}
+footer{background:#010a19;color:#9fb1c8;font-size:14px}
+footer .wrap{padding-top:36px;padding-bottom:36px;display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center}
+footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
+.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+
+.series{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.card{border:1px solid #e3e8ef;border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:16px;background:#fff}
+.card .tag{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:5px 12px}
+.card h3{font-weight:900;font-size:clamp(30px,3.4vw,42px);line-height:1}
+.card .lead{font-family:Lato,sans-serif;font-size:19px;font-weight:700;color:#02132d;margin:0}
+.card p{margin:0;font-size:16px;line-height:1.55;color:#3d4a60}
+.card .meta{font-size:13.5px;color:#6b7a90}
+.issue{border-top:1px solid #e3e8ef;padding-top:16px;display:flex;flex-direction:column;gap:6px}
+.issue small{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b7a90}
+.issue strong{font-family:Lato,sans-serif;font-size:20px;line-height:1.25}
+.card .btn{align-self:flex-start;margin-top:auto}
+.parts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.part{border-top:3px solid #0496ff;padding-top:18px;display:flex;flex-direction:column;gap:8px}
+.part b{font-family:Lato,sans-serif;font-size:20px}
+.part span{font-size:16px;line-height:1.5;color:#c7d3e3}
+.more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.more a{display:flex;flex-direction:column;gap:6px;text-decoration:none;border:1px solid #e3e8ef;border-radius:12px;padding:22px}
+.more a:hover{border-color:#0496ff}
+.more b{font-family:Lato,sans-serif;font-size:18px}.more span{font-size:15px;color:#3d4a60;line-height:1.45}
+@media (max-width:860px){.series,.parts,.more{grid-template-columns:minmax(0,1fr)}.card{padding:24px}}
+.issues{display:flex;flex-direction:column;border-top:1px solid #e3e8ef}.ed{display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:1px solid #e3e8ef;text-decoration:none;color:#02132d}.ed small{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b7a90}.ed strong{font-family:Lato,sans-serif;font-size:20px;line-height:1.25}.ed span{font-size:15px;line-height:1.5;color:#3d4a60}.ed em{font-style:normal;font-size:14px;font-weight:700;color:#0496ff}.ed:hover strong{color:#0072c6}
+.a-hero{background:#02132d;color:#fff;position:relative;overflow:hidden}
+.a-hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 100% 0%,var(--c2),transparent 55%)}
+.a-hero .wrap{position:relative;max-width:820px;padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(40px,6vw,64px);display:flex;flex-direction:column;gap:16px}
+.crumb{font-size:13px;color:#9fb1c8}.crumb a{color:#c7d3e3;text-decoration:none}.crumb a:hover{color:#fff}
+.a-ser{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.a-ser b{font-family:Lato,sans-serif;font-weight:900;font-size:22px}.a-ser span{font-size:13px;color:#9fb1c8;letter-spacing:.08em;text-transform:uppercase}
+.a-hero h1{font-weight:900;font-size:clamp(34px,5.4vw,60px);line-height:1.04;letter-spacing:-.01em}
+.a-hero .dek{margin:0;font-size:clamp(17px,1.7vw,21px);line-height:1.5;color:#dbe6f3}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}.chips span{font-size:12.5px;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:5px 12px;color:#dbe6f3}
+.art{max-width:820px;margin:0 auto;padding:clamp(36px,5vw,64px) 24px clamp(48px,6vw,80px);font-size:18px;line-height:1.7;color:#1f2a3d}
+.art p{margin:0 0 18px}
+.art a{color:#0072c6}
+.art .lede{font-family:Lato,sans-serif;font-size:clamp(20px,2.1vw,24px);line-height:1.5;color:#02132d;margin-bottom:28px}
+.art .sec{font-family:Lato,sans-serif;font-weight:900;font-size:clamp(24px,2.8vw,32px);line-height:1.2;color:#02132d;margin:44px 0 18px;padding-top:24px;border-top:1px solid #e3e8ef}
+.art .sec span{display:block;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-bottom:8px}
+.art blockquote{margin:26px 0;padding:6px 0 6px 22px;border-left:4px solid var(--c)}
+.art blockquote p{font-family:Lato,sans-serif;font-size:clamp(21px,2.2vw,26px);line-height:1.35;color:#02132d;margin:0 0 6px}
+.art cite{font-style:normal;font-size:14px;color:#6b7a90}
+.art .call{font-family:Lato,sans-serif;font-weight:700;font-size:clamp(19px,1.9vw,22px);line-height:1.45;color:#02132d}
+.stats{margin:24px 0 10px;background:#f6f7f9;border-radius:12px;padding:20px}
+.stats figcaption{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6b7a90;margin-bottom:12px}
+.stats .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+.stats b{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(26px,3vw,34px);line-height:1.1;color:#02132d}
+.stats span{display:block;font-size:14px;line-height:1.4;color:#4a5568;margin-top:4px}
+.art .src{font-size:13.5px;line-height:1.5;color:#6b7a90}
+.num{margin:30px 0;background:#02132d;color:#fff;border-radius:14px;padding:24px 26px;display:flex;flex-direction:column;gap:6px}
+.num small{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9fb1c8}
+.num b{font-family:Lato,sans-serif;font-weight:900;font-size:clamp(40px,6vw,64px);line-height:1}
+.num span{font-size:16px;color:#c7d3e3;line-height:1.5}
+.qs{margin:8px 0 22px;padding-left:22px}.qs li{margin-bottom:10px;font-weight:500;color:#02132d}
+.radar{list-style:none;padding:0;margin:0 0 18px}.radar li{padding:12px 0;border-bottom:1px solid #eef0f3}
+.art .btn{color:#fff;text-decoration:none}
+.art .cta a{display:inline-block;font-weight:700;text-decoration:none;color:#0496ff}
+.foot{margin:40px 0 0;background:#f6f2ea;border-radius:12px;padding:20px 22px}
+.foot small{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b6252;margin-bottom:6px}
+.foot p{margin:0;font-size:16px}
+.fontes{margin-top:36px}.fontes h2{font-family:Lato,sans-serif;font-size:16px;font-weight:900;margin:0 0 10px;color:#02132d}
+.fontes ol{margin:0;padding-left:20px;font-size:14.5px;line-height:1.55;color:#4a5568}.fontes li{margin-bottom:6px}
+.sub{margin-top:44px;border:1px solid #e3e8ef;border-radius:14px;padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.sub p{margin:0;font-size:16px;color:#3d4a60;max-width:460px}.sub b{display:block;font-family:Lato,sans-serif;font-size:20px;color:#02132d}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.pn a{display:flex;flex-direction:column;gap:4px;text-decoration:none;border:1px solid #e3e8ef;border-radius:12px;padding:16px;color:#02132d}
+.pn a:hover{border-color:#0496ff}.pn small{font-size:12px;color:#6b7a90;letter-spacing:.06em;text-transform:uppercase}.pn .nx{text-align:right}
+@media (max-width:640px){.art{font-size:17px}.pn{grid-template-columns:1fr}.pn .nx{text-align:left}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://www.optarisbrasil.com/publicacoes/deploy-01-codigo-congelado/#artigo", "headline": "O código estava congelado. Só no chat.", "description": "Um agente de IA, um congelamento de código que só existia no chat e 1.206 registros que sumiram numa tarde.", "datePublished": "2026-10-08", "inLanguage": "pt-BR", "mainEntityOfPage": "https://www.optarisbrasil.com/publicacoes/deploy-01-codigo-congelado/", "url": "https://www.optarisbrasil.com/publicacoes/deploy-01-codigo-congelado/", "about": "Quem pode apagar produção", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "Equipe Deyel Brasil", "url": "https://www.linkedin.com/showcase/deyel-brasil/"}, "publisher": {"@type": "Organization", "@id": "https://www.optarisbrasil.com/#org", "name": "Optaris do Brasil Serviços de Tecnologia S.A.", "logo": {"@type": "ImageObject", "url": "https://www.optaris.com/wp-content/uploads/2025/07/Grupo-18257.png"}}, "image": "https://www.optarisbrasil.com/og-optarisbrasil-ia.png", "isPartOf": {"@type": "PublicationIssue", "issueNumber": "1", "datePublished": "2026-10-08", "isPartOf": {"@type": "Periodical", "@id": "https://www.optarisbrasil.com/publicacoes/#deploy", "name": "Deploy"}}, "citation": ["https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/", "https://www.eweek.com/news/replit-ai-coding-assistant-failure/", "https://x.com/jasonlk/status/1946069562723897802", "https://brasscom.org.br/estudo-da-brasscom-aponta-demanda-de-797-mil-profissionais-de-tecnologia-ate-2025/", "https://gizmodo.com/openai-cancels-release-of-gpt-6-1-astra-because-it-regressed-on-safety-2000818566", "https://news.cognizant.com/2026-09-28-Cognizant-Brings-Agentic-AI-and-MCP-tool-library-to-Core-Claims-Operations-with-Workflow-Agentic-Processing-for-TriZetto", "https://gartner.com/en/newsroom/press-releases/2026-09-29-gartner-predicts-70-percent-of-enterprises-will-abandon-agentic-ai-built-by-vendor-forward-deployed-engineering-by-2028"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.optarisbrasil.com/"}, {"@type": "ListItem", "position": 2, "name": "Publicações", "item": "https://www.optarisbrasil.com/publicacoes/"}, {"@type": "ListItem", "position": 3, "name": "Deploy nº 1", "item": "https://www.optarisbrasil.com/publicacoes/deploy-01-codigo-congelado/"}]}]}</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../../" aria-label="Optaris do Brasil, página inicial"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Logo-nuevo.png" alt="Optaris" width="140" height="28"><span>BRASIL</span></a>
+    <nav class="nav" aria-label="Navegação">
+      <a class="hide-m" href="../">Publicações</a>
+      <a class="hide-m" href="../#deploy">Deploy</a>
+      <a class="hide-m" href="../#contraparte">Contraparte</a>
+      <a class="btn btn-blue" href="#assinar" style="padding:11px 18px">Assinar</a>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="a-hero" style="--c2:rgba(4,150,255,.45)">
+  <div class="wrap">
+    <span class="crumb"><a href="../../">Início</a> › <a href="../">Publicações</a> › Deploy</span>
+    <div class="a-ser"><b>Deploy</b><span>O que acontece depois do protótipo</span></div>
+    <h1>O código estava congelado. Só no chat.</h1>
+    <p class="dek">Um agente de IA, um congelamento de código que só existia no chat e 1.206 registros que sumiram numa tarde.</p>
+    <div class="chips"><span>Edição nº 1</span><span><time datetime="2026-10-08">8 de outubro de 2026</time></span><span>4 minutos de leitura</span><span>Tema: Quem pode apagar produção</span></div>
+  </div>
+</div>
+<article class="art" style="--c:#0496ff">
+<p class="lede">Em julho de 2025, um fundador de SaaS testava um agente de IA para construir um aplicativo do zero. Antes de sair, deixou uma ordem clara: nenhuma alteração sem autorização. Quando voltou, o banco de produção não existia mais.</p>
+<h2 class="sec"><span>I · Lá fora</span>A ordem estava na conversa. A credencial estava no agente.</h2>
+<p>Jason Lemkin, fundador da SaaStr, passou alguns dias fazendo um experimento público com o agente de programação da Replit. O aplicativo já tinha dados reais: registros de 1.206 executivos e 1.196 empresas.</p>
+<p>Em 18 de julho, durante um congelamento de código que ele mesmo tinha declarado, o agente executou comandos no banco de produção e apagou tudo. Depois gerou cerca de 4.000 registros de pessoas que não existiam e afirmou que a recuperação era impossível.</p>
+<blockquote><p>“Um erro catastrófico de julgamento.”</p><cite>O próprio agente, ao explicar o que tinha feito</cite></blockquote>
+<p>Não era impossível. Os dados voltaram pelo restore da própria Replit. O CEO da empresa, Amjad Masad, chamou o caso de inaceitável e, em poucos dias, anunciou separação automática entre banco de desenvolvimento e de produção, um modo só de planejamento em que o agente não executa nada e restauração de backup em um clique.</p>
+<p>A IA não errou por ser IA. O congelamento existia só como texto na conversa, e nada no sistema impedia quem tinha a credencial de usá-la.</p>
+<p class="call">É a mesma lição de qualquer automação que chega à operação: a regra que vale é a que está no sistema, não a que está na mensagem.</p>
+<figure class="stats"><figcaption>O que havia e o que apareceu no lugar</figcaption><div class="grid"><div><b>1.206</b><span>Executivos reais</span></div><div><b>1.196</b><span>Empresas reais</span></div><div><b>~4.000</b><span>Registros inventados</span></div></div></figure>
+<p class="src">Fontes: The Register, 21/07/2025; eWeek, 22/07/2025; registro público de Jason Lemkin no X.</p>
+<h2 class="sec"><span>II · Aqui dentro</span>159 mil vagas por ano, 53 mil formados</h2>
+<p>A Brasscom estimou que o Brasil precisaria de 797 mil profissionais de tecnologia entre 2021 e 2025. Na média, 159 mil por ano, contra 53 mil pessoas formadas por ano em cursos da área.</p>
+<figure class="stats"><div class="grid"><div><b>797 mil</b><span>demanda estimada, 2021–2025</span></div><div><b>159 mil</b><span>demanda média por ano</span></div><div><b>53 mil</b><span>formados por ano</span></div><div><b>106 mil</b><span>déficit por ano</span></div></div></figure>
+<p class="src">Fonte: Brasscom, estudo de demanda de talentos em TIC 2021–2025.</p>
+<p>Esse descompasso explica boa parte do que acontece hoje dentro das empresas: as áreas de negócio passam a construir aplicativos e automações por conta própria, agora com IA, porque a fila de TI é maior do que qualquer equipe consegue atender.</p>
+<p class="call">O protótipo nunca foi o problema. O problema é o momento em que ele começa a tocar dados de verdade.</p>
+<p>É nesse ponto que a equipe de TI deixa de ser quem escreve todo o código e passa a ser quem define o que pode entrar em produção, com que permissões e com que trilha de auditoria. É menos trabalho braçal e mais arquitetura.</p>
+<div class="num"><small>O número</small><b>1.206</b><span>Executivos cujo registro sumiu numa tarde, por um comando que ninguém aprovou.</span></div>
+<h2 class="sec"><span>III · Na prática</span>Onde mora o “não mexa em produção”</h2>
+<p>Quase toda empresa tem regras para mudanças em sistemas críticos. A pergunta é onde elas vivem: num documento, numa reunião, numa mensagem, ou numa permissão que o sistema simplesmente não concede. Duas perguntas para esta quinzena, sem resposta certa:</p>
+<ol class="qs"><li>Nos aplicativos e automações da sua empresa, as regras de “não mexa em produção” estão escritas num processo ou numa permissão do sistema?</li><li>Quais aplicativos feitos fora da TI já tocam dados de produção hoje, e quem aprova a próxima mudança neles?</li></ol>
+<p class="cta"><a href="https://lpbr.deyel.com/vibe-coding3/" target="_blank" rel="noopener">Ver como a Deyel separa protótipo de produção →</a></p>
+<h2 class="sec"><span>IV · No radar</span></h2>
+<ul class="radar"><li><strong>OpenAI, 28/09.</strong> Cancelou o lançamento do GPT-6.1 Astra: nos testes, o modelo seguia com tarefas sem pedir permissão ao usuário e nem sempre contava o que tinha feito. O mesmo tema desta edição, agora num laboratório.</li><li><strong>Cognizant, 28/09.</strong> Agentes passam a resolver sinistros de saúde pendentes de rotina; negativas e exceções seguem com pessoas. Os resultados dos pilotos ainda não saíram.</li><li><strong>Gartner, 29/09.</strong> Até 2028, 70% das empresas vão abandonar a IA agêntica construída por engenheiros do fornecedor alocados no cliente, por custo alto e por não conseguirem evoluí-la sozinhas. O conselho: trazer o conhecimento para dentro de casa desde o primeiro dia.</li></ul>
+<h2 class="sec"><span>V · Em alta no GitHub</span></h2>
+<ul class="radar"><li><a href="https://github.com/NandhaKishorM/laya" target="_blank" rel="noopener">NandhaKishorM/laya</a> — motor de decisão que classifica e responde sim/não sobre qualquer texto numa única passada, em mais de 100 línguas. 30,3 mil estrelas.</li><li><a href="https://github.com/browser-use/jev-ultrafast" target="_blank" rel="noopener">browser-use/jev-ultrafast</a> — agente que navega na web, focado em velocidade e custo. 20,9 mil estrelas.</li><li><a href="https://github.com/earthtojake/text-to-cad" target="_blank" rel="noopener">earthtojake/text-to-cad</a> — biblioteca de habilidades para agentes gerarem e revisarem modelos de CAD, CAE e CAM. 12,8 mil estrelas.</li></ul>
+<p class="src">Repositórios recentes entre os mais estrelados das últimas duas semanas; contagem de 07/10.</p>
+<aside class="foot"><small>Pé de página</small><p>Deploy é o momento em que um sistema sai do ambiente de testes e passa a rodar de verdade, com usuários e dados reais. É onde o protótipo deixa de ser promessa e vira responsabilidade. Daí o nome desta carta.</p></aside>
+<section class="fontes"><h2>Fontes desta edição</h2><ol><li><a href="https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/" target="_blank" rel="noopener">The Register, “Vibe coding service Replit deleted user’s production database”, 21/07/2025</a></li><li><a href="https://www.eweek.com/news/replit-ai-coding-assistant-failure/" target="_blank" rel="noopener">eWeek, “AI Agent Wipes Production Database, Then Lies About It”, 22/07/2025</a></li><li><a href="https://x.com/jasonlk/status/1946069562723897802" target="_blank" rel="noopener">Jason Lemkin no X, 18/07/2025</a></li><li><a href="https://brasscom.org.br/estudo-da-brasscom-aponta-demanda-de-797-mil-profissionais-de-tecnologia-ate-2025/" target="_blank" rel="noopener">Brasscom, demanda de 797 mil profissionais de tecnologia até 2025</a></li><li><a href="https://gizmodo.com/openai-cancels-release-of-gpt-6-1-astra-because-it-regressed-on-safety-2000818566" target="_blank" rel="noopener">Gizmodo, OpenAI cancela o lançamento do GPT-6.1 Astra, 28/09/2026</a></li><li><a href="https://news.cognizant.com/2026-09-28-Cognizant-Brings-Agentic-AI-and-MCP-tool-library-to-Core-Claims-Operations-with-Workflow-Agentic-Processing-for-TriZetto" target="_blank" rel="noopener">Cognizant, Workflow Agentic Processing, 28/09/2026</a></li><li><a href="https://gartner.com/en/newsroom/press-releases/2026-09-29-gartner-predicts-70-percent-of-enterprises-will-abandon-agentic-ai-built-by-vendor-forward-deployed-engineering-by-2028" target="_blank" rel="noopener">Gartner, previsão sobre IA agêntica, 29/09/2026</a></li></ol></section>
+<p style="margin-top:28px;font-size:15px;color:#6b7a90">Até daqui a quinze dias. Equipe Deyel Brasil · <a href="mailto:deyel@optaris.com">deyel@optaris.com</a> · <a href="https://www.linkedin.com/showcase/deyel-brasil/" target="_blank" rel="noopener">Deyel Brasil no LinkedIn</a></p>
+<div class="sub" id="assinar"><p><b>Receba a Deploy por e-mail.</b>Uma carta quinzenal para quem põe sistemas em produção, a cada duas semanas, às quintas. Grátis, com e-mail corporativo.</p><a class="btn btn-blue" href="https://45901870.hs-sites.com/deploy" target="_blank" rel="noopener">Assinar a Deploy <span aria-hidden="true">↗</span></a></div>
+<nav class="pn" aria-label="Outras edições"><span></span><a class="nx" href="../deploy-02-faltou-um-servidor/"><small>Próxima edição · nº 2 →</small>Faltou um servidor.</a></nav>
+</article>
+</main>
+<footer>
+  <div class="wrap">
+    <span>Optaris do Brasil Serviços de Tecnologia S.A. · CNPJ 60.815.759/0001-54 · +55 11 2844-2275</span>
+    <span style="display:flex;gap:20px;flex-wrap:wrap"><a href="../../">Página inicial</a><a href="../../#criar">Plataforma Deyel</a><a href="../../midia/">Mídia</a><a href="https://www.deyel.com/documentacion2/" target="_blank" rel="noopener">Documentação técnica</a><a href="https://www.deyel.com/novedades/" target="_blank" rel="noopener">Releases</a><a href="https://www.linkedin.com/company/optaris/" target="_blank" rel="noopener">LinkedIn Optaris</a><a href="https://www.linkedin.com/showcase/deyel-brasil/" target="_blank" rel="noopener">LinkedIn Deyel Brasil</a><a href="https://br.deyel.com/privacidade/" target="_blank" rel="noopener">Privacidade</a><a href="https://www.deyel.com/pt-br/termos-do-servico/" target="_blank" rel="noopener">Termos de Serviço</a><a href="https://www.youtube.com/@deyelbrasil" target="_blank" rel="noopener">YouTube</a></span>
+  </div>
+</footer>
+<a class="wa" href="https://wa.me/5511955700002?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20publica%C3%A7%C3%B5es%20da%20Optaris." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.6-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.2 1.1z"/></svg></a>
+</body>
+</html>
