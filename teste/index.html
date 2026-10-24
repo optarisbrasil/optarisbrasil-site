@@ -836,6 +836,12 @@ body{overflow-x:clip}
 .of-table thead th{font-size:10.5px;letter-spacing:.06em}
 .of-table tbody th{font-size:11.5px}
 @media (max-width:860px){.of-table{display:none}}
+
+.nh-seg-stack{margin-top:26px;border-top:1px solid rgba(255,255,255,.16);padding-top:20px}
+.nh-seg-stack-k{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:12.5px;color:#7cc4ff;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
+.nh-seg-tags{display:flex;flex-wrap:wrap;gap:8px}
+.nh-seg-tags span{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:5px 12px;font-size:12.5px;color:#e6edf6;white-space:nowrap}
+.nh-seg-foot{margin-top:22px}
 </style>
 <template id="__bundler_thumbnail" data-bg-color="#02132d"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#02132d"></rect><circle cx="600" cy="400" r="150" fill="#0496ff"></circle><text x="600" y="455" text-anchor="middle" font-family="Lato,Arial,sans-serif" font-weight="900" font-size="160" fill="#fff">O</text></svg></template>
 <style id="ft-css">
@@ -1103,6 +1109,10 @@ body{overflow-x:clip}
       <div data-reveal="" class="nh-seg-c"><span class="nh-seg-n">01</span><b>No software</b><p>Nenhum agente de IA toca os seus sistemas diretamente. Toda ação, de um agente da Deyel ou dos que a sua empresa já usa via MCP ou API, passa pelo AI Runtime, que decide em milissegundos: executa, bloqueia ou leva para uma pessoa. As regras ficam na política, não no prompt; o modelo é trocável, as regras não.</p></div>
       <div data-reveal="" class="nh-seg-c" style="transition-delay:.1s"><span class="nh-seg-n">02</span><b>Na governança</b><p>Perfis e papéis com SSO integrado ao diretório corporativo, versionamento com homologação e a decisão de publicar sempre de um humano. Trilha de auditoria de cada transação, de cada versão e de cada ação de IA: quem pediu, o que foi decidido, por qual regra.</p></div>
       <div data-reveal="" class="nh-seg-c" style="transition-delay:.2s"><span class="nh-seg-n">03</span><b>Na infraestrutura</b><p>Ambiente segregado para cada cliente, em nuvem AWS gerenciada pela Optaris ou no ambiente definido pela sua TI. Dados criptografados em trânsito e em repouso, com gestão de chaves; redundância, backup automático e recuperação de desastres; monitoramento contínuo e log imutável, com relatórios prontos para o seu compliance.</p></div>
+    </div>
+    <div class="nh-seg-stack" data-reveal="">
+      <span class="nh-seg-stack-k">Com a garantia da infraestrutura AWS e da Suíte de Segurança Deyel</span>
+      <div class="nh-seg-tags"><span>AWS</span><span>SOC 1</span><span>SOC 2</span><span>SOC 3</span><span>ISO 27001</span><span>WAF</span><span>Proteção de DNS</span><span>Anti-DDoS</span><span>Antimalware</span><span>Firewall</span><span>VPN</span><span>SSO</span><span>Criptografia em trânsito e em repouso</span><span>Gestão de chaves</span><span>Multi-AZ</span><span>Backup automático</span><span>RPO zero</span><span>Log imutável</span><span>Trilha de auditoria</span><span>LGPD</span></div>
     </div>
     <div class="nh-seg-foot">
       <div class="nh-seg-sabia"><span>Você sabia?</span><p>90% dos desenvolvedores já usam IA, mas 30% não confiam no código que ela gera, e em 45% dos casos o código gerado traz uma falha de segurança conhecida. Velocidade sem governança não chega à produção.</p><small>DORA / Google Cloud, 2025, com quase 5.000 profissionais; Veracode, <em>GenAI Code Security Report</em>, março de 2026. <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report" target="_blank" rel="noopener">ver fonte ↗</a></small></div>
