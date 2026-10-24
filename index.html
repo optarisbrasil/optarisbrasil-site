@@ -791,14 +791,14 @@ body{overflow-x:clip}
 .nh-doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:22px}
 .nh-door{display:grid!important;grid-template-rows:subgrid;grid-row:span 9;align-content:start}
 @supports not (grid-template-rows:subgrid){.nh-door{display:flex!important;flex-direction:column}}
-.nh-door{border-radius:18px;padding:34px 30px;color:#fff;background:radial-gradient(ellipse at 100% 0%,rgba(161,35,143,.5),transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(4,150,255,.5),transparent 55%),#02132d;display:flex;flex-direction:column;gap:14px}
+.nh-door{border-radius:18px;padding:34px 30px;color:#fff;background:radial-gradient(ellipse at 100% 0%,rgba(161,35,143,.34),transparent 58%),radial-gradient(ellipse at 0% 100%,rgba(4,150,255,.26),transparent 60%),#02132d;display:flex;flex-direction:column;gap:14px}
 .nh-door-k{color:#7cc4ff;font-family:Lato,sans-serif;font-size:clamp(20px,2vw,26px);text-transform:uppercase;letter-spacing:.08em;font-weight:900;line-height:1}
-.nh-door h3{color:#fff;font-family:Lato,sans-serif;font-size:clamp(24px,2.6vw,32px);font-weight:900;line-height:1.12}.nh-door p{color:#c7d3e3;font-size:15.5px}
-.nh-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 14px;font-size:14px;color:#fff;font-weight:500}
-.nh-fact{background:rgba(255,255,255,.08);border-left:3px solid #7cc4ff;padding:10px 14px;border-radius:0 8px 8px 0;font-size:14px;color:#fff}.nh-fact b{color:#7cc4ff;font-weight:700}
+.nh-door h3{color:#fff;font-family:Lato,sans-serif;font-size:clamp(24px,2.6vw,32px);font-weight:900;line-height:1.12}.nh-door p{color:#dbe5f1;font-size:15.5px}
+.nh-chip{background:rgba(2,19,45,.5);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;font-size:14px;color:#fff;font-weight:500}
+.nh-fact{background:rgba(2,19,45,.55);border-left:3px solid #7cc4ff;padding:10px 14px;border-radius:0 8px 8px 0;font-size:14px;color:#fff}.nh-fact b{color:#7cc4ff;font-weight:700}
 .nh-door-sabia{margin-top:14px;border-top:1px solid rgba(255,255,255,.18);padding-top:14px;display:flex;flex-direction:column;gap:4px}
 .nh-door-sabia>span{font-family:Lato,sans-serif;font-weight:900;font-size:12px;color:#7cc4ff;text-transform:uppercase;letter-spacing:.1em}
-.nh-door-sabia p{font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#fff;text-wrap:pretty}.nh-door-sabia small{font-size:12px;color:#9fb0c7}.nh-door-sabia small a{color:#7cc4ff;text-decoration:none}
+.nh-door-sabia p{font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#fff;text-wrap:pretty}.nh-door-sabia small{font-size:12.5px;color:#c7d3e3;line-height:1.5}.nh-door-sabia small a{color:#7cc4ff;text-decoration:none}
 .nh-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px}
 .nh-step{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:22px}.nh-step>span{font-family:Lato,sans-serif;font-weight:900;font-size:30px;color:#0496ff;line-height:1;display:block}
 .nh-step h4{font-family:Lato,sans-serif;font-size:17px;font-weight:900;color:#02132d;margin:8px 0 6px}.nh-step p{font-size:14.5px;color:#555}
@@ -847,6 +847,8 @@ body{overflow-x:clip}
 .nh-prova-logo{width:72px;height:auto;border-radius:10px;box-shadow:0 10px 24px -12px rgba(2,19,45,.5);margin-top:4px}
 .nh-prova-nota{margin-top:12px;font-size:12.5px;color:#6b7280;max-width:620px;text-wrap:pretty}
 @media (max-width:640px){.nh-prova-h{grid-template-columns:1fr;gap:14px}.nh-prova-logo{width:56px}}
+
+@media (max-width:760px){.nh-door{padding:26px 22px}.nh-door-sabia p{font-size:15px}.nh-door-sabia small{font-size:12.5px}}
 </style>
 <template id="__bundler_thumbnail" data-bg-color="#02132d"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#02132d"></rect><circle cx="600" cy="400" r="150" fill="#0496ff"></circle><text x="600" y="455" text-anchor="middle" font-family="Lato,Arial,sans-serif" font-weight="900" font-size="160" fill="#fff">O</text></svg></template>
 <style id="ft-css">
