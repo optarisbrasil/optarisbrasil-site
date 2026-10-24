@@ -807,6 +807,18 @@ body{overflow-x:clip}
 @media (max-width:900px){.nh-diana,.nh-seg{grid-template-columns:1fr}.nh-diana-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.nh-sabia{grid-template-columns:1fr}.nh-sabia-s{grid-column:1}}
 @media (max-width:520px){#cases-destaque .nh-case{padding:16px 14px}#cases-destaque .nh-case-n{font-size:26px}.nh-diana-grid{grid-template-columns:1fr}}
+
+.nh-seg3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:18px;margin-top:34px}
+.nh-seg-c{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:22px 22px 20px}
+.nh-seg-n{font-family:Lato,sans-serif;font-weight:900;font-size:26px;color:#7cc4ff;line-height:1;display:block;margin-bottom:8px}
+.nh-seg-c b{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:19px;color:#fff;margin-bottom:8px}
+.nh-seg-c p{font-size:14.5px;color:#c7d3e3;text-wrap:pretty}
+.nh-seg-foot{margin-top:26px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;border-top:1px solid rgba(255,255,255,.16);padding-top:22px}
+.nh-seg-sabia>span{font-family:Lato,sans-serif;font-weight:900;font-size:12px;color:#7cc4ff;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:4px}
+.nh-seg-sabia p{font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#fff;text-wrap:pretty}
+.nh-seg-sabia small{display:block;margin-top:4px;font-size:12px;color:#9fb0c7}
+.nh-seg-sabia small a{color:#7cc4ff;text-decoration:none}
+@media (max-width:760px){.nh-seg-foot{grid-template-columns:1fr}}
 </style>
 <template id="__bundler_thumbnail" data-bg-color="#02132d"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#02132d"></rect><circle cx="600" cy="400" r="150" fill="#0496ff"></circle><text x="600" y="455" text-anchor="middle" font-family="Lato,Arial,sans-serif" font-weight="900" font-size="160" fill="#fff">O</text></svg></template>
 <style id="ft-css">
@@ -1062,13 +1074,33 @@ body{overflow-x:clip}
     </div>
   </div>
 
+
+  <!-- Segurança -->
+  <div id="seguranca" style="scroll-margin-top:52px;margin:0 calc(50% - 50vw);padding:clamp(48px,6vw,84px) max(24px,calc(50vw - 600px));background:radial-gradient(ellipse at 85% 0%,rgba(161,35,143,.35),transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(4,150,255,.4),transparent 55%),#02132d;color:#fff">
+    <div data-reveal="" style="max-width:1000px">
+      <span class="nh-kicker" style="color:#7cc4ff">Confiança</span>
+      <h2 style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,3.6vw,46px);line-height:1.08;color:#fff;text-wrap:balance;margin:12px 0 14px">Por que bancos, seguradoras e grandes empresas escolhem operar com a Deyel.</h2>
+      <p style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(18px,1.9vw,24px);color:#7cc4ff;text-wrap:balance">Segurança por arquitetura: dentro do software e na infraestrutura.</p>
+    </div>
+    <div class="nh-seg3">
+      <div data-reveal="" class="nh-seg-c"><span class="nh-seg-n">01</span><b>No software</b><p>Nenhum agente de IA toca os seus sistemas diretamente. Toda ação, de um agente da Deyel ou dos que a sua empresa já usa via MCP ou API, passa pelo AI Runtime, que decide em milissegundos: executa, bloqueia ou leva para uma pessoa. As regras ficam na política, não no prompt; o modelo é trocável, as regras não.</p></div>
+      <div data-reveal="" class="nh-seg-c" style="transition-delay:.1s"><span class="nh-seg-n">02</span><b>Na governança</b><p>Perfis e papéis com SSO integrado ao diretório corporativo, versionamento com homologação e a decisão de publicar sempre de um humano. Trilha de auditoria de cada transação, de cada versão e de cada ação de IA: quem pediu, o que foi decidido, por qual regra.</p></div>
+      <div data-reveal="" class="nh-seg-c" style="transition-delay:.2s"><span class="nh-seg-n">03</span><b>Na infraestrutura</b><p>Ambiente segregado para cada cliente, em nuvem AWS gerenciada pela Optaris ou no ambiente definido pela sua TI. Dados criptografados em trânsito e em repouso, com gestão de chaves; redundância, backup automático e recuperação de desastres; monitoramento contínuo e log imutável, com relatórios prontos para o seu compliance.</p></div>
+    </div>
+    <div class="nh-seg-foot">
+      <div class="nh-seg-sabia"><span>Você sabia?</span><p>90% dos desenvolvedores já usam IA, mas 30% não confiam no código que ela gera, e em 45% dos casos o código gerado traz uma falha de segurança conhecida. Velocidade sem governança não chega à produção.</p><small>DORA / Google Cloud, 2025, com quase 5.000 profissionais; Veracode, <em>GenAI Code Security Report</em>, março de 2026. <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report" target="_blank" rel="noopener">ver fonte ↗</a></small></div>
+      <a href="seguranca/" class="nh-btn nh-btn-light">Infraestrutura e segurança da Deyel</a>
+    </div>
+  </div>
+
+
     <div data-reveal="" class="nh-sabia" style="margin-top:clamp(40px,5vw,64px)"><span class="nh-sabia-k">Você sabia?</span><p class="nh-sabia-f">Estudos Forrester Total Economic Impact sobre plataformas low-code medem desenvolvimento até 60% mais rápido e retorno de 224% a 363% em três anos, com payback em menos de seis meses.</p><p class="nh-sabia-s">Forrester TEI, estudos de 2020 a 2024 sobre plataformas low-code. <a href="https://www.microsoft.com/en-us/power-platform/blog/2024/09/03/reduce-development-times-and-increase-roi-with-microsoft-power-platform/" target="_blank" rel="noopener">ver fonte ↗</a></p></div>
 
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <div id="ofertas" style="scroll-margin-top:52px;margin-bottom:56px">
       <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;margin-bottom:40px">
         <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Formas de contratar · para aplicativos e processos</span>
-        <h2 style="font-size:clamp(30px,4vw,48px);font-weight:900;color:#02132d;text-wrap:balance;max-width:900px">Construa, encomende ou comece pronto com a Deyel.</h2>
+        <h2 style="font-size:clamp(30px,4vw,48px);font-weight:900;color:#02132d;text-wrap:balance;max-width:900px">Construa seus produtos e serviços, encomende ou comece com uma solução pronta, com a Deyel.</h2>
         <p style="font-size:clamp(16px,1.4vw,19px);color:#555;max-width:760px;text-wrap:pretty">Três jeitos de contratar a Deyel, todos na mesma plataforma. O que muda é quem constrói, quanto tempo leva até o primeiro resultado e o que a sua equipe precisa ter hoje.</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:22px;align-items:stretch">
@@ -1132,19 +1164,6 @@ body{overflow-x:clip}
     </div>
 
   </div>
-
-    <div data-reveal="" class="nh-sabia"><span class="nh-sabia-k">Você sabia?</span><p class="nh-sabia-f">90% dos desenvolvedores já usam IA, mas 30% não confiam no código que ela gera, e em 45% dos casos o código gerado traz uma falha de segurança conhecida. Velocidade sem governança não chega à produção.</p><p class="nh-sabia-s">DORA / Google Cloud, 2025, com quase 5.000 profissionais; Veracode, <em>GenAI Code Security Report</em>, março de 2026. <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report" target="_blank" rel="noopener">ver fonte ↗</a></p></div>
-
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-    <!-- Segurança -->
-    <div id="seguranca" data-reveal="" class="nh-seg" style="scroll-margin-top:52px;margin:clamp(40px,5vw,64px) 0 56px">
-      <div><span class="nh-kicker" style="color:#7cc4ff">Por que bancos, seguradoras e grandes empresas escolhem operar com a Deyel</span><h3 style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(26px,3vw,38px);line-height:1.1;color:#fff;text-wrap:balance;margin:10px 0 0">Segurança por arquitetura: dentro do software e na infraestrutura.</h3><a href="seguranca/" class="nh-btn nh-btn-light" style="margin-top:22px">Infraestrutura e segurança da Deyel</a></div>
-      <div class="nh-rules">
-        <div class="nh-rule"><b>No software: nenhum agente de IA toca os seus sistemas diretamente.</b><span>Toda ação, de um agente da Deyel ou dos que a sua empresa já usa via MCP ou API, passa pelo AI Runtime, que decide em milissegundos: executa, bloqueia ou leva para uma pessoa. As regras ficam na política, não no prompt; o modelo é trocável, as regras não.</span></div>
-        <div class="nh-rule"><b>Governança de ponta a ponta.</b><span>Perfis e papéis com SSO integrado ao diretório corporativo, versionamento com homologação e a decisão de publicar sempre de um humano. Trilha de auditoria de cada transação, de cada versão e de cada ação de IA: quem pediu, o que foi decidido, por qual regra.</span></div>
-        <div class="nh-rule"><b>Na infraestrutura: ambiente segregado para cada cliente.</b><span>Nuvem AWS gerenciada pela Optaris ou o ambiente definido pela sua TI. Dados criptografados em trânsito e em repouso, com gestão de chaves e segregação por cliente; redundância, backup automático e plano de recuperação de desastres; monitoramento contínuo e log imutável, com relatórios prontos para o seu compliance.</span></div>
-      </div>
-    </div>
 
     <div id="parceiros-canais" data-reveal="" style="scroll-margin-top:72px;margin-bottom:52px;border-radius:18px;padding:clamp(28px,4vw,48px);background:radial-gradient(ellipse at 100% 0%,rgba(161,35,143,.45),transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(4,150,255,.4),transparent 55%),#02132d;color:#fff;display:flex;flex-wrap:wrap;gap:32px 48px;align-items:center">
       <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:14px">
