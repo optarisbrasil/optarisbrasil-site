@@ -114,6 +114,31 @@ body{overflow-x:clip}
 @keyframes tagIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
 [data-tagline]{opacity:0;animation:tagIn .7s ease .6s forwards}
 @media (prefers-reduced-motion:reduce){[data-tagline]{animation:none;opacity:1}}
+/* Qual caminho faz sentido */
+.of-explain{min-width:0;margin-top:56px;border-top:1px solid #e5e7eb;padding-top:48px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:start}
+.of-path{display:grid;grid-template-columns:40px minmax(0,1fr);gap:0 16px;padding:18px 0;border-top:1px solid #e5e7eb}
+.of-path:last-of-type{border-bottom:1px solid #e5e7eb}
+.of-n{font-family:Lato,sans-serif;font-weight:900;font-size:26px;line-height:1;color:#0496ff;padding-top:3px}
+.of-path h4{margin:0 0 6px;font-family:Lato,sans-serif;font-weight:900;font-size:18px;color:#02132d;line-height:1.2}
+.of-path p{font-size:15px;color:#333;text-wrap:pretty}
+.of-table{background:#02132d;color:#fff;border-radius:16px;padding:26px 24px;position:sticky;top:72px}
+.of-table .of-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.of-table table{width:100%;min-width:440px;border-collapse:collapse;font-size:13.5px}
+.of-table th,.of-table td{text-align:left;vertical-align:top;padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.12)}
+.of-table th{font-family:Lato,sans-serif;font-weight:900;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#fff}
+.of-table thead th{color:#c7d3e3;font-weight:700;font-size:11.5px;letter-spacing:.1em;border-bottom:1px solid rgba(255,255,255,.3)}
+.of-table td{color:#e6edf6}
+.of-table tr:last-child td,.of-table tr:last-child th{border-bottom:0}
+@media (max-width:900px){.of-explain{grid-template-columns:minmax(0,1fr);gap:32px}.of-table{position:static}}
+@media (max-width:520px){.of-path{grid-template-columns:30px minmax(0,1fr);gap:0 10px}.of-n{font-size:20px}}
+.of-table{padding:22px 20px}
+.of-table .of-scroll{overflow:visible}
+.of-table table{min-width:0;font-size:12.5px;table-layout:fixed}
+.of-table th,.of-table td{padding:8px 6px;word-break:normal;overflow-wrap:anywhere}
+.of-table thead th{font-size:10.5px;letter-spacing:.06em}
+.of-table tbody th{font-size:11.5px}
+@media (max-width:860px){.of-table{display:none}}
+.of-explain{margin-top:0;padding-top:0;border-top:0}
 </style>
 <style id="ft-css">
 .ft{background:#fff;padding:56px 0 28px;font-size:14px;color:#333;border-top:1px solid #eef0f3}
@@ -207,7 +232,36 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section id="versoes" data-screen-label="02 Versões e preços" style="padding:clamp(48px,7vw,88px) 0 40px;background:#fff">
+<section id="qual-caminho" data-screen-label="02 Qual caminho" style="scroll-margin-top:70px;padding:clamp(40px,6vw,72px) 0 10px;background:#fff">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+      <div data-reveal="" class="of-explain">
+        <div>
+          <h2 style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,3.2vw,44px);line-height:1.08;color:#02132d;text-wrap:balance;margin:0 0 14px">Qual caminho faz sentido para a sua empresa?</h2>
+          <p style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(17px,1.7vw,22px);line-height:1.3;color:#02132d;text-wrap:pretty;margin:0 0 10px">Os três chegam ao mesmo lugar. O que muda é o ponto de partida, o custo e o impacto no negócio.</p>
+          <p style="font-size:16px;color:#555;margin-bottom:22px;max-width:760px;text-wrap:pretty">Aplicativos e processos digitais que são seus, rodando na mesma plataforma. A escolha depende de quem constrói, de quanto tempo você tem até o primeiro resultado e do que a sua equipe já tem hoje.</p>
+          <div class="of-path"><span class="of-n">01</span><div><h4>Plataforma: o caminho de quem já tem time de desenvolvimento, ou decidiu montar um.</h4><p>Você investe nas pessoas, no ramp-up e na manutenção, e em troca tem a maior independência possível: a TI constrói com IA no ritmo do negócio. É o caminho que mais devolve autonomia, e o que mais pede da sua equipe no começo.</p></div></div>
+          <div class="of-path"><span class="of-n">02</span><div><h4>Usina de Aplicativos: o caminho de quem quer o resultado antes do ramp-up.</h4><p>O nosso escritório de projetos constrói a quatro mãos com a sua equipe: o sistema sai rápido e, no percurso, a sua equipe aprende a plataforma com quem a fabrica. O projeto tem um custo, mas se paga em dois entregáveis de uma vez: o produto em produção e a equipe pronta para manter e evoluir. Daí em diante, a Optaris fica como apoio consultivo e de treinamento avançado, quando você precisar.</p></div></div>
+          <div class="of-path"><span class="of-n">03</span><div><h4>Produtos prontos: o caminho de quem tem uma dor concreta de operação e quer resolvê-la agora.</h4><p>Compras e fornecedores, CRM, RH: já construídos na Deyel, já rodando em outros clientes, ajustados ao jeito da sua empresa. É a jornada mais curta até o benefício. E, como roda na mesma plataforma, o produto pronto de hoje pode ser a porta para a Usina ou para a plataforma amanhã.</p></div></div>
+          <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center"><p style="font-size:16px;color:#02132d;font-weight:500">Não sabe qual é o seu? Conte o que precisa e a gente indica o caminho.</p><a href="../#contato" style="display:inline-block;background:transparent;color:#02132d;border:2px solid #02132d;text-decoration:none;border-radius:4px;padding:11px 20px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#02132d;color:#fff">Falar com o Comercial</a></div>
+        </div>
+        <aside class="of-table" aria-label="Comparação dos três caminhos">
+          <span style="color:#7cc4ff;font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.14em;display:block;margin-bottom:14px">Num olhar</span>
+          <div class="of-scroll"><table>
+            <thead><tr><th></th><th>Plataforma</th><th>Usina de Aplicativos</th><th>Produtos prontos</th></tr></thead>
+            <tbody>
+              <tr><th>Quem constrói</th><td>A sua TI ou o seu parceiro</td><td>Nosso escritório de projetos, com a sua equipe</td><td>Já está construído; nós ajustamos</td></tr>
+              <tr><th>Primeiro resultado</th><td>Depois do ramp-up do time</td><td>Em semanas, no ritmo do projeto</td><td>Desde o primeiro dia</td></tr>
+              <tr><th>O que você precisa ter hoje</th><td>Time de desenvolvimento</td><td>A área de negócio e quem vai manter</td><td>A dor de operação definida</td></tr>
+              <tr><th>Quem mantém depois</th><td>A sua TI</td><td>A sua equipe, preparada no projeto</td><td>Optaris, com a sua equipe</td></tr>
+            </tbody>
+          </table></div>
+          <p style="margin-top:14px;font-size:12.5px;color:#c7d3e3">Nos três, direto com a Optaris, fabricante da Deyel: suporte, integrações e customização sem intermediários.</p>
+        </aside>
+      </div>
+  </div>
+</section>
+
+<section id="versoes" data-screen-label="03 Versões e preços" style="padding:clamp(48px,7vw,88px) 0 40px;background:#fff">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <div class="pr-two">
       <article data-reveal="" class="pr-plan"><div class="pr-bar"></div><div class="pr-pad">
@@ -268,7 +322,7 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section id="regras" data-screen-label="03 Regras" style="padding:0 0 40px;background:#fff">
+<section id="regras" data-screen-label="04 Regras" style="padding:0 0 40px;background:#fff">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <div data-reveal="" class="pr-rules">
       <div><b>Setup e parametrização</b><span>Todo contrato tem um setup único de habilitação e a parametrização da solução, orçados após a análise de necessidades.</span></div>
@@ -279,7 +333,7 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section id="licencas" data-screen-label="04 Como contamos as licenças" style="padding:20px 0 90px;background:#fff">
+<section id="licencas" data-screen-label="05 Como contamos as licenças" style="padding:20px 0 90px;background:#fff">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <span class="pr-kicker">Como contamos as licenças</span>
     <h2 style="font-family:Lato,sans-serif;font-size:clamp(24px,2.8vw,34px);font-weight:900;color:#02132d;margin:8px 0 22px">Quatro palavras que explicam a conta.</h2>
