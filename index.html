@@ -775,7 +775,7 @@ body{overflow-x:clip}
 .nh-capt{position:absolute;left:0;right:0;bottom:0;padding:26px 18px 16px;font-family:Lato,sans-serif;font-size:17px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);background:linear-gradient(0deg,rgba(2,19,45,.9),rgba(2,19,45,0))}.nh-capt b{color:#7cc4ff;font-weight:900}
 .nh-badge{position:absolute;top:10px;left:12px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#9fb0c7;background:rgba(2,19,45,.6);padding:4px 8px;border-radius:4px}
 .nh-diana{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
-.nh-diana-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.nh-diana-grid{display:grid;grid-template-columns:1fr;gap:12px;align-content:center}
 .nh-diana-c{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px}.nh-diana-c b{font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#02132d;display:block;margin-bottom:4px}.nh-diana-c span{font-size:13.5px;color:#555}
 .nh-diana-dark{background:#02132d;border-color:#02132d}.nh-diana-dark b{color:#fff}.nh-diana-dark span{color:#c7d3e3}
 .nh-cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
@@ -806,7 +806,7 @@ body{overflow-x:clip}
 .nh-seg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px;align-items:center;background:#02132d;color:#fff;border-radius:18px;padding:clamp(24px,3vw,36px)}
 .nh-rules{display:flex;flex-direction:column;gap:10px}.nh-rule{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:11px 14px}
 .nh-rule b{display:block;color:#fff;font-family:Lato,sans-serif;font-weight:900;font-size:15px;margin-bottom:3px}.nh-rule span{font-size:13.5px;color:#c7d3e3}
-@media (max-width:900px){.nh-diana,.nh-seg{grid-template-columns:1fr}.nh-diana-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.nh-diana,.nh-seg{grid-template-columns:1fr}}
 @media (max-width:640px){.nh-sabia{grid-template-columns:1fr}.nh-sabia-s{grid-column:1}}
 @media (max-width:520px){#cases-destaque .nh-case{padding:16px 14px}#cases-destaque .nh-case-n{font-size:26px}.nh-diana-grid{grid-template-columns:1fr}}
 
@@ -843,8 +843,11 @@ body{overflow-x:clip}
 .nh-seg-tags span{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:5px 12px;font-size:12.5px;color:#e6edf6;white-space:nowrap}
 .nh-seg-foot{margin-top:22px}
 
-.nh-prova-h{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 22px;align-items:start;max-width:960px}
-.nh-prova-logo{width:72px;height:auto;border-radius:10px;box-shadow:0 10px 24px -12px rgba(2,19,45,.5);margin-top:4px}
+.nh-prova-h{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 22px;align-items:start;max-width:1040px}
+.nh-prova-l{display:block;text-wrap:balance}
+.nh-brw{display:none}
+@media (min-width:1000px){.nh-brw{display:inline}.nh-prova-l{text-wrap:pretty}}
+.nh-prova-logo{width:72px;height:auto;border-radius:10px;box-shadow:0 10px 24px -12px rgba(2,19,45,.5);margin-top:10px}
 .nh-prova-nota{margin-top:12px;font-size:12.5px;color:#6b7280;max-width:620px;text-wrap:pretty}
 @media (max-width:640px){.nh-prova-h{grid-template-columns:1fr;gap:14px}.nh-prova-logo{width:56px}}
 
@@ -1034,21 +1037,20 @@ body{overflow-x:clip}
           <div style="display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:#02132d"><span>✓ Fala a língua do negócio</span><span>✓ Constrói com um time de IAs especialistas</span><span>✓ Trabalha sob as regras da sua TI</span></div>
         </div>
         <div class="nh-diana-grid">
-          <div class="nh-diana-c"><b>Entende o processo</b><span>Desenha o fluxo em BPMN, o padrão de mercado, a partir da sua descrição.</span></div>
-          <div class="nh-diana-c"><b>Conhece os seus sistemas</b><span>Já chega ligada ao ERP, ao CRM e aos legados, lendo e gravando nos dois sentidos.</span></div>
-          <div class="nh-diana-c"><b>Entrega para web e celular</b><span>Uma construção, três destinos: navegador, Android e iOS.</span></div>
-          <div class="nh-diana-c nh-diana-dark"><b>Respeita a alçada</b><span>Propõe; o AI Runtime julga; uma pessoa decide o que vai ao ar.</span></div>
+          <div class="nh-diana-c"><b>Desenha em BPMN</b><span>O fluxo no padrão de mercado, pronto para a sua equipe ler e ajustar.</span></div>
+          <div class="nh-diana-c"><b>Integra os seus sistemas</b><span>Já cria a integração com o seu ERP, CRM e legados, pelas técnicas que forem necessárias.</span></div>
+          <div class="nh-diana-c nh-diana-dark"><b>Entrega para web e celular</b><span>Uma construção, três destinos: navegador, Android e iOS.</span></div>
         </div>
       </div>
     </div>
 
     <!-- 2ª tela: a prova (AON) -->
     <div id="prova" data-reveal="" style="scroll-margin-top:52px;padding:clamp(48px,6vw,80px) 0 clamp(24px,4vw,40px)">
+      <span class="nh-kicker" style="display:block;margin-bottom:16px">Para quem já resolvemos · a prova antes da promessa</span>
       <div class="nh-prova-h">
         <img src="logos/aon.webp" alt="AON" width="78" height="72" loading="lazy" decoding="async" class="nh-prova-logo">
         <div>
-        <span class="nh-kicker">Para quem já resolvemos · a prova antes da promessa</span>
-        <h2 class="nh-h2" style="font-size:clamp(30px,4vw,52px);margin:14px 0 16px">Um sistema inteiro de sinistros, com portal do cliente, no ar em <span style="color:#0496ff">5 semanas</span>. Não foi uma startup. Foi a AON.</h2>
+        <h2 class="nh-h2" style="font-size:clamp(28px,3.4vw,44px);margin:0 0 16px"><span class="nh-prova-l">Um sistema inteiro de sinistros, <br class="nh-brw">com portal do cliente, no ar em <span style="color:#0496ff">5 semanas</span>.</span><span class="nh-prova-l">Não foi uma startup. Foi a AON.</span></h2>
         <p style="font-size:clamp(16px,1.5vw,19px);color:#02132d;font-weight:500;max-width:720px;text-wrap:pretty">Você descreve. A Deyel constrói. A sua TI decide o que vai ao ar.</p>
         <p class="nh-prova-nota">AON: corretora e consultoria global de seguros, resseguros e gestão de risco, com sede em Londres, presença em mais de 120 países e cerca de 60 mil funcionários.</p>
         </div>
