@@ -850,6 +850,14 @@ body{overflow-x:clip}
 .nh-prova-logo{width:72px;height:auto;border-radius:10px;box-shadow:0 10px 24px -12px rgba(2,19,45,.5);margin-top:10px}
 .nh-prova-nota{margin-top:12px;font-size:12.5px;color:#6b7280;max-width:620px;text-wrap:pretty}
 @media (max-width:640px){.nh-prova-h{grid-template-columns:1fr;gap:14px}.nh-prova-logo{width:56px}}
+@media (max-width:760px){
+.nh-prova-sub{font-size:16px!important}
+.nh-prova-nota{display:none}
+.nh-stat{flex:1 1 100%;padding:12px 16px;border-left-width:3px}
+.nh-stat-n{font-size:34px}
+.nh-stat-l{font-size:14.5px;margin-top:2px}
+.nh-stat-d{display:none}
+}
 
 @media (max-width:760px){.nh-door{padding:26px 22px}.nh-door-sabia p{font-size:15px}.nh-door-sabia small{font-size:12.5px}}
 </style>
@@ -1026,6 +1034,23 @@ body{overflow-x:clip}
   </div>
 
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <!-- 2ª tela: a prova (AON) -->
+    <div id="prova" data-reveal="" style="scroll-margin-top:52px;padding:clamp(48px,6vw,80px) 0 clamp(24px,4vw,40px)">
+      <span class="nh-kicker" style="display:block;margin-bottom:16px"><span style="white-space:nowrap">Para quem já resolvemos ·</span> <span style="white-space:nowrap">a prova antes da promessa</span></span>
+      <div class="nh-prova-h">
+        <img src="logos/aon.webp" alt="AON" width="78" height="72" loading="lazy" decoding="async" class="nh-prova-logo">
+        <div>
+        <h2 class="nh-h2" style="font-size:clamp(26px,3.4vw,44px);margin:0 0 14px"><span class="nh-prova-l">Um sistema inteiro de sinistros, <br class="nh-brw">com portal do cliente, no ar em <span style="color:#0496ff">5 semanas</span>.</span><span class="nh-prova-l">Não foi uma startup. Foi a AON.</span></h2>
+        <p class="nh-prova-sub" style="font-size:clamp(16px,1.5vw,19px);color:#02132d;font-weight:500;max-width:720px;text-wrap:pretty">Você descreve. A Deyel constrói. A sua TI decide o que vai ao ar.</p>
+        <p class="nh-prova-nota">AON: corretora e consultoria global de seguros, resseguros e gestão de risco, com sede em Londres, presença em mais de 120 países e cerca de 60 mil funcionários.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:22px">
+        <div class="nh-stat" style="border-left-color:#0496ff"><span class="nh-stat-n" style="color:#0496ff">3x</span><span class="nh-stat-l">mais rápida a iteração</span><span class="nh-stat-d">cada ajuste pedido pelo negócio volta pronto em dias, não em sprints.</span></div>
+        <div class="nh-stat" style="border-left-color:#e8335a"><span class="nh-stat-n" style="color:#e8335a">até 90%</span><span class="nh-stat-l">de melhoria na experiência do cliente</span><span class="nh-stat-d">no portal de sinistros, medida pela própria AON.</span></div>
+      </div>
+      <p style="margin-top:22px"><a href="#cases" style="color:#0496ff;font-weight:500;text-decoration:none;font-size:15px">Veja outros cases →</a></p>
+    </div>
     <!-- Deyel apresenta Diana -->
     <div id="diana" data-reveal="" style="scroll-margin-top:52px;padding:clamp(48px,6vw,80px) 0 0">
       <div class="nh-diana" style="grid-template-columns:1fr;max-width:1040px">
@@ -1038,23 +1063,6 @@ body{overflow-x:clip}
       </div>
     </div>
 
-    <!-- 2ª tela: a prova (AON) -->
-    <div id="prova" data-reveal="" style="scroll-margin-top:52px;padding:clamp(48px,6vw,80px) 0 clamp(24px,4vw,40px)">
-      <span class="nh-kicker" style="display:block;margin-bottom:16px"><span style="white-space:nowrap">Para quem já resolvemos ·</span> <span style="white-space:nowrap">a prova antes da promessa</span></span>
-      <div class="nh-prova-h">
-        <img src="logos/aon.webp" alt="AON" width="78" height="72" loading="lazy" decoding="async" class="nh-prova-logo">
-        <div>
-        <h2 class="nh-h2" style="font-size:clamp(28px,3.4vw,44px);margin:0 0 16px"><span class="nh-prova-l">Um sistema inteiro de sinistros, <br class="nh-brw">com portal do cliente, no ar em <span style="color:#0496ff">5 semanas</span>.</span><span class="nh-prova-l">Não foi uma startup. Foi a AON.</span></h2>
-        <p style="font-size:clamp(16px,1.5vw,19px);color:#02132d;font-weight:500;max-width:720px;text-wrap:pretty">Você descreve. A Deyel constrói. A sua TI decide o que vai ao ar.</p>
-        <p class="nh-prova-nota">AON: corretora e consultoria global de seguros, resseguros e gestão de risco, com sede em Londres, presença em mais de 120 países e cerca de 60 mil funcionários.</p>
-        </div>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:22px">
-        <div class="nh-stat" style="border-left-color:#0496ff"><span class="nh-stat-n" style="color:#0496ff">3x</span><span class="nh-stat-l">mais rápida a iteração</span><span class="nh-stat-d">cada ajuste pedido pelo negócio volta pronto em dias, não em sprints.</span></div>
-        <div class="nh-stat" style="border-left-color:#e8335a"><span class="nh-stat-n" style="color:#e8335a">até 90%</span><span class="nh-stat-l">de melhoria na experiência do cliente</span><span class="nh-stat-d">no portal de sinistros, medida pela própria AON.</span></div>
-      </div>
-      <p style="margin-top:22px"><a href="#cases" style="color:#0496ff;font-weight:500;text-decoration:none;font-size:15px">Veja outros cases →</a></p>
-    </div>
   </div>
 
     <div data-reveal="" class="nh-sabia" style="margin-top:clamp(40px,5vw,64px)"><span class="nh-sabia-k">Você sabia?</span><p class="nh-sabia-f">Até 2028, quatro em cada cinco empresas no mundo vão implementar agentes de IA por meio de plataformas low-code corporativas.</p><p class="nh-sabia-s">Gartner, <em>Magic Quadrant for Enterprise Low-Code Application Platforms</em>, 2025. <a href="https://www.gartner.com/en/documents/6773234" target="_blank" rel="noopener">ver fonte ↗</a></p></div>
