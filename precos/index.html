@@ -63,7 +63,18 @@
 .pr-ai li{position:relative;padding-left:24px;font-size:14.5px;color:#333;line-height:1.5}
 .pr-ai li::before{content:"\2726";position:absolute;left:0;top:0;color:#6d5bd0;font-weight:700}
 .pr-ai li b{color:#02132d;font-weight:600}
+.pr-ai-note{margin-top:12px;font-size:13px;color:#6d5bd0;font-weight:600;display:flex;gap:7px;align-items:flex-start}.pr-ai-note::before{content:"\2726";color:#6d5bd0}
 .pr-after-cta{margin-top:12px;font-size:13.5px}.pr-after-cta a{color:#0496ff;font-weight:600;text-decoration:none}
+.pr-included{margin:0 0 30px;border-radius:18px;background:linear-gradient(135deg,#02132d,#0a2a52);color:#fff;padding:clamp(22px,3vw,34px)}
+.pr-included .pri-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-bottom:6px}
+.pr-included h3{font-family:Lato,sans-serif;font-weight:900;font-size:clamp(20px,2.4vw,28px);color:#fff;margin:0}
+.pr-included .pri-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#9fe0ff;background:rgba(4,150,255,.18);border:1px solid rgba(4,150,255,.45);border-radius:999px;padding:4px 12px}
+.pr-included p.pri-sub{color:#c7d3e3;font-size:15px;margin:6px 0 22px;max-width:780px;line-height:1.55}
+.pr-included .pri-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px}
+.pr-included .pri-item{display:flex;gap:11px;align-items:flex-start}
+.pr-included .pri-item .ck{flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#0496ff,#5b3fc4);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;margin-top:1px}
+.pr-included .pri-item b{display:block;font-size:14.5px;color:#fff;font-weight:700;margin-bottom:2px}
+.pr-included .pri-item span{font-size:13px;color:#aebccf;line-height:1.45}
 
 .pr-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:4px;padding:13px 22px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;border:2px solid #0496ff;background:#0496ff;color:#fff}
 .pr-btn-red{background:#e8335a;border-color:#e8335a}.pr-btn-ghost{background:transparent;color:#02132d;border-color:#02132d}
@@ -278,6 +289,17 @@ body{overflow-x:clip}
 
 <section id="versoes" data-screen-label="03 Versões e preços" style="padding:clamp(48px,7vw,88px) 0 40px;background:#fff">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div data-reveal="" class="pr-included">
+      <div class="pri-top"><h3>Preço fechado. Sem conta escondida.</h3><span class="pri-tag">Tudo incluído</span></div>
+      <p class="pri-sub">Tudo o que você vê nas duas versões já vem na mensalidade. Você usa a IA, os bots e a plataforma o quanto a sua operação precisar — o valor do fim do mês não muda.</p>
+      <div class="pri-grid">
+        <div class="pri-item"><span class="ck">✓</span><div><b>Sem tarifação por uso da IA</b><span>Diana e os bots à vontade, sem cobrança por pergunta, por usuário ou por volume.</span></div></div>
+        <div class="pri-item"><span class="ck">✓</span><div><b>Sem taxa de consumo</b><span>Formulários, processos e regras rodando sem cobrança por transação.</span></div></div>
+        <div class="pri-item"><span class="ck">✓</span><div><b>Sem bilhetagem</b><span>A mensalidade é a mesma no fim do mês, não importa o volume processado.</span></div></div>
+        <div class="pri-item"><span class="ck">✓</span><div><b>Tokens sem markup</b><span>Os tokens dos Digital Workers ficam na conta da sua empresa, a preço de custo.</span></div></div>
+        <div class="pri-item"><span class="ck">✓</span><div><b>O que vem, está aqui</b><span>Só é orçado à parte o que for além do incluso — com escopo fechado, combinado antes de começar.</span></div></div>
+      </div>
+    </div>
     <div class="pr-two">
       <article data-reveal="" class="pr-plan"><div class="pr-bar"></div><div class="pr-pad">
         <span class="pr-kicker">01 · Plataforma Deyel</span>
@@ -296,7 +318,7 @@ body{overflow-x:clip}
           <li><b>Instâncias de produção e sandbox</b>, nuvem AWS com SOC 3 e Suíte de Segurança (WAF, anti-DDoS, antimalware, firewall e VPN), RPO zero</li>
           <li><b>Suporte 5×8</b> direto com o fabricante</li>
         </ul></div>
-                <div class="pr-ai"><h4><span class="pr-ai-k">Inteligência artificial incluída</span><span class="pr-ai-free">uso livre · sem custo por uso</span></h4><ul><li><b>Diana</b> — a super IA que entende a necessidade, coordena um time de IAs especialistas e devolve o aplicativo pronto para a TI revisar.</li><li><b>Bot de atendimento</b> — o especialista que sabe tudo da sua operação: lê e reconhece documentos (OCR), acompanha os processos e responde, na hora, o que está acontecendo.</li><li><b>Bot de desenvolvimento</b> — o especialista que conhece a própria Deyel e ajuda a sua equipe a usar a Diana e a construir e customizar os aplicativos.</li></ul></div>
+                <div class="pr-ai"><h4><span class="pr-ai-k">Inteligência artificial incluída</span><span class="pr-ai-free">uso livre · sem custo por uso</span></h4><ul><li><b>Diana</b> — a super IA que entende a necessidade, coordena um time de IAs especialistas e devolve o aplicativo pronto para a TI revisar.</li><li><b>Bot de atendimento</b> — o especialista que sabe tudo da sua operação: lê e reconhece documentos (OCR), acompanha os processos e responde, na hora, o que está acontecendo.</li><li><b>Bot de desenvolvimento</b> — o especialista que conhece a própria Deyel e ajuda a sua equipe a usar a Diana e a construir e customizar os aplicativos.</li></ul><p class="pr-ai-note">Uso livre, sem limite de perguntas e sem cobrança por uso: a conta do fim do mês não muda.</p></div>
         <div class="pr-opt"><h4>Opcionais e crescimento</h4>
           <p><b>Digital Worker</b> (agente de IA cognitivo): R$ 1.500 por mês, por agente; os tokens ficam na conta da sua empresa, sem markup.</p>
           <p><b>Participantes adicionais</b> por faixa, com preço unitário que cai conforme a operação cresce.</p>
@@ -320,7 +342,7 @@ body{overflow-x:clip}
           <li><b>Painel de SLA em tempo real</b> de cada etapa, com alerta antes do prazo estourar</li>
           <li><b>Roda sobre a plataforma Deyel</b>: a mesma segurança, auditoria e AI Runtime</li>
         </ul></div>
-                <div class="pr-ai"><h4><span class="pr-ai-k">Inteligência artificial incluída</span><span class="pr-ai-free">uso livre · sem custo por uso</span></h4><ul><li><b>Diana</b> — a super IA que customiza os 20% feitos ao seu jeito, com a mesma facilidade da plataforma.</li><li><b>Bot de atendimento</b> — o especialista que conhece tudo da operação de compras e gestão de fornecedores: lê documentos (OCR), acompanha requisições, cotações, pedidos e pagamentos e responde na hora.</li><li><b>Bot de desenvolvimento</b> — o especialista que conhece a Deyel e orienta a sua equipe nos ajustes do produto.</li></ul></div>
+                <div class="pr-ai"><h4><span class="pr-ai-k">Inteligência artificial incluída</span><span class="pr-ai-free">uso livre · sem custo por uso</span></h4><ul><li><b>Diana</b> — a super IA que customiza os 20% feitos ao seu jeito, com a mesma facilidade da plataforma.</li><li><b>Bot de atendimento</b> — o especialista que conhece tudo da operação de compras e gestão de fornecedores: lê documentos (OCR), acompanha requisições, cotações, pedidos e pagamentos e responde na hora.</li><li><b>Bot de desenvolvimento</b> — o especialista que conhece a Deyel e orienta a sua equipe nos ajustes do produto.</li></ul><p class="pr-ai-note">Uso livre, sem limite de perguntas e sem cobrança por uso: a conta do fim do mês não muda.</p></div>
         <div class="pr-opt"><h4>Opcionais e implantação</h4>
           <p><b>Digital Worker</b> para tarefas cognitivas no processo (conferência de pedidos, triagem de propostas): R$ 1.500 por mês, por agente.</p>
           <p><b>Implantação</b>: setup e parametrização à parte, após a análise de necessidades; nos clientes em produção, levou de 2 a 3 meses.</p>
