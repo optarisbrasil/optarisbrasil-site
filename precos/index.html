@@ -55,6 +55,16 @@
 .pr-opt h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;color:#6b7280;font-weight:700;margin:0 0 8px;font-family:Roboto,Helvetica,Arial,sans-serif}
 .pr-opt p{font-size:14px;color:#333}.pr-opt p+p{margin-top:4px}
 .pr-cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+.pr-ai{margin-top:18px;border-radius:12px;padding:16px 18px;background:linear-gradient(135deg,rgba(109,91,208,.09),rgba(4,150,255,.06));border:1px solid #d9d2f5}
+.pr-ai h4{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 12px;text-transform:none;letter-spacing:0}
+.pr-ai-k{font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;color:#6d5bd0;font-weight:800}
+.pr-ai-free{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#6d5bd0;background:#efeafc;border:1px solid #d9d2f5;border-radius:999px;padding:3px 10px}
+.pr-ai ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.pr-ai li{position:relative;padding-left:24px;font-size:14.5px;color:#333;line-height:1.5}
+.pr-ai li::before{content:"\2726";position:absolute;left:0;top:0;color:#6d5bd0;font-weight:700}
+.pr-ai li b{color:#02132d;font-weight:600}
+.pr-after-cta{margin-top:12px;font-size:13.5px}.pr-after-cta a{color:#0496ff;font-weight:600;text-decoration:none}
+
 .pr-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:4px;padding:13px 22px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;border:2px solid #0496ff;background:#0496ff;color:#fff}
 .pr-btn-red{background:#e8335a;border-color:#e8335a}.pr-btn-ghost{background:transparent;color:#02132d;border-color:#02132d}
 .pr-rules{background:#f4f8fd;border-radius:16px;padding:clamp(24px,3vw,36px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:22px}
@@ -286,10 +296,7 @@ body{overflow-x:clip}
           <li><b>Instâncias de produção e sandbox</b>, nuvem AWS com SOC 3 e Suíte de Segurança (WAF, anti-DDoS, antimalware, firewall e VPN), RPO zero</li>
           <li><b>Suporte 5×8</b> direto com o fabricante</li>
         </ul></div>
-                <div class="pr-inc"><h4>IA incluída, além da Diana</h4><ul>
-          <li><b>A IA que conhece tudo sobre os seus processos</b> e tem qualquer resposta na ponta da língua sobre a sua operação: lê e reconhece documentos (OCR), acompanha todos os processos e responde o que está acontecendo, esteja a informação num painel, num relatório ou em lugar nenhum</li>
-          <li><b>A IA que conhece a própria Deyel</b> e orienta a sua equipe nas decisões de construção e customização dos aplicativos</li>
-        </ul></div>
+                <div class="pr-ai"><h4><span class="pr-ai-k">Inteligência artificial incluída</span><span class="pr-ai-free">uso livre · sem custo por uso</span></h4><ul><li><b>Diana</b> — a super IA que entende a necessidade, coordena um time de IAs especialistas e devolve o aplicativo pronto para a TI revisar.</li><li><b>Bot de atendimento</b> — o especialista que sabe tudo da sua operação: lê e reconhece documentos (OCR), acompanha os processos e responde, na hora, o que está acontecendo.</li><li><b>Bot de desenvolvimento</b> — o especialista que conhece a própria Deyel e ajuda a sua equipe a usar a Diana e a construir e customizar os aplicativos.</li></ul></div>
         <div class="pr-opt"><h4>Opcionais e crescimento</h4>
           <p><b>Digital Worker</b> (agente de IA cognitivo): R$ 1.500 por mês, por agente; os tokens ficam na conta da sua empresa, sem markup.</p>
           <p><b>Participantes adicionais</b> por faixa, com preço unitário que cai conforme a operação cresce.</p>
@@ -313,15 +320,12 @@ body{overflow-x:clip}
           <li><b>Painel de SLA em tempo real</b> de cada etapa, com alerta antes do prazo estourar</li>
           <li><b>Roda sobre a plataforma Deyel</b>: a mesma segurança, auditoria e AI Runtime</li>
         </ul></div>
-                <div class="pr-inc"><h4>IA incluída</h4><ul>
-          <li><b>A IA que conhece tudo sobre os seus processos de compras</b> e tem qualquer resposta na ponta da língua sobre a sua operação: lê e reconhece documentos (OCR), acompanha requisições, cotações, pedidos e pagamentos e responde o que está acontecendo, esteja a informação num painel, num relatório ou em lugar nenhum</li>
-          <li><b>A IA que conhece a própria Deyel</b> e orienta a sua equipe nas decisões de customização do produto, com a Diana para os 20% feitos ao seu jeito</li>
-        </ul></div>
+                <div class="pr-ai"><h4><span class="pr-ai-k">Inteligência artificial incluída</span><span class="pr-ai-free">uso livre · sem custo por uso</span></h4><ul><li><b>Diana</b> — a super IA que customiza os 20% feitos ao seu jeito, com a mesma facilidade da plataforma.</li><li><b>Bot de atendimento</b> — o especialista que conhece tudo da operação de compras e gestão de fornecedores: lê documentos (OCR), acompanha requisições, cotações, pedidos e pagamentos e responde na hora.</li><li><b>Bot de desenvolvimento</b> — o especialista que conhece a Deyel e orienta a sua equipe nos ajustes do produto.</li></ul></div>
         <div class="pr-opt"><h4>Opcionais e implantação</h4>
           <p><b>Digital Worker</b> para tarefas cognitivas no processo (conferência de pedidos, triagem de propostas): R$ 1.500 por mês, por agente.</p>
           <p><b>Implantação</b>: setup e parametrização à parte, após a análise de necessidades; nos clientes em produção, levou de 2 a 3 meses.</p>
           <p><b>Outros produtos prontos</b>: Deyel CRM e Deyel Gestão de RH, sob consulta.</p></div>
-        <div class="pr-cta"><a href="../#contato" class="pr-btn">Pedir proposta do Vendor Management</a><a href="https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4" target="_blank" rel="noopener" class="pr-btn pr-btn-ghost">Abrir demo guiada</a><a href="../gestao-de-compras-e-fornecedores/" class="pr-btn pr-btn-ghost">Conheça a solução completa de gestão de compras e fornecedores</a></div>
+        <div class="pr-cta"><a href="../#contato" class="pr-btn">Pedir proposta do Vendor Management</a><a href="https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4" target="_blank" rel="noopener" class="pr-btn pr-btn-ghost">Abrir demo guiada</a></div><p class="pr-after-cta"><a href="../gestao-de-compras-e-fornecedores/">Conheça a solução completa de gestão de compras e fornecedores →</a></p>
       </div></article>
     </div>
   </div>
