@@ -681,6 +681,7 @@ svg [data-step]{transform:none}
 @keyframes flicker{0%,100%{opacity:.18}50%{opacity:.26}}
 @keyframes popIn{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
 @media (max-width:1180px){[data-navlinks]{display:none!important}}
+@media (max-width:760px){.plat-mock{grid-template-columns:1fr!important}.plat-mock>div{border-right:0!important;border-left:0!important;border-top:1px solid #e8edf3}}
 @media (min-width:1181px) and (max-width:1340px){[data-navlinks]{gap:13px!important}[data-navlinks] a{font-size:11.5px!important;letter-spacing:.02em!important}header > div{gap:14px!important}}
 @media (min-width:1181px){[data-burger]{display:none!important}}
 @media (max-width:760px){
@@ -912,7 +913,7 @@ body{overflow-x:clip}
     <div data-reveal="" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
       <span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,3vw,38px);line-height:1;letter-spacing:-.01em;display:inline-flex;align-items:center;gap:12px">Deyel Vibe Coding</span>
     </div>
-    <h1 data-reveal="" style="font-size:clamp(40px,6.4vw,78px);font-weight:900;max-width:960px;text-wrap:balance;transition-delay:.1s">Conheça como funciona a plataforma Deyel.</h1>
+    <h1 data-reveal="" style="font-size:clamp(40px,6.4vw,78px);font-weight:900;max-width:1000px;text-wrap:balance;transition-delay:.1s">Conheça como funciona a plataforma low-code Deyel, com IA especializada em aplicações empresariais.</h1>
     <p data-reveal="" data-hdesc="" style="font-size:clamp(17px,1.6vw,20px);max-width:720px;color:#e8eef7;text-wrap:pretty;transition-delay:.2s">Da instrução ao aplicativo, do processo ao SLA em tempo real: a IA constrói, orquestra e governa — com a sua TI no controle.</p>
     <div data-reveal="" data-hctas="" style="display:flex;gap:12px;flex-wrap:wrap;transition-delay:.3s;margin-top:18px"><a href="#criar" style="background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:14px 26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em">Ver o Vibe Coding</a><a href="#deyel-no-ar" style="background:#fff;color:#02132d;text-decoration:none;border-radius:4px;padding:14px 26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em">Ver os vídeos</a></div>
     <div data-reveal="" data-hchecks="" style="display:flex;gap:10px 22px;flex-wrap:wrap;transition-delay:.35s;font-size:15px;color:#e8eef7">
@@ -930,13 +931,18 @@ body{overflow-x:clip}
     <div id="o-que-e" data-reveal="" style="scroll-margin-top:52px;margin:0 calc(50% - 50vw) 8px;padding:clamp(40px,6vw,72px) max(24px,calc(50vw - 600px));background:radial-gradient(ellipse at 82% 0%,rgba(4,150,255,.16),transparent 58%),radial-gradient(ellipse at 0% 100%,rgba(161,35,143,.14),transparent 55%),#02132d;color:#fff">
       <div style="max-width:980px">
         <span class="nh-kicker" style="color:#7cc4ff;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(15px,1.5vw,18px);text-transform:uppercase;letter-spacing:.05em">O que é a Deyel</span>
-        <h2 style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,3.6vw,46px);line-height:1.1;color:#fff;text-wrap:balance;margin:12px 0 18px">Uma poderosa plataforma <span style="color:#0496ff">low-code, no-code</span>, com desenvolvimento em linguagem.</h2>
-        <p style="font-size:clamp(17px,1.7vw,20px);line-height:1.6;color:#dfe6f0;max-width:860px;text-wrap:pretty">A Deyel abrevia enormemente o desenvolvimento de aplicações empresariais e sistemas, dotada de um conjunto de inteligências artificiais especializadas na utilização da plataforma e na construção de sistemas e serviços.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
+        <h2 style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,3.6vw,46px);line-height:1.1;color:#fff;text-wrap:balance;margin:12px 0 20px">Uma poderosa plataforma <span style="color:#0496ff">low-code, no-code</span>, com desenvolvimento em linguagem programada e em linguagem natural.</h2>
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:880px">
+          <p style="font-size:clamp(17px,1.7vw,20px);line-height:1.6;color:#dfe6f0;text-wrap:pretty">Low-code e no-code aceleram o óbvio. Mas a Deyel não prende ninguém à arquitetura dela: quando o problema pede, você programa dentro da plataforma — em JavaScript — sem sair dela e sem abrir mão da governança. A liberdade de criar não encontra limite, porque a plataforma não restringe a si mesma.</p>
+          <p style="font-size:clamp(17px,1.7vw,20px);line-height:1.6;color:#dfe6f0;text-wrap:pretty">No centro está a <b style="color:#fff;font-weight:700">Diana</b>, a IA integrada que constrói aplicativos a partir de uma instrução — e que orquestra <b style="color:#fff;font-weight:700">IAs agênticas</b> para executar milhares de atividades cognitivas dentro dos seus processos.</p>
+          <p style="font-size:clamp(17px,1.7vw,20px);line-height:1.6;color:#dfe6f0;text-wrap:pretty">Integrando <b style="color:#fff;font-weight:700">sistemas, processos e pessoas</b>, a Deyel abrevia enormemente o desenvolvimento de aplicações empresariais — e coloca em produção, sob as regras da sua empresa, o que antes levava meses.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:26px">
           <span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">Low-code &amp; no-code</span>
-          <span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">Desenvolvimento em linguagem</span>
-          <span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">IAs especializadas na plataforma</span>
-          <span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">Construção de sistemas e serviços</span>
+          <span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">Código quando quiser · JavaScript</span>
+          <span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">Diana · a IA que constrói</span>
+          <span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">IAs agênticas · tarefas cognitivas</span>
+          <span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">Integra sistemas, processos e pessoas</span>
         </div>
       </div>
     </div>
@@ -1417,6 +1423,177 @@ body{overflow-x:clip}
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ============================ 04 · CAPACIDADES DA PLATAFORMA ============================ -->
+<section id="capacidades" data-screen-label="04 A plataforma por dentro" style="position:relative;padding:clamp(56px,7vw,92px) 0;background:#fff;color:#02132d">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div data-reveal="" style="max-width:900px;margin-bottom:42px">
+      <span style="color:#0496ff;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.14em">A plataforma por dentro</span>
+      <h2 style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,3.9vw,52px);line-height:1.07;margin:12px 0 16px;text-wrap:balance">Mais do que montar telas: uma plataforma de desenvolvimento de verdade.</h2>
+      <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:#3d4a60;text-wrap:pretty">Cinco modeladores visuais, importação de design, programação em JavaScript e uma IA que constrói — tudo no mesmo ambiente. A IA acelera; o profissional faz o ajuste fino, no visual ou no código.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:9px;padding:26px;border:1px solid #e5e7eb;border-radius:14px;transition-property:opacity,transform,border-color" style-hover="border-color:#0496ff"><span style="width:38px;height:3px;border-radius:2px;background:linear-gradient(90deg,#0496ff,#5b3fc4)"></span><strong style="font-family:Lato,sans-serif;font-size:19px;color:#02132d">Cinco modeladores visuais</strong><span style="font-size:14.5px;color:#4a5568;line-height:1.55">Processos (BPMN), páginas, entidades, regras de negócio e indicadores. Tudo é objeto do metamodelo: construído uma vez e reutilizado em toda a solução.</span></div>
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:9px;padding:26px;border:1px solid #e5e7eb;border-radius:14px;transition-delay:.06s;transition-property:opacity,transform,border-color" style-hover="border-color:#0496ff"><span style="width:38px;height:3px;border-radius:2px;background:linear-gradient(90deg,#0496ff,#a1238f)"></span><strong style="font-family:Lato,sans-serif;font-size:19px;color:#02132d">Do design à tela real</strong><span style="font-size:14.5px;color:#4a5568;line-height:1.55">Importe o layout do Figma ou do Canva e a Deyel gera a página real, responsiva, já ligada aos dados e às regras — sem redesenhar do zero.</span></div>
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:9px;padding:26px;border:1px solid #e5e7eb;border-radius:14px;transition-delay:.12s;transition-property:opacity,transform,border-color" style-hover="border-color:#0496ff"><span style="width:38px;height:3px;border-radius:2px;background:linear-gradient(90deg,#5b3fc4,#e8335a)"></span><strong style="font-family:Lato,sans-serif;font-size:19px;color:#02132d">Código quando você quiser</strong><span style="font-size:14.5px;color:#4a5568;line-height:1.55">Console de programação e <b style="color:#02132d;font-weight:700">JavaScript</b> dentro da plataforma, além de APIs REST ilimitadas. Low-code não é camisa de força: você resolve programando, sem perder a governança.</span></div>
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:9px;padding:26px;border:1px solid #e5e7eb;border-radius:14px;transition-property:opacity,transform,border-color" style-hover="border-color:#0496ff"><span style="width:38px;height:3px;border-radius:2px;background:linear-gradient(90deg,#0496ff,#5b3fc4)"></span><strong style="font-family:Lato,sans-serif;font-size:19px;color:#02132d">A IA constrói, o humano refina</strong><span style="font-size:14.5px;color:#4a5568;line-height:1.55">A Diana gera modelo de dados, fluxo BPMN, páginas, APIs e regras a partir de uma instrução. O profissional valida, ajusta e completa — nos editores visuais ou no código.</span></div>
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:9px;padding:26px;border:1px solid #e5e7eb;border-radius:14px;transition-delay:.06s;transition-property:opacity,transform,border-color" style-hover="border-color:#0496ff"><span style="width:38px;height:3px;border-radius:2px;background:linear-gradient(90deg,#0496ff,#a1238f)"></span><strong style="font-family:Lato,sans-serif;font-size:19px;color:#02132d">Menu, design e componentes</strong><span style="font-size:14.5px;color:#4a5568;line-height:1.55">Componente de menu, TreeView, geração de página a partir de uma imagem, entidade a partir de um Excel e console de administração centralizada.</span></div>
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:9px;padding:26px;border:1px solid #e5e7eb;border-radius:14px;transition-delay:.12s;transition-property:opacity,transform,border-color" style-hover="border-color:#0496ff"><span style="width:38px;height:3px;border-radius:2px;background:linear-gradient(90deg,#5b3fc4,#e8335a)"></span><strong style="font-family:Lato,sans-serif;font-size:19px;color:#02132d">Um build, três destinos</strong><span style="font-size:14.5px;color:#4a5568;line-height:1.55">Web, iOS e Android a partir de uma única construção, mais portal externo e white label — com o mesmo modelo de dados e as mesmas regras.</span></div>
+    </div>
+
+    <!-- UX/UI · modelador visual (mockup) -->
+    <div data-reveal="" style="margin-top:44px;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -40px rgba(2,19,45,.4)">
+      <div style="display:flex;align-items:center;gap:8px;padding:11px 16px;background:#02132d;color:#fff;font-size:12px"><span style="width:9px;height:9px;border-radius:50%;background:#0496ff"></span>Modelador visual · UX/UI — a mesma tela onde a IA gera e o profissional ajusta</div>
+      <div class="plat-mock" style="display:grid;grid-template-columns:150px minmax(0,1fr) 190px;min-height:300px;background:#f6f8fb">
+        <div style="border-right:1px solid #e8edf3;padding:16px 14px;display:flex;flex-direction:column;gap:9px;background:#fff">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a97a8">Componentes</span>
+          <span style="font-size:13px;color:#3d4a60;padding:8px 10px;background:#eef4fb;border-radius:6px;font-weight:600">Campo de texto</span>
+          <span style="font-size:13px;color:#3d4a60;padding:8px 10px;border:1px solid #e8edf3;border-radius:6px">Lista / tabela</span>
+          <span style="font-size:13px;color:#3d4a60;padding:8px 10px;border:1px solid #e8edf3;border-radius:6px">Seletor de data</span>
+          <span style="font-size:13px;color:#3d4a60;padding:8px 10px;border:1px solid #e8edf3;border-radius:6px">Anexo / OCR</span>
+          <span style="font-size:13px;color:#3d4a60;padding:8px 10px;border:1px solid #e8edf3;border-radius:6px">Botão de ação</span>
+          <span style="margin-top:4px;font-size:12px;color:#0496ff;font-weight:600">+ Script (JavaScript)</span>
+        </div>
+        <div style="padding:22px;display:flex;flex-direction:column;gap:14px">
+          <span style="font-family:Lato,sans-serif;font-weight:900;font-size:17px;color:#02132d">Requisição de compra</span>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:11px;color:#8a97a8">Fornecedor</span><span style="height:34px;background:#fff;border:1px solid #d9e1ea;border-radius:6px"></span></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:11px;color:#8a97a8">Centro de custo</span><span style="height:34px;background:#fff;border:1px solid #d9e1ea;border-radius:6px"></span></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:11px;color:#8a97a8">Valor</span><span style="height:34px;background:#fff;border:1px solid #d9e1ea;border-radius:6px"></span></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:11px;color:#8a97a8">Prazo</span><span style="height:34px;background:#fff;border:1px solid #d9e1ea;border-radius:6px"></span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:11px;color:#8a97a8">Justificativa</span><span style="height:54px;background:#fff;border:1px solid #d9e1ea;border-radius:6px"></span></div>
+          <div style="display:flex;gap:10px;margin-top:2px"><span style="background:#0496ff;color:#fff;font-size:12px;font-weight:600;padding:9px 16px;border-radius:5px">Enviar para aprovação</span><span style="border:1px solid #d9e1ea;color:#3d4a60;font-size:12px;padding:9px 16px;border-radius:5px">Salvar rascunho</span></div>
+        </div>
+        <div style="border-left:1px solid #e8edf3;padding:16px 14px;display:flex;flex-direction:column;gap:10px;background:#fff">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a97a8">Propriedades</span>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;color:#8a97a8">Regra ao salvar</span><span style="font-size:12.5px;color:#02132d;background:#f1f5fa;border-radius:5px;padding:7px 9px;font-family:ui-monospace,Menlo,monospace">if(valor>5000) exigeAprovacao()</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;color:#8a97a8">Visibilidade</span><span style="font-size:12.5px;color:#3d4a60">Por perfil · comprador</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;color:#8a97a8">Obrigatório</span><span style="font-size:12.5px;color:#3d4a60">Fornecedor, Valor</span></div>
+          <span style="margin-top:auto;font-size:11px;color:#6d5bd0;font-weight:700;background:#efeafc;border:1px solid #e0d9f7;border-radius:999px;padding:5px 10px;text-align:center">✦ Diana sugeriu esta regra</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- do prompt ao app · 5 etapas -->
+    <div data-reveal="" style="margin-top:44px;padding:30px 28px;background:#f6f2ea;border-radius:16px">
+      <span style="color:#0496ff;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.14em">Do prompt ao aplicativo em produção</span>
+      <p style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(18px,2vw,24px);color:#02132d;margin:8px 0 22px;text-wrap:balance">Cinco etapas, um único ambiente — sem exportar projeto, sem montar infraestrutura, sem trocar de ferramenta.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:14px">
+        <div style="background:#fff;border-radius:10px;padding:16px 18px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:22px;color:#0496ff">01</span><strong style="display:block;font-family:Lato,sans-serif;font-size:15px;color:#02132d;margin:4px 0 2px">Descreva</strong><span style="font-size:13px;color:#4a5568">Instrução em linguagem natural: processo, entidade, tela ou regra.</span></div>
+        <div style="background:#fff;border-radius:10px;padding:16px 18px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:22px;color:#0496ff">02</span><strong style="display:block;font-family:Lato,sans-serif;font-size:15px;color:#02132d;margin:4px 0 2px">Diana gera</strong><span style="font-size:13px;color:#4a5568">Modelo de dados, fluxo BPMN, páginas, APIs e regras avançadas.</span></div>
+        <div style="background:#fff;border-radius:10px;padding:16px 18px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:22px;color:#0496ff">03</span><strong style="display:block;font-family:Lato,sans-serif;font-size:15px;color:#02132d;margin:4px 0 2px">Ajuste</strong><span style="font-size:13px;color:#4a5568">Modelador visual e código (JavaScript) quando quiser.</span></div>
+        <div style="background:#fff;border-radius:10px;padding:16px 18px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:22px;color:#0496ff">04</span><strong style="display:block;font-family:Lato,sans-serif;font-size:15px;color:#02132d;margin:4px 0 2px">Homologue</strong><span style="font-size:13px;color:#4a5568">Versões, perfis, testes e aprovação com trilha completa.</span></div>
+        <div style="background:#fff;border-radius:10px;padding:16px 18px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:22px;color:#0496ff">05</span><strong style="display:block;font-family:Lato,sans-serif;font-size:15px;color:#02132d;margin:4px 0 2px">Publique</strong><span style="font-size:13px;color:#4a5568">Web, iOS e Android na nuvem AWS, com SSO e white label.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 05 · INFRAESTRUTURA ============================ -->
+<section id="infraestrutura" data-screen-label="05 Infraestrutura" style="position:relative;padding:clamp(56px,7vw,92px) 0;background:radial-gradient(ellipse at 82% 0%,rgba(4,150,255,.18),transparent 58%),radial-gradient(ellipse at 0% 100%,rgba(161,35,143,.16),transparent 55%),#02132d;color:#fff;overflow:hidden">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div data-reveal="" style="max-width:900px;margin-bottom:40px">
+      <span style="color:#7cc4ff;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Infraestrutura</span>
+      <h2 style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,3.9vw,52px);line-height:1.07;color:#fff;margin:12px 0 16px;text-wrap:balance">Feita para missão crítica, na nuvem ou no seu data center.</h2>
+      <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:#dfe6f0;text-wrap:pretty">A Deyel roda em nuvem <b style="color:#fff;font-weight:700">AWS</b> gerenciada pela Optaris — ou na infraestrutura que a sua TI definir, <b style="color:#fff;font-weight:700">on-premise</b>. Aplicação <b style="color:#fff;font-weight:700">dockerizada, em contêineres</b>, com escalonamento horizontal e implantação em múltiplas regiões via Infraestrutura como Código.</p>
+    </div>
+
+    <!-- desenho da infraestrutura -->
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;margin-bottom:38px">
+      <div style="border:1px solid rgba(124,196,255,.35);background:rgba(4,150,255,.08);border-radius:14px;padding:16px 18px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7cc4ff">Perímetro · proteção de borda</span>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+          <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;font-size:13px">WAF</span>
+          <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;font-size:13px">Anti-DDoS</span>
+          <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;font-size:13px">Proteção de DNS</span>
+          <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;font-size:13px">Firewall &amp; VPN</span>
+        </div>
+      </div>
+      <div style="text-align:center;color:#5b7498;font-size:18px;line-height:1">↓</div>
+      <div style="border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);border-radius:14px;padding:16px 18px;text-align:center"><strong style="font-family:Lato,sans-serif;font-size:16px;color:#fff">Balanceamento de carga</strong><span style="display:block;font-size:13px;color:#aebccf;margin-top:3px">distribui o tráfego entre as instâncias, sem ponto único de falha</span></div>
+      <div style="text-align:center;color:#5b7498;font-size:18px;line-height:1">↓</div>
+      <div style="border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);border-radius:14px;padding:18px">
+        <strong style="font-family:Lato,sans-serif;font-size:16px;color:#fff">Aplicação em contêineres (Docker)</strong>
+        <span style="display:block;font-size:13px;color:#aebccf;margin:3px 0 12px">escalonamento horizontal · múltiplas regiões · IaC: a Deyel sobe em outra região em horas</span>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <span style="flex:1;min-width:120px;text-align:center;background:rgba(4,150,255,.12);border:1px solid rgba(4,150,255,.3);border-radius:8px;padding:12px 10px;font-size:13px;color:#dfe6f0">Contêiner</span>
+          <span style="flex:1;min-width:120px;text-align:center;background:rgba(4,150,255,.12);border:1px solid rgba(4,150,255,.3);border-radius:8px;padding:12px 10px;font-size:13px;color:#dfe6f0">Contêiner</span>
+          <span style="flex:1;min-width:120px;text-align:center;background:rgba(4,150,255,.12);border:1px solid rgba(4,150,255,.3);border-radius:8px;padding:12px 10px;font-size:13px;color:#dfe6f0">Contêiner</span>
+          <span style="flex:1;min-width:120px;text-align:center;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.3);border-radius:8px;padding:12px 10px;font-size:13px;color:#aebccf">+ sob demanda</span>
+        </div>
+      </div>
+      <div style="text-align:center;color:#5b7498;font-size:18px;line-height:1">↓</div>
+      <div style="border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);border-radius:14px;padding:16px 18px;text-align:center"><strong style="font-family:Lato,sans-serif;font-size:16px;color:#fff">Banco de dados replicado</strong><span style="display:block;font-size:13px;color:#aebccf;margin-top:3px">alta disponibilidade · RPO zero · recuperação point-in-time</span></div>
+      <div style="text-align:center;color:#5b7498;font-size:18px;line-height:1">↓</div>
+      <div style="border:1px solid rgba(109,91,208,.45);background:linear-gradient(135deg,rgba(109,91,208,.16),rgba(4,150,255,.08));border-radius:14px;padding:16px 18px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c3b9f2">Camada Deyel</span>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+          <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;font-size:13px">AI Runtime + AI Governance</span>
+          <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;font-size:13px">Metamodelo (processos, entidades, regras)</span>
+          <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;font-size:13px">Orquestração não intrusiva</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- stats infra -->
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden">
+      <div style="background:#0b1f3a;padding:22px 18px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(26px,3vw,36px);color:#fff">99,90%</span><span style="display:block;font-size:13px;color:#aebccf;margin-top:2px">garantia de uptime</span></div>
+      <div style="background:#0b1f3a;padding:22px 18px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(26px,3vw,36px);color:#fff">RPO zero</span><span style="display:block;font-size:13px;color:#aebccf;margin-top:2px">ponto de recuperação objetivo</span></div>
+      <div style="background:#0b1f3a;padding:22px 18px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(26px,3vw,36px);color:#fff">Multi-região</span><span style="display:block;font-size:13px;color:#aebccf;margin-top:2px">recuperação em horas (IaC)</span></div>
+      <div style="background:#0b1f3a;padding:22px 18px"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(26px,3vw,36px);color:#fff">5×8</span><span style="display:block;font-size:13px;color:#aebccf;margin-top:2px">suporte PT, direto com o fabricante</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 06 · SEGURANÇA ============================ -->
+<section id="seguranca-plataforma" data-screen-label="06 Segurança" style="position:relative;padding:clamp(56px,7vw,92px) 0;background:#fff;color:#02132d">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div data-reveal="" style="max-width:900px;margin-bottom:38px">
+      <span style="color:#0496ff;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Segurança</span>
+      <h2 style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,3.9vw,52px);line-height:1.07;margin:12px 0 16px;text-wrap:balance">Segurança de banco, com as certificações mais exigentes do mercado.</h2>
+      <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:#3d4a60;text-wrap:pretty">A infraestrutura da nuvem Deyel fica nos data centers da Amazon Web Services, sob os mesmos controles exigidos pela auditoria de sistemas bancários.</p>
+    </div>
+
+    <!-- certificações -->
+    <div data-reveal="" style="margin-bottom:34px">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8a97a8">Certificações do data center e dos controles</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px;margin-top:14px">
+        <div style="border:1px solid #e5e7eb;border-radius:12px;padding:18px"><strong style="font-family:Lato,sans-serif;font-size:17px;color:#02132d">SOC 1 Tipo II</strong><span style="display:block;font-size:13.5px;color:#4a5568;margin-top:4px;line-height:1.5">Relatório de controles da organização de serviços, com avaliação do auditor sobre sua eficácia.</span></div>
+        <div style="border:1px solid #e5e7eb;border-radius:12px;padding:18px"><strong style="font-family:Lato,sans-serif;font-size:17px;color:#02132d">SOC 2</strong><span style="display:block;font-size:13.5px;color:#4a5568;margin-top:4px;line-height:1.5">Controles de segurança, disponibilidade, integridade, confidencialidade e privacidade (AICPA).</span></div>
+        <div style="border:1px solid #e5e7eb;border-radius:12px;padding:18px"><strong style="font-family:Lato,sans-serif;font-size:17px;color:#02132d">SOC 3</strong><span style="display:block;font-size:13.5px;color:#4a5568;margin-top:4px;line-height:1.5">Resumo público do relatório SOC 2 da Amazon — o data center da plataforma.</span></div>
+        <div style="border:1px solid #e5e7eb;border-radius:12px;padding:18px"><strong style="font-family:Lato,sans-serif;font-size:17px;color:#02132d">ISO 27001</strong><span style="display:block;font-size:13.5px;color:#4a5568;margin-top:4px;line-height:1.5">Certificação de gestão de segurança da informação, por organismo independente e acreditado.</span></div>
+        <div style="border:1px solid #e5e7eb;border-radius:12px;padding:18px"><strong style="font-family:Lato,sans-serif;font-size:17px;color:#02132d">ISO 9001</strong><span style="display:block;font-size:13.5px;color:#4a5568;margin-top:4px;line-height:1.5">Padrão internacional de sistemas de gestão da qualidade.</span></div>
+        <div style="border:1px solid #e5e7eb;border-radius:12px;padding:18px"><strong style="font-family:Lato,sans-serif;font-size:17px;color:#02132d">PCI-DSS Nível 1</strong><span style="display:block;font-size:13.5px;color:#4a5568;margin-top:4px;line-height:1.5">Pagamentos processados por provedor certificado como prestador de serviços comerciais.</span></div>
+      </div>
+    </div>
+
+    <!-- suíte de segurança + governança -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px">
+      <div data-reveal="" style="background:#f6f8fb;border-radius:14px;padding:26px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0496ff">Suíte de Segurança · inclusa em todas as versões</span>
+        <ul style="list-style:none;margin:16px 0 0;padding:0;display:grid;gap:11px">
+          <li style="display:flex;gap:10px"><span style="color:#0496ff;font-weight:900">✓</span><span style="font-size:14.5px;color:#3d4a60"><b style="color:#02132d">WAF</b> — firewall de aplicação web contra ataques às aplicações publicadas.</span></li>
+          <li style="display:flex;gap:10px"><span style="color:#0496ff;font-weight:900">✓</span><span style="font-size:14.5px;color:#3d4a60"><b style="color:#02132d">Proteção de DNS</b> — resolução de nomes protegida contra sequestro e falsificação.</span></li>
+          <li style="display:flex;gap:10px"><span style="color:#0496ff;font-weight:900">✓</span><span style="font-size:14.5px;color:#3d4a60"><b style="color:#02132d">Anti-DDoS</b> — mitigação de ataques de negação de serviço.</span></li>
+          <li style="display:flex;gap:10px"><span style="color:#0496ff;font-weight:900">✓</span><span style="font-size:14.5px;color:#3d4a60"><b style="color:#02132d">Antimalware</b> — varredura e bloqueio de código malicioso.</span></li>
+          <li style="display:flex;gap:10px"><span style="color:#0496ff;font-weight:900">✓</span><span style="font-size:14.5px;color:#3d4a60"><b style="color:#02132d">Firewall e VPN</b> — segurança perimetral e acesso privado.</span></li>
+        </ul>
+      </div>
+      <div data-reveal="" style="background:#f6f8fb;border-radius:14px;padding:26px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0496ff">Dados, governança e IA</span>
+        <ul style="list-style:none;margin:16px 0 0;padding:0;display:grid;gap:11px">
+          <li style="display:flex;gap:10px"><span style="color:#0496ff;font-weight:900">✓</span><span style="font-size:14.5px;color:#3d4a60">Criptografia em trânsito e em repouso, com gestão de chaves e segregação por cliente.</span></li>
+          <li style="display:flex;gap:10px"><span style="color:#0496ff;font-weight:900">✓</span><span style="font-size:14.5px;color:#3d4a60">Perfis e permissões por participante, com <b style="color:#02132d">Login SSO</b> integrado ao diretório corporativo.</span></li>
+          <li style="display:flex;gap:10px"><span style="color:#0496ff;font-weight:900">✓</span><span style="font-size:14.5px;color:#3d4a60">Auditoria em tempo real e trilha completa de versões e aprovações, com log imutável.</span></li>
+          <li style="display:flex;gap:10px"><span style="color:#0496ff;font-weight:900">✓</span><span style="font-size:14.5px;color:#3d4a60"><b style="color:#02132d">AI Runtime + AI Governance</b>: segurança, permissões, consumo e auditoria de cada agente de IA.</span></li>
+          <li style="display:flex;gap:10px"><span style="color:#0496ff;font-weight:900">✓</span><span style="font-size:14.5px;color:#3d4a60">Conformidade com a GDPR e relatórios prontos para o compliance interno e externo.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p data-reveal="" style="margin-top:26px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(18px,2vw,26px);line-height:1.25;color:#02132d;max-width:900px;text-wrap:balance"><span style="display:inline-block;width:34px;height:2px;background:#e8335a;transform:translateY(-7px);margin-right:12px"></span>Trilha de auditoria de cada transação, log imutável e relatórios de compliance — a mesma régua exigida por sistemas bancários.</p>
   </div>
 </section>
 <section id="deyel-no-ar" data-screen-label="03 Deyel no ar" data-noprint="" data-tvzone="" style="position:relative;padding:52px 0 48px;background:#02132d;color:#fff;overflow:hidden">
