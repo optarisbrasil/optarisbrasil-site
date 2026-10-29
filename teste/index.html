@@ -1957,11 +1957,11 @@ class Component extends DCLogic {
 }
 </style>
 <script>
-(function(){var C=[["Mazda","Automotivo"],["Renfe","Transporte ferroviário"],["Axia Energia","Energia · transmissão"],["Flybondi","Aviação"],["Tramontina","Indústria"],["Sky","Telecom"]],STEP=4.4,cur=-1;
+(function(){var C=[["Mazda","Automotivo"],["Renfe","Transporte ferroviário"],null,["Flybondi","Aviação"],["Tramontina","Indústria"],["Sky","Telecom"]],STEP=4.4,cur=-1;
 function tick(){var v=document.getElementById('hero-video'),box=document.getElementById('hero-cliente');if(!v||!box)return;
 if(!v.muted)v.muted=true;if(v.paused&&!v._tried){v._tried=1;var p=v.play();if(p&&p.catch)p.catch(function(){});}
-var t=v.currentTime||0,i=Math.min(C.length-1,Math.floor(t/STEP)),inn=t-i*STEP,show=inn>0.7&&inn<STEP-0.8&&!v.paused;
-if(i!==cur){if(cur===-1||inn<0.6){cur=i;document.getElementById('hero-cliente-n').textContent=C[i][0];document.getElementById('hero-cliente-l').textContent=C[i][1];}else{show=false;}}
+var t=v.currentTime||0,i=Math.min(C.length-1,Math.floor(t/STEP)),inn=t-i*STEP,show=inn>0.7&&inn<STEP-0.8&&!v.paused&&!!C[i];
+if(i!==cur){if(cur===-1||inn<0.6){cur=i;if(C[i]){document.getElementById('hero-cliente-n').textContent=C[i][0];document.getElementById('hero-cliente-l').textContent=C[i][1];}}else{show=false;}}
 box.style.opacity=show?'1':'0';box.style.transform=show?'translateY(0)':'translateY(12px)';}
 setInterval(tick,150);})();
 </script>
