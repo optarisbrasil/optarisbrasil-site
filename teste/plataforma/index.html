@@ -1352,56 +1352,6 @@ body{overflow-x:clip}
       <p style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(16px,1.5vw,19px);color:#02132d;margin:8px 0 8px;text-wrap:pretty">Estudos Forrester Total Economic Impact sobre plataformas low-code medem desenvolvimento até 60% mais rápido e retorno de 224% a 363% em três anos, com payback em menos de seis meses.</p>
       <small style="display:block;font-size:12.5px;color:#5b6678;line-height:1.5">Forrester TEI, estudos de 2020 a 2024 sobre plataformas low-code. <a style="color:#0496ff;font-weight:700;text-decoration:none" href="https://www.microsoft.com/en-us/power-platform/blog/2024/09/03/reduce-development-times-and-increase-roi-with-microsoft-power-platform/" target="_blank" rel="noopener">ver fonte ↗</a></small>
     </div>
-    <div id="cases" data-scene="" data-screen-label="Processos · 03 Para quem já resolvemos" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:#fff;color:#02132d;overflow:hidden">
-      <div style="position:relative">
-        <div data-step="1" style="display:flex;flex-direction:column;align-items:flex-start;gap:18px;margin-bottom:36px">
-          <div style="display:flex;flex-direction:column;gap:22px">
-            <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Processos · Para quem já resolvemos</span>
-            <h2 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Processos digitalizados com Deyel,</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#6b7a90">com nome e resultados.</span></h2>
-          </div>
-          <p style="margin:0;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(18px,1.7vw,22px);line-height:1.45;color:#3d4a60;max-width:62ch;text-wrap:pretty">Seguradoras, bancos, financeiras e empresas de energia já rodam processos críticos na Deyel, sem trocar os sistemas principais e com a TI no controle.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));column-gap:20px;row-gap:0">
-          <sc-for list="{{ caseStories }}" as="cs" hint-placeholder-count="3">
-            <article data-step="2" style="grid-row:span 4;display:grid;grid-template-rows:subgrid;row-gap:0;margin-bottom:22px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 18px 40px -30px rgba(2,19,45,.35);overflow:hidden;transition-delay:{{ cs.delay }}">
-              <div style="padding:22px 22px 16px;display:flex;flex-direction:column;gap:12px;border-bottom:1px solid #eef1f5"><div style="height:40px;display:flex;align-items:center"><sc-if value="{{ cs.hasLogo }}" hint-placeholder-val="{{ true }}"><img src="{{ cs.logo }}" alt="{{ cs.name }}" loading="lazy" style="height:36px;width:auto;max-width:170px;object-fit:contain"></sc-if></div><div style="display:flex;flex-direction:column;gap:4px"><h3 style="font-family:Lato,sans-serif;font-weight:900;font-size:22px;line-height:1.15;margin:0;color:#02132d">{{ cs.name }}</h3><span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5b6678">{{ cs.sector }}</span></div></div>
-              <div style="padding:16px 22px 18px;display:flex;flex-direction:column;gap:6px"><sc-if value="{{ cs.hasProblem }}" hint-placeholder-val="{{ true }}"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5b6678">{{ cs.plabel }}</span><p style="margin:0;font-size:15px;line-height:1.5;color:#4a5568;text-wrap:pretty">{{ cs.problem }}</p></sc-if></div>
-              <div style="padding:16px 22px 6px;background:#f6f8fb;border-top:1px solid #eef1f5;display:flex;flex-direction:column;gap:6px"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5b6678">Resultado</span><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(22px,2.2vw,28px);line-height:1.15;text-wrap:balance;color:{{ cs.bigColor }}">{{ cs.big }}</span></div>
-              <div style="padding:2px 22px 22px;background:#f6f8fb"><sc-if value="{{ cs.hasResult }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:15px;line-height:1.5;color:#4a5568;text-wrap:pretty">{{ cs.result }}</p></sc-if></div>
-            </article>
-          </sc-for>
-        </div>
-        <figure data-step="3" style="margin:56px 0 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start;max-width:900px">
-          <span aria-hidden="true" style="font-family:Lato,sans-serif;font-weight:400;font-size:69px;line-height:.8;color:#e8335a">“</span>
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <blockquote style="margin:0;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(19px,2.4vw,26px);line-height:1.3;color:#02132d;text-wrap:pretty">A Deyel não apenas possibilitou uma resposta mais ágil às necessidades dos associados, como também proporcionou melhorias significativas nos tempos de resposta e maior flexibilidade para se adaptar dinamicamente às demandas do mercado financeiro.</blockquote>
-            <figcaption style="font-size:14px;color:#5b6678"><strong style="color:#02132d">José M. Kobashigawa Kiyán</strong> · Gerente de Operações e TI · Cooperativa Pacífico (Peru)</figcaption>
-          </div>
-        </figure>
-        <div data-step="3" style="margin-top:36px;padding:28px 0;border-top:1px solid rgba(2,19,45,.12);border-bottom:1px solid rgba(2,19,45,.12)">
-          <p style="font-size:clamp(14px,1.3vw,16px);letter-spacing:.02em;color:#5b6678;margin-bottom:18px;text-wrap:balance">A Optaris tem sistemas e tecnologias para continuidade de negócios em centenas de clientes em dezenas de países.</p>
-          <div style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
-            <div style="display:flex;gap:36px;width:max-content;align-items:center;animation:marquee 140s linear infinite">
-              <sc-for list="{{ logoList }}" as="ln" hint-placeholder-count="24">
-                <img src="{{ ln.src }}" alt="{{ ln.n }}" title="{{ ln.n }}" loading="lazy" decoding="async" style="height:44px;width:auto;max-width:170px;object-fit:contain;flex:0 0 auto">
-              </sc-for>
-            </div>
-          </div>
-        </div>
-    <div data-reveal="" data-counter="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1px;background:#e5e7eb;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;margin-top:32px">
-      <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
-        <div style="background:#fff;padding:30px 26px;display:flex;flex-direction:column;gap:6px">
-          <span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(40px,4.4vw,56px);line-height:1;color:#02132d;font-variant-numeric:tabular-nums">{{ st.v }}</span>
-          <span style="font-size:14px;color:#666">{{ st.l }}</span>
-        </div>
-      </sc-for>
-    </div>
-
-        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>O setor muda. O processo horizontal que atravessa tudo é o mesmo.</p>
-        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Processos · Para quem já resolvemos</span><span>Deyel · Optaris</span></div>
-      </div>
-    </div>
-
     <div data-reveal="" style="margin-bottom:52px;text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center">
       <p style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,4vw,48px);line-height:1.15;max-width:980px;text-wrap:balance;background:linear-gradient(110deg,#0496ff,#5b3fc4,#a1238f,#e8335a,#f46b45);background-size:200% 200%;animation:gradMove 8s ease infinite;-webkit-background-clip:text;background-clip:text;color:transparent">Velocidade de IA, com regras e previsibilidade, para empresas que não podem errar.</p>
       <p style="font-size:18px;color:#555">IA que constrói e IA que gerencia as automações, na mesma plataforma, governada pela sua TI.</p>
@@ -1721,6 +1671,56 @@ body{overflow-x:clip}
     </div>
   </div>
 </section>
+
+    <div id="cases" data-scene="" data-screen-label="Processos · 03 Para quem já resolvemos" style="scroll-margin-top:40px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:#fff;color:#02132d;overflow:hidden">
+      <div style="position:relative">
+        <div data-step="1" style="display:flex;flex-direction:column;align-items:flex-start;gap:18px;margin-bottom:36px">
+          <div style="display:flex;flex-direction:column;gap:22px">
+            <span style="color:#0496ff;font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.14em">Processos · Para quem já resolvemos</span>
+            <h2 style="margin:0;display:flex;flex-direction:column;gap:2px;text-wrap:balance"><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5.2vw,70px);line-height:.98;letter-spacing:-.015em">Processos digitalizados com Deyel,</span><span style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,34px);line-height:1.2;margin-top:6px;color:#6b7a90">com nome e resultados.</span></h2>
+          </div>
+          <p style="margin:0;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(18px,1.7vw,22px);line-height:1.45;color:#3d4a60;max-width:62ch;text-wrap:pretty">Seguradoras, bancos, financeiras e empresas de energia já rodam processos críticos na Deyel, sem trocar os sistemas principais e com a TI no controle.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));column-gap:20px;row-gap:0">
+          <sc-for list="{{ caseStories }}" as="cs" hint-placeholder-count="3">
+            <article data-step="2" style="grid-row:span 4;display:grid;grid-template-rows:subgrid;row-gap:0;margin-bottom:22px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 18px 40px -30px rgba(2,19,45,.35);overflow:hidden;transition-delay:{{ cs.delay }}">
+              <div style="padding:22px 22px 16px;display:flex;flex-direction:column;gap:12px;border-bottom:1px solid #eef1f5"><div style="height:40px;display:flex;align-items:center"><sc-if value="{{ cs.hasLogo }}" hint-placeholder-val="{{ true }}"><img src="{{ cs.logo }}" alt="{{ cs.name }}" loading="lazy" style="height:36px;width:auto;max-width:170px;object-fit:contain"></sc-if></div><div style="display:flex;flex-direction:column;gap:4px"><h3 style="font-family:Lato,sans-serif;font-weight:900;font-size:22px;line-height:1.15;margin:0;color:#02132d">{{ cs.name }}</h3><span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5b6678">{{ cs.sector }}</span></div></div>
+              <div style="padding:16px 22px 18px;display:flex;flex-direction:column;gap:6px"><sc-if value="{{ cs.hasProblem }}" hint-placeholder-val="{{ true }}"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5b6678">{{ cs.plabel }}</span><p style="margin:0;font-size:15px;line-height:1.5;color:#4a5568;text-wrap:pretty">{{ cs.problem }}</p></sc-if></div>
+              <div style="padding:16px 22px 6px;background:#f6f8fb;border-top:1px solid #eef1f5;display:flex;flex-direction:column;gap:6px"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5b6678">Resultado</span><span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(22px,2.2vw,28px);line-height:1.15;text-wrap:balance;color:{{ cs.bigColor }}">{{ cs.big }}</span></div>
+              <div style="padding:2px 22px 22px;background:#f6f8fb"><sc-if value="{{ cs.hasResult }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:15px;line-height:1.5;color:#4a5568;text-wrap:pretty">{{ cs.result }}</p></sc-if></div>
+            </article>
+          </sc-for>
+        </div>
+        <figure data-step="3" style="margin:56px 0 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start;max-width:900px">
+          <span aria-hidden="true" style="font-family:Lato,sans-serif;font-weight:400;font-size:69px;line-height:.8;color:#e8335a">“</span>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <blockquote style="margin:0;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(19px,2.4vw,26px);line-height:1.3;color:#02132d;text-wrap:pretty">A Deyel não apenas possibilitou uma resposta mais ágil às necessidades dos associados, como também proporcionou melhorias significativas nos tempos de resposta e maior flexibilidade para se adaptar dinamicamente às demandas do mercado financeiro.</blockquote>
+            <figcaption style="font-size:14px;color:#5b6678"><strong style="color:#02132d">José M. Kobashigawa Kiyán</strong> · Gerente de Operações e TI · Cooperativa Pacífico (Peru)</figcaption>
+          </div>
+        </figure>
+        <div data-step="3" style="margin-top:36px;padding:28px 0;border-top:1px solid rgba(2,19,45,.12);border-bottom:1px solid rgba(2,19,45,.12)">
+          <p style="font-size:clamp(14px,1.3vw,16px);letter-spacing:.02em;color:#5b6678;margin-bottom:18px;text-wrap:balance">A Optaris tem sistemas e tecnologias para continuidade de negócios em centenas de clientes em dezenas de países.</p>
+          <div style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+            <div style="display:flex;gap:36px;width:max-content;align-items:center;animation:marquee 140s linear infinite">
+              <sc-for list="{{ logoList }}" as="ln" hint-placeholder-count="24">
+                <img src="{{ ln.src }}" alt="{{ ln.n }}" title="{{ ln.n }}" loading="lazy" decoding="async" style="height:44px;width:auto;max-width:170px;object-fit:contain;flex:0 0 auto">
+              </sc-for>
+            </div>
+          </div>
+        </div>
+    <div data-reveal="" data-counter="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1px;background:#e5e7eb;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;margin-top:32px">
+      <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
+        <div style="background:#fff;padding:30px 26px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(40px,4.4vw,56px);line-height:1;color:#02132d;font-variant-numeric:tabular-nums">{{ st.v }}</span>
+          <span style="font-size:14px;color:#666">{{ st.l }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+        <p data-step="4" style="display:flex;gap:14px;align-items:baseline;margin-top:28px;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.8vw,31px);line-height:1.2;color:#02132d;max-width:820px;text-wrap:balance"><span style="flex:0 0 auto;width:34px;height:2px;background:#e8335a;transform:translateY(-8px)"></span>O setor muda. O processo horizontal que atravessa tudo é o mesmo.</p>
+        <div data-step="4" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:16px;border-top:1px solid rgba(2,19,45,.14);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#5b6678"><span>Processos · Para quem já resolvemos</span><span>Deyel · Optaris</span></div>
+      </div>
+    </div>
 
 <section id="contato" data-screen-label="08 Contato" data-noprint="" style="position:relative;padding:68px 0;color:#fff;background:linear-gradient(110deg,#0496ff 0%,#5b3fc4 35%,#a1238f 62%,#e8335a 85%,#f46b45 100%);background-size:200% 200%;animation:gradMove 18s ease infinite">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px;align-items:start">
