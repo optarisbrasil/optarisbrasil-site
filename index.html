@@ -1124,32 +1124,6 @@ body{overflow-x:clip}
     </div>
   </section>
 
-  <!-- Integração (barra de integrações) -->
-  <div style="margin:0 calc(50% - 50vw);padding:clamp(34px,4.5vw,56px) 0;background:#f4f8fd;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;overflow:hidden">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px 18px">
-      <span class="nh-kicker">Integração é o nosso sobrenome</span>
-    </div>
-    <style>
-      .intg-wall{display:flex;flex-direction:column;gap:14px;margin:4px 0 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-      .intg-row{display:flex;overflow:hidden}
-      .intg-track{display:flex;gap:14px;padding-right:14px;flex:none;animation:intg-scroll 48s linear infinite;will-change:transform}
-      .intg-row.rev .intg-track{animation-direction:reverse}
-      .intg-row:nth-child(1) .intg-track{animation-duration:54s}
-      .intg-row:nth-child(2) .intg-track{animation-duration:44s}
-      .intg-row:nth-child(3) .intg-track{animation-duration:60s}
-      .intg-row:nth-child(4) .intg-track{animation-duration:50s}
-      .intg-wall:hover .intg-track{animation-play-state:paused}
-      @keyframes intg-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-      .intg-chip{flex:none;display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:11px 18px;font-family:Lato,sans-serif;font-weight:800;font-size:15px;color:#1f2a3d;white-space:nowrap;box-shadow:0 1px 2px rgba(2,19,45,.05)}
-      .intg-chip i{width:8px;height:8px;border-radius:50%;flex:none}
-      @media (prefers-reduced-motion:reduce){.intg-track{animation:none}}
-    </style>
-    <div class="intg-wall" aria-label="Sistemas com os quais a Deyel se integra" data-reveal="" style="transition-delay:.08s">
-      <div class="intg-row"><div class="intg-track"><span class="intg-chip"><i style="background:#0FAAFF"></i>SAP</span><span class="intg-chip"><i style="background:#1f8fff"></i>TOTVS</span><span class="intg-chip"><i style="background:#C74634"></i>Oracle</span><span class="intg-chip"><i style="background:#1b3a6b"></i>Oracle NetSuite</span><span class="intg-chip"><i style="background:#0067b8"></i>Dynamics 365</span><span class="intg-chip"><i style="background:#e30613"></i>Senior</span><span class="intg-chip"><i style="background:#00a859"></i>Sankhya</span><span class="intg-chip"><i style="background:#00A1E0"></i>Salesforce</span><span class="intg-chip"><i style="background:#FF7A59"></i>HubSpot</span><span class="intg-chip"><i style="background:#FF9900"></i>AWS</span><span class="intg-chip"><i style="background:#0067b8"></i>Microsoft 365</span><span class="intg-chip"><i style="background:#0FAAFF"></i>SAP</span><span class="intg-chip"><i style="background:#1f8fff"></i>TOTVS</span><span class="intg-chip"><i style="background:#C74634"></i>Oracle</span><span class="intg-chip"><i style="background:#1b3a6b"></i>Oracle NetSuite</span><span class="intg-chip"><i style="background:#0067b8"></i>Dynamics 365</span><span class="intg-chip"><i style="background:#e30613"></i>Senior</span><span class="intg-chip"><i style="background:#00a859"></i>Sankhya</span><span class="intg-chip"><i style="background:#00A1E0"></i>Salesforce</span><span class="intg-chip"><i style="background:#FF7A59"></i>HubSpot</span><span class="intg-chip"><i style="background:#FF9900"></i>AWS</span><span class="intg-chip"><i style="background:#0067b8"></i>Microsoft 365</span></div></div>
-      <div class="intg-row rev"><div class="intg-track"><span class="intg-chip"><i style="background:#4285F4"></i>Google Workspace</span><span class="intg-chip"><i style="background:#4285F4"></i>Google Cloud</span><span class="intg-chip"><i style="background:#EA4335"></i>Gmail</span><span class="intg-chip"><i style="background:#25D366"></i>WhatsApp</span><span class="intg-chip"><i style="background:#611f69"></i>Slack</span><span class="intg-chip"><i style="background:#FFCC00"></i>Mercado Livre</span><span class="intg-chip"><i style="background:#F47920"></i>Sem Parar</span><span class="intg-chip"><i style="background:#635BFF"></i>Stripe</span><span class="intg-chip"><i style="background:#003087"></i>PayPal</span><span class="intg-chip"><i style="background:#0496ff"></i>APIs REST</span><span class="intg-chip"><i style="background:#5b3fc4"></i>Webhooks</span><span class="intg-chip"><i style="background:#4285F4"></i>Google Workspace</span><span class="intg-chip"><i style="background:#4285F4"></i>Google Cloud</span><span class="intg-chip"><i style="background:#EA4335"></i>Gmail</span><span class="intg-chip"><i style="background:#25D366"></i>WhatsApp</span><span class="intg-chip"><i style="background:#611f69"></i>Slack</span><span class="intg-chip"><i style="background:#FFCC00"></i>Mercado Livre</span><span class="intg-chip"><i style="background:#F47920"></i>Sem Parar</span><span class="intg-chip"><i style="background:#635BFF"></i>Stripe</span><span class="intg-chip"><i style="background:#003087"></i>PayPal</span><span class="intg-chip"><i style="background:#0496ff"></i>APIs REST</span><span class="intg-chip"><i style="background:#5b3fc4"></i>Webhooks</span></div></div>
-    </div>
-  </div>
-
   <!-- Segurança -->
   <div id="seguranca" style="scroll-margin-top:52px;margin:0 calc(50% - 50vw);padding:clamp(48px,6vw,84px) max(24px,calc(50vw - 600px));background:radial-gradient(ellipse at 85% 0%,rgba(161,35,143,.35),transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(4,150,255,.4),transparent 55%),#02132d;color:#fff">
     <div class="nh-rt">
@@ -1184,7 +1158,31 @@ body{overflow-x:clip}
     <p data-reveal="" style="margin:26px 0 0"><a href="/seguranca/" style="color:#7cc4ff;font-weight:500;text-decoration:none;font-size:15.5px">Veja como a Deyel protege dados, acessos e infraestrutura →</a></p>
   </div>
 
-
+  <!-- Integração (barra de integrações) -->
+  <div style="margin:0 calc(50% - 50vw);padding:clamp(34px,4.5vw,56px) 0;background:#f4f8fd;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;overflow:hidden">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px 18px">
+      <span class="nh-kicker">Integração é o nosso sobrenome</span>
+    </div>
+    <style>
+      .intg-wall{display:flex;flex-direction:column;gap:14px;margin:4px 0 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+      .intg-row{display:flex;overflow:hidden}
+      .intg-track{display:flex;gap:14px;padding-right:14px;flex:none;animation:intg-scroll 48s linear infinite;will-change:transform}
+      .intg-row.rev .intg-track{animation-direction:reverse}
+      .intg-row:nth-child(1) .intg-track{animation-duration:54s}
+      .intg-row:nth-child(2) .intg-track{animation-duration:44s}
+      .intg-row:nth-child(3) .intg-track{animation-duration:60s}
+      .intg-row:nth-child(4) .intg-track{animation-duration:50s}
+      .intg-wall:hover .intg-track{animation-play-state:paused}
+      @keyframes intg-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+      .intg-chip{flex:none;display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:11px 18px;font-family:Lato,sans-serif;font-weight:800;font-size:15px;color:#1f2a3d;white-space:nowrap;box-shadow:0 1px 2px rgba(2,19,45,.05)}
+      .intg-chip i{width:8px;height:8px;border-radius:50%;flex:none}
+      @media (prefers-reduced-motion:reduce){.intg-track{animation:none}}
+    </style>
+    <div class="intg-wall" aria-label="Sistemas com os quais a Deyel se integra" data-reveal="" style="transition-delay:.08s">
+      <div class="intg-row"><div class="intg-track"><span class="intg-chip"><i style="background:#0FAAFF"></i>SAP</span><span class="intg-chip"><i style="background:#1f8fff"></i>TOTVS</span><span class="intg-chip"><i style="background:#C74634"></i>Oracle</span><span class="intg-chip"><i style="background:#1b3a6b"></i>Oracle NetSuite</span><span class="intg-chip"><i style="background:#0067b8"></i>Dynamics 365</span><span class="intg-chip"><i style="background:#e30613"></i>Senior</span><span class="intg-chip"><i style="background:#00a859"></i>Sankhya</span><span class="intg-chip"><i style="background:#00A1E0"></i>Salesforce</span><span class="intg-chip"><i style="background:#FF7A59"></i>HubSpot</span><span class="intg-chip"><i style="background:#FF9900"></i>AWS</span><span class="intg-chip"><i style="background:#0067b8"></i>Microsoft 365</span><span class="intg-chip"><i style="background:#0FAAFF"></i>SAP</span><span class="intg-chip"><i style="background:#1f8fff"></i>TOTVS</span><span class="intg-chip"><i style="background:#C74634"></i>Oracle</span><span class="intg-chip"><i style="background:#1b3a6b"></i>Oracle NetSuite</span><span class="intg-chip"><i style="background:#0067b8"></i>Dynamics 365</span><span class="intg-chip"><i style="background:#e30613"></i>Senior</span><span class="intg-chip"><i style="background:#00a859"></i>Sankhya</span><span class="intg-chip"><i style="background:#00A1E0"></i>Salesforce</span><span class="intg-chip"><i style="background:#FF7A59"></i>HubSpot</span><span class="intg-chip"><i style="background:#FF9900"></i>AWS</span><span class="intg-chip"><i style="background:#0067b8"></i>Microsoft 365</span></div></div>
+      <div class="intg-row rev"><div class="intg-track"><span class="intg-chip"><i style="background:#4285F4"></i>Google Workspace</span><span class="intg-chip"><i style="background:#4285F4"></i>Google Cloud</span><span class="intg-chip"><i style="background:#EA4335"></i>Gmail</span><span class="intg-chip"><i style="background:#25D366"></i>WhatsApp</span><span class="intg-chip"><i style="background:#611f69"></i>Slack</span><span class="intg-chip"><i style="background:#FFCC00"></i>Mercado Livre</span><span class="intg-chip"><i style="background:#F47920"></i>Sem Parar</span><span class="intg-chip"><i style="background:#635BFF"></i>Stripe</span><span class="intg-chip"><i style="background:#003087"></i>PayPal</span><span class="intg-chip"><i style="background:#0496ff"></i>APIs REST</span><span class="intg-chip"><i style="background:#5b3fc4"></i>Webhooks</span><span class="intg-chip"><i style="background:#4285F4"></i>Google Workspace</span><span class="intg-chip"><i style="background:#4285F4"></i>Google Cloud</span><span class="intg-chip"><i style="background:#EA4335"></i>Gmail</span><span class="intg-chip"><i style="background:#25D366"></i>WhatsApp</span><span class="intg-chip"><i style="background:#611f69"></i>Slack</span><span class="intg-chip"><i style="background:#FFCC00"></i>Mercado Livre</span><span class="intg-chip"><i style="background:#F47920"></i>Sem Parar</span><span class="intg-chip"><i style="background:#635BFF"></i>Stripe</span><span class="intg-chip"><i style="background:#003087"></i>PayPal</span><span class="intg-chip"><i style="background:#0496ff"></i>APIs REST</span><span class="intg-chip"><i style="background:#5b3fc4"></i>Webhooks</span></div></div>
+    </div>
+  </div>
 
     <div id="demo-vendor" data-scene="" data-screen-label="Demo guiada · Vendor Management" style="scroll-margin-top:70px;position:relative;margin:0 calc(50% - 50vw);padding:60px max(24px,calc(50vw - 600px)) 20px;background:radial-gradient(ellipse at 50% 35%,#0b2a55 0%,#02132d 58%,#010a19 100%);color:#fff;overflow:hidden">
       <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 220px rgba(0,0,0,.55)"></div>
