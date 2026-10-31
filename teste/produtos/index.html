@@ -1261,7 +1261,7 @@ const FAQS=[
  ['Quanto custa a Deyel?','O preço é mensal, fixo e em reais, sem cobrança por hora ou por consumo. O primeiro tier custa R$ 3.236 por mês, com 1 aplicativo e 50 usuários incluídos; planos maiores sob consulta.'],
  ['Quem é a Optaris no Brasil?','A Optaris do Brasil Serviços de Tecnologia S.A. (CNPJ 60.815.759/0001-54), com sede em Alphaville, Barueri/SP, comercializa a Deyel no Brasil. Escritórios em três continentes: EUA, Brasil, México, Argentina, Chile, Panamá, Espanha, Portugal, Alemanha e Israel.'],
  ['Como pedir uma demonstração da Deyel?','Escreva para comercial@optarisbrasil.com, chame no WhatsApp +55 11 95570-0002 ou preencha o formulário de contato desta página escolhendo o interesse Deyel.']];
-const T={1:{min:150000,b:[3200,1500,600],c:45000},2:{min:127500,b:[2720,1275,510],c:38250},3:{min:97500,b:[2080,975,390],c:29250}};
+const T={1:{min:0,b:[0,0,0],c:0},2:{min:0,b:[0,0,0],c:0},3:{min:0,b:[0,0,0],c:0}};
 const brl=v=>'R$ '+v.toLocaleString('pt-BR');
 const H3=['Faixa','Unidade','Produção','Combo Dev + Hom (até 5 usuários cada)'];
 const lic=(a,b,c,d,e)=>[[1,'Mínimo — até 10 usuários','por licença',a,b],[0,'11 a 20 usuários','por usuário adicional',c,'—'],[0,'21 a 50 usuários','por usuário adicional',d,'—'],[0,'51 usuários ou mais','por usuário adicional',e,'—']];
@@ -1439,8 +1439,8 @@ class Component extends DCLogic {
   calc(){
     const tipo=this.state.tipo;let n=Math.max(1,parseInt(this.state.users)||1);let prod,combo,note='';
     const fixo=(tipo==='grp'||tipo==='ro');
-    if(tipo==='grp'){prod=181300;combo=54390;note='Licença ConsistGRP por licença.'}
-    else if(tipo==='ro'){prod=140000;combo=0;note='Read Only: somente consulta, limite fixo de 5 usuários e 1 produto (sem usuários adicionais), preço fixo anual, sem combo Dev + Hom.'}
+    if(tipo==='grp'){prod=0;combo=0;note='Licença ConsistGRP por licença.'}
+    else if(tipo==='ro'){prod=0;combo=0;note='Read Only: somente consulta, limite fixo de 5 usuários e 1 produto (sem usuários adicionais), preço fixo anual, sem combo Dev + Hom.'}
     else if(tipo==='amb'){const t=T[1];const a=Math.max(0,Math.min(n,20)-10),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);prod=t.min+a*t.b[0]+b*t.b[1]+c*t.b[2];combo=0;note='Ambiente Dev ou Hom avulso, ou com mais de 5 usuários: cobrado como 1ª licença pela quantidade de usuários do ambiente.'}
     else{const t=T[tipo];const a=Math.max(0,Math.min(n,20)-10),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);prod=t.min+a*t.b[0]+b*t.b[1]+c*t.b[2];combo=t.c;note=n<10?'A licença de produção tem mínimo de 10 usuários.':'Mínimo de 10 usuários + adicionais por faixa. Combo fixo (até 5 usuários em Dev e em Hom).';}
     return {fixo,rLabel:tipo==='amb'?'Licença do ambiente':tipo==='ro'?'Licença Read Only':'Licença de produção',rProd:brl(prod),rCombo:combo?brl(combo):'não se aplica',rTotal:brl(prod+combo),rNote:note+' Valores anuais de lista; condições finais na proposta comercial.'};

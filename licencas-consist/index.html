@@ -450,15 +450,15 @@ body{overflow-x:clip}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Animação&quot;}}">
-const T={1:{min:150000,b:[3200,1500,600],c:45000},2:{min:127500,b:[2720,1275,510],c:38250},3:{min:97500,b:[2080,975,390],c:29250}};
+const T={1:{min:0,b:[0,0,0],c:0},2:{min:0,b:[0,0,0],c:0},3:{min:0,b:[0,0,0],c:0}};
 const brl=v=>'R$ '+v.toLocaleString('pt-BR');
 const APPS=[['GEM','ConsistGEM'],['HR','ConsistHR'],['GRP','ConsistGRP'],['ADS','ConsistADS'],['AM','ConsistAM'],['ERP','ConsistERP']];
 const appName=c=>(APPS.find(a=>a[0]===c)||[c,c])[1];
 const TIPO_LABEL={1:'1ª licença de produção',2:'2ª licença de produção',3:'3ª licença de produção',grp:'Licença de produção',amb:'Ambiente Dev ou Hom avulso',ro:'Read Only (consulta)'};
 const FX=[[11,20],[21,50],[51,null]];
 const priceOf=(tipo,users)=>{const n=Math.max(1,parseInt(users)||1);
-  if(tipo==='grp')return {prod:181300,combo:54390,users:'—',fixed:true,detail:'Licença ConsistGRP por licença + combo Dev + Hom (1 ambiente de cada, até 5 usuários cada).'};
-  if(tipo==='ro')return {prod:140000,combo:0,users:'5',fixed:true,detail:'Somente consulta à produção, limite fixo de 5 usuários e 1 produto, sem combo.'};
+  if(tipo==='grp')return {prod:0,combo:0,users:'—',fixed:true,detail:'Licença ConsistGRP por licença + combo Dev + Hom (1 ambiente de cada, até 5 usuários cada).'};
+  if(tipo==='ro')return {prod:0,combo:0,users:'5',fixed:true,detail:'Somente consulta à produção, limite fixo de 5 usuários e 1 produto, sem combo.'};
   const t=tipo==='amb'?T[1]:T[tipo];if(!t)return {prod:0,combo:0,users:String(n),fixed:false,detail:''};
   const a=Math.max(0,Math.min(n,20)-10),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);
   const parts=['mínimo até 10 usuários '+brl(t.min)];[a,b,c].forEach((q,i)=>{if(q)parts.push(q+(q>1?' usuários':' usuário')+' de '+FX[i][0]+(FX[i][1]?' a '+FX[i][1]:' em diante')+' × '+brl(t.b[i]));});
@@ -476,15 +476,7 @@ const EMPTY_QC={empresa:'',contato:'',email:'',obs:''};
 const Q0=loadQ()||{};
 const H3=['Faixa','Unidade','Produção','Combo Dev + Hom (até 5 usuários cada)'];
 const lic=(a,b,c,d,e)=>[[1,'Mínimo — até 10 usuários','por licença',a,b],[0,'11 a 20 usuários','por usuário adicional',c,'—'],[0,'21 a 50 usuários','por usuário adicional',d,'—'],[0,'51 usuários ou mais','por usuário adicional',e,'—']];
-const PANELS=[
- {id:'p1',label:'1ª licença',head:H3,num:[2,3],rows:lic('R$ 150.000','R$ 45.000','R$ 3.200','R$ 1.500','R$ 600')},
- {id:'p2',label:'2ª licença',head:H3,num:[2,3],rows:lic('R$ 127.500','R$ 38.250','R$ 2.720','R$ 1.275','R$ 510')},
- {id:'p3',label:'3ª licença',head:H3,num:[2,3],rows:lic('R$ 97.500','R$ 29.250','R$ 2.080','R$ 975','R$ 390')},
- {id:'p4',label:'ConsistGRP',head:['Licença','Unidade','Produção','Combo Dev + Hom'],num:[2,3],rows:[[1,'Licença ConsistGRP','por licença','R$ 181.300','R$ 54.390']]},
- {id:'p5',label:'Read Only (consulta)',head:['Licença','Uso','Preço','Combo Dev + Hom'],num:[2,3],rows:[[1,'Read Only','Somente consulta ao ambiente de produção, sem inclusão ou alteração de dados — limite fixo de 5 usuários, 1 produto','R$ 140.000 por ano','não se aplica']],note:'Versão única de preço fixo por licença, com limite de 5 usuários. A licença Read Only não admite usuários adicionais.'},
- {id:'p6',label:'Exemplos de cálculo',head:['Exemplo (1ª licença)','Produção','Combo Dev + Hom','Total anual'],num:[1,2,3],rows:[
-  [0,'10 usuários','R$ 150.000','R$ 45.000','R$ 195.000'],[0,'20 usuários','R$ 182.000','R$ 45.000','R$ 227.000'],[0,'30 usuários','R$ 197.000','R$ 45.000','R$ 242.000'],[0,'50 usuários','R$ 227.000','R$ 45.000','R$ 272.000'],[0,'100 usuários','R$ 257.000','R$ 45.000','R$ 302.000'],[0,'GRP — 1 licença','R$ 181.300','R$ 54.390','R$ 235.690'],[0,'Ambiente de Homologação avulso — 10 usuários','R$ 150.000','—','R$ 150.000'],[0,'Read Only — 5 usuários','R$ 140.000','—','R$ 140.000']]}
-];
+const PANELS=[];
 const CCARDS=[
  ['GEM','Gestão empresarial','Suíte de gestão empresarial para operações de back-office — contabilidade, finanças e controle — utilizada por instituições financeiras e grandes organizações.'],
  ['HR','Recursos humanos e folha','Gestão de pessoal e folha de pagamento, com aderência às obrigações legais brasileiras, incluindo eSocial e EFD-Reinf.'],
@@ -574,8 +566,8 @@ class Component extends DCLogic {
   calc(){
     const tipo=this.state.tipo;let n=Math.max(1,parseInt(this.state.users)||1);let prod,combo,note='';
     const fixo=(tipo==='grp'||tipo==='ro');
-    if(tipo==='grp'){prod=181300;combo=54390;note='Licença ConsistGRP por licença.'}
-    else if(tipo==='ro'){prod=140000;combo=0;note='Read Only: somente consulta, limite fixo de 5 usuários e 1 produto (sem usuários adicionais), preço fixo anual, sem combo Dev + Hom.'}
+    if(tipo==='grp'){prod=0;combo=0;note='Licença ConsistGRP por licença.'}
+    else if(tipo==='ro'){prod=0;combo=0;note='Read Only: somente consulta, limite fixo de 5 usuários e 1 produto (sem usuários adicionais), preço fixo anual, sem combo Dev + Hom.'}
     else if(tipo==='amb'){const t=T[1];const a=Math.max(0,Math.min(n,20)-10),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);prod=t.min+a*t.b[0]+b*t.b[1]+c*t.b[2];combo=0;note='Ambiente Dev ou Hom avulso, ou com mais de 5 usuários: cobrado como 1ª licença pela quantidade de usuários do ambiente.'}
     else{const t=T[tipo];const a=Math.max(0,Math.min(n,20)-10),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);prod=t.min+a*t.b[0]+b*t.b[1]+c*t.b[2];combo=t.c;note=n<10?'A licença de produção tem mínimo de 10 usuários.':'Mínimo de 10 usuários + adicionais por faixa. Combo fixo (até 5 usuários em Dev e em Hom).';}
     return {fixo,rLabel:tipo==='amb'?'Licença do ambiente':tipo==='ro'?'Licença Read Only':'Licença de produção',rProd:brl(prod),rCombo:combo?brl(combo):'não se aplica',rTotal:brl(prod+combo),rNote:note+' Valores anuais de lista; condições finais na proposta comercial.'};
