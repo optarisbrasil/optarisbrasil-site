@@ -67,7 +67,7 @@ Ponto de entrada para quem usa tecnologia Consist Software Solutions Inc no Bras
 ## Licenças Consist Software Solutions Inc
 Página: https://www.optarisbrasil.com/licencas-consist/
 - Aplicativos: ConsistGEM, ConsistHR, ConsistGRP, ConsistADS, ConsistAM, ConsistERP.
-- Valores de referência: a licença de produção parte de R$ 150.000 por ano (até 10 usuários de um aplicativo), com o combo Desenvolvimento + Homologação à parte; a licença Read Only (consulta, 5 usuários, 1 produto) parte de R$ 140.000 por ano.
+- Valores de referência: a licença de produção parte de R$ 195.000 por ano (até 10 usuários de um aplicativo), já com 1 ambiente de Desenvolvimento e 1 de Homologação (até 5 usuários cada) incluídos no preço; a licença Read Only (consulta, 5 usuários, 1 produto) parte de R$ 140.000 por ano.
 - O valor final depende do número de usuários, de quantos aplicativos entram no contrato e dos ambientes, e é definido na cotação. Condições (pagamento, tributos, vigência, reajuste) na proposta comercial. Cotação: comercial@optarisbrasil.com.
 
 ## ConsistADS e DMS (Natural/Adabas)
