@@ -454,7 +454,7 @@ const appName=c=>(APPS.find(a=>a[0]===c)||[c,c])[1];
 const TIPO_LABEL={1:'1ª licença de produção',2:'2ª licença de produção',3:'3ª licença de produção',grp:'Licença de produção',amb:'Ambiente Dev ou Hom avulso',ro:'Read Only (consulta)'};
 const FX=[[11,20],[21,50],[51,null]];
 const priceOf=(tipo,users)=>{const n=Math.max(1,parseInt(users)||1);
-  if(tipo==='grp')return {prod:0,combo:0,users:'—',fixed:true,detail:'Licença ConsistGRP por licença + combo Dev + Hom (1 ambiente de cada, até 5 usuários cada).'};
+  if(tipo==='grp')return {prod:0,combo:0,users:'—',fixed:true,detail:'Licença ConsistGRP por licença, sem ambientes de Desenvolvimento e Homologação.'};
   if(tipo==='ro')return {prod:0,combo:0,users:'5',fixed:true,detail:'Somente consulta à produção, limite fixo de 5 usuários e 1 produto, sem combo.'};
   const t=tipo==='amb'?T[1]:T[tipo];if(!t)return {prod:0,combo:0,users:String(n),fixed:false,detail:''};
   const a=Math.max(0,Math.min(n,20)-10),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);
