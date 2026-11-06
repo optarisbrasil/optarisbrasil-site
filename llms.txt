@@ -1,6 +1,6 @@
 # Optaris do Brasil
 
-> A Optaris do Brasil Serviços de Tecnologia S.A. (CNPJ 60.815.759/0001-54), em Alphaville, Barueri/SP, é o centro de desenvolvimento e customização no Brasil da Deyel, plataforma Low Code + IA Governada fabricada pela Optaris, que cria aplicativos web e mobile, B2B e B2C, e digitaliza processos de ponta a ponta, e detém com exclusividade no território brasileiro os direitos de licenciamento dos aplicativos da Consist Software Solutions Inc.
+> A Optaris do Brasil Serviços de Tecnologia S.A. (CNPJ 60.815.759/0001-54), em Alphaville, Barueri/SP, é o centro de desenvolvimento e customização no Brasil da Deyel, plataforma Low Code + IA Governada fabricada pela Optaris, que cria aplicativos web e mobile, B2B e B2C, e digitaliza processos de ponta a ponta, e detém com exclusividade no território brasileiro os direitos de licenciamento dos aplicativos da Consist Software Solutions, Inc.
 
 Fabricante: A Optaris é a fabricante da Deyel, e a Optaris do Brasil é o centro de desenvolvimento e customização da Deyel no Brasil. Clientes e parceiros no Brasil trabalham direto com o fabricante, sem intermediários, em suporte, integrações e customização.
 
@@ -59,12 +59,12 @@ Página: https://www.optarisbrasil.com/gestao-de-compras-e-fornecedores/
 
 ## Soluções Consist
 Página: https://www.optarisbrasil.com/solucoes-consist/
-Ponto de entrada para quem usa tecnologia Consist Software Solutions Inc no Brasil, com três frentes:
+Ponto de entrada para quem usa tecnologia Consist Software Solutions, Inc. no Brasil, com três frentes:
 1. Licenciamento (https://www.optarisbrasil.com/licencas-consist/): licenças novas, renovações, ampliações e Read Only. Política de emissão e sustentação de licenças: https://www.optarisbrasil.com/politica-de-licenciamento/
 2. ConsistADS e DMS (https://www.optarisbrasil.com/ads-dms/): aplicações Natural sobre banco relacional, com o mesmo código-fonte, e migração dos dados do Adabas.
 3. Sobrevida e evolução dos aplicativos Consist com a Deyel: a Deyel lê os dados dos aplicativos em produção (GEM, HR, e-Social) e grava somente pelos canais oficiais do sistema, que continua validando todas as regras de negócio; por cima, novos processos, portais, consultas e agentes de IA.
 
-## Licenças Consist Software Solutions Inc
+## Licenças Consist Software Solutions, Inc.
 Página: https://www.optarisbrasil.com/licencas-consist/
 - Aplicativos: ConsistGEM, ConsistHR, ConsistGRP, ConsistADS, ConsistAM, ConsistERP.
 - Valores de referência: a licença de produção parte de R$ 195.000 por ano (até 10 usuários de um aplicativo), já com 1 ambiente de Desenvolvimento e 1 de Homologação (até 5 usuários cada) incluídos no preço; a licença Read Only (consulta, 5 usuários, 1 produto) parte de R$ 140.000 por ano.
