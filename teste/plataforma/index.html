@@ -909,12 +909,397 @@ body{overflow-x:clip}
 </a>
 
 <section id="top" data-screen-label="01 Hero" data-noprint="" style="position:relative;min-height:80vh;display:flex;align-items:center;color:#fff;background:radial-gradient(ellipse at 82% 0%,rgba(4,150,255,.20),transparent 58%),radial-gradient(ellipse at 0% 100%,rgba(161,35,143,.18),transparent 55%),#02132d;overflow:hidden">
-  <div data-hcontent="" style="position:relative;max-width:1200px;margin:0 auto;padding:110px 24px 110px;width:100%;display:flex;flex-direction:column;gap:24px">
-    <h1 data-reveal="" style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(40px,5.6vw,72px);line-height:1.02;letter-spacing:-.01em">Deyel<span style="display:block;font-weight:400;font-size:.42em;line-height:1.18;margin-top:14px;color:#cfe0f3;letter-spacing:0">a IA constrói, você governa</span></h1>
-    <h2 data-reveal="" style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(22px,2.8vw,36px);line-height:1.14;color:#fff;max-width:1000px;text-wrap:balance;transition-delay:.1s">Uma poderosa plataforma para criação de processos digitais, aplicativos web e mobile.</h2>
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;max-width:880px;transition-delay:.15s"><p style="font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:#dfe6f0;text-wrap:pretty">Integrando <b style="color:#fff;font-weight:700">sistemas, processos e pessoas</b>, a Deyel abrevia enormemente a automação de processos empresariais — e coloca em produção, sob as regras da sua empresa, o que antes levava meses.</p></div>
-    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:12px;transition-delay:.2s"><span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">Low-code &amp; no-code</span><span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">Código quando quiser · JavaScript</span><span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">Diana · a IA que constrói</span><span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">IAs agênticas · tarefas cognitivas</span><span style="border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 16px;font-size:13.5px;color:#e6edf6">Integra sistemas, processos e pessoas</span></div>
-    <div data-reveal="" data-hctas="" style="display:flex;gap:12px;flex-wrap:wrap;transition-delay:.3s;margin-top:6px"><a href="#criar" style="background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:14px 26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em">Ver a IA construir</a><a href="#deyel-no-ar" style="background:#fff;color:#02132d;text-decoration:none;border-radius:4px;padding:14px 26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em">Ver os vídeos</a></div>
+  <style>
+  #top .hz-scene{position:absolute;inset:0;z-index:0;pointer-events:none;transition:opacity 1.1s ease}
+  #top .hz-scene.hz-fade{opacity:0}
+  #top .hz-scene svg{width:100%;height:100%;display:block}
+  #top .hz-veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#02132d 0%,#02132d 24%,rgba(2,19,45,.85) 36%,rgba(2,19,45,.35) 46%,rgba(2,19,45,0) 56%)}
+  #top .hz-wrap{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:96px 24px 110px;width:100%;display:grid;grid-template-columns:minmax(0,600px) 1fr;gap:40px;align-items:center}
+  #top .hz-txt{display:flex;flex-direction:column;gap:22px}
+  #top [data-hmouse]{z-index:3}
+  @media(max-width:980px){#top .hz-wrap{grid-template-columns:1fr;padding:80px 24px 96px}#top .hz-veil{background:linear-gradient(180deg,rgba(2,19,45,.92),rgba(2,19,45,.78))}#top .hz-scene{opacity:.55}}
+/* ===== cena ===== */
+  #top .hz-sc text{font-family:Roboto,Helvetica,Arial,sans-serif}
+  #top .hz-sc .hz-grid line{stroke:#7cc4ff;stroke-width:.6;opacity:0;transition:opacity 2s}
+  #top .hz-sc.hz-bp .hz-grid line{opacity:.045}
+  #top .hz-sc .hz-bpl{fill:none;stroke:#7cc4ff;stroke-dasharray:var(--l);stroke-dashoffset:var(--l);opacity:0}
+  #top .hz-sc .hz-bpd{stroke-dasharray:4 5}  /* tracejado fixo substitui o draw */
+  #top .hz-sc.hz-bp .hz-bpl{animation:hzDraw 1.7s ease forwards;animation-delay:var(--d)}
+  #top .hz-sc.hz-bp .hz-bpd{animation:hzFade 1.4s ease forwards;animation-delay:var(--d);stroke-dashoffset:0}
+  #top .hz-sc .hz-bpn{fill:#7cc4ff;stroke:#7cc4ff;stroke-width:1;opacity:0}
+  #top .hz-sc .hz-bpt{fill:#9fd4ff;font-size:9px;letter-spacing:.12em;opacity:0}
+  #top .hz-sc.hz-bp .hz-bpn,#top .hz-sc.hz-bp .hz-bpt{animation:hzFade 1s ease forwards;animation-delay:var(--d)}
+  @keyframes hzDraw{to{stroke-dashoffset:0;opacity:var(--o)}}
+  @keyframes hzFade{to{opacity:var(--o)}}
+  #top .hz-sc .hz-cam{transform-box:view-box;transform-origin:1085px 400px;transition:transform 3.2s cubic-bezier(.45,0,.2,1)}
+  #top .hz-sc.hz-zoom .hz-cam{transform:scale(1.18)}
+  /* prompt */
+  #top .hz-sc .hz-pr{opacity:0;transition:opacity .7s}
+  #top .hz-sc.hz-ph1 .hz-pr{opacity:1}
+  #top .hz-sc .hz-cur{fill:#7cc4ff;animation:hzBlink 1s steps(2) infinite}
+  @keyframes hzBlink{to{opacity:0}}
+  /* bpmn */
+  #top .hz-sc .hz-bn{opacity:0;transform-box:fill-box;transform-origin:50% 50%}
+  #top .hz-sc.hz-bpmn .hz-bn{animation:hzPop .5s ease-out forwards;animation-delay:var(--d)}
+  #top .hz-sc .hz-bc{fill:none;stroke:#b9c7da;stroke-width:1.5;stroke-dasharray:600;stroke-dashoffset:600}
+  #top .hz-sc.hz-bpmn .hz-bc{animation:hzCDraw .55s ease forwards;animation-delay:var(--d)}
+  #top .hz-sc .hz-bl{fill:#f3f7fc;font-size:10.5px;font-weight:600}
+  #top .hz-sc .hz-bm{fill:#f4b400;font-size:9.5px;font-weight:600}
+  @keyframes hzPop{from{opacity:0;transform:translateY(5px) scale(.94)}to{opacity:1;transform:none}}
+  @keyframes hzCDraw{to{stroke-dashoffset:0}}
+  /* mobile */
+  #top .hz-sc .hz-ml{fill:none;stroke:#7cc4ff;stroke-width:1.2;stroke-dasharray:3 4;opacity:0}
+  #top .hz-sc.hz-mobon .hz-ml{animation:hzFade .8s ease forwards;--o:.8}
+  #top .hz-sc .hz-mob{opacity:0;transform-box:fill-box;transform-origin:50% 100%;filter:drop-shadow(0 10px 22px rgba(4,150,255,.5))}
+  #top .hz-sc.hz-mobon .hz-mob{animation:hzMobPop .8s cubic-bezier(.34,1.5,.64,1) forwards}
+  #top .hz-sc .hz-mi{opacity:0}
+  #top .hz-sc.hz-mobon .hz-mi{animation:hzPop .4s ease-out forwards;animation-delay:calc(.6s + var(--d))}
+  @keyframes hzMobPop{from{opacity:0;transform:translateY(14px) scale(.6)}to{opacity:1;transform:none}}
+  /* telinhas web */
+  #top .hz-sc .hz-ww{opacity:0;transform-box:fill-box;transform-origin:50% 100%;filter:drop-shadow(0 6px 14px rgba(4,150,255,.45))}
+  #top .hz-sc.hz-webs .hz-ww{animation:hzMobPop .6s cubic-bezier(.34,1.5,.64,1) forwards;animation-delay:var(--d)}
+  #top .hz-sc .hz-wl{fill:none;stroke:#7cc4ff;stroke-width:1;stroke-dasharray:3 4;opacity:0}
+  #top .hz-sc.hz-webs .hz-wl{animation:hzFade .5s ease forwards;--o:.75;animation-delay:var(--d)}
+  /* fase final: a blueprint (origem) recua; o BPMN e os eventos ficam vivos */
+  #top .hz-sc .hz-blueprint,#top .hz-sc .hz-grid{transition:opacity 1.8s ease}
+  #top .hz-sc.hz-hold .hz-blueprint{opacity:.42}
+  #top .hz-sc.hz-hold .hz-grid{opacity:.5}
+  /* pulsos */
+  #top .hz-sc .hz-pulse{opacity:0;offset-rotate:0deg}
+  #top .hz-sc.hz-hold .hz-pulse{animation:hzPulse 2.6s linear infinite;animation-delay:var(--d)}
+  @keyframes hzPulse{0%{offset-distance:0%;opacity:0}8%{opacity:1}92%{opacity:1}100%{offset-distance:100%;opacity:0}}
+  @media (prefers-reduced-motion:reduce){
+    #top .hz-sc .hz-bpl,#top .hz-sc .hz-bpn,#top .hz-sc .hz-bpt{animation:none!important;stroke-dashoffset:0;opacity:var(--o)}
+    #top .hz-sc .hz-bn,#top .hz-sc .hz-mob,#top .hz-sc .hz-mi,#top .hz-sc .hz-ww{animation:none!important;opacity:1}#top .hz-sc .hz-wl{opacity:.75}#top .hz-sc .hz-bc{animation:none!important;stroke-dashoffset:0}#top .hz-sc .hz-ml{opacity:.8}
+    #top .hz-sc .hz-cam{transform:scale(1.18)}#top .hz-sc .hz-pr{display:none}#top .hz-sc .hz-pulse{display:none}
+  }
+  </style>
+  <div class="hz-scene" id="hzScene">
+    <svg class="hz-sc" id="hzSc" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="hzStarG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7aa8"/><stop offset="1" stop-color="#a1238f"/></linearGradient>
+        <symbol id="hzStar" viewBox="0 0 24 24"><path d="M12 2.5 C12.9 8.2 15.8 11.1 21.5 12 C15.8 12.9 12.9 15.8 12 21.5 C11.1 15.8 8.2 12.9 2.5 12 C8.2 11.1 11.1 8.2 12 2.5 Z" fill="url(#hzStarG)"/></symbol>
+        <linearGradient id="hzMobHd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0496ff"/><stop offset="1" stop-color="#a1238f"/></linearGradient>
+      </defs>
+      <g class="hz-cam">
+        <g class="hz-grid"><line x1="0" y1="0" x2="0" y2="700"/><line x1="70" y1="0" x2="70" y2="700"/><line x1="140" y1="0" x2="140" y2="700"/><line x1="210" y1="0" x2="210" y2="700"/><line x1="280" y1="0" x2="280" y2="700"/><line x1="350" y1="0" x2="350" y2="700"/><line x1="420" y1="0" x2="420" y2="700"/><line x1="490" y1="0" x2="490" y2="700"/><line x1="560" y1="0" x2="560" y2="700"/><line x1="630" y1="0" x2="630" y2="700"/><line x1="700" y1="0" x2="700" y2="700"/><line x1="770" y1="0" x2="770" y2="700"/><line x1="840" y1="0" x2="840" y2="700"/><line x1="910" y1="0" x2="910" y2="700"/><line x1="980" y1="0" x2="980" y2="700"/><line x1="1050" y1="0" x2="1050" y2="700"/><line x1="1120" y1="0" x2="1120" y2="700"/><line x1="1190" y1="0" x2="1190" y2="700"/><line x1="1260" y1="0" x2="1260" y2="700"/><line x1="1330" y1="0" x2="1330" y2="700"/><line x1="1400" y1="0" x2="1400" y2="700"/><line x1="0" y1="0" x2="1400" y2="0"/><line x1="0" y1="70" x2="1400" y2="70"/><line x1="0" y1="140" x2="1400" y2="140"/><line x1="0" y1="210" x2="1400" y2="210"/><line x1="0" y1="280" x2="1400" y2="280"/><line x1="0" y1="350" x2="1400" y2="350"/><line x1="0" y1="420" x2="1400" y2="420"/><line x1="0" y1="490" x2="1400" y2="490"/><line x1="0" y1="560" x2="1400" y2="560"/><line x1="0" y1="630" x2="1400" y2="630"/><line x1="0" y1="700" x2="1400" y2="700"/></g>
+        <g class="hz-blueprint"><path class="hz-bpl" d="M430,400 L1340,400" style="--l:912;--d:2.4s;--o:0.34" stroke-width="1.3"/>
+<path class="hz-bpl" d="M1085,60 L1085,650" style="--l:592;--d:0.5s;--o:0.34" stroke-width="1.3"/>
+<path class="hz-bpl" d="M600,120 L600,300 L760,300 L760,560 L1300,560" style="--l:1142;--d:1.8s;--o:0.34" stroke-width="1.3"/>
+<circle class="hz-bpn" cx="600" cy="300" r="2.3" style="--d:2.2s;--o:0.45"/>
+<circle class="hz-bpn" cx="760" cy="300" r="2.3" style="--d:1.7s;--o:0.45"/>
+<circle class="hz-bpn" cx="760" cy="560" r="2.3" style="--d:2.2s;--o:0.45"/>
+<path class="hz-bpl" d="M900,90 L1280,90 L1280,240" style="--l:532;--d:0.7s;--o:0.34" stroke-width="1.3"/>
+<circle class="hz-bpn" cx="1280" cy="90" r="2.3" style="--d:1.2s;--o:0.45"/>
+<path class="hz-bpl" d="M480,580 L980,580 L980,640" style="--l:562;--d:2.6s;--o:0.34" stroke-width="1.3"/>
+<circle class="hz-bpn" cx="980" cy="580" r="2.3" style="--d:2s;--o:0.45"/>
+<circle class="hz-bpn" cx="1085" cy="400" r="9" fill="none" style="--d:1.1s;--o:0.32"/><circle class="hz-bpn" cx="1085" cy="400" r="17" fill="none" style="--d:1.2s;--o:0.256"/><circle class="hz-bpn" cx="1085" cy="400" r="26" fill="none" style="--d:1.6s;--o:0.192"/>
+<circle class="hz-bpn" cx="760" cy="300" r="9" fill="none" style="--d:1.5s;--o:0.32"/><circle class="hz-bpn" cx="760" cy="300" r="17" fill="none" style="--d:1.8s;--o:0.256"/><circle class="hz-bpn" cx="760" cy="300" r="26" fill="none" style="--d:2s;--o:0.192"/>
+<circle class="hz-bpn" cx="1280" cy="240" r="9" fill="none" style="--d:1.2s;--o:0.32"/><circle class="hz-bpn" cx="1280" cy="240" r="17" fill="none" style="--d:1.2s;--o:0.256"/><circle class="hz-bpn" cx="1280" cy="240" r="26" fill="none" style="--d:1.3s;--o:0.192"/>
+<circle class="hz-bpn" cx="980" cy="580" r="9" fill="none" style="--d:1.7s;--o:0.32"/><circle class="hz-bpn" cx="980" cy="580" r="17" fill="none" style="--d:1.9s;--o:0.256"/><circle class="hz-bpn" cx="980" cy="580" r="26" fill="none" style="--d:2.1s;--o:0.192"/>
+<circle class="hz-bpn" cx="600" cy="120" r="9" fill="none" style="--d:2s;--o:0.32"/><circle class="hz-bpn" cx="600" cy="120" r="17" fill="none" style="--d:2.2s;--o:0.256"/><circle class="hz-bpn" cx="600" cy="120" r="26" fill="none" style="--d:2.4s;--o:0.192"/>
+<circle class="hz-bpn" cx="1230" cy="560" r="9" fill="none" style="--d:1.9s;--o:0.32"/><circle class="hz-bpn" cx="1230" cy="560" r="17" fill="none" style="--d:2s;--o:0.256"/><circle class="hz-bpn" cx="1230" cy="560" r="26" fill="none" style="--d:2.2s;--o:0.192"/>
+<path class="hz-bpl hz-bpd" d="M936.3,213.9 L936.3,106.6 L767.4,106.6" style="--l:278.1;--d:0.6s;--o:0.24757707127894868" stroke-width="0.9"/>
+<rect class="hz-bpn" x="759.4" y="101.1" width="16" height="11" rx="2" fill="none" style="--d:1.7s;--o:0.36"/>
+<path class="hz-bpl" d="M399.2,171.1 L399.2,101 L510.6,101 L510.6,36 L413.3,36 L413.3,36" style="--l:345.7;--d:2.4s;--o:0.1941590015303461" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="399.2" cy="101" r="2.3" style="--d:2.8s;--o:0.3697409769114347"/>
+<circle class="hz-bpn" cx="510.6" cy="36" r="2.3" style="--d:2.6s;--o:0.3763298159733613"/>
+<rect class="hz-bpn" x="405.3" y="30.5" width="16" height="11" rx="2" fill="none" style="--d:2.8s;--o:0.36"/>
+<path class="hz-bpl" d="M1331.6,40.3 L1331.6,180.1 L1255.7,180.1 L1255.7,319.6 L1302.9,319.6" style="--l:404.3;--d:1s;--o:0.21099330694339444" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="1331.6" cy="180.1" r="2.3" style="--d:1.3s;--o:0.3110097830082636"/>
+<circle class="hz-bpn" cx="1255.7" cy="180.1" r="2.3" style="--d:1.1s;--o:0.33645193802063433"/>
+<circle class="hz-bpn" cx="1255.7" cy="319.6" r="2.3" style="--d:1.4s;--o:0.36798121570857734"/>
+<rect class="hz-bpn" x="1294.9" y="314.1" width="16" height="11" rx="2" fill="none" style="--d:1.4s;--o:0.36"/>
+<path class="hz-bpl" d="M731.7,136.3 L731.7,245.6 L897.4,245.6 L897.4,140.6" style="--l:381.9;--d:1.2s;--o:0.2524241057740132" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="731.7" cy="245.6" r="2.3" style="--d:1.7s;--o:0.37685337397755847"/>
+<rect class="hz-bpn" x="889.4" y="135.1" width="16" height="11" rx="2" fill="none" style="--d:1.1s;--o:0.36"/>
+<path class="hz-bpl" d="M956.4,365 L956.4,322.9 L1091.5,322.9" style="--l:179.2;--d:1s;--o:0.290083221419109" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="956.4" cy="322.9" r="2.3" style="--d:1.1s;--o:0.3617139843617069"/>
+<circle class="hz-bpn" cx="1091.5" cy="322.9" r="4.2" fill="none" style="--d:1s;--o:0.4"/>
+<path class="hz-bpl" d="M1293.8,97.6 L1395,97.6 L1395,191.7 L1274.3,191.7 L1274.3,298.2 L1317.9,298.2" style="--l:468.1;--d:0.8s;--o:0.26765975771343387" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="1395" cy="97.6" r="2.3" style="--d:1.6s;--o:0.3679636141800456"/>
+<circle class="hz-bpn" cx="1395" cy="191.7" r="2.3" style="--d:1.6s;--o:0.4404374183011295"/>
+<circle class="hz-bpn" cx="1274.3" cy="191.7" r="2.3" style="--d:1.1s;--o:0.4445069017801463"/>
+<circle class="hz-bpn" cx="1274.3" cy="298.2" r="2.3" style="--d:1.2s;--o:0.37099176708702286"/>
+<path class="hz-bpl" d="M523.1,352.5 L627.6,352.5 L627.6,448.6 L683,448.6 L683,309.4 L519.2,309.4" style="--l:561.1;--d:2.1s;--o:0.26329877666916207" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="627.6" cy="448.6" r="2.3" style="--d:2.2s;--o:0.4125315265892423"/>
+<circle class="hz-bpn" cx="683" cy="309.4" r="2.3" style="--d:2s;--o:0.33453324655897443"/>
+<rect class="hz-bpn" x="511.2" y="303.9" width="16" height="11" rx="2" fill="none" style="--d:2.5s;--o:0.36"/>
+<path class="hz-bpl" d="M796.1,47.1 L668,47.1 L668,36 L792.7,36" style="--l:265.9;--d:1.2s;--o:0.25990788750404054" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="792.7" cy="36" r="4.2" fill="none" style="--d:1.5s;--o:0.4"/>
+<text class="hz-bpt" x="799.7" y="30" style="--d:1.9s;--o:0.55">ERP</text>
+<path class="hz-bpl" d="M756.9,124.1 L596,124.1 L596,244.1" style="--l:283;--d:1.3s;--o:0.213019538753389" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="596" cy="124.1" r="2.3" style="--d:2.2s;--o:0.37799629736007234"/>
+<circle class="hz-bpn" cx="596" cy="244.1" r="2.3" style="--d:2.2s;--o:0.4"/>
+<path class="hz-bpl" d="M845.6,558 L690.3,558 L690.3,466" style="--l:249.2;--d:1.5s;--o:0.24768467726032195" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="690.3" cy="558" r="2.3" style="--d:2.4s;--o:0.30370897624926246"/>
+<circle class="hz-bpn" cx="690.3" cy="466" r="4.2" fill="none" style="--d:2.1s;--o:0.4"/>
+<text class="hz-bpt" x="697.3" y="460" style="--d:2.4s;--o:0.55">SAP</text>
+<path class="hz-bpl hz-bpd" d="M929.7,433.7 L929.7,569.1 L855.8,569.1 L855.8,625.8 L1024.1,625.8" style="--l:436.3;--d:1.1s;--o:0.21268259237282022" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="855.8" cy="569.1" r="2.3" style="--d:2s;--o:0.4495213159429359"/>
+<circle class="hz-bpn" cx="1024.1" cy="625.8" r="2.3" style="--d:2s;--o:0.4"/>
+<path class="hz-bpl hz-bpd" d="M1198,282.5 L1344.3,282.5 L1344.3,212.3 L1395,212.3" style="--l:269.2;--d:0.8s;--o:0.2839390028879155" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="1344.3" cy="282.5" r="2.3" style="--d:1.5s;--o:0.3363437834009346"/>
+<circle class="hz-bpn" cx="1344.3" cy="212.3" r="2.3" style="--d:1.5s;--o:0.3464786405156813"/>
+<path class="hz-bpl" d="M1079,49.8 L964,49.8 L964,36" style="--l:130.7;--d:0.5s;--o:0.20619534266812217" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="964" cy="49.8" r="2.3" style="--d:1.1s;--o:0.37996829524823017"/>
+<path class="hz-bpl" d="M1382.2,602.9 L1181.4,602.9 L1181.4,668 L1012.6,668 L1012.6,581 L1193.9,581" style="--l:705;--d:1.8s;--o:0.28123480788518074" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="1193.9" cy="581" r="4.2" fill="none" style="--d:1.9s;--o:0.4"/>
+<path class="hz-bpl" d="M809.8,351 L684.2,351 L684.2,382.1" style="--l:158.6;--d:1.1s;--o:0.22807007212400143" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="684.2" cy="351" r="2.3" style="--d:2.1s;--o:0.3250156839183348"/>
+<rect class="hz-bpn" x="676.2" y="376.6" width="16" height="11" rx="2" fill="none" style="--d:2.1s;--o:0.36"/>
+<path class="hz-bpl" d="M903,193.9 L789.2,193.9 L789.2,280.7 L861.8,280.7 L861.8,412.4" style="--l:406.7;--d:0.6s;--o:0.2972736373747461" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="789.2" cy="193.9" r="2.3" style="--d:1.5s;--o:0.40305510530331845"/>
+<circle class="hz-bpn" cx="789.2" cy="280.7" r="2.3" style="--d:1.5s;--o:0.3929649503888443"/>
+<circle class="hz-bpn" cx="861.8" cy="412.4" r="4.2" fill="none" style="--d:1.6s;--o:0.4"/>
+<path class="hz-bpl" d="M745.8,371.5 L893.4,371.5 L893.4,459.7 L1023.4,459.7 L1023.4,405.7 L830,405.7" style="--l:615.4;--d:1.4s;--o:0.28687711440572167" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="1023.4" cy="459.7" r="2.3" style="--d:1.6s;--o:0.33590212106616224"/>
+<circle class="hz-bpn" cx="1023.4" cy="405.7" r="2.3" style="--d:1.4s;--o:0.3145523813755779"/>
+<rect class="hz-bpn" x="822" y="400.2" width="16" height="11" rx="2" fill="none" style="--d:1.7s;--o:0.36"/>
+<text class="hz-bpt" x="837" y="399.7" style="--d:1.8s;--o:0.55">CRM</text>
+<path class="hz-bpl hz-bpd" d="M1061.2,51.1 L866.3,51.1 L866.3,36 L991.8,36 L991.8,36" style="--l:337.5;--d:0.6s;--o:0.18449230470835912" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="866.3" cy="36" r="2.3" style="--d:1.3s;--o:0.3284356704181466"/>
+<circle class="hz-bpn" cx="991.8" cy="36" r="2.3" style="--d:1s;--o:0.32370409033108655"/>
+<circle class="hz-bpn" cx="991.8" cy="36" r="2.3" style="--d:1.1s;--o:0.4"/>
+<text class="hz-bpt" x="998.8" y="30" style="--d:1.3s;--o:0.55">API</text>
+<path class="hz-bpl" d="M609.2,100.4 L481.6,100.4 L481.6,48.9 L523.8,48.9 L523.8,171.5 L414.5,171.5" style="--l:455.3;--d:1.7s;--o:0.22863625102209673" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="481.6" cy="100.4" r="2.3" style="--d:2.5s;--o:0.41885237173969037"/>
+<circle class="hz-bpn" cx="481.6" cy="48.9" r="2.3" style="--d:2.7s;--o:0.42628595274463843"/>
+<rect class="hz-bpn" x="406.5" y="166" width="16" height="11" rx="2" fill="none" style="--d:2.7s;--o:0.36"/>
+<path class="hz-bpl hz-bpd" d="M860.4,516.5 L1026.9,516.5 L1026.9,397.3" style="--l:287.8;--d:1.5s;--o:0.2195892851470484" stroke-width="1.1"/>
+<path class="hz-bpl" d="M1081.4,84.1 L1024.2,84.1 L1024.2,223 L944.8,223 L944.8,157.2 L1081.6,157.2" style="--l:480.2;--d:0.3s;--o:0.2999864418783143" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="1024.2" cy="84.1" r="2.3" style="--d:0.9s;--o:0.3593061759845391"/>
+<circle class="hz-bpn" cx="1024.2" cy="223" r="2.3" style="--d:0.7s;--o:0.31620861337199235"/>
+<circle class="hz-bpn" cx="944.8" cy="223" r="2.3" style="--d:1.1s;--o:0.37571419296837255"/>
+<circle class="hz-bpn" cx="1081.6" cy="157.2" r="4.2" fill="none" style="--d:0.5s;--o:0.4"/>
+<path class="hz-bpl" d="M860.3,377.8 L1008.7,377.8 L1008.7,467.3" style="--l:240;--d:1.1s;--o:0.2926323930858954" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="1008.7" cy="377.8" r="2.3" style="--d:1.3s;--o:0.3743281351871271"/>
+<circle class="hz-bpn" cx="1008.7" cy="467.3" r="4.2" fill="none" style="--d:1.7s;--o:0.4"/>
+<path class="hz-bpl" d="M977,413.6 L854.9,413.6 L854.9,322.9 L702.1,322.9 L702.1,353.9" style="--l:398.8;--d:1.1s;--o:0.2559591115921027" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="854.9" cy="413.6" r="2.3" style="--d:1.7s;--o:0.4346313170885414"/>
+<circle class="hz-bpn" cx="854.9" cy="322.9" r="2.3" style="--d:1.5s;--o:0.44831541708454425"/>
+<circle class="hz-bpn" cx="702.1" cy="322.9" r="2.3" style="--d:1.9s;--o:0.43583262923028876"/>
+<rect class="hz-bpn" x="694.1" y="348.4" width="16" height="11" rx="2" fill="none" style="--d:2s;--o:0.36"/>
+<path class="hz-bpl" d="M975.1,625.8 L975.1,668 L1117.7,668 L1117.7,634.4 L1235.2,634.4 L1235.2,509.9" style="--l:462.4;--d:1.6s;--o:0.19491910847720686" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="975.1" cy="668" r="2.3" style="--d:2.3s;--o:0.3901576473513202"/>
+<circle class="hz-bpn" cx="1117.7" cy="634.4" r="2.3" style="--d:2.2s;--o:0.41158002748798533"/>
+<circle class="hz-bpn" cx="1235.2" cy="634.4" r="2.3" style="--d:2.1s;--o:0.3435193617652558"/>
+<rect class="hz-bpn" x="1227.2" y="504.4" width="16" height="11" rx="2" fill="none" style="--d:1.8s;--o:0.36"/>
+<path class="hz-bpl" d="M965.9,569.1 L1113.6,569.1 L1113.6,618.4 L1238.9,618.4" style="--l:324.3;--d:1.4s;--o:0.18474094625867263" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="1113.6" cy="569.1" r="2.3" style="--d:1.7s;--o:0.304035573031771"/>
+<circle class="hz-bpn" cx="1113.6" cy="618.4" r="2.3" style="--d:2.1s;--o:0.34174325697775126"/>
+<text class="hz-bpt" x="1245.9" y="612.4" style="--d:2.2s;--o:0.55">SLA</text>
+<path class="hz-bpl" d="M1310.3,342.5 L1395,342.5 L1395,464.4 L1218.6,464.4 L1218.6,583.1" style="--l:503.7;--d:1.2s;--o:0.2696784954590251" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="1395" cy="342.5" r="2.3" style="--d:1.8s;--o:0.39804865438827564"/>
+<circle class="hz-bpn" cx="1395" cy="464.4" r="2.3" style="--d:2s;--o:0.38229202079659524"/>
+<rect class="hz-bpn" x="1210.6" y="577.6" width="16" height="11" rx="2" fill="none" style="--d:1.9s;--o:0.36"/>
+<text class="hz-bpt" x="1225.6" y="577.1" style="--d:2.3s;--o:0.55">OCR</text>
+<path class="hz-bpl" d="M610.5,91.9 L610.5,36 L701.3,36 L701.3,72.5 L896.1,72.5 L896.1,36" style="--l:416.6;--d:1.8s;--o:0.26327770053858995" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="610.5" cy="36" r="2.3" style="--d:2.1s;--o:0.39858947477412476"/>
+<circle class="hz-bpn" cx="701.3" cy="72.5" r="2.3" style="--d:1.9s;--o:0.3661471015616594"/>
+<circle class="hz-bpn" cx="896.1" cy="36" r="2.3" style="--d:1.2s;--o:0.4"/>
+<path class="hz-bpl" d="M1338.8,326.4 L1284.5,326.4 L1284.5,295.7 L1395,295.7" style="--l:197.6;--d:1.1s;--o:0.2241896928522731" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="1284.5" cy="295.7" r="2.3" style="--d:1.4s;--o:0.3264888291318785"/>
+<path class="hz-bpl" d="M502.7,362.3 L360,362.3 L360,327.1 L534,327.1 L534,261.6" style="--l:419.3;--d:2s;--o:0.2878886231605475" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="360" cy="327.1" r="2.3" style="--d:3s;--o:0.42243778293840967"/>
+<rect class="hz-bpn" x="526" y="256.1" width="16" height="11" rx="2" fill="none" style="--d:2.5s;--o:0.36"/>
+<path class="hz-bpl" d="M937.4,259 L937.4,155.7 L1060.3,155.7 L1060.3,263 L950.5,263" style="--l:445.4;--d:0.8s;--o:0.27670887116608905" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="1060.3" cy="263" r="2.3" style="--d:0.9s;--o:0.4065129608029295"/>
+<rect class="hz-bpn" x="942.5" y="257.5" width="16" height="11" rx="2" fill="none" style="--d:1s;--o:0.36"/>
+<text class="hz-bpt" x="957.5" y="257" style="--d:1.3s;--o:0.55">RBAC</text>
+<path class="hz-bpl" d="M1334.4,274.7 L1228.3,274.7 L1228.3,333.4 L1348.4,333.4" style="--l:287;--d:1.1s;--o:0.1986618373774901" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="1228.3" cy="333.4" r="2.3" style="--d:1.3s;--o:0.3721617220818567"/>
+<circle class="hz-bpn" cx="1348.4" cy="333.4" r="4.2" fill="none" style="--d:1.5s;--o:0.4"/>
+<path class="hz-bpl" d="M1011,415 L895.8,415 L895.8,341.9 L749.3,341.9" style="--l:336.8;--d:1.1s;--o:0.23817121436067135" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="895.8" cy="415" r="2.3" style="--d:1.7s;--o:0.38210240986758515"/>
+<circle class="hz-bpn" cx="895.8" cy="341.9" r="2.3" style="--d:1.3s;--o:0.3331507862352865"/>
+<path class="hz-bpl" d="M890.4,369.7 L1064.3,369.7 L1064.3,471.4 L872.6,471.4 L872.6,342" style="--l:598.6;--d:1.1s;--o:0.2655944988919243" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="1064.3" cy="369.7" r="2.3" style="--d:1.1s;--o:0.415789811300267"/>
+<circle class="hz-bpn" cx="872.6" cy="342" r="4.2" fill="none" style="--d:1.5s;--o:0.4"/>
+<path class="hz-bpl" d="M970.9,73.1 L970.9,101.2 L1150.6,101.2 L1150.6,168.6" style="--l:277.3;--d:0.7s;--o:0.2632430241721842" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="970.9" cy="101.2" r="2.3" style="--d:0.9s;--o:0.4286018265477964"/>
+<rect class="hz-bpn" x="1142.6" y="163.1" width="16" height="11" rx="2" fill="none" style="--d:0.9s;--o:0.36"/>
+<text class="hz-bpt" x="1157.6" y="162.6" style="--d:1s;--o:0.55">AUDIT</text>
+<path class="hz-bpl" d="M755.5,379.6 L554.6,379.6 L554.6,316.2 L501.7,316.2" style="--l:319.2;--d:1.4s;--o:0.2600576177672854" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="554.6" cy="316.2" r="2.3" style="--d:2.3s;--o:0.3591354474528044"/>
+<path class="hz-bpl" d="M1045.2,47.7 L1125.6,47.7 L1125.6,127 L1311.1,127 L1311.1,256 L1221.8,256" style="--l:565.5;--d:0.6s;--o:0.26996763315636446" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="1125.6" cy="47.7" r="2.3" style="--d:0.9s;--o:0.31303885756780964"/>
+<circle class="hz-bpn" cx="1125.6" cy="127" r="2.3" style="--d:0.7s;--o:0.31643758639253455"/>
+<circle class="hz-bpn" cx="1311.1" cy="127" r="2.3" style="--d:1.3s;--o:0.37047284549898507"/>
+<circle class="hz-bpn" cx="1311.1" cy="256" r="2.3" style="--d:1.2s;--o:0.35736571411670043"/>
+<circle class="hz-bpn" cx="1221.8" cy="256" r="2.3" style="--d:1s;--o:0.4"/>
+<path class="hz-bpl" d="M728.3,160.7 L869,160.7 L869,200 L935.7,200 L935.7,276.6 L837.7,276.6" style="--l:423.4;--d:1.4s;--o:0.19668646542481857" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="869" cy="200" r="2.3" style="--d:1.2s;--o:0.3497115767612956"/>
+<circle class="hz-bpn" cx="935.7" cy="200" r="2.3" style="--d:1.1s;--o:0.3601062148210723"/>
+<path class="hz-bpl" d="M1021.7,51.6 L929.6,51.6 L929.6,36 L854.8,36 L854.8,152.3" style="--l:300.9;--d:0.7s;--o:0.19900103979159492" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="929.6" cy="51.6" r="2.3" style="--d:1.2s;--o:0.35288414129467266"/>
+<circle class="hz-bpn" cx="929.6" cy="36" r="2.3" style="--d:1.3s;--o:0.40701317734811754"/>
+<circle class="hz-bpn" cx="854.8" cy="36" r="2.3" style="--d:1.5s;--o:0.40730791468935745"/>
+<circle class="hz-bpn" cx="854.8" cy="152.3" r="4.2" fill="none" style="--d:1.4s;--o:0.4"/>
+<path class="hz-bpl" d="M745.9,92 L587.4,92 L587.4,53.7 L672.7,53.7 L672.7,132.4 L753.3,132.4" style="--l:443.3;--d:1.4s;--o:0.21172416255045054" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="672.7" cy="53.7" r="2.3" style="--d:1.9s;--o:0.42369779013521847"/>
+<circle class="hz-bpn" cx="753.3" cy="132.4" r="4.2" fill="none" style="--d:1.6s;--o:0.4"/>
+<path class="hz-bpl" d="M734.4,382.4 L842.9,382.4 L842.9,320" style="--l:173;--d:1.4s;--o:0.25683892500741823" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="842.9" cy="382.4" r="2.3" style="--d:1.6s;--o:0.3049591833460927"/>
+<circle class="hz-bpn" cx="842.9" cy="320" r="4.2" fill="none" style="--d:1.4s;--o:0.4"/>
+<path class="hz-bpl" d="M678.3,192.6 L678.3,292.5 L841,292.5" style="--l:264.5;--d:1.5s;--o:0.23970627540358302" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="678.3" cy="292.5" r="2.3" style="--d:2s;--o:0.3935704058927177"/>
+<path class="hz-bpl" d="M953.4,661.6 L953.4,668 L817.1,668 L817.1,581.2 L928.6,581.2 L928.6,645.1" style="--l:406.8;--d:1.9s;--o:0.2539450879992286" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="953.4" cy="668" r="2.3" style="--d:2.2s;--o:0.41278282305922437"/>
+<circle class="hz-bpn" cx="817.1" cy="668" r="2.3" style="--d:2.3s;--o:0.3104699696350945"/>
+<circle class="hz-bpn" cx="817.1" cy="581.2" r="2.3" style="--d:2.1s;--o:0.37539517641780984"/>
+<circle class="hz-bpn" cx="928.6" cy="581.2" r="2.3" style="--d:2s;--o:0.4042356972828952"/>
+<circle class="hz-bpn" cx="928.6" cy="645.1" r="4.2" fill="none" style="--d:2.1s;--o:0.4"/>
+<path class="hz-bpl hz-bpd" d="M779.5,82.8 L779.5,36 L915.4,36 L915.4,36 L1051.7,36" style="--l:321;--d:1.3s;--o:0.2750828916996331" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="779.5" cy="36" r="2.3" style="--d:1.6s;--o:0.36797788739268844"/>
+<circle class="hz-bpn" cx="915.4" cy="36" r="2.3" style="--d:1.2s;--o:0.3258019265487428"/>
+<rect class="hz-bpn" x="1043.7" y="30.5" width="16" height="11" rx="2" fill="none" style="--d:1s;--o:0.36"/>
+<text class="hz-bpt" x="1058.7" y="30" style="--d:1.2s;--o:0.55">MCP</text>
+<path class="hz-bpl" d="M775.2,231.4 L682.9,231.4 L682.9,187.3 L872.2,187.3 L872.2,248.4" style="--l:388.8;--d:1.3s;--o:0.28055007206724025" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="682.9" cy="231.4" r="2.3" style="--d:1.9s;--o:0.3953067204502049"/>
+<circle class="hz-bpn" cx="682.9" cy="187.3" r="2.3" style="--d:1.8s;--o:0.3799645293120975"/>
+<path class="hz-bpl hz-bpd" d="M835.1,551.1 L835.1,668 L738.2,668 L738.2,668 L660.2,668" style="--l:293.8;--d:1.6s;--o:0.2629377483097897" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="835.1" cy="668" r="2.3" style="--d:2.4s;--o:0.39968873295425866"/>
+<circle class="hz-bpn" cx="738.2" cy="668" r="2.3" style="--d:2.6s;--o:0.39930131605760183"/>
+<circle class="hz-bpn" cx="738.2" cy="668" r="2.3" style="--d:2.5s;--o:0.3343492559833091"/>
+<path class="hz-bpl hz-bpd" d="M812.8,440 L927.7,440 L927.7,527.4" style="--l:204.3;--d:1.3s;--o:0.25038740183520886" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="927.7" cy="527.4" r="4.2" fill="none" style="--d:1.8s;--o:0.4"/>
+<path class="hz-bpl hz-bpd" d="M787.9,214.4 L962.3,214.4 L962.3,353.1 L816.6,353.1" style="--l:460.7;--d:1s;--o:0.28698700770726826" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="962.3" cy="214.4" r="2.3" style="--d:0.9s;--o:0.39674493883887796"/>
+<path class="hz-bpl" d="M964.9,568.4 L964.9,662.9 L905.9,662.9 L905.9,608.5" style="--l:209.9;--d:1.6s;--o:0.21073974947920243" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="964.9" cy="662.9" r="2.3" style="--d:2.1s;--o:0.3733676618458617"/>
+<circle class="hz-bpn" cx="905.9" cy="662.9" r="2.3" style="--d:2.2s;--o:0.37484431146979724"/>
+<rect class="hz-bpn" x="897.9" y="603" width="16" height="11" rx="2" fill="none" style="--d:2.2s;--o:0.36"/>
+<path class="hz-bpl" d="M1181.1,152.5 L1037.6,152.5 L1037.6,68.1" style="--l:229.9;--d:0.6s;--o:0.18371183848905787" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="1037.6" cy="152.5" r="2.3" style="--d:0.8s;--o:0.38148571727367864"/>
+<circle class="hz-bpn" cx="1037.6" cy="68.1" r="4.2" fill="none" style="--d:0.8s;--o:0.4"/>
+<path class="hz-bpl hz-bpd" d="M549.2,236.5 L549.2,122.8 L604.3,122.8 L604.3,193.2 L537.1,193.2" style="--l:308.4;--d:2s;--o:0.22927557569758142" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="604.3" cy="193.2" r="2.3" style="--d:2.1s;--o:0.4133108561053105"/>
+<circle class="hz-bpn" cx="537.1" cy="193.2" r="4.2" fill="none" style="--d:2.4s;--o:0.4"/>
+<path class="hz-bpl" d="M1319.8,42.1 L1264.2,42.1 L1264.2,122.9 L1395,122.9" style="--l:269.2;--d:1s;--o:0.19426137377490407" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="1264.2" cy="42.1" r="2.3" style="--d:1.2s;--o:0.3340856109157194"/>
+<text class="hz-bpt" x="1402" y="116.9" style="--d:1.7s;--o:0.55">WEBHOOK</text>
+<path class="hz-bpl" d="M1009.3,661.7 L1009.3,581.9 L1208.3,581.9 L1208.3,652.6" style="--l:351.5;--d:1.9s;--o:0.22168944887503045" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="1208.3" cy="581.9" r="2.3" style="--d:2s;--o:0.3600332471144799"/>
+<path class="hz-bpl" d="M956,431.7 L881.2,431.7 L881.2,506.6 L723.6,506.6 L723.6,640.9 L595.4,640.9" style="--l:571.7;--d:1.1s;--o:0.24808479123434074" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="881.2" cy="431.7" r="2.3" style="--d:1.5s;--o:0.35416464737495"/>
+<circle class="hz-bpn" cx="723.6" cy="506.6" r="2.3" style="--d:2.2s;--o:0.4148531245897087"/>
+<circle class="hz-bpn" cx="595.4" cy="640.9" r="4.2" fill="none" style="--d:2.7s;--o:0.4"/>
+<path class="hz-bpl hz-bpd" d="M617.2,591.5 L708.6,591.5 L708.6,668" style="--l:169.9;--d:2.1s;--o:0.2514470262476559" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="708.6" cy="591.5" r="2.3" style="--d:2.4s;--o:0.37179344208239046"/>
+<rect class="hz-bpn" x="700.6" y="662.5" width="16" height="11" rx="2" fill="none" style="--d:2.6s;--o:0.36"/>
+<path class="hz-bpl" d="M932.9,275.6 L932.9,187.7 L824,187.7 L824,101.8 L745.5,101.8" style="--l:363.1;--d:0.6s;--o:0.2533569781921106" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="932.9" cy="187.7" r="2.3" style="--d:1s;--o:0.39455909559445984"/>
+<circle class="hz-bpn" cx="745.5" cy="101.8" r="4.2" fill="none" style="--d:1.7s;--o:0.4"/>
+<path class="hz-bpl" d="M762.5,470.8 L762.5,416.5 L707.2,416.5 L707.2,375.1 L657,375.1" style="--l:203.2;--d:1.5s;--o:0.21414779081682617" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="762.5" cy="416.5" r="2.3" style="--d:1.9s;--o:0.360367469342706"/>
+<circle class="hz-bpn" cx="707.2" cy="416.5" r="2.3" style="--d:1.9s;--o:0.39978067395721717"/>
+<circle class="hz-bpn" cx="707.2" cy="375.1" r="2.3" style="--d:1.9s;--o:0.3512752017835302"/>
+<circle class="hz-bpn" cx="657" cy="375.1" r="4.2" fill="none" style="--d:2.1s;--o:0.4"/>
+<path class="hz-bpl" d="M991.8,477.6 L1052.3,477.6 L1052.3,347.4 L1003,347.4 L1003,224.6 L883.3,224.6" style="--l:484.5;--d:1.2s;--o:0.18867257239537796" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="1052.3" cy="347.4" r="2.3" style="--d:1.2s;--o:0.3392847539653946"/>
+<circle class="hz-bpn" cx="1003" cy="347.4" r="2.3" style="--d:1.2s;--o:0.37038695631669355"/>
+<rect class="hz-bpn" x="875.3" y="219.1" width="16" height="11" rx="2" fill="none" style="--d:1.2s;--o:0.36"/>
+<path class="hz-bpl" d="M1109.9,432.1 L1109.9,528.7 L1022.9,528.7 L1022.9,402.2 L818.6,402.2 L818.6,434.5" style="--l:548.7;--d:1s;--o:0.21274300692254966" stroke-width="1.0"/>
+<circle class="hz-bpn" cx="1022.9" cy="528.7" r="2.3" style="--d:1.7s;--o:0.32886808954528124"/>
+<circle class="hz-bpn" cx="818.6" cy="402.2" r="2.3" style="--d:1.7s;--o:0.3001394088489675"/>
+<rect class="hz-bpn" x="810.6" y="429" width="16" height="11" rx="2" fill="none" style="--d:1.7s;--o:0.36"/>
+<path class="hz-bpl" d="M1043.3,382.6 L1043.3,440.2 L852.6,440.2 L852.6,558.4 L1010.8,558.4" style="--l:526.7;--d:0.8s;--o:0.2789267046699202" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="852.6" cy="558.4" r="2.3" style="--d:2s;--o:0.3622199035648722"/>
+<circle class="hz-bpn" cx="1010.8" cy="558.4" r="2.3" style="--d:1.8s;--o:0.4"/>
+<path class="hz-bpl" d="M875.1,481.4 L875.1,607.6 L696.1,607.6 L696.1,567" style="--l:347.9;--d:1.3s;--o:0.2615106068378972" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="696.1" cy="567" r="4.2" fill="none" style="--d:2.3s;--o:0.4"/>
+<path class="hz-bpl" d="M1125.6,285.2 L1125.6,216 L1196.8,216 L1196.8,338.4 L1060.4,338.4" style="--l:401.2;--d:0.6s;--o:0.19506805267005406" stroke-width="1.1"/>
+<circle class="hz-bpn" cx="1196.8" cy="216" r="2.3" style="--d:1s;--o:0.3565426252274052"/>
+<circle class="hz-bpn" cx="1196.8" cy="338.4" r="2.3" style="--d:1.1s;--o:0.32769693394058935"/>
+<rect class="hz-bpn" x="1052.4" y="332.9" width="16" height="11" rx="2" fill="none" style="--d:1.2s;--o:0.36"/>
+<path class="hz-bpl" d="M680.8,469.7 L786.6,469.7 L786.6,503.2 L974.6,503.2 L974.6,563.2 L1083.4,563.2" style="--l:498;--d:1.8s;--o:0.2826670060900248" stroke-width="0.9"/>
+<circle class="hz-bpn" cx="786.6" cy="469.7" r="2.3" style="--d:2s;--o:0.42007173844033074"/>
+<circle class="hz-bpn" cx="786.6" cy="503.2" r="2.3" style="--d:2s;--o:0.3587525565794182"/>
+<rect class="hz-bpn" x="1075.4" y="557.7" width="16" height="11" rx="2" fill="none" style="--d:1.9s;--o:0.36"/></g>
+        <g class="hz-bpmng" transform="translate(-110,0)"><g class="hz-bpcore"><circle class="hz-bn" cx="870" cy="330" r="9" fill="rgba(46,229,157,.15)" stroke="#2ee59d" stroke-width="2" style="--d:0s"/>
+<path class="hz-bc" d="M879,330 L895,330" style="--d:0.2s"/>
+<polygon class="hz-bn" points="889,326 895,330 889,334" fill="#9fb1c8" style="--d:0.35s"/>
+<g class="hz-bn" style="--d:0.45s"><rect x="895" y="308" width="104" height="44" rx="7" fill="rgba(4,150,255,.2)" stroke="#7cc4ff" stroke-width="1.4"/><circle cx="907" cy="317" r="2.6" fill="none" stroke="#7cc4ff" stroke-width="1.2"/><path d="M902 325 a5 5 0 0 1 10 0" fill="none" stroke="#7cc4ff" stroke-width="1.2"/><text class="hz-bl" x="947.0" y="328.0" text-anchor="middle">Requisição</text><text class="hz-bl" x="947.0" y="341.0" text-anchor="middle">de compra</text></g>
+<path class="hz-bc" d="M999,330 L1020,330" style="--d:0.8s"/>
+<polygon class="hz-bn" points="1014,326 1020,330 1014,334" fill="#9fb1c8" style="--d:0.95s"/>
+<g class="hz-bn" style="--d:1.05s"><polygon points="1038,314 1054,330 1038,346 1022,330" fill="rgba(244,180,0,.16)" stroke="#f4b400" stroke-width="1.5"/><path d="M1038 324 v12 M1032 330 h12" stroke="#f4b400" stroke-width="2"/></g>
+<path class="hz-bc" d="M1054,330 L1066,330 L1066,280 L1080,280" style="--d:1.3s"/>
+<polygon class="hz-bn" points="1074,276 1080,280 1074,284" fill="#9fb1c8" style="--d:1.5s"/>
+<path class="hz-bc" d="M1054,330 L1066,330 L1066,380 L1080,380" style="--d:1.3s"/>
+<polygon class="hz-bn" points="1074,376 1080,380 1074,384" fill="#9fb1c8" style="--d:1.5s"/>
+<g class="hz-bn" style="--d:1.6s"><rect x="1080" y="258" width="108" height="44" rx="7" fill="rgba(161,35,143,.28)" stroke="#ff7aa8" stroke-width="1.4"/><use href="#hzStar" x="1087" y="264" width="12" height="12"/><rect x="1164" y="263" width="18" height="11" rx="5.5" fill="#ff7aa8"/><text x="1173" y="271.5" text-anchor="middle" style="font-size:7.5px;font-weight:800;fill:#2b0a22">IA</text><text class="hz-bl" x="1134.0" y="278.0" text-anchor="middle">Consulta SAP</text><text class="hz-bl" x="1134.0" y="291.0" text-anchor="middle">estoque · contratos</text></g>
+<g class="hz-bn" style="--d:1.75s"><rect x="1080" y="358" width="108" height="44" rx="7" fill="rgba(161,35,143,.28)" stroke="#ff7aa8" stroke-width="1.4"/><use href="#hzStar" x="1087" y="364" width="12" height="12"/><rect x="1164" y="363" width="18" height="11" rx="5.5" fill="#ff7aa8"/><text x="1173" y="371.5" text-anchor="middle" style="font-size:7.5px;font-weight:800;fill:#2b0a22">IA</text><text class="hz-bl" x="1134.0" y="378.0" text-anchor="middle">Consulta web</text><text class="hz-bl" x="1134.0" y="391.0" text-anchor="middle">cotações · fornecedores</text></g>
+<path class="hz-bc" d="M1188,280 L1202,280 L1202,330 L1214,330" style="--d:2.1s"/>
+<path class="hz-bc" d="M1188,380 L1202,380 L1202,330" style="--d:2.1s"/>
+<polygon class="hz-bn" points="1208,326 1214,330 1208,334" fill="#9fb1c8" style="--d:2.3s"/>
+<g class="hz-bn" style="--d:2.4s"><polygon points="1230,314 1246,330 1230,346 1214,330" fill="rgba(244,180,0,.16)" stroke="#f4b400" stroke-width="1.5"/><path d="M1230 324 v12 M1224 330 h12" stroke="#f4b400" stroke-width="2"/></g>
+<path class="hz-bc" d="M1246,330 L1262,330" style="--d:2.6s"/>
+<polygon class="hz-bn" points="1256,326 1262,330 1256,334" fill="#9fb1c8" style="--d:2.75s"/>
+<g class="hz-bn" style="--d:2.85s"><rect x="1262" y="308" width="72" height="44" rx="7" fill="rgba(161,35,143,.28)" stroke="#ff7aa8" stroke-width="1.4"/><use href="#hzStar" x="1269" y="314" width="12" height="12"/><rect x="1310" y="313" width="18" height="11" rx="5.5" fill="#ff7aa8"/><text x="1319" y="321.5" text-anchor="middle" style="font-size:7.5px;font-weight:800;fill:#2b0a22">IA</text><text class="hz-bl" x="1298.0" y="328.0" text-anchor="middle">Compara</text><text class="hz-bl" x="1298.0" y="341.0" text-anchor="middle">cotações</text></g>
+<path class="hz-bc" d="M1298,352 L1298,418 L880,418 L880,454" style="--d:3.1s"/>
+<polygon class="hz-bn" points="876,448 880,454 884,448" fill="#9fb1c8" style="--d:3.45s"/>
+<g class="hz-bn" style="--d:3.55s"><polygon points="880,454 896,470 880,486 864,470" fill="rgba(244,180,0,.16)" stroke="#f4b400" stroke-width="1.5"/><text x="880" y="474.5" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#f4b400">×</text><text class="hz-bm" x="880" y="500" text-anchor="middle">> R$ 50 mil?</text></g>
+<path class="hz-bc" d="M896,470 L910,470 L910,440 L924,440" style="--d:3.8s"/>
+<polygon class="hz-bn" points="918,436 924,440 918,444" fill="#9fb1c8" style="--d:3.95s"/>
+<path class="hz-bc" d="M896,470 L910,470 L910,500 L924,500" style="--d:3.8s"/>
+<polygon class="hz-bn" points="918,496 924,500 918,504" fill="#9fb1c8" style="--d:3.95s"/>
+<g class="hz-bn" style="--d:4.05s"><rect x="924" y="420" width="96" height="40" rx="7" fill="rgba(4,150,255,.2)" stroke="#7cc4ff" stroke-width="1.4"/><circle cx="936" cy="429" r="2.6" fill="none" stroke="#7cc4ff" stroke-width="1.2"/><path d="M931 437 a5 5 0 0 1 10 0" fill="none" stroke="#7cc4ff" stroke-width="1.2"/><text class="hz-bl" x="972.0" y="438.0" text-anchor="middle">Aprova</text><text class="hz-bl" x="972.0" y="451.0" text-anchor="middle">diretor</text></g>
+<g class="hz-bn" style="--d:4.15s"><rect x="924" y="480" width="96" height="40" rx="7" fill="rgba(4,150,255,.2)" stroke="#7cc4ff" stroke-width="1.4"/><circle cx="936" cy="489" r="2.6" fill="none" stroke="#7cc4ff" stroke-width="1.2"/><path d="M931 497 a5 5 0 0 1 10 0" fill="none" stroke="#7cc4ff" stroke-width="1.2"/><text class="hz-bl" x="972.0" y="498.0" text-anchor="middle">Aprova</text><text class="hz-bl" x="972.0" y="511.0" text-anchor="middle">gestor</text></g>
+<path class="hz-bc" d="M1020,440 L1034,440 L1034,470 L1048,470" style="--d:4.4s"/>
+<path class="hz-bc" d="M1020,500 L1034,500 L1034,470" style="--d:4.4s"/>
+<polygon class="hz-bn" points="1042,466 1048,470 1042,474" fill="#9fb1c8" style="--d:4.55s"/>
+<g class="hz-bn" style="--d:4.65s"><rect x="1048" y="450" width="92" height="40" rx="7" fill="rgba(124,196,255,.14)" stroke="#9fd4ff" stroke-width="1.4"/><text class="hz-bl" x="1094.0" y="474.0" text-anchor="middle">Emite pedido</text></g>
+<path class="hz-bc" d="M1140,470 L1158,470" style="--d:4.9s"/>
+<polygon class="hz-bn" points="1152,466 1158,470 1152,474" fill="#9fb1c8" style="--d:5.0s"/>
+<g class="hz-bn" style="--d:5.1s"><rect x="1158" y="450" width="104" height="40" rx="7" fill="rgba(161,35,143,.28)" stroke="#ff7aa8" stroke-width="1.4"/><use href="#hzStar" x="1165" y="456" width="12" height="12"/><rect x="1238" y="455" width="18" height="11" rx="5.5" fill="#ff7aa8"/><text x="1247" y="463.5" text-anchor="middle" style="font-size:7.5px;font-weight:800;fill:#2b0a22">IA</text><text class="hz-bl" x="1210.0" y="468.0" text-anchor="middle">Notifica</text><text class="hz-bl" x="1210.0" y="481.0" text-anchor="middle">fornecedor</text></g>
+<path class="hz-bc" d="M1262,470 L1280,470" style="--d:5.35s"/>
+<polygon class="hz-bn" points="1274,466 1280,470 1274,474" fill="#9fb1c8" style="--d:5.45s"/>
+<circle class="hz-bn" cx="1289" cy="470" r="9" fill="rgba(232,51,90,.15)" stroke="#e8335a" stroke-width="3.2" style="--d:5.55s"/></g>
+<circle class="hz-pulse" r="3" fill="#7cc4ff" style="--d:0s;offset-path:path('M879,330 L895,330 L999,330 L1020,330')"/>
+<circle class="hz-pulse" r="3" fill="#ff7aa8" style="--d:.8s;offset-path:path('M1054,330 L1066,330 L1066,280 L1080,280')"/>
+<circle class="hz-pulse" r="3" fill="#ff7aa8" style="--d:1.4s;offset-path:path('M1054,330 L1066,330 L1066,380 L1080,380')"/>
+<circle class="hz-pulse" r="3" fill="#7cc4ff" style="--d:.3s;offset-path:path('M1298,352 L1298,418 L880,418 L880,454')"/>
+<circle class="hz-pulse" r="3" fill="#7cc4ff" style="--d:1.1s;offset-path:path('M1140,470 L1158,470 L1262,470 L1280,470')"/>
+<path class="hz-wl" d="M947,308 L934,262" style="--d:0s"/>
+<g class="hz-ww" style="--d:0.05s"><g transform="translate(934.0,262) scale(.8) translate(-934.0,-262)"><rect x="884" y="196" width="100" height="66" rx="5" fill="#0b2347" stroke="rgba(255,255,255,.38)" stroke-width="1"/><rect x="884" y="196" width="100" height="10" rx="5" fill="rgba(255,255,255,.1)"/><rect x="884" y="201" width="100" height="5" fill="rgba(255,255,255,.1)"/><circle cx="890" cy="201" r="1.4" fill="#e8335a"/><circle cx="895" cy="201" r="1.4" fill="#f4b400"/><circle cx="900" cy="201" r="1.4" fill="#2ee59d"/><text x="890" y="217" style="font-size:6.5px;font-weight:800;fill:#fff">Nova requisição</text><rect x="890" y="222.0" width="88" height="6.5" rx="2" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.22)" stroke-width=".6"/><rect x="892.5" y="224.0" width="55.44516863743368" height="2.4" rx="1.2" fill="rgba(124,196,255,.55)"/><rect x="890" y="231.5" width="88" height="6.5" rx="2" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.22)" stroke-width=".6"/><rect x="892.5" y="233.5" width="35.32431626931701" height="2.4" rx="1.2" fill="rgba(124,196,255,.55)"/><rect x="890" y="241.0" width="70" height="6.5" rx="2" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.22)" stroke-width=".6"/><rect x="892.5" y="243.0" width="28.789543970890367" height="2.4" rx="1.2" fill="rgba(124,196,255,.55)"/><rect x="890" y="250" width="34" height="8" rx="2" fill="#0496ff"/><text x="907" y="255.8" text-anchor="middle" style="font-size:5.4px;font-weight:700;fill:#fff">Enviar</text></g></g>
+<path class="hz-wl" d="M972,520 L954,541" style="--d:0.45s"/>
+<g class="hz-ww" style="--d:0.5s"><g transform="translate(954.0,541) scale(.8) translate(-954.0,-541)"><rect x="898" y="541" width="112" height="64" rx="5" fill="#0b2347" stroke="rgba(255,255,255,.38)" stroke-width="1"/><rect x="898" y="541" width="112" height="10" rx="5" fill="rgba(255,255,255,.1)"/><rect x="898" y="546" width="112" height="5" fill="rgba(255,255,255,.1)"/><circle cx="904" cy="546" r="1.4" fill="#e8335a"/><circle cx="909" cy="546" r="1.4" fill="#f4b400"/><circle cx="914" cy="546" r="1.4" fill="#2ee59d"/><text x="904" y="562" style="font-size:6.5px;font-weight:800;fill:#fff">Aprovação · pedido #1042</text><text x="904" y="572" style="font-size:5.6px;fill:#dfe6f0">R$ 68.400 · Alfa Suprimentos Ltda.</text><text x="904" y="581" style="font-size:5.2px;fill:#9fb1c8">Centro de custo: Operações · SP</text><rect x="904" y="591" width="38" height="9" rx="2.5" fill="#2ee59d"/><text x="923" y="597.4" text-anchor="middle" style="font-size:5.6px;font-weight:800;fill:#05301c">Aprovar</text><rect x="946" y="591" width="38" height="9" rx="2.5" fill="rgba(232,51,90,.25)" stroke="#e8335a" stroke-width=".7"/><text x="965" y="597.4" text-anchor="middle" style="font-size:5.6px;font-weight:800;fill:#ffb3c2">Rejeitar</text></g></g>
+<path class="hz-wl" d="M1210,490 L1206,537" style="--d:0.9s"/>
+<g class="hz-ww" style="--d:0.95s"><g transform="translate(1209.0,537) scale(.8) translate(-1209.0,-537)"><rect x="1150" y="537" width="118" height="56" rx="5" fill="#0b2347" stroke="rgba(255,255,255,.38)" stroke-width="1"/><rect x="1150" y="537" width="118" height="10" rx="5" fill="rgba(255,255,255,.1)"/><rect x="1150" y="542" width="118" height="5" fill="rgba(255,255,255,.1)"/><circle cx="1156" cy="542" r="1.4" fill="#e8335a"/><circle cx="1161" cy="542" r="1.4" fill="#f4b400"/><circle cx="1166" cy="542" r="1.4" fill="#2ee59d"/><text x="1156" y="558" style="font-size:6.5px;font-weight:800;fill:#fff">✉ Pedido enviado ao fornecedor</text><text x="1156" y="568" style="font-size:5.6px;fill:#dfe6f0">para: compras@alfasuprimentos.com.br</text><text x="1156" y="577" style="font-size:5.2px;fill:#9fb1c8">Pedido de compra #1042 · 3 itens · R$ 68.400</text><rect x="1156" y="581" width="40" height="8" rx="4" fill="rgba(46,229,157,.18)" stroke="rgba(46,229,157,.6)" stroke-width=".6"/><text x="1176" y="586.6" text-anchor="middle" style="font-size:5px;font-weight:800;fill:#7ff0bf">✓ ENVIADO</text></g></g></g>
+        <g class="hz-mobg" transform="translate(-110,0)">
+<path class="hz-ml" d="M1289,461 C1289,420 1332,382 1314,322 C1300,290 1266,282 1251,262" style="--d:.1s"/>
+<g class="hz-mob"><g transform="translate(1222,150) scale(.58) translate(-1216,-92)">
+  <rect x="1216" y="92" width="96" height="190" rx="16" fill="#0a1f44" stroke="rgba(255,255,255,.35)" stroke-width="1.4"/>
+  <rect x="1221" y="98" width="86" height="178" rx="12" fill="#0b2347"/>
+  <rect x="1221" y="98" width="86" height="34" rx="12" fill="url(#hzMobHd)"/><rect x="1221" y="116" width="86" height="16" fill="url(#hzMobHd)"/>
+  <rect x="1250" y="102" width="28" height="4" rx="2" fill="rgba(255,255,255,.5)"/>
+  <text x="1264" y="124" text-anchor="middle" style="font-size:10.5px;font-weight:800;fill:#fff">Compras</text>
+  <g class="hz-mi" style="--d:.35s"><rect x="1227" y="140" width="74" height="26" rx="6" fill="rgba(255,255,255,.08)"/><rect x="1227" y="140" width="4" height="26" rx="2" fill="#2ee59d"/><text x="1235" y="151" style="font-size:7.5px;fill:#eaf2ff;font-weight:700">#1042 · R$ 68.400</text><text x="1235" y="161" style="font-size:6.5px;fill:#7ff0bf;font-weight:800">APROVADO</text></g>
+  <g class="hz-mi" style="--d:.5s"><rect x="1227" y="172" width="74" height="26" rx="6" fill="rgba(255,255,255,.08)"/><rect x="1227" y="172" width="4" height="26" rx="2" fill="#f4b400"/><text x="1235" y="183" style="font-size:7.5px;fill:#eaf2ff;font-weight:700">#1043 · R$ 12.900</text><text x="1235" y="193" style="font-size:6.5px;fill:#ffd166;font-weight:800">EM APROVAÇÃO</text></g>
+  <g class="hz-mi" style="--d:.65s"><rect x="1227" y="204" width="74" height="26" rx="6" fill="rgba(255,255,255,.08)"/><rect x="1227" y="204" width="4" height="26" rx="2" fill="#7cc4ff"/><text x="1235" y="215" style="font-size:7.5px;fill:#eaf2ff;font-weight:700">#1044 · R$ 3.250</text><text x="1235" y="225" style="font-size:6.5px;fill:#9fd4ff;font-weight:800">COTANDO · IA</text></g>
+  <g class="hz-mi" style="--d:.8s"><circle cx="1292" cy="252" r="11" fill="#e8335a"/><text x="1292" y="257" text-anchor="middle" style="font-size:14px;font-weight:800;fill:#fff">+</text></g>
+  <g class="hz-mi" style="--d:.9s"><circle cx="1252" cy="268" r="2" fill="#7cc4ff"/><circle cx="1264" cy="268" r="2" fill="rgba(255,255,255,.3)"/><circle cx="1276" cy="268" r="2" fill="rgba(255,255,255,.3)"/></g>
+</g></g></g>
+      </g>
+      <!-- prompt (fora da câmera) -->
+      <g class="hz-pr">
+        <rect x="880" y="140" width="400" height="54" rx="12" fill="rgba(2,10,25,.72)" stroke="rgba(124,196,255,.45)"/>
+        <use href="#hzStar" x="896" y="157" width="20" height="20"/>
+        <text x="926" y="173" style="font-size:16px;fill:#eaf2ff"><tspan id="hzPrT"></tspan></text>
+        <rect id="hzPrC" class="hz-cur" x="928" y="160" width="2" height="18"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hz-veil" aria-hidden="true"></div>
+  <div data-hcontent="" class="hz-wrap">
+    <div class="hz-txt">
+      <h1 data-reveal="" style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(40px,5.6vw,72px);line-height:1.02;letter-spacing:-.01em">Deyel<span style="display:block;font-weight:400;font-size:.42em;line-height:1.18;margin-top:14px;color:#cfe0f3;letter-spacing:0">a IA constrói, você governa</span></h1>
+      <h2 data-reveal="" style="font-family:Lato,sans-serif;font-weight:900;font-size:clamp(22px,2.8vw,36px);line-height:1.14;color:#fff;max-width:1000px;text-wrap:balance;transition-delay:.1s">Uma poderosa plataforma para criar desde processos digitais até aplicativos web e mobile.</h2>
+      <div data-reveal="" style="max-width:600px;transition-delay:.15s"><p style="font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:#dfe6f0;text-wrap:pretty">Com uma IA especialista em construção de soluções digitais, a Deyel <b style="color:#fff;font-weight:700">reduz em até 80% o tempo de criação</b> de automações e aplicativos empresariais — e coloca em produção, sob as regras da sua empresa, o que antes levava meses.</p></div>
+      <div data-reveal="" data-hctas="" style="display:flex;gap:12px;flex-wrap:wrap;transition-delay:.3s;margin-top:22px"><a href="#criar" style="background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:14px 26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em">Ver a IA construir</a><a href="#deyel-no-ar" style="background:#fff;color:#02132d;text-decoration:none;border-radius:4px;padding:14px 26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em">Ver os vídeos</a></div>
+    </div>
+    <div aria-hidden="true"></div>
   </div>
   <a href="#deyel" aria-label="Rolar" data-hmouse="" style="position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:26px;height:42px;border:2px solid rgba(255,255,255,.7);border-radius:14px;display:flex;justify-content:center;padding-top:7px">
     <span style="width:4px;height:8px;border-radius:2px;background:#fff;animation:mouseWheel 1.6s ease-in-out infinite"></span>
@@ -1873,6 +2258,60 @@ body{overflow-x:clip}
 
 </div>
 </x-dc>
+<script>
+/* Herói /plataforma — diretor da cena "do pedido à produção" (fora do template: resiste à montagem/re-render do runtime) */
+(function(){
+  var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var TXT="Cria um aplicativo para gestão de compras.";
+  var ST=['hz-ph1','hz-bp','hz-zoom','hz-bpmn','hz-webs','hz-mobon','hz-hold'];
+  var phase=0,typeI=0,tt=null;
+  function sc(){return document.getElementById('hzSc');}
+  function scene(){return document.getElementById('hzScene');}
+  function want(p){
+    if(RM)return ['hz-bp','hz-bpmn','hz-webs','hz-mobon'];
+    if(p<1||p>=10)return [];
+    var w=[];
+    if(p===1)w.push('hz-ph1');
+    if(p>=3)w.push('hz-bp');
+    if(p>=4)w.push('hz-zoom');
+    if(p>=5)w.push('hz-bpmn');
+    if(p>=6)w.push('hz-webs');
+    if(p>=7)w.push('hz-mobon');
+    if(p>=8)w.push('hz-hold');
+    return w;
+  }
+  function sync(){
+    var s=sc();if(!s)return;
+    var w=want(phase);
+    for(var i=0;i<ST.length;i++){var c=ST[i],has=s.classList.contains(c),need=w.indexOf(c)>=0;if(need&&!has)s.classList.add(c);if(!need&&has)s.classList.remove(c);}
+    var sn=scene();if(sn){if(phase===9)sn.classList.add('hz-fade');else sn.classList.remove('hz-fade');}
+    if(phase<1||phase>=10){var T=document.getElementById('hzPrT');if(T&&T.textContent)T.textContent='';}
+  }
+  function typeStep(){
+    if(phase!==1&&phase!==2)return;
+    var T=document.getElementById('hzPrT'),C=document.getElementById('hzPrC');
+    if(T){typeI=Math.min(typeI+1,TXT.length);T.textContent=TXT.slice(0,typeI);
+      if(C){var w=0;try{w=T.getComputedTextLength();}catch(e){w=typeI*8;}C.setAttribute('x',928+w+2);C.style.display=typeI>=TXT.length?'none':'';}}
+    if(typeI<TXT.length)tt=setTimeout(typeStep,34);
+  }
+  var STEPS=[[300,1],[2900,2],[3200,3],[6800,4],[8600,5],[13200,6],[15000,7],[16200,8],[23000,9],[24200,10],[24500,0]];
+  function cycle(){
+    STEPS.forEach(function(st){setTimeout(function(){phase=st[1];if(phase===1){typeI=0;if(tt)clearTimeout(tt);typeStep();}if(phase===10&&tt)clearTimeout(tt);sync();},st[0]);});
+    setTimeout(cycle,24800);
+  }
+  function start(){
+    if(RM){phase=99;sync();setInterval(sync,800);return;}
+    cycle();setInterval(sync,400);
+  }
+  function wait(){
+    if(sc())return start();
+    var mo=new MutationObserver(function(){if(sc()){mo.disconnect();start();}});
+    mo.observe(document.documentElement,{childList:true,subtree:true});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wait);else wait();
+})();
+</script>
+
 <script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Animação&quot;},&quot;tvLive&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Deyel no ar&quot;}}">
 const ACK=28;
 const TYPE_SPEED=1.47;
