@@ -448,7 +448,7 @@ body{overflow-x:clip}
 const T={1:{min:0,b:[0,0,0],c:0},2:{min:0,b:[0,0,0],c:0},3:{min:0,b:[0,0,0],c:0}};
 const brl=v=>'R$ '+v.toLocaleString('pt-BR');
 const H3=['Faixa','Unidade','Produção','Combo Dev + Hom (até 5 usuários cada)'];
-const lic=(a,b,c,d,e)=>[[1,'Mínimo — até 10 usuários','por licença',a,b],[0,'11 a 20 usuários','por usuário adicional',c,'—'],[0,'21 a 50 usuários','por usuário adicional',d,'—'],[0,'51 usuários ou mais','por usuário adicional',e,'—']];
+const lic=(a,b,c,d,e)=>[[1,'Mínimo — até 15 usuários','por licença',a,b],[0,'16 a 20 usuários','por usuário adicional',c,'—'],[0,'21 a 50 usuários','por usuário adicional',d,'—'],[0,'51 usuários ou mais','por usuário adicional',e,'—']];
 const PANELS=[];
 const CCARDS=[
  ['GEM','Gestão empresarial','Suíte de gestão empresarial para operações de back-office — contabilidade, finanças e controle — utilizada por instituições financeiras e grandes organizações.'],
@@ -459,16 +459,16 @@ const CCARDS=[
  ['ERP','Aplicativo Consist','Licenciamento e renovação disponíveis no Brasil exclusivamente pela Optaris. Fale com nosso time para detalhes do módulo.']];
 const CONDS=[
  ['Preços de lista','Valores anuais em reais. Forma de pagamento, tributos, vigência e reajuste são definidos na proposta comercial.'],
- ['Ambiente avulso ou acima de 5 usuários','Ambiente de Desenvolvimento ou Homologação contratado avulso (sem licença de produção nova ou renovada), ou com mais de 5 usuários, é cobrado como licença de ambiente, pela quantidade de usuários do ambiente.'],
+ ['Ambiente avulso ou acima de 5 usuários','Ambientes de Desenvolvimento e Homologação contratados avulsos (sem licença de produção contratada com a Optaris) custam 20% do valor de tabela da licença de produção equivalente ao número de usuários do cliente, com mínimo de R$ 30.000 por ano (R$ 24.000 para a Administração Pública). Com mais de 5 usuários por ambiente, os dois são contratados juntos como licença de ambiente, com valor sob consulta.'],
  ['Desenvolvimento e Homologação','Incluídos no preço da licença de produção, sem valor destacado (1 ambiente de cada, até 5 usuários). Seguem o Programa de Continuidade, conforme a política de licenciamento.'],
  ['Reemissão manual de licença','Pelo formulário da Consist Software Solutions, Inc.: sem custo até 14/12/2026; a partir de 15/12/2026, R$ 5.000 por chave de licenciamento emitida. Prazo de até 48 horas (emergencial) ou 5 dias úteis (programada). Pelo Licenciador automático, sem custo.'],
  ['Sustentação','Suporte, atualização e manutenção não fazem parte desta tabela e podem ser contratados livremente no mercado.']];
 const FAQS=[
  ['Quem vende licenças Consist no Brasil?','A Optaris do Brasil detém, por cessão da Consist Software Solutions, Inc., fabricante e titular dos aplicativos, os direitos de exploração econômica dos aplicativos no Brasil a partir de 16/07/2026. Licenças novas, renovações e ampliações de usuários são contratadas diretamente com a Optaris.'],
- ['Quanto custa a 1ª licença Consist?','A licença de produção parte de R$ 195.000 por ano, para até 10 usuários de um aplicativo, já com 1 ambiente de Desenvolvimento e 1 de Homologação (até 5 usuários cada) incluídos. O valor final depende do número de usuários e de quantos aplicativos entram no contrato, por isso é definido na cotação.'],
+ ['Quanto custa a 1ª licença Consist?','A licença de produção parte de R$ 180.000 por ano (R$ 144.000 para órgãos e entidades da Administração Pública), para até 15 usuários de um aplicativo, já com 1 ambiente de Desenvolvimento e 1 de Homologação (até 5 usuários cada) incluídos. O valor final depende do número de usuários e de quantos aplicativos entram no contrato, por isso é definido na cotação.'],
  ['O que é o combo Desenvolvimento + Homologação?','É 1 ambiente de Desenvolvimento, no Ambiente do Programa (ambiente AWS da Optaris), e 1 licença de Homologação, no ambiente do cliente, até 5 usuários cada, do mesmo aplicativo. Acompanha toda licença de produção nova ou renovada, incluído no preço dela, sem valor destacado.'],
  ['Há desconto para mais de um aplicativo?','Sim. A partir do 2º aplicativo do mesmo cliente, cada licença adicional tem valor reduzido. A cotação já considera todos os aplicativos juntos.'],
- ['O que é a licença Read Only?','Somente consulta ao ambiente de produção, sem inclusão ou alteração de dados, com limite fixo de 5 usuários e 1 produto. Custa R$ 140.000 por ano, não admite usuários adicionais e não inclui ambientes de Desenvolvimento e Homologação.'],
+ ['O que é a licença Read Only?','Somente consulta ao ambiente de produção, sem inclusão ou alteração de dados, com limite fixo de 5 usuários e 1 produto. Custa R$ 100.000 por ano, substitui a licença de produção de aplicativo que deixou de ser usado em operação, não admite usuários adicionais e não inclui ambientes de Desenvolvimento e Homologação.'],
  ['Quanto custa a reemissão manual de licença?','Pelo formulário da Consist Software Solutions, Inc.: atendimento padrão em até 5 dias úteis, R$ 5.000 por chave de licenciamento emitida, devido somente a partir da entrada em operação do Licenciador automático; emergencial (falha de equipamento ou Licenciador indisponível) em até 4 horas, sem custo. Até o Licenciador entrar em operação, o formulário é sem custo para contratos Optaris. Pelo Licenciador automático, sem custo.'],
  ['Suporte e manutenção estão incluídos?','Não. Suporte, atualização e manutenção não fazem parte da tabela e podem ser contratados livremente no mercado.'],
  ['Como solicitar uma proposta de licença Consist?','Escreva para comercial@optarisbrasil.com, chame no WhatsApp +55 11 95570-0002 ou use o formulário abaixo.']];
@@ -537,8 +537,8 @@ class Component extends DCLogic {
     const fixo=(tipo==='grp'||tipo==='ro');
     if(tipo==='grp'){prod=0;combo=0;note='Licença ConsistGRP por licença.'}
     else if(tipo==='ro'){prod=0;combo=0;note='Read Only: somente consulta, limite fixo de 5 usuários e 1 produto (sem usuários adicionais), preço fixo anual, sem combo Dev + Hom.'}
-    else if(tipo==='amb'){const t=T[1];const a=Math.max(0,Math.min(n,20)-10),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);prod=t.min+a*t.b[0]+b*t.b[1]+c*t.b[2];combo=0;note='Ambiente Dev ou Hom avulso, ou com mais de 5 usuários: cobrado como 1ª licença pela quantidade de usuários do ambiente.'}
-    else{const t=T[tipo];const a=Math.max(0,Math.min(n,20)-10),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);prod=t.min+a*t.b[0]+b*t.b[1]+c*t.b[2];combo=t.c;note=n<10?'A licença de produção tem mínimo de 10 usuários.':'Mínimo de 10 usuários + adicionais por faixa. Combo fixo (até 5 usuários em Dev e em Hom).';}
+    else if(tipo==='amb'){const t=T[1];const a=Math.max(0,Math.min(n,20)-15),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);prod=t.min+a*t.b[0]+b*t.b[1]+c*t.b[2];combo=0;note='Ambientes Dev e Hom avulsos: 20% da licença de produção equivalente; acima de 5 usuários por ambiente, valor sob consulta.'}
+    else{const t=T[tipo];const a=Math.max(0,Math.min(n,20)-15),b=Math.max(0,Math.min(n,50)-20),c=Math.max(0,n-50);prod=t.min+a*t.b[0]+b*t.b[1]+c*t.b[2];combo=t.c;note=n<15?'A licença de produção tem mínimo de 15 usuários.':'Mínimo de 15 usuários + adicionais por faixa. Combo fixo (até 5 usuários em Dev e em Hom).';}
     return {fixo,rLabel:tipo==='amb'?'Licença do ambiente':tipo==='ro'?'Licença Read Only':'Licença de produção',rProd:brl(prod),rCombo:combo?brl(combo):'não se aplica',rTotal:brl(prod+combo),rNote:note+' Valores anuais de lista; condições finais na proposta comercial.'};
   }
   renderVals(){
