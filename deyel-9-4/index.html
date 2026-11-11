@@ -25,10 +25,10 @@
 html{scroll-behavior:smooth;scroll-padding-top:86px}
 body{margin:0;font-family:Roboto,Helvetica,Arial,sans-serif;color:#02132d;background:#fff;-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit}
-h1,h2,h3,h4{font-family:Lato,sans-serif;margin:0}
+h1,h2,h3{font-family:Lato,sans-serif;margin:0}
 em,i{font-style:normal}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-.eyebrow{font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#0496ff}
+:focus-visible{outline:3px solid #7cc4ff;outline-offset:3px;border-radius:4px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
 .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border-radius:4px;padding:15px 26px;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;transition:background .2s,color .2s}
 .btn-blue{background:#0496ff;color:#fff}.btn-blue:hover{background:#007bff}
 .btn-line{border:2px solid rgba(255,255,255,.7);color:#fff;padding:13px 24px}.btn-line:hover{background:#fff;color:#02132d}
@@ -45,81 +45,104 @@ header.top .wrap{height:70px;display:flex;align-items:center;gap:24px}
 .cta-s{display:none}
 @media (max-width:560px){.cta-l{display:none}.cta-s{display:inline}}
 
+/* hero */
 .hero{position:relative;color:#fff;background:#02132d;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 100% 0%,rgba(161,35,143,.55),transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(4,150,255,.45),transparent 55%)}
-.hero .wrap{position:relative;padding-top:clamp(56px,8vw,104px);padding-bottom:clamp(56px,7vw,96px);display:flex;flex-wrap:wrap;gap:40px 56px;align-items:center}
-.hero-txt{flex:1.3 1 460px;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:22px}
-.tagline{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#cfe3ff}
-.pill{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:11px;background:#0496ff;color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.hero h1{font-weight:900;font-size:clamp(52px,8vw,104px);line-height:.98;letter-spacing:-.02em}
-.hero h1 span{display:block;font-weight:400;font-size:.36em;line-height:1.25;letter-spacing:0;margin-top:16px;color:#cfe3ff;max-width:640px}
-.hero p{margin:0;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:#e8eef7;max-width:640px}
-.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-.hero-card{flex:1 1 320px;min-width:0;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:18px}
-.hero-card .cap{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9fb1c8}
-.hero-card a.row{display:flex;gap:14px;align-items:flex-start;text-decoration:none;color:#fff}
-.hero-card a.row:hover strong{color:#7cc4ff}
-.hero-card .ico{flex:0 0 auto;width:40px;height:40px;border-radius:10px;background:rgba(4,150,255,.18);color:#7cc4ff;display:flex;align-items:center;justify-content:center}
-.hero-card strong{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:17px;transition:color .2s}
-.hero-card small{display:block;font-size:14px;color:#c7d3e3;line-height:1.45;margin-top:2px}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 100% 0%,rgba(161,35,143,.5),transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(4,150,255,.4),transparent 55%)}
+.hero .wrap{position:relative}
+.hero-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end;padding-top:clamp(44px,6vw,84px);padding-bottom:clamp(40px,5vw,64px)}
+@media (max-width:900px){.hero-top{grid-template-columns:minmax(0,1fr);align-items:start}}
+.when{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:#cfe3ff;margin:0 0 14px}
+.pill{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:12px;background:#0496ff;color:#fff;font-size:12px;font-weight:700}
+.hero h1{font-weight:900;line-height:.86;letter-spacing:-.03em}
+.hero h1 .nm{display:block;font-size:clamp(34px,4.4vw,58px);letter-spacing:-.01em;line-height:1}
+.hero h1 .ver{display:block;font-size:clamp(150px,25vw,330px);margin:.02em 0 0 -.045em;background:linear-gradient(100deg,#7cfcff 0%,#0496ff 34%,#5b3fc4 68%,#e04fb0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.06em}
+.hero-say{display:flex;flex-direction:column;align-items:flex-start;gap:20px;padding-bottom:clamp(8px,2.4vw,36px)}
+.hero-say .big{margin:0;font-family:Lato,sans-serif;font-weight:400;font-size:clamp(26px,3vw,40px);line-height:1.16;color:#fff;max-width:17em}
+.hero-say .txt{margin:0;font-size:clamp(16.5px,1.4vw,18.5px);line-height:1.6;color:#d5e0ee;max-width:34em}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.idx{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.18)}
+.idx a{display:flex;flex-direction:column;gap:6px;padding:22px 24px 26px 0;margin-right:24px;text-decoration:none;color:#fff;border-top:3px solid transparent;margin-top:-2px;transition:border-color .2s}
+.idx a:hover{border-top-color:#0496ff}
+.idx strong{font-family:Lato,sans-serif;font-weight:900;font-size:17.5px;line-height:1.2}
+.idx small{font-size:14px;line-height:1.45;color:#b9c7da}
+@media (max-width:900px){.idx{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.idx{grid-template-columns:minmax(0,1fr)}.idx a{padding:16px 0 18px;margin-right:0;border-top:1px solid rgba(255,255,255,.14);margin-top:0}.idx{border-top:0}}
 
-section{padding:clamp(56px,7vw,88px) 0}
-.sec-head{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:32px;max-width:860px}
-.sec-head h2{font-weight:900;font-size:clamp(30px,4vw,50px);line-height:1.06;letter-spacing:-.01em}
-.sec-head h2 span{display:block;font-weight:400;font-size:.55em;line-height:1.25;margin-top:8px;color:#6b7a90}
-.sec-head p{margin:0;font-size:clamp(16.5px,1.45vw,19px);line-height:1.55;color:#3d4a60}
-.tag{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+/* blocks */
+.blk{padding:clamp(60px,7.5vw,104px) 0}
+.blk.alt{background:#f6f2ea}
+.blk.dark{background:#02132d;color:#fff}
+.sec-head{display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0}
+.sec-head h2{font-weight:900;font-size:clamp(30px,3.5vw,46px);line-height:1.06;letter-spacing:-.01em}
+.sec-head h2 span{display:block;font-weight:400;font-size:.56em;line-height:1.25;letter-spacing:0;margin-top:10px;color:#5d6b82}
+.sec-head p{margin:0;font-size:17px;line-height:1.62;color:#3d4a60;max-width:38em}
+.dark .sec-head h2 span{color:#9fb1c8}
+.dark .sec-head p{color:#c7d3e3}
+.tag{display:inline-flex;align-items:center;height:26px;padding:0 11px;border-radius:13px;font-size:12.5px;font-weight:700}
 .tag.novo{background:#e6f3ff;color:#0068b4}
 .tag.melhoria{background:#f3e8f2;color:#8a1f7a}
-.alt{background:#f6f2ea}
-.dark{background:#02132d;color:#fff}
-.dark .sec-head p{color:#c7d3e3}
-.dark .sec-head h2 span{color:#9fb1c8}
-.dark .tag.novo{background:rgba(4,150,255,.2);color:#9fd4ff}
+.dark .tag.novo{background:rgba(4,150,255,.22);color:#9fd4ff}
 
-.resumo{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px 56px;align-items:start}
+/* resumo */
+.resumo{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:36px 72px;align-items:start}
 @media (max-width:900px){.resumo{grid-template-columns:minmax(0,1fr)}}
-.resumo .txt{display:flex;flex-direction:column;gap:16px}
-.resumo .txt p{margin:0;font-size:17px;line-height:1.65;color:#3d4a60}
-.resumo .txt p.lead{font-size:clamp(19px,1.8vw,22px);line-height:1.5;color:#02132d;font-weight:500}
-.resumo .txt b{color:#02132d}
-.duas{display:flex;flex-direction:column;gap:14px}
-.duas div{border-radius:14px;padding:22px 24px;background:#02132d;color:#fff;position:relative;overflow:hidden}
-.duas div:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,#0496ff,#5b3fc4)}
-.duas div+div:before{background:linear-gradient(180deg,#a1238f,#e8335a,#f46b45)}
-.duas span{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9fb1c8;margin-bottom:6px}
-.duas strong{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:20px;line-height:1.25}
+.resumo .sec-head{position:sticky;top:100px}
+@media (max-width:900px){.resumo .sec-head{position:static}}
+.duas{display:flex;flex-direction:column;gap:0;margin-top:14px;width:100%;border-top:1px solid #dfe5ee}
+.duas div{padding:18px 0;border-bottom:1px solid #dfe5ee;display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;align-items:baseline}
+.duas span{font-size:14px;color:#5d6b82}
+.duas strong{font-family:Lato,sans-serif;font-weight:900;font-size:19px;line-height:1.3}
+@media (max-width:420px){.duas div{grid-template-columns:minmax(0,1fr);gap:4px}}
+.resumo .txt{display:flex;flex-direction:column;gap:18px}
+.resumo .txt p{margin:0;font-size:17px;line-height:1.68;color:#3d4a60;max-width:40em}
+.resumo .txt p.lead{font-family:Lato,sans-serif;font-size:clamp(21px,2vw,26px);line-height:1.42;color:#02132d;font-weight:400}
+.resumo .txt b{color:#02132d;font-weight:700}
 
-.shot{margin:0 0 32px;border-radius:16px;border:1px solid #e5e7eb;background:#fff;padding:clamp(8px,1.2vw,14px);box-shadow:0 30px 60px -40px rgba(2,19,45,.55)}
-.shot img{display:block;width:100%;height:auto;border-radius:10px}
-.dark .shot{border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.06);box-shadow:none}
-.dest-t{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7a90;margin:0 0 16px}
-.dark .dest-t{color:#9fb1c8}
-.dest{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:18px}
-.dest.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr))}
-.d{border:1px solid #e5e7eb;border-radius:14px;padding:24px;background:#fff;display:flex;flex-direction:column;gap:10px}
+/* chapters */
+.chap .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px 64px;align-items:start}
+.chap.flip .wrap{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.chap.flip .sec-head{order:2}
+.chap.flip .shot{order:1}
+.chap .dest{grid-column:1/-1;order:3}
+@media (max-width:980px){.chap .wrap,.chap.flip .wrap{grid-template-columns:minmax(0,1fr)}.chap.flip .sec-head{order:0}.chap.flip .shot{order:0}}
+.shot{margin:0;min-width:0;border-radius:18px;filter:drop-shadow(0 34px 44px rgba(2,19,45,.2))}
+.dark .shot{filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}
+.mk{display:block;width:100%;height:auto;border-radius:14px;fill:#02132d}
+.mk text{font-family:Roboto,Helvetica,Arial,sans-serif}
+.mk .x{font-family:Lato,sans-serif;font-weight:900}
+.mk .b{font-weight:700}
+.mk .w{fill:#fff}
+.mk .m{fill:#6b7a90}
+.mk .t10{font-size:10px}.mk .t11{font-size:11px}.mk .t12{font-size:12px}.mk .t13{font-size:13px}.mk .t16{font-size:16px}.mk .t20{font-size:20px}
+@media (max-width:640px){.shot{overflow-x:auto;-webkit-overflow-scrolling:touch;filter:none;border-radius:14px;margin:0 -24px;padding:0 24px 6px}.mk{width:600px;max-width:none}}
+.dest-t{display:none}
+.dest{columns:3;column-gap:48px;margin-top:clamp(8px,2vw,24px)}
+.dest.two{columns:2}
+@media (max-width:980px){.dest{columns:2}}
+@media (max-width:640px){.dest,.dest.two{columns:1}}
+.d{break-inside:avoid;border-top:2px solid #02132d;padding:20px 0 34px;display:flex;flex-direction:column;gap:10px;min-width:0}
 .d h3{font-weight:900;font-size:19px;line-height:1.25}
-.d p{margin:0;font-size:15.5px;line-height:1.6;color:#4a5568}
-.d ul{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
-.d li{font-size:15px;line-height:1.5;color:#4a5568;padding-left:18px;position:relative}
-.d li:before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#0496ff}
-.d li b,.d p b{color:#02132d}
-.d li ul{margin-top:8px}
-.d li li:before{background:#c5cedb}
-.dark .d{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04)}
+.d p{margin:0;font-size:15.5px;line-height:1.62;color:#4a5568}
+.d p b{color:#02132d}
+.d ul{list-style:none;margin:2px 0;padding:0;display:flex;flex-direction:column;gap:7px}
+.d li{font-size:15px;line-height:1.5;color:#4a5568;padding-left:16px;position:relative}
+.d li:before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#0496ff}
+.d li b{color:#02132d}
+.d li ul{margin-top:7px}
+.d li li:before{background:#b6c1d0}
+.dark .d{border-top-color:rgba(255,255,255,.45)}
 .dark .d p,.dark .d li{color:#c7d3e3}
-.dark .d li b,.dark .d p b{color:#fff}
-.fecho{margin:28px 0 0;font-size:17px;line-height:1.6;color:#3d4a60;max-width:860px}
-.dark .fecho{color:#c7d3e3}
-.fecho b{color:inherit;font-weight:700}
+.dark .d p b,.dark .d li b{color:#fff}
 
-.cta{background:linear-gradient(120deg,#0496ff 0%,#5b3fc4 55%,#a1238f 100%);color:#fff}
+.more{padding:clamp(36px,4.5vw,56px) 0;border-top:1px solid #e5e7eb}
+.more .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center}
+.more strong{font-family:Lato,sans-serif;font-weight:900;font-size:19px;margin-right:6px}
+.more a{font-size:15.5px;color:#0068b4;text-decoration:underline;text-decoration-color:rgba(0,104,180,.35);text-underline-offset:4px}
+.more a:hover{text-decoration-color:#0068b4}
+.cta{background:linear-gradient(120deg,#0496ff 0%,#5b3fc4 55%,#a1238f 100%);color:#fff;padding:clamp(56px,7vw,88px) 0}
 .cta .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;justify-content:space-between}
 .cta h2{font-weight:900;font-size:clamp(28px,3.4vw,44px);line-height:1.1;max-width:720px}
 .cta p{margin:10px 0 0;font-size:17px;line-height:1.55;color:#eef3ff;max-width:680px}
-.docs{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.docs a{display:inline-flex;align-items:center;gap:8px;border:1px solid #cfd6e0;border-radius:22px;padding:9px 16px;font-size:14.5px;color:#02132d;text-decoration:none}
-.docs a:hover{background:#02132d;border-color:#02132d;color:#fff}
 footer{background:#010a19;color:#9fb1c8;font-size:14px}
 footer .wrap{padding-top:36px;padding-bottom:36px;display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center}
 footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
@@ -198,30 +221,36 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
 <main>
 <div class="hero">
   <div class="wrap">
-    <div class="hero-txt">
-      <span class="tagline"><span class="pill">Novo</span>Release · outubro de 2026</span>
-      <h1>Deyel 9.4<span>A IA que constrói as suas aplicações agora também trabalha dentro delas.</span></h1>
-      <p>Duas frentes avançam juntas nesta versão. A DIANA passa a modelar um leque muito maior de aplicações, incluindo as voltadas ao cliente final. E os Agentes de IA Empresariais entram como parte nativa das soluções, sob a mesma segurança e governança da plataforma.</p>
-      <div class="ctas"><a class="btn btn-blue" href="#resumo">Ver as novidades <span aria-hidden="true">↓</span></a><a class="btn btn-line" href="../#contato">Ver a 9.4 em uma demo</a></div>
+    <div class="hero-top">
+      <div>
+        <p class="when"><span class="pill">Novo</span>Release de outubro de 2026</p>
+        <h1><span class="nm">Deyel</span><span class="ver">9.4</span></h1>
+      </div>
+      <div class="hero-say">
+        <p class="big">A IA que constrói as suas aplicações agora também trabalha dentro delas.</p>
+        <p class="txt">A DIANA passa a modelar um leque muito maior de aplicações, incluindo as voltadas ao cliente final. E os Agentes de IA Empresariais entram como parte nativa das soluções, sob a mesma segurança e governança da plataforma.</p>
+        <div class="ctas"><a class="btn btn-blue" href="#resumo">Ver as novidades</a><a class="btn btn-line" href="../#contato">Pedir uma demo da 9.4</a></div>
+      </div>
     </div>
-    <div class="hero-card" aria-label="Destaques da versão">
-      <span class="cap">Nesta versão</span>
-      <a class="row" href="#agentes"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 13v2M15 13v2M2 14h2M20 14h2"/></svg></span><div><strong>Agentes de IA Empresariais</strong><small>Modelados em Low-Code, dentro da aplicação.</small></div></a>
-      <a class="row" href="#diana"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div><strong>DIANA para B2B e B2C</strong><small>Aplicações internas e para o cliente final, web e mobile.</small></div></a>
-      <a class="row" href="#processos"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M9 6h5a2 2 0 0 1 2 2v7"/></svg></span><div><strong>Processos gerados por conversa</strong><small>Do diagrama à configuração de execução.</small></div></a>
-      <a class="row" href="#navegacao"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><div><strong>Designs de Navegação</strong><small>Uma moldura única para toda a aplicação.</small></div></a>
-    </div>
+    <nav class="idx" aria-label="Nesta versão">
+      <a href="#agentes"><strong>Agentes de IA Empresariais</strong><small>Modelados em Low-Code, dentro da aplicação.</small></a>
+      <a href="#diana"><strong>DIANA para B2B e B2C</strong><small>Aplicações internas e para o cliente final.</small></a>
+      <a href="#processos"><strong>Processos por conversa</strong><small>Do diagrama à configuração de execução.</small></a>
+      <a href="#navegacao"><strong>Designs de Navegação</strong><small>Uma moldura única para toda a aplicação.</small></a>
+    </nav>
   </div>
 </div>
 
-<section id="resumo">
-  <div class="wrap">
+<section class="blk" id="resumo">
+  <div class="wrap resumo">
     <div class="sec-head">
-      <span class="eyebrow">Resumo executivo</span>
       <h2>IA para desenvolver aplicações.<span>E IA dentro das aplicações.</span></h2>
+      <div class="duas">
+        <div><span>Para construir</span><strong>A DIANA transforma a forma de construir aplicações.</strong></div>
+        <div><span>Para operar</span><strong>Os agentes de IA transformam a forma como as aplicações funcionam.</strong></div>
+      </div>
     </div>
-    <div class="resumo">
-      <div class="txt">
+    <div class="txt">
         <p class="lead">A Deyel 9.4 aprofunda a evolução da plataforma para Low-Code + IA com dois avanços centrais: amplia o que a DIANA consegue modelar e permite incorporar Agentes de IA Empresariais como parte nativa das soluções desenvolvidas.</p>
         <p>A DIANA, a IA da Deyel que constrói a partir de uma conversa, passa a modelar <b>aplicações B2C complexas</b>, somando-se ao que já fazia para aplicações B2B. Com isso, a abordagem <b>prompt first</b> (o analista descreve, a plataforma monta) atende tanto soluções internas e colaborativas quanto aplicações para clientes e usuários finais, em experiências web e mobile.</p>
         <p>Na prática, a inteligência artificial entra desde as primeiras etapas do desenvolvimento em uma variedade cada vez maior de soluções. E o trabalho pode seguir de duas formas: conversando com a DIANA ou usando os modeladores Low-Code tradicionais da Deyel.</p>
@@ -229,15 +258,10 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
         <p>Os agentes operam dentro do modelo de segurança e governança da Deyel: respeitam permissões, ferramentas habilitadas, políticas de IA e limites operacionais. A execução é coordenada pelo <b>AI Runtime</b>, a camada que conecta a aplicação, de forma controlada, aos modelos e provedores de inteligência artificial.</p>
         <p>Assim, a Deyel amplia o universo de soluções que podem ser construídas (B2B e B2C, web e mobile) e estabelece as bases para uma nova geração de <b>Aplicações Agênticas</b>, em que pessoas, processos e agentes inteligentes colaboram dentro de um mesmo modelo de negócio.</p>
       </div>
-      <div class="duas" aria-label="As duas iniciativas de IA da Deyel">
-        <div><span>Para construir</span><strong>A DIANA transforma a forma de construir aplicações.</strong></div>
-        <div><span>Para operar</span><strong>Os agentes de IA transformam a forma como as aplicações funcionam.</strong></div>
-      </div>
-    </div>
   </div>
 </section>
 
-<section class="dark" id="agentes">
+<section class="blk chap dark" id="agentes">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag novo">Novo</span>
@@ -245,7 +269,51 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
       <p>Com o Modelador de Agentes, um agente inteligente especializado é modelado com ferramentas Low-Code, do mesmo jeito que hoje se modelam entidades, processos, regras ou páginas. Cada agente é uma capacidade cognitiva: interpreta informação, usa conhecimento, entende o contexto da aplicação e aciona ferramentas para colaborar com os usuários e participar da execução do negócio.</p>
       <p>Os agentes não são uma camada externa nem substituem a lógica existente. Usam os mesmos dados, regras, processos, integrações e permissões já definidos na Deyel. A IA entra no modelo da aplicação sem duplicar lógica de negócio dentro de prompts e sem criar uma arquitetura paralela.</p>
     </div>
-    <figure class="shot"><img src="https://www.deyel.com/wp-content/uploads/2026/10/Agentes_PT.png" alt="Modelador de Agentes da Deyel 9.4, com a definição de um Agente de IA Empresarial" loading="lazy" decoding="async"></figure>
+    <figure class="shot"><svg class="mk" viewBox="0 0 720 470" role="img" aria-label="Ilustração do Modelador de Agentes: um agente definido por identidade, comportamento, conhecimento, ferramentas e modelo de IA, com o AI Runtime conferindo cada ação">
+<rect x="1" y="1" width="718" height="468" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<path d="M1 15a14 14 0 0 1 14-14h690a14 14 0 0 1 14 14v29H1z" fill="#eef2f7"/>
+<circle cx="24" cy="23" r="5" fill="#c9d2de"/><circle cx="42" cy="23" r="5" fill="#c9d2de"/><circle cx="60" cy="23" r="5" fill="#c9d2de"/>
+<text x="92" y="28" class="t13 b">Modelador de Agentes</text>
+<rect x="596" y="11" width="104" height="24" rx="12" fill="#0496ff"/><text x="648" y="27.5" class="t11 b w" text-anchor="middle">Publicar v3</text>
+<!-- agent identity -->
+<rect x="24" y="64" width="400" height="72" rx="10" fill="#02132d"/>
+<rect x="40" y="78" width="44" height="44" rx="12" fill="#0496ff"/>
+<rect x="50" y="93" width="24" height="14" rx="7" fill="#02132d"/><circle cx="57.5" cy="100" r="2.6" fill="#7cfcff"/><circle cx="66.5" cy="100" r="2.6" fill="#7cfcff"/>
+<text x="98" y="96" class="t16 x w">Agente de Compras</text>
+<text x="98" y="116" class="t12" fill="#a9b8cc">Identidade: agente.compras, um usuário da aplicação</text>
+<!-- rows -->
+<text x="24" y="166" class="t11 b m">Comportamento</text>
+<rect x="24" y="174" width="400" height="50" rx="8" fill="#f6f8fb" stroke="#dfe5ee"/>
+<text x="38" y="195" class="t12">Você apoia o time de compras: compara cotações,</text>
+<text x="38" y="212" class="t12">confere a política e prepara o pedido para aprovação.</text>
+<text x="24" y="250" class="t11 b m">Conhecimento</text>
+<rect x="24" y="258" width="150" height="28" rx="14" fill="#e6f3ff"/><text x="99" y="276.5" class="t12" fill="#0068b4" text-anchor="middle">Política de compras.pdf</text>
+<rect x="182" y="258" width="118" height="28" rx="14" fill="#e6f3ff"/><text x="241" y="276.5" class="t12" fill="#0068b4" text-anchor="middle">Contratos vigentes</text>
+<rect x="308" y="258" width="116" height="28" rx="14" fill="#fff" stroke="#c9d2de" stroke-dasharray="4 3"/><text x="366" y="276.5" class="t12 m" text-anchor="middle">+ Adicionar fonte</text>
+<text x="24" y="314" class="t11 b m">Ferramentas</text>
+<g class="t12">
+<rect x="24" y="322" width="400" height="34" rx="8" fill="#fff" stroke="#dfe5ee"/><text x="38" y="343.5">Consultar fornecedor</text><rect x="376" y="331" width="34" height="16" rx="8" fill="#0496ff"/><circle cx="402" cy="339" r="6" fill="#fff"/>
+<rect x="24" y="362" width="400" height="34" rx="8" fill="#fff" stroke="#dfe5ee"/><text x="38" y="383.5">Criar pedido de compra</text><rect x="376" y="371" width="34" height="16" rx="8" fill="#0496ff"/><circle cx="402" cy="379" r="6" fill="#fff"/>
+<rect x="24" y="402" width="400" height="34" rx="8" fill="#fff" stroke="#dfe5ee"/><text x="38" y="423.5" class="m">Busca na web</text><rect x="376" y="411" width="34" height="16" rx="8" fill="#c9d2de"/><circle cx="384" cy="419" r="6" fill="#fff"/>
+</g>
+<!-- right column -->
+<text x="452" y="78" class="t11 b m">Provedor e modelo de IA</text>
+<rect x="452" y="86" width="244" height="36" rx="8" fill="#fff" stroke="#dfe5ee"/><text x="466" y="109" class="t12">Entre os habilitados na aplicação</text><path d="m674 101 6 6 6-6" fill="none" stroke="#6b7a90" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="452" y="142" width="244" height="294" rx="12" fill="#02132d"/>
+<text x="470" y="170" class="t13 x w">AI Runtime</text>
+<text x="470" y="189" class="t11" fill="#a9b8cc">Confere antes de cada ação do agente</text>
+<g class="t12 w">
+<g transform="translate(470 208)"><circle cx="10" cy="10" r="10" fill="#17a673"/><path d="m5.5 10.2 3 3 6-6.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="14.5">Permissões da aplicação</text></g>
+<g transform="translate(470 240)"><circle cx="10" cy="10" r="10" fill="#17a673"/><path d="m5.5 10.2 3 3 6-6.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="14.5">AI Governance Policy</text></g>
+<g transform="translate(470 272)"><circle cx="10" cy="10" r="10" fill="#17a673"/><path d="m5.5 10.2 3 3 6-6.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="14.5">Ferramentas habilitadas</text></g>
+<g transform="translate(470 304)"><circle cx="10" cy="10" r="10" fill="#17a673"/><path d="m5.5 10.2 3 3 6-6.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="14.5">Limites operacionais</text></g>
+</g>
+<line x1="470" y1="342" x2="678" y2="342" stroke="#fff" stroke-opacity=".14"/>
+<text x="470" y="366" class="t11" fill="#a9b8cc">Última execução</text>
+<text x="470" y="388" class="t12 w">Pedido 4812 preparado</text>
+<text x="470" y="408" class="t11" fill="#a9b8cc">2 fontes consultadas · 1,8 s · auditado</text>
+<rect x="470" y="418" width="208" height="4" rx="2" fill="#fff" fill-opacity=".12"/><rect x="470" y="418" width="150" height="4" rx="2" fill="#0496ff"/>
+</svg></figure>
     <p class="dest-t">Destaques</p>
     <div class="dest">
       <div class="d"><h3>Modelagem Low-Code de agentes</h3><p>Cada agente é definido de forma declarativa, com tudo o que determina o seu comportamento e o que ele pode fazer durante a execução:</p><ul><li><b>Identidade:</b> nome e usuário que o representa na aplicação.</li><li><b>Comportamento:</b> instruções que definem o papel e a forma de agir.</li><li><b>Conhecimento:</b> fontes documentais que pode consultar.</li><li><b>Contexto:</b> informação da aplicação disponível em cada execução.</li><li><b>Ferramentas:</b> o que pode acionar para consultar dados ou executar ações.</li><li><b>Provedor e modelo de IA:</b> a tecnologia usada, entre as alternativas habilitadas.</li></ul><p>O agente faz parte do modelo da Deyel e compartilha o ciclo de vida da aplicação: é versionado, publicado e promovido entre ambientes junto com os demais objetos.</p></div>
@@ -258,14 +326,67 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
   </div>
 </section>
 
-<section id="diana">
+<section class="blk chap flip" id="diana">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag novo">Novo</span>
       <h2>A DIANA evolui como copiloto de desenvolvimento.<span>Aplicações B2B e B2C, seja qual for a complexidade.</span></h2>
       <p>A DIANA passa a modelar aplicações B2C complexas, além das B2B que já atendia. Há novas possibilidades para modelar páginas, entidades, designs de navegação e processos, o que permite construir soluções mais completas. A geração de páginas também foi otimizada: resultados mais rápidos e mais elaborados, com o uso do GPT-6 Sol e dos novos recursos do Sistema de Design.</p>
     </div>
-    <figure class="shot"><img src="https://www.deyel.com/wp-content/uploads/2026/10/Diana_PR.png" alt="DIANA gerando páginas de uma aplicação na Deyel 9.4" loading="lazy" decoding="async"></figure>
+    <figure class="shot"><svg class="mk" viewBox="0 0 720 470" role="img" aria-label="Ilustração: uma conversa com a DIANA gera uma aplicação para o cliente final, em versão web e mobile">
+<rect x="1" y="1" width="718" height="468" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<!-- chat -->
+<path d="M1 15a14 14 0 0 1 14-14h245v468H15a14 14 0 0 1-14-14z" fill="#02132d"/>
+<rect x="20" y="20" width="34" height="34" rx="10" fill="#0496ff"/><rect x="27" y="31" width="20" height="12" rx="6" fill="#02132d"/><circle cx="33.5" cy="37" r="2.2" fill="#7cfcff"/><circle cx="40.5" cy="37" r="2.2" fill="#7cfcff"/>
+<text x="64" y="35" class="t13 x w">DIANA</text><text x="64" y="51" class="t11" fill="#a9b8cc">Copiloto de desenvolvimento</text>
+<rect x="44" y="78" width="196" height="76" rx="12" fill="#0496ff"/>
+<text class="t12 w"><tspan x="58" y="100">Crie um portal para o</tspan><tspan x="58" y="117">cliente acompanhar pedidos</tspan><tspan x="58" y="134">e abrir solicitações.</tspan></text>
+<rect x="20" y="170" width="206" height="150" rx="12" fill="#fff" fill-opacity=".08"/>
+<text class="t12 w"><tspan x="34" y="192">Pronto. Modelei a aplicação:</tspan></text>
+<g class="t12" fill="#cfe3ff">
+<circle cx="40" cy="212" r="3" fill="#7cfcff"/><text x="52" y="216">4 páginas no Sistema de Design</text>
+<circle cx="40" cy="236" r="3" fill="#7cfcff"/><text x="52" y="240">Menu no Design de Navegação</text>
+<circle cx="40" cy="260" r="3" fill="#7cfcff"/><text x="52" y="264">Entidades Pedido e Solicitação</text>
+<circle cx="40" cy="284" r="3" fill="#7cfcff"/><text x="52" y="288">Processo de atendimento</text>
+</g>
+<text x="34" y="308" class="t11" fill="#a9b8cc">Quer ajustar algo?</text>
+<rect x="20" y="414" width="220" height="36" rx="18" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".2"/>
+<text x="36" y="436.5" class="t12" fill="#a9b8cc">Descreva o que você precisa</text>
+<circle cx="220" cy="432" r="12" fill="#0496ff"/><path d="M215 432h10m-4-4 4 4-4 4" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- web app -->
+<rect x="284" y="36" width="318" height="250" rx="10" fill="#fff" stroke="#c9d2de"/>
+<path d="M284 46a10 10 0 0 1 10-10h298a10 10 0 0 1 10 10v24H284z" fill="#02132d"/>
+<rect x="298" y="46" width="14" height="14" rx="4" fill="#0496ff"/><text x="320" y="57.5" class="t11 b w">Portal do Cliente</text>
+<text x="452" y="57.5" class="t11" fill="#cfe3ff">Pedidos</text><text x="504" y="57.5" class="t11" fill="#a9b8cc">Solicitações</text><circle cx="584" cy="53" r="8" fill="#5b3fc4"/>
+<text x="300" y="96" class="t13 x">Meus pedidos</text>
+<rect x="300" y="108" width="88" height="56" rx="8" fill="#f6f8fb"/><text x="312" y="130" class="t11 m">Em andamento</text><text x="312" y="152" class="t16 x">12</text>
+<rect x="398" y="108" width="88" height="56" rx="8" fill="#f6f8fb"/><text x="410" y="130" class="t11 m">Entregues</text><text x="410" y="152" class="t16 x">87</text>
+<rect x="496" y="108" width="90" height="56" rx="8" fill="#f6f8fb"/><text x="508" y="130" class="t11 m">Em atraso</text><text x="508" y="152" class="t16 x" fill="#e0364f">1</text>
+<g class="t11">
+<line x1="300" y1="180" x2="586" y2="180" stroke="#dfe5ee"/>
+<text x="300" y="200">Pedido 4812</text><rect x="516" y="188" width="70" height="18" rx="9" fill="#e3f6ee"/><text x="551" y="201" fill="#0f7a54" text-anchor="middle">Entregue</text>
+<line x1="300" y1="212" x2="586" y2="212" stroke="#dfe5ee"/>
+<text x="300" y="232">Pedido 4813</text><rect x="516" y="220" width="70" height="18" rx="9" fill="#e6f3ff"/><text x="551" y="233" fill="#0068b4" text-anchor="middle">A caminho</text>
+<line x1="300" y1="244" x2="586" y2="244" stroke="#dfe5ee"/>
+<text x="300" y="264">Pedido 4814</text><rect x="516" y="252" width="70" height="18" rx="9" fill="#fdf1d9"/><text x="551" y="265" fill="#9a6400" text-anchor="middle">Em análise</text>
+</g>
+<text x="284" y="310" class="t11 m">Web</text>
+<!-- phone -->
+<rect x="560" y="186" width="136" height="262" rx="20" fill="#02132d"/>
+<rect x="567" y="194" width="122" height="246" rx="14" fill="#fff"/>
+<rect x="608" y="199" width="40" height="6" rx="3" fill="#02132d"/>
+<text x="579" y="230" class="t12 x">Meus pedidos</text>
+<rect x="579" y="242" width="98" height="46" rx="8" fill="#f6f8fb"/><text x="589" y="260" class="t11">Pedido 4813</text><rect x="589" y="267" width="58" height="14" rx="7" fill="#e6f3ff"/><text x="618" y="277.5" class="t10" fill="#0068b4" text-anchor="middle">A caminho</text>
+<rect x="579" y="296" width="98" height="46" rx="8" fill="#f6f8fb"/><text x="589" y="314" class="t11">Pedido 4814</text><rect x="589" y="321" width="58" height="14" rx="7" fill="#fdf1d9"/><text x="618" y="331.5" class="t10" fill="#9a6400" text-anchor="middle">Em análise</text>
+<rect x="579" y="398" width="98" height="30" rx="8" fill="#0496ff"/><text x="628" y="417.5" class="t11 b w" text-anchor="middle">Nova solicitação</text>
+<text x="524" y="440" class="t11 m" text-anchor="end">Mobile</text>
+<!-- B2B chip -->
+<rect x="284" y="330" width="250" height="110" rx="10" fill="#f6f8fb" stroke="#dfe5ee"/>
+<text x="300" y="356" class="t12 x">A mesma conversa atende</text>
+<rect x="300" y="370" width="100" height="26" rx="13" fill="#02132d"/><text x="350" y="387.5" class="t11 b w" text-anchor="middle">B2B · interno</text>
+<rect x="408" y="370" width="110" height="26" rx="13" fill="#0496ff"/><text x="463" y="387.5" class="t11 b w" text-anchor="middle">B2C · cliente final</text>
+<text x="300" y="420" class="t11 m">e segue nos modeladores Low-Code.</text>
+</svg></figure>
     <p class="dest-t">Destaques</p>
     <div class="dest two">
       <div class="d"><h3>Páginas geradas com o Sistema de Design atualizado</h3><p>A DIANA usa os novos elementos, propriedades e subtipos do Sistema de Design para gerar interfaces mais completas e alinhadas à experiência visual da plataforma. A geração foi otimizada para produzir composições mais complexas em menos tempo.</p></div>
@@ -276,14 +397,43 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
   </div>
 </section>
 
-<section class="alt" id="processos">
+<section class="blk chap alt" id="processos">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag novo">Novo</span>
       <h2>Geração de processos com a DIANA.<span>Da descrição em linguagem natural a um processo pronto para executar.</span></h2>
       <p>A partir de uma descrição em linguagem natural, a DIANA constrói o diagrama e configura os principais pontos necessários à execução, usando os objetos e recursos da aplicação. Isso reduz o trabalho manual de modelagem e mantém o processo ligado a entidades, páginas, personas e demais objetos da Deyel.</p>
     </div>
-    <figure class="shot"><img src="https://www.deyel.com/wp-content/uploads/2026/10/Editor-de-Fluxos-com-Assistente-de-IA-em-Portugues.png" alt="Editor de fluxos da Deyel com a DIANA gerando o diagrama de um processo" loading="lazy" decoding="async"></figure>
+    <figure class="shot"><svg class="mk" viewBox="0 0 720 470" role="img" aria-label="Ilustração: a DIANA gera o diagrama de um processo de aprovação com três raias, atividades, um gateway com botões Aprovar e Rejeitar e os eventos de início e fim">
+<rect x="1" y="1" width="718" height="468" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<rect x="20" y="18" width="34" height="34" rx="10" fill="#0496ff"/><rect x="27" y="29" width="20" height="12" rx="6" fill="#02132d"/><circle cx="33.5" cy="35" r="2.2" fill="#7cfcff"/><circle cx="40.5" cy="35" r="2.2" fill="#7cfcff"/>
+<rect x="64" y="16" width="636" height="38" rx="19" fill="#f6f8fb" stroke="#dfe5ee"/>
+<text x="82" y="40" class="t12">Solicitação de compra: o gestor aprova e Compras emite o pedido; se rejeitar, volta ao solicitante.</text>
+<!-- lanes -->
+<g>
+<rect x="20" y="72" width="680" height="118" fill="#fff" stroke="#c9d2de"/><rect x="20" y="72" width="34" height="118" fill="#eef2f7" stroke="#c9d2de"/>
+<rect x="20" y="190" width="680" height="128" fill="#fff" stroke="#c9d2de"/><rect x="20" y="190" width="34" height="128" fill="#eef2f7" stroke="#c9d2de"/>
+<rect x="20" y="318" width="680" height="110" fill="#fff" stroke="#c9d2de"/><rect x="20" y="318" width="34" height="110" fill="#eef2f7" stroke="#c9d2de"/>
+<text transform="translate(41 131) rotate(-90)" class="t11 b" text-anchor="middle">Solicitante</text>
+<text transform="translate(41 254) rotate(-90)" class="t11 b" text-anchor="middle">Gestor</text>
+<text transform="translate(41 373) rotate(-90)" class="t11 b" text-anchor="middle">Compras</text>
+</g>
+<g fill="none" stroke="#6b7a90" stroke-width="1.6" stroke-linejoin="round">
+<path d="M104 131h36"/><path d="M270 131h40v94"/><path d="M310 281v0"/><path d="M375 254h43"/><path d="M448 284v52"/><path d="M448 224V90H205v16" stroke-dasharray="5 4"/><path d="M513 373h61"/><path d="M310 225v0"/>
+</g>
+<g fill="#6b7a90"><path d="m140 131-8-4.5v9z"/><path d="m310 225-4.5-8h9z"/><path d="m418 254-8-4.5v9z"/><path d="m448 336-4.5-8h9z"/><path d="m205 106-4.5-8h9z"/><path d="m574 373-8-4.5v9z"/></g>
+<circle cx="90" cy="131" r="13" fill="#e3f6ee" stroke="#17a673" stroke-width="2"/>
+<rect x="140" y="106" width="130" height="50" rx="8" fill="#e6f3ff" stroke="#0496ff" stroke-width="1.6"/><text x="205" y="128" class="t12 b" text-anchor="middle">Abrir solicitação</text><text x="205" y="145" class="t10 m" text-anchor="middle">Entidade: criar</text>
+<rect x="245" y="225" width="130" height="58" rx="8" fill="#e6f3ff" stroke="#0496ff" stroke-width="1.6"/><text x="310" y="250" class="t12 b" text-anchor="middle">Avaliar pedido</text><text x="310" y="267" class="t10 m" text-anchor="middle">Página de aprovação</text>
+<path d="m448 224 30 30-30 30-30-30z" fill="#fdf1d9" stroke="#e69a00" stroke-width="1.6"/>
+<rect x="496" y="216" width="76" height="26" rx="13" fill="#17a673"/><text x="534" y="233.5" class="t11 b w" text-anchor="middle">Aprovar</text>
+<rect x="496" y="250" width="76" height="26" rx="13" fill="#fff" stroke="#e0364f" stroke-width="1.4"/><text x="534" y="267.5" class="t11 b" fill="#e0364f" text-anchor="middle">Rejeitar</text>
+<text x="588" y="250" class="t10 m">Gateway</text><text x="588" y="264" class="t10 m">por botões</text>
+<rect x="383" y="348" width="130" height="50" rx="8" fill="#e6f3ff" stroke="#0496ff" stroke-width="1.6"/><text x="448" y="370" class="t12 b" text-anchor="middle">Emitir pedido</text><text x="448" y="387" class="t10 m" text-anchor="middle">Entidade: modificar</text>
+<circle cx="588" cy="373" r="13" fill="#fde8ec" stroke="#e0364f" stroke-width="3.5"/>
+<text x="326" y="84" class="t10 m" text-anchor="middle">Rejeitado</text>
+<text x="20" y="452" class="t11 m">Raias atribuídas a personas, unidades organizacionais ou a quem iniciou o processo.</text>
+</svg></figure>
     <p class="dest-t">Destaques</p>
     <div class="dest">
       <div class="d"><h3>Diagrama completo</h3><p>A DIANA gera processos com todas as figuras disponíveis no modelador, monta o fluxo e organiza os elementos que fazem parte do processo.</p></div>
@@ -295,14 +445,38 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
   </div>
 </section>
 
-<section id="navegacao">
+<section class="blk chap flip" id="navegacao">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag novo">Novo</span>
       <h2>Experiência de usuário homogênea.<span>Com os Designs de Navegação.</span></h2>
       <p>Os Designs de Navegação definem o esquema de navegação da aplicação e criam uma moldura visual única. É possível criar qualquer tipo de design e reunir componentes padrão, como logotipos, menus e acessos do usuário, em uma estrutura reutilizável. O resultado são aplicações com uma experiência homogênea, profissional e fácil de navegar.</p>
     </div>
-    <figure class="shot"><img src="https://www.deyel.com/wp-content/uploads/2026/10/DisenosdeNavegacion_PT-V1.png" alt="Design de Navegação aplicado a uma aplicação Deyel" loading="lazy" decoding="async"></figure>
+    <figure class="shot"><svg class="mk" viewBox="0 0 720 470" role="img" aria-label="Ilustração: um Design de Navegação com logotipo, menu e acesso do usuário fixos, e uma área central em que só o conteúdo muda de página para página">
+<rect x="96" y="20" width="560" height="360" rx="12" fill="#eef2f7" stroke="#dfe5ee"/>
+<rect x="64" y="44" width="560" height="360" rx="12" fill="#f6f8fb" stroke="#dfe5ee"/>
+<rect x="32" y="68" width="560" height="382" rx="12" fill="#fff" stroke="#c9d2de"/>
+<!-- frame -->
+<path d="M32 80a12 12 0 0 1 12-12h536a12 12 0 0 1 12 12v40H32z" fill="#02132d"/>
+<rect x="48" y="84" width="22" height="22" rx="6" fill="#0496ff"/><text x="80" y="100" class="t12 x w">Sua marca</text>
+<text x="210" y="100" class="t12 w">Início</text><text x="262" y="100" class="t12" fill="#a9b8cc">Pedidos</text><text x="326" y="100" class="t12" fill="#a9b8cc">Fornecedores</text><text x="420" y="100" class="t12" fill="#a9b8cc">Relatórios</text>
+<rect x="208" y="111" width="36" height="3" rx="1.5" fill="#0496ff"/>
+<circle cx="562" cy="95" r="12" fill="#5b3fc4"/><text x="562" y="99.5" class="t11 b w" text-anchor="middle">PC</text>
+<path d="M32 120h130v318a12 12 0 0 1-12 12H44a12 12 0 0 1-12-12z" fill="#f6f8fb"/><line x1="162" y1="120" x2="162" y2="450" stroke="#dfe5ee"/>
+<g class="t12"><rect x="44" y="134" width="106" height="30" rx="8" fill="#e6f3ff"/><text x="56" y="153.5" fill="#0068b4" class="b">Visão geral</text><text x="56" y="189" class="m">Em aprovação</text><text x="56" y="221" class="m">Contratos</text><text x="56" y="253" class="m">Avaliações</text></g>
+<!-- content -->
+<rect x="180" y="138" width="394" height="294" rx="10" fill="#fff" stroke="#0496ff" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="198" y="168" class="t13 x">Visão geral</text>
+<rect x="198" y="182" width="112" height="62" rx="8" fill="#f6f8fb"/><rect x="210" y="196" width="50" height="8" rx="4" fill="#c9d2de"/><rect x="210" y="216" width="70" height="14" rx="4" fill="#02132d"/>
+<rect x="320" y="182" width="112" height="62" rx="8" fill="#f6f8fb"/><rect x="332" y="196" width="50" height="8" rx="4" fill="#c9d2de"/><rect x="332" y="216" width="56" height="14" rx="4" fill="#02132d"/>
+<rect x="442" y="182" width="114" height="62" rx="8" fill="#f6f8fb"/><rect x="454" y="196" width="50" height="8" rx="4" fill="#c9d2de"/><rect x="454" y="216" width="64" height="14" rx="4" fill="#02132d"/>
+<rect x="198" y="258" width="358" height="10" rx="5" fill="#eef2f7"/><rect x="198" y="280" width="358" height="10" rx="5" fill="#eef2f7"/><rect x="198" y="302" width="300" height="10" rx="5" fill="#eef2f7"/><rect x="198" y="324" width="330" height="10" rx="5" fill="#eef2f7"/>
+<rect x="290" y="374" width="174" height="30" rx="15" fill="#0496ff"/><text x="377" y="393.5" class="t12 b w" text-anchor="middle">Só esta área muda</text>
+<!-- labels -->
+<rect x="606" y="82" width="104" height="26" rx="13" fill="#a1238f"/><text x="658" y="99.5" class="t11 b w" text-anchor="middle">Moldura fixa</text><path d="M606 95h-14" stroke="#a1238f" stroke-width="2"/>
+<text x="614" y="130" class="t10 m">Logotipo, menu</text><text x="614" y="144" class="t10 m">e acesso do</text><text x="614" y="158" class="t10 m">usuário</text>
+<text x="606" y="424" class="t10 m">Outras páginas</text><text x="606" y="438" class="t10 m">usam a mesma</text><text x="606" y="452" class="t10 m">moldura</text>
+</svg></figure>
     <p class="dest-t">Destaques</p>
     <div class="dest two">
       <div class="d"><h3>Moldura comum reutilizável</h3><p>Uma estrutura compartilhada pela aplicação, com componentes fixos (logotipos, menus e acessos do usuário) e uma área central destinada ao conteúdo dinâmico.</p></div>
@@ -313,14 +487,49 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
   </div>
 </section>
 
-<section class="alt" id="melhorias">
+<section class="blk chap alt" id="melhorias">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag melhoria">Melhoria</span>
       <h2>O Sistema de Design evolui.<span>Novos elementos e subtipos.</span></h2>
       <p>O Sistema de Design das aplicações ganha novos elementos e variações, que ampliam a personalização visual e permitem construir interfaces mais expressivas, modernas e intuitivas.</p>
     </div>
-    <figure class="shot"><img src="https://www.deyel.com/wp-content/uploads/2026/10/ElementosySubtipos_PT.png" alt="Novos elementos e subtipos do Sistema de Design da Deyel 9.4" loading="lazy" decoding="async"></figure>
+    <figure class="shot"><svg class="mk" viewBox="0 0 720 470" role="img" aria-label="Ilustração dos novos elementos do Sistema de Design: botões com ícone, botão iconográfico, ícone pequeno com fundo, tags de estado, Cartão e Cartão Indicador">
+<rect x="1" y="1" width="718" height="468" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<text x="28" y="40" class="t11 b m">Botões com ícone</text>
+<rect x="28" y="52" width="112" height="36" rx="8" fill="#0496ff"/><path d="M46 70h10m-5-5v10" stroke="#fff" stroke-width="2" stroke-linecap="round"/><text x="64" y="74.5" class="t12 b w">Novo pedido</text>
+<rect x="150" y="52" width="104" height="36" rx="8" fill="#fff" stroke="#0496ff" stroke-width="1.5"/><text x="166" y="74.5" class="t12 b" fill="#0068b4">Exportar</text><path d="M236 63v11m-4.5-4 4.5 4.5 4.5-4.500" fill="none" stroke="#0068b4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="290" y="40" class="t11 b m">Iconográfico</text>
+<rect x="290" y="52" width="36" height="36" rx="8" fill="#02132d"/><path d="M301 70h14m-7-7v14" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+<rect x="334" y="52" width="36" height="36" rx="8" fill="#eef2f7"/><circle cx="350" cy="68" r="6" fill="none" stroke="#02132d" stroke-width="2"/><path d="m355 73 5 5" stroke="#02132d" stroke-width="2" stroke-linecap="round"/>
+<rect x="378" y="52" width="36" height="36" rx="8" fill="#eef2f7"/><path d="M389 62h14M389 70h14M389 78h14" stroke="#02132d" stroke-width="2" stroke-linecap="round"/>
+<text x="452" y="40" class="t11 b m">Ícone pequeno com fundo</text>
+<rect x="452" y="54" width="32" height="32" rx="9" fill="#e6f3ff"/><path d="m461 70 5 5 9-10" fill="none" stroke="#0496ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="494" y="54" width="32" height="32" rx="16" fill="#f3e8f2"/><path d="M510 62v9m0 4v.5" stroke="#a1238f" stroke-width="2.4" stroke-linecap="round"/>
+<rect x="536" y="54" width="32" height="32" rx="9" fill="#fff" stroke="#5b3fc4" stroke-width="1.6"/><path d="M545 76v-6m7 6V63m7 13v-9" stroke="#5b3fc4" stroke-width="2.4" stroke-linecap="round"/>
+<line x1="28" y1="110" x2="692" y2="110" stroke="#dfe5ee"/>
+<text x="28" y="138" class="t11 b m">Tag</text>
+<g class="t12 b">
+<rect x="28" y="150" width="112" height="30" rx="15" fill="#e6f3ff"/><circle cx="46" cy="165" r="6" fill="#0496ff"/><text x="60" y="169.5" fill="#0068b4">Informativo</text>
+<rect x="150" y="150" width="96" height="30" rx="15" fill="#e3f6ee"/><circle cx="168" cy="165" r="6" fill="#17a673"/><text x="182" y="169.5" fill="#0f7a54">Sucesso</text>
+<rect x="256" y="150" width="118" height="30" rx="15" fill="#fdf1d9"/><circle cx="274" cy="165" r="6" fill="#e69a00"/><text x="288" y="169.500" fill="#9a6400">Advertência</text>
+<rect x="384" y="150" width="76" height="30" rx="15" fill="#fde8ec"/><circle cx="402" cy="165" r="6" fill="#e0364f"/><text x="416" y="169.5" fill="#b3203a">Erro</text>
+</g>
+<line x1="28" y1="204" x2="692" y2="204" stroke="#dfe5ee"/>
+<text x="28" y="232" class="t11 b m">Cartão</text>
+<rect x="28" y="244" width="300" height="200" rx="12" fill="#fff" stroke="#c9d2de"/>
+<path d="M28 256a12 12 0 0 1 12-12h276a12 12 0 0 1 12 12v52H28z" fill="#02132d"/><path d="M28 308h300v-24c-60-30-110 20-170 0s-90-20-130 4z" fill="#0496ff" fill-opacity=".55"/><path d="M28 308h300v-10c-70-22-120 16-180 2s-80-6-120 2z" fill="#a1238f" fill-opacity=".6"/>
+<rect x="44" y="322" width="30" height="30" rx="8" fill="#e6f3ff"/><path d="M52 337h14m-7-7v14" stroke="#0496ff" stroke-width="2" stroke-linecap="round"/>
+<text x="84" y="335" class="t13 x">Fornecedor homologado</text><text x="84" y="351" class="t11 m">Cabeçalho: ícone, título e subtítulo</text>
+<text x="44" y="378" class="t11">Corpo com a descrição ou o texto principal.</text>
+<rect x="44" y="396" width="92" height="30" rx="8" fill="#0496ff"/><text x="90" y="415.5" class="t11 b w" text-anchor="middle">Ver cadastro</text>
+<rect x="144" y="396" width="76" height="30" rx="8" fill="#fff" stroke="#c9d2de"/><text x="182" y="415.5" class="t11 b" text-anchor="middle">Avaliar</text>
+<text x="368" y="232" class="t11 b m">Cartão Indicador</text>
+<rect x="368" y="244" width="154" height="94" rx="12" fill="#fff" stroke="#c9d2de"/><rect x="382" y="258" width="28" height="28" rx="8" fill="#e3f6ee"/><path d="m389 276 5-6 4 3 6-8" fill="none" stroke="#17a673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="382" y="312" class="t20 x">94%</text><text x="382" y="328" class="t11 m">Pedidos no prazo</text>
+<rect x="538" y="244" width="154" height="94" rx="12" fill="#fff" stroke="#c9d2de"/><rect x="552" y="258" width="28" height="28" rx="8" fill="#e6f3ff"/><path d="M560 278v-6m6 6v-12m6 12v-8" stroke="#0496ff" stroke-width="2.2" stroke-linecap="round"/><text x="552" y="312" class="t20 x">R$ 1,2 mi</text><text x="552" y="328" class="t11 m">Economia no trimestre</text>
+<rect x="368" y="350" width="154" height="94" rx="12" fill="#02132d"/><rect x="382" y="364" width="28" height="28" rx="8" fill="#fff" fill-opacity=".12"/><circle cx="396" cy="378" r="6" fill="none" stroke="#7cfcff" stroke-width="2"/><text x="382" y="418" class="t20 x w">38</text><text x="382" y="434" class="t11" fill="#a9b8cc">Aprovações pendentes</text>
+<rect x="538" y="350" width="154" height="94" rx="12" fill="#fff" stroke="#c9d2de"/><rect x="552" y="364" width="28" height="28" rx="8" fill="#fde8ec"/><path d="M566 371v8m0 4v.5" stroke="#e0364f" stroke-width="2.4" stroke-linecap="round"/><text x="552" y="418" class="t20 x">3</text><text x="552" y="434" class="t11 m">Contratos a vencer</text>
+</svg></figure>
     <p class="dest-t">Destaques</p>
     <div class="dest two">
       <div class="d"><h3>Botão Iconográfico e suporte a ícones</h3><p>Os botões passam a ter suporte nativo a ícones, com posição configurável (no início ou no fim do texto). Chega também o subtipo Iconográfico, para ações rápidas ou barras de ferramentas em que basta o ícone.</p></div>
@@ -331,14 +540,39 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
   </div>
 </section>
 
-<section id="personas">
+<section class="blk chap flip" id="personas">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag melhoria">Melhoria</span>
       <h2>Atribuição direta de usuários a personas.<span>Aplicação publicada, pronta para as pessoas certas.</span></h2>
       <p>Agora é possível atribuir usuários específicos às personas (os perfis de quem usa a aplicação) diretamente no modelador de aplicações. Isso facilita as etapas de desenvolvimento e teste: a aplicação recém-criada já pode ser usada pelas pessoas indicadas no momento em que é publicada.</p>
     </div>
-    <figure class="shot"><img src="https://www.deyel.com/wp-content/uploads/2026/10/RN_ENTIDADES_PO.png" alt="Atribuição de usuários a uma persona no modelador de aplicações da Deyel" loading="lazy" decoding="async"></figure>
+    <figure class="shot"><svg class="mk" viewBox="0 0 720 400" role="img" aria-label="Ilustração: no modelador de aplicações, usuários são atribuídos a uma persona e, ao publicar, a atribuição é sincronizada com o papel de segurança">
+<rect x="1" y="1" width="438" height="398" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<path d="M1 15a14 14 0 0 1 14-14h410a14 14 0 0 1 14 14v29H1z" fill="#eef2f7"/>
+<text x="22" y="28" class="t13 b">Modelador de aplicações · Personas</text>
+<rect x="22" y="62" width="44" height="44" rx="12" fill="#5b3fc4"/><circle cx="44" cy="78" r="7" fill="#fff"/><path d="M31 99a13 11 0 0 1 26 0z" fill="#fff"/>
+<text x="78" y="80" class="t16 x">Aprovador de compras</text><text x="78" y="99" class="t12 m">Persona da aplicação</text>
+<text x="22" y="136" class="t11 b m">Usuários atribuídos</text><text x="418" y="136" class="t11 m" text-anchor="end">3 de 20</text>
+<g class="t12">
+<rect x="22" y="146" width="396" height="44" rx="8" fill="#fff" stroke="#dfe5ee"/><circle cx="46" cy="168" r="13" fill="#0496ff"/><text x="46" y="172.5" class="t11 b w" text-anchor="middle">AM</text><text x="70" y="172.500">Ana Martins</text><path d="m398 163 10 10m0-10-10 10" stroke="#9aa7b8" stroke-width="1.6" stroke-linecap="round"/>
+<rect x="22" y="196" width="396" height="44" rx="8" fill="#fff" stroke="#dfe5ee"/><circle cx="46" cy="218" r="13" fill="#a1238f"/><text x="46" y="222.5" class="t11 b w" text-anchor="middle">RS</text><text x="70" y="222.500">Rafael Souza</text><path d="m398 213 10 10m0-10-10 10" stroke="#9aa7b8" stroke-width="1.6" stroke-linecap="round"/>
+<rect x="22" y="246" width="396" height="44" rx="8" fill="#fff" stroke="#dfe5ee"/><circle cx="46" cy="268" r="13" fill="#17a673"/><text x="46" y="272.5" class="t11 b w" text-anchor="middle">CL</text><text x="70" y="272.500">Carla Lima</text><path d="m398 263 10 10m0-10-10 10" stroke="#9aa7b8" stroke-width="1.6" stroke-linecap="round"/>
+<rect x="22" y="296" width="396" height="44" rx="8" fill="#f6f8fb" stroke="#c9d2de" stroke-dasharray="5 4"/><text x="220" y="322.5" class="b" fill="#0068b4" text-anchor="middle">+ Adicionar usuário</text>
+</g>
+<rect x="298" y="354" width="120" height="30" rx="8" fill="#0496ff"/><text x="358" y="373.5" class="t12 b w" text-anchor="middle">Publicar</text>
+<path d="M452 200h54" stroke="#0496ff" stroke-width="2.5" stroke-dasharray="6 5"/><path d="m516 200-11-6.500v13z" fill="#0496ff"/>
+<rect x="528" y="92" width="190" height="216" rx="14" fill="#02132d"/>
+<text x="546" y="124" class="t11" fill="#a9b8cc">Sincronizado na publicação</text>
+<text x="546" y="150" class="t13 x w">Papel de segurança</text>
+<text x="546" y="170" class="t12" fill="#cfe3ff">Aprovador de compras</text>
+<line x1="546" y1="186" x2="700" y2="186" stroke="#fff" stroke-opacity=".14"/>
+<g class="t12 w">
+<circle cx="556" cy="210" r="10" fill="#17a673"/><path d="m551.5 210.200 3 3 6-6.400" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="576" y="214.500">Ana Martins</text>
+<circle cx="556" cy="242" r="10" fill="#17a673"/><path d="m551.5 242.200 3 3 6-6.400" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="576" y="246.500">Rafael Souza</text>
+<circle cx="556" cy="274" r="10" fill="#17a673"/><path d="m551.5 274.200 3 3 6-6.400" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="576" y="278.500">Carla Lima</text>
+</g>
+</svg></figure>
     <p class="dest-t">Destaques</p>
     <div class="dest">
       <div class="d"><h3>Gestão ágil no modelador</h3><p>Adicione ou remova usuários de uma persona durante a edição, sem precisar ir à administração geral de segurança.</p></div>
@@ -348,23 +582,21 @@ footer a{color:#c7d3e3;text-decoration:none}footer a:hover{color:#fff}
   </div>
 </section>
 
-<section class="alt" id="documentacao" style="padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(40px,5vw,64px)">
+<section class="more" id="documentacao">
   <div class="wrap">
-    <p class="dest-t">Para ir mais fundo</p>
-    <div class="docs">
-      <a href="https://www.deyel.com/pt-br/rn-deyel-9-4/" target="_blank" rel="noopener">Release notes da 9.4 em deyel.com ↗</a>
-      <a href="https://www.deyel.com/novedades/" target="_blank" rel="noopener">Releases anteriores ↗</a>
-      <a href="https://www.deyel.com/documentacion2/" target="_blank" rel="noopener">Documentação técnica ↗</a>
-      <a href="../plataforma/">A plataforma Deyel</a>
-      <a href="../seguranca/">Infraestrutura e segurança</a>
-    </div>
+    <strong>Para ir mais fundo</strong>
+    <a href="https://www.deyel.com/pt-br/rn-deyel-9-4/" target="_blank" rel="noopener">Release notes da 9.4 em deyel.com</a>
+    <a href="https://www.deyel.com/novedades/" target="_blank" rel="noopener">Releases anteriores</a>
+    <a href="https://www.deyel.com/documentacion2/" target="_blank" rel="noopener">Documentação técnica</a>
+    <a href="../plataforma/">A plataforma Deyel</a>
+    <a href="../seguranca/">Infraestrutura e segurança</a>
   </div>
 </section>
 
 <section class="cta">
   <div class="wrap">
     <div><h2>Quer ver a 9.4 funcionando no seu processo?</h2><p>Um especialista da Optaris mostra a DIANA construindo e um agente de IA operando, sobre um caso da sua empresa.</p></div>
-    <a class="btn btn-white" href="../#contato">Falar com um especialista <span aria-hidden="true">→</span></a>
+    <a class="btn btn-white" href="../#contato">Falar com um especialista</a>
   </div>
 </section>
 </main>
