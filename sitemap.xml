@@ -43,11 +43,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.optarisbrasil.com/llms.txt</loc>
-    <lastmod>2026-10-22</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://www.optarisbrasil.com/midia/</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
