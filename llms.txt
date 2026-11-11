@@ -91,6 +91,15 @@ Página: https://www.optarisbrasil.com/seguranca/
 - IA governada: nenhum agente de IA toca os sistemas diretamente; o AI Runtime confere identidade, política e limites antes de cada ação e leva para aprovação humana o que estiver fora da alçada.
 - Documentação técnica e releases: https://www.deyel.com/documentacion2/ e https://www.deyel.com/novedades/
 
+## Deyel 9.4 (release de outubro de 2026)
+Página: https://www.optarisbrasil.com/deyel-9-4/
+- Agentes de IA Empresariais: agentes modelados em Low-Code como parte nativa da aplicação (identidade, comportamento, conhecimento, contexto, ferramentas, provedor e modelo de IA), usando os mesmos dados, regras, processos e permissões; governados pela AI Governance Policy e executados pelo AI Runtime, com auditoria no Console de Execução de Aplicações.
+- DIANA passa a modelar aplicações B2C complexas, além das B2B, em web e mobile; gera páginas com o Sistema de Design atualizado e gerencia o Design de Navegação.
+- Geração de processos com a DIANA a partir de linguagem natural: diagrama completo, execução das raias, gateways por botões, atividades ligadas a páginas e entidades, vínculo automático com entidades.
+- Designs de Navegação: moldura reutilizável (logotipo, menus, acessos do usuário) para uma experiência homogênea.
+- Melhorias: novos elementos do Sistema de Design (botão iconográfico, ícone pequeno com fundo, Tag, aceleradores Cartão e Cartão Indicador) e atribuição direta de usuários a personas no modelador.
+- Release notes originais: https://www.deyel.com/pt-br/rn-deyel-9-4/
+
 ## Programa de parceiros e canais Deyel
 Página: https://www.optarisbrasil.com/parceiros/
 - Para software houses, integradores e revendas que querem entregar aplicativos e processos com IA aos seus clientes.
