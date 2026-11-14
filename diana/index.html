@@ -291,7 +291,7 @@ html { height: 100%; }
 <!-- ═══ LOGIN GATE ═══ -->
 <div id="loginGate">
   <div class="logo">Simulador Diana</div>
-  <div class="subtitle">Acesso restrito — entre com seu e-mail @optaris.com</div>
+  <div class="subtitle">Acesso restrito — entre com seu e-mail @optaris.com ou @optarisbrasil.com</div>
   <div id="g_id_onload"
     data-client_id="582258353056-jjg9vqerpt4llrcdr5al7eq9d9dlbqfs.apps.googleusercontent.com"
     data-callback="handleGoogleLogin"
@@ -1564,9 +1564,9 @@ function handleGoogleLogin(response) {
   try {
     // Decode JWT payload (base64url)
     const payload = JSON.parse(atob(response.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')));
-    if (payload.hd !== 'optaris.com') {
+    if (!['optaris.com', 'optarisbrasil.com'].includes(payload.hd)) {
       const errEl = document.getElementById('loginError');
-      errEl.textContent = 'Acesso restrito a @optaris.com. Você entrou com ' + payload.email;
+      errEl.textContent = 'Acesso restrito a @optaris.com e @optarisbrasil.com. Você entrou com ' + payload.email;
       errEl.style.display = 'block';
       return;
     }
