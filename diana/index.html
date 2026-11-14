@@ -1187,6 +1187,10 @@ function startDiscovery() {
 function sendFreeText() {
   const val = $('freeInput').value.trim();
   if (!val || STATE.isProcessingAI) return;
+  if (typeof micWanted !== 'undefined' && micWanted) {
+    stopMic();
+    addEvent('Lead enviou áudio (transcrito pelo navegador)', 'status');
+  }
   $('freeInput').value = '';
   handleFreeText(val);
 }
@@ -1195,64 +1199,75 @@ $('freeInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') sendFreeText();
 });
 
-// ── Mensagem por voz: o navegador transcreve a fala e envia como texto do lead ──
+// ── Mensagem por voz (ditado): o navegador transcreve a fala no campo de texto.
+// O microfone fica ligado, inclusive nas pausas, até o usuário clicar nele de novo ou enviar.
+// Nada é enviado sozinho: quem decide a hora de mandar é o usuário.
 const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-let micRec = null, micActive = false, micBaseText = '', micPlaceholder = '';
+let micRec = null, micWanted = false, micCommitted = '', micPlaceholder = '', micRestarts = 0;
 
 if (SpeechRec) $('micBtn').hidden = false;
 
-function stopMicUI() {
-  micActive = false;
+function stopMic() {
+  micWanted = false;
+  if (micRec) { try { micRec.stop(); } catch (e) {} }
   $('micBtn').classList.remove('recording');
-  $('freeInput').placeholder = micPlaceholder || 'Digitar mensagem como lead...';
+  $('micBtn').title = 'Falar a mensagem (áudio)';
+  if (micPlaceholder) $('freeInput').placeholder = micPlaceholder;
 }
 
-function toggleMic() {
-  if (!SpeechRec) return;
-  if (micActive) { try { micRec.stop(); } catch (e) {} return; }
-  if ($('freeInput').disabled || STATE.isProcessingAI) {
-    addEvent('Áudio indisponível neste passo: escolha uma das opções ou aguarde a Diana', 'status');
-    return;
-  }
+function startMicSession() {
   micRec = new SpeechRec();
   micRec.lang = 'pt-BR';
   micRec.interimResults = true;
-  micRec.continuous = false;
-  let finalText = '';
-  micBaseText = $('freeInput').value.trim();
-  micPlaceholder = $('freeInput').placeholder;
+  micRec.continuous = true;
+  let sessionFinal = '';
 
-  micRec.onstart = () => {
-    micActive = true;
-    $('micBtn').classList.add('recording');
-    $('freeInput').placeholder = 'Ouvindo... fale a mensagem';
-  };
   micRec.onresult = (ev) => {
+    micRestarts = 0;
     let interim = '';
     for (let i = ev.resultIndex; i < ev.results.length; i++) {
       const t = ev.results[i][0].transcript;
-      if (ev.results[i].isFinal) finalText += t; else interim += t;
+      if (ev.results[i].isFinal) sessionFinal += t; else interim += t;
     }
-    $('freeInput').value = (micBaseText + ' ' + finalText + interim).trim();
+    $('freeInput').value = (micCommitted + ' ' + sessionFinal + ' ' + interim).replace(/\s+/g, ' ').trim();
   };
   micRec.onerror = (ev) => {
+    if (ev.error === 'no-speech' || ev.error === 'aborted') return; // pausa: segue ouvindo
     const msgs = {
       'not-allowed': 'microfone bloqueado. Libere o microfone para este site no navegador',
       'service-not-allowed': 'microfone bloqueado. Libere o microfone para este site no navegador',
-      'no-speech': 'não ouvi nada. Tente de novo',
       'audio-capture': 'nenhum microfone encontrado',
       'network': 'sem conexão com o serviço de transcrição do navegador'
     };
     addEvent('Áudio: ' + (msgs[ev.error] || ev.error), 'error');
+    stopMic();
   };
   micRec.onend = () => {
-    stopMicUI();
-    if (finalText.trim() && !$('freeInput').disabled && !STATE.isProcessingAI) {
-      addEvent('Lead enviou áudio (transcrito pelo navegador)', 'status');
-      sendFreeText();
-    }
+    // O navegador encerra a escuta sozinho depois de um silêncio. Se o usuário
+    // ainda não desligou o microfone, guarda o que já foi dito e volta a ouvir.
+    if (!micWanted) return;
+    micCommitted = $('freeInput').value.trim();
+    if (++micRestarts > 30) { addEvent('Áudio: microfone desligado após muito tempo em silêncio', 'status'); stopMic(); return; }
+    setTimeout(() => { if (micWanted) { try { startMicSession(); } catch (e) { stopMic(); } } }, 150);
   };
-  try { micRec.start(); } catch (e) { stopMicUI(); addEvent('Áudio: ' + e.message, 'error'); }
+  micRec.start();
+}
+
+function toggleMic() {
+  if (!SpeechRec) return;
+  if (micWanted) { stopMic(); $('freeInput').focus(); return; }
+  if ($('freeInput').disabled || STATE.isProcessingAI) {
+    addEvent('Áudio indisponível neste passo: escolha uma das opções ou aguarde a Diana', 'status');
+    return;
+  }
+  micWanted = true;
+  micRestarts = 0;
+  micCommitted = $('freeInput').value.trim();
+  micPlaceholder = $('freeInput').placeholder;
+  $('micBtn').classList.add('recording');
+  $('micBtn').title = 'Parar de ouvir';
+  $('freeInput').placeholder = 'Ouvindo... fale à vontade e clique em enviar quando terminar';
+  try { startMicSession(); } catch (e) { addEvent('Áudio: ' + e.message, 'error'); stopMic(); }
 }
 
 async function handleFreeText(text) {
