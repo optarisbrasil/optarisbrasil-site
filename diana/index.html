@@ -219,6 +219,9 @@ html { height: 100%; }
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; font-size: 18px;
 }
+.mic-btn { background: transparent; color: var(--accent-dark); border: 1px solid var(--border); }
+.mic-btn.recording { background: #d93025; color: #fff; border-color: #d93025; animation: micPulse 1.1s ease-in-out infinite; }
+@keyframes micPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(217,48,37,0.45); } 50% { box-shadow: 0 0 0 7px rgba(217,48,37,0); } }
 
 .inspector {
   background: var(--inspector-bg); border-left: 1px solid var(--border);
@@ -332,6 +335,9 @@ html { height: 100%; }
     <div class="messages" id="messages"><div id="interactionArea"></div></div>
     <div class="chat-input-bar">
       <input class="chat-input" id="freeInput" placeholder="Digitar mensagem como lead..." disabled>
+      <button class="send-btn mic-btn" id="micBtn" onclick="toggleMic()" title="Falar a mensagem (áudio)" aria-label="Falar a mensagem" hidden>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><line x1="12" y1="18" x2="12" y2="22"/></svg>
+      </button>
       <button class="send-btn" id="sendBtn" onclick="sendFreeText()">&#10148;</button>
     </div>
   </div>
@@ -1188,6 +1194,66 @@ function sendFreeText() {
 $('freeInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') sendFreeText();
 });
+
+// ── Mensagem por voz: o navegador transcreve a fala e envia como texto do lead ──
+const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+let micRec = null, micActive = false, micBaseText = '', micPlaceholder = '';
+
+if (SpeechRec) $('micBtn').hidden = false;
+
+function stopMicUI() {
+  micActive = false;
+  $('micBtn').classList.remove('recording');
+  $('freeInput').placeholder = micPlaceholder || 'Digitar mensagem como lead...';
+}
+
+function toggleMic() {
+  if (!SpeechRec) return;
+  if (micActive) { try { micRec.stop(); } catch (e) {} return; }
+  if ($('freeInput').disabled || STATE.isProcessingAI) {
+    addEvent('Áudio indisponível neste passo: escolha uma das opções ou aguarde a Diana', 'status');
+    return;
+  }
+  micRec = new SpeechRec();
+  micRec.lang = 'pt-BR';
+  micRec.interimResults = true;
+  micRec.continuous = false;
+  let finalText = '';
+  micBaseText = $('freeInput').value.trim();
+  micPlaceholder = $('freeInput').placeholder;
+
+  micRec.onstart = () => {
+    micActive = true;
+    $('micBtn').classList.add('recording');
+    $('freeInput').placeholder = 'Ouvindo... fale a mensagem';
+  };
+  micRec.onresult = (ev) => {
+    let interim = '';
+    for (let i = ev.resultIndex; i < ev.results.length; i++) {
+      const t = ev.results[i][0].transcript;
+      if (ev.results[i].isFinal) finalText += t; else interim += t;
+    }
+    $('freeInput').value = (micBaseText + ' ' + finalText + interim).trim();
+  };
+  micRec.onerror = (ev) => {
+    const msgs = {
+      'not-allowed': 'microfone bloqueado. Libere o microfone para este site no navegador',
+      'service-not-allowed': 'microfone bloqueado. Libere o microfone para este site no navegador',
+      'no-speech': 'não ouvi nada. Tente de novo',
+      'audio-capture': 'nenhum microfone encontrado',
+      'network': 'sem conexão com o serviço de transcrição do navegador'
+    };
+    addEvent('Áudio: ' + (msgs[ev.error] || ev.error), 'error');
+  };
+  micRec.onend = () => {
+    stopMicUI();
+    if (finalText.trim() && !$('freeInput').disabled && !STATE.isProcessingAI) {
+      addEvent('Lead enviou áudio (transcrito pelo navegador)', 'status');
+      sendFreeText();
+    }
+  };
+  try { micRec.start(); } catch (e) { stopMicUI(); addEvent('Áudio: ' + e.message, 'error'); }
+}
 
 async function handleFreeText(text) {
   const lower = text.toLowerCase().trim();
