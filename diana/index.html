@@ -586,7 +586,10 @@ function formatMsgText(text) {
   return t.replace(/\n/g, '<br>');
 }
 
+let suppressLeadEcho = false;
+
 function addMsg(text, type, annotation, annotationClass) {
+  if (type === 'lead' && suppressLeadEcho) return null;
   const el = document.createElement('div');
   el.className = 'msg msg-' + type;
   let html = formatMsgText(text);
@@ -604,6 +607,7 @@ function addMsg(text, type, annotation, annotationClass) {
 }
 
 function addToHistory(role, content) {
+  if (role === 'user' && suppressLeadEcho) return;
   conversationHistory.push({ role, content });
   if (conversationHistory.length > 20) conversationHistory.splice(0, 2);
 }
@@ -661,6 +665,7 @@ function showButtons(options) {
     const btn = document.createElement('button');
     btn.className = 'wa-btn';
     btn.textContent = opt.label;
+    btn.dataset.label = opt.label;
     btn.onclick = () => { area.innerHTML = ''; opt.action(); };
     div.appendChild(btn);
   });
@@ -678,6 +683,7 @@ function showList(title, options) {
     const btn = document.createElement('button');
     btn.className = 'wa-list-item';
     btn.innerHTML = '<span class="wa-list-num">' + (i + 1) + '</span><span>' + opt.label + '</span>';
+    btn.dataset.label = opt.label;
     btn.onclick = () => { area.innerHTML = ''; opt.action(); };
     div.appendChild(btn);
   });
@@ -744,16 +750,22 @@ async function callDiana(userMessage) {
     bant: STATE.bant,
     status: STATE.status,
     conversationStarted: STATE.conversationStarted,
-    awaitingJourneyChoice: STATE.awaitingJourneyChoice
+    awaitingJourneyChoice: STATE.awaitingJourneyChoice,
+    discoveryMode: STATE.discoveryMode
   };
+  const labels = visibleOptionLabels();
 
   const stateStr = 'ESTADO ATUAL DA CONVERSA:\n' + JSON.stringify(stateSnapshot)
     + '\nLead se chama: ' + LEAD.name
-    + (LEAD.oferta ? '\nOferta: ' + LEAD.oferta : '');
+    + (LEAD.oferta ? '\nOferta: ' + LEAD.oferta : '')
+    + '\nOPÇÕES CLICÁVEIS NA TELA AGORA: ' + (labels.length ? labels.map((l, i) => (i + 1) + ') ' + l).join(' | ') : 'nenhuma');
 
   // Build message array for the API
   const recent = conversationHistory.slice(-16);
-  const messages = [...recent, { role: 'user', content: userMessage }];
+  // handleFreeText já colocou a mensagem do lead no histórico; não mandar duas vezes
+  const last = recent[recent.length - 1];
+  const messages = (last && last.role === 'user' && last.content === userMessage)
+    ? [...recent] : [...recent, { role: 'user', content: userMessage }];
 
   STATE.aiCalls++;
   $('insAICalls').textContent = STATE.aiCalls;
@@ -919,19 +931,16 @@ function chooseDemo() {
   addMsg('Marcar demo ao vivo', 'lead');
   addToHistory('user', 'Marcar demo ao vivo');
   addEvent('Lead escolheu demo ao vivo', 'status');
-  setStatus('em_conversa');
-  const linkMap = {
-    plataforma: 'calendly.com/paulocacciari/demo_deyel',
-    usina: 'calendly.com/paulocacciari/demo_deyel',
-    produtos: 'calendly.com/paulocacciari/demo-plataforma-gestao-de-compras'
-  };
-  const link = linkMap[STATE.journey] || 'calendly.com/paulocacciari/demo_deyel';
-  const resp = 'Escolha o horário:\n' + link + '\nA confirmação chega no seu e-mail.';
-  addMsg(resp, 'diana', 'Leria horários do Calendly e ofereceria 2 opções');
+  // Sem link de agenda: quem marca a data é uma pessoa da equipe (Viviane)
+  const resp = 'Pode deixar! Alguém da equipe já está entrando para marcar uma data com você.';
+  addMsg(resp, 'diana', 'Demo ao vivo: aciona a Viviane para marcar a data');
   addToHistory('assistant', resp);
   addEvent('HubSpot: grava resumo BANT de 5 linhas', 'hubspot');
-  setStatus('demo_marcada');
+  addEvent('HubSpot: criou tarefa para Viviane — marcar demo ao vivo', 'hubspot');
+  addEvent('Diana em silêncio (aguardando a equipe)', 'status');
+  setStatus('com_atendimento');
   enableFreeInput(false);
+  $('interactionArea').innerHTML = '';
   finishScenario();
 }
 
@@ -1280,18 +1289,62 @@ function toggleMic() {
   try { startMicSession(); } catch (e) { addEvent('Áudio: ' + e.message, 'error'); stopMic(); }
 }
 
+// ═══════════════════════════════════════════════════════════════
+// OPÇÕES CLICÁVEIS × TEXTO LIVRE — manter os dois coerentes
+// ═══════════════════════════════════════════════════════════════
+
+function visibleOptions() {
+  return [...$('interactionArea').querySelectorAll('.wa-list-item, .wa-btn')];
+}
+function visibleOptionLabels() {
+  return visibleOptions().map(el => el.dataset.label || el.textContent.trim());
+}
+function normText(t) {
+  return String(t).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9$ ]+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+// Escolhe uma opção visível em nome do lead (ele digitou ou falou em vez de clicar).
+// O texto que ele escreveu já está na tela, então o rótulo do botão não é repetido.
+function chooseVisibleOption(index, how) {
+  const items = visibleOptions();
+  const el = items[index];
+  if (!el) return false;
+  addEvent('Texto livre → opção "' + (el.dataset.label || '') + '" (' + how + ')', 'status');
+  suppressLeadEcho = true;
+  try { el.click(); } finally { suppressLeadEcho = false; }
+  return true;
+}
+// Tenta casar o texto do lead com uma das opções na tela, sem precisar da IA.
+function matchVisibleOption(text) {
+  const labels = visibleOptionLabels();
+  if (!labels.length) return -1;
+  const t = normText(text);
+  if (!t) return -1;
+  const num = t.match(/^(?:opcao |numero )?(\d)$/);
+  if (num) { const i = parseInt(num[1]) - 1; return i < labels.length ? i : -1; }
+  const words = t.split(' ').length;
+  const hits = [];
+  labels.forEach((lab, i) => {
+    const l = normText(lab);
+    if (t === l) hits.push(i);
+    else if (t.length >= 4 && l.includes(t)) hits.push(i);
+    else if (t.includes(l) && words <= l.split(' ').length + 3) hits.push(i);
+  });
+  if (hits.length === 1) return hits[0];
+  // Passo "Pode ser?": um sim ou não curto vale como clique
+  if (STATE.status === 'aguardando_resposta' && labels.length === 2 && words <= 4) {
+    if (/^(sim|claro|pode|pode ser|pode sim|ok|okay|vamos|vamos la|bora|isso|com certeza|manda|manda ver|pode mandar|beleza|fechado|combinado|tudo bem|ta bom|ta)\b/.test(t)) return 0;
+  }
+  return -1;
+}
+
 async function handleFreeText(text) {
   const lower = text.toLowerCase().trim();
   addMsg(text, 'lead');
   addToHistory('user', text);
 
-  // ── Fast path: number matches current option ──
-  const numMatch = lower.match(/^(\d)$/);
-  if (numMatch && STATE.question >= 1 && STATE.question <= 4) {
-    const idx = parseInt(numMatch[1]) - 1;
-    const items = $('interactionArea').querySelectorAll('.wa-list-item, .wa-btn');
-    if (items[idx]) { items[idx].click(); return; }
-  }
+  // ── Fast path: o texto corresponde a uma opção que está na tela ──
+  const optIdx = matchVisibleOption(text);
+  if (optIdx >= 0 && chooseVisibleOption(optIdx, 'correspondência direta')) return;
 
   // ── Fast path: explicit opt-out phrases ──
   if (['sair', 'parar', 'cancelar', 'não quero receber', 'nao quero receber'].includes(lower)) {
@@ -1343,7 +1396,8 @@ function processAIResponse(response) {
   switch (action) {
     case 'handoff':
       setStatus('com_atendimento');
-      addEvent('HubSpot: criou tarefa para o Comercial', 'hubspot');
+      if (response.handoff_reason === 'demo') addEvent('HubSpot: criou tarefa para Viviane — marcar demo ao vivo', 'hubspot');
+      else addEvent('HubSpot: criou tarefa para o Comercial', 'hubspot');
       enableFreeInput(false);
       $('interactionArea').innerHTML = '';
       finishScenario();
@@ -1396,11 +1450,19 @@ function processAIResponse(response) {
     case 'answer_bant':
       if (response.bant_answer && STATE.question >= 1 && STATE.question <= 4) {
         addEvent('IA interpretou resposta BANT: ' + response.bant_answer, 'ai');
-        answerQ(STATE.question, response.bant_answer);
+        $('interactionArea').innerHTML = '';
+        suppressLeadEcho = true; // o texto do lead já está na tela
+        try { answerQ(STATE.question, response.bant_answer); } finally { suppressLeadEcho = false; }
       } else {
         enableFreeInput(true);
       }
       break;
+
+    case 'choose_option': {
+      const i = parseInt(response.option_index, 10) - 1;
+      if (!(i >= 0 && chooseVisibleOption(i, 'IA interpretou'))) replayCurrentOptions();
+      break;
+    }
 
     case 'replay_options':
       replayCurrentOptions();
@@ -1411,6 +1473,12 @@ function processAIResponse(response) {
       break;
 
     default: // 'continue'
+      // Se a Diana fez uma pergunta dela, as opções antigas deixaram de valer: saem da tela.
+      // Se ela só respondeu, as opções do passo atual continuam valendo e ficam.
+      if (/\?\s*$/.test(msg.trim()) && visibleOptions().length) {
+        $('interactionArea').innerHTML = '';
+        addEvent('Opções anteriores removidas: a conversa seguiu em texto livre', 'status');
+      }
       enableFreeInput(true);
       break;
   }
