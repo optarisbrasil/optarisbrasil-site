@@ -1188,7 +1188,7 @@ function sendFreeText() {
   const val = $('freeInput').value.trim();
   if (!val || STATE.isProcessingAI) return;
   if (typeof micWanted !== 'undefined' && micWanted) {
-    stopMic();
+    stopMic(true);
     addEvent('Lead enviou áudio (transcrito pelo navegador)', 'status');
   }
   $('freeInput').value = '';
@@ -1207,9 +1207,15 @@ let micRec = null, micWanted = false, micCommitted = '', micPlaceholder = '', mi
 
 if (SpeechRec) $('micBtn').hidden = false;
 
-function stopMic() {
+function stopMic(discard) {
   micWanted = false;
-  if (micRec) { try { micRec.stop(); } catch (e) {} }
+  if (micRec) {
+    // Ao enviar, descarta o que o navegador ainda devolveria: sem isso, o resultado
+    // final chega depois do envio e reescreve o texto no campo.
+    if (discard) { micRec.onresult = null; try { micRec.abort(); } catch (e) {} }
+    else { try { micRec.stop(); } catch (e) {} }
+  }
+  micCommitted = '';
   $('micBtn').classList.remove('recording');
   $('micBtn').title = 'Falar a mensagem (áudio)';
   if (micPlaceholder) $('freeInput').placeholder = micPlaceholder;
@@ -1222,7 +1228,10 @@ function startMicSession() {
   micRec.continuous = true;
   let sessionFinal = '';
 
+  const thisRec = micRec;
+  let acceptResults = true;
   micRec.onresult = (ev) => {
+    if (thisRec !== micRec || !acceptResults) return;
     micRestarts = 0;
     let interim = '';
     for (let i = ev.resultIndex; i < ev.results.length; i++) {
@@ -1245,7 +1254,8 @@ function startMicSession() {
   micRec.onend = () => {
     // O navegador encerra a escuta sozinho depois de um silêncio. Se o usuário
     // ainda não desligou o microfone, guarda o que já foi dito e volta a ouvir.
-    if (!micWanted) return;
+    acceptResults = false;
+    if (!micWanted || thisRec !== micRec) return;
     micCommitted = $('freeInput').value.trim();
     if (++micRestarts > 30) { addEvent('Áudio: microfone desligado após muito tempo em silêncio', 'status'); stopMic(); return; }
     setTimeout(() => { if (micWanted) { try { startMicSession(); } catch (e) { stopMic(); } } }, 150);
