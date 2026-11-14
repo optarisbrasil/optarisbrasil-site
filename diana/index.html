@@ -135,6 +135,7 @@ html { height: 100%; }
   font-size: 13.5px; line-height: 1.45; position: relative;
   word-break: break-word; animation: msgIn 0.2s ease;
 }
+.msg a { color: #027eb5; text-decoration: underline; word-break: break-all; }
 @keyframes msgIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
@@ -564,10 +565,25 @@ function timeNow() {
   return d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
 }
 
+// Formata o texto da mensagem como o WhatsApp: links clicáveis e *negrito*
+function formatMsgText(text) {
+  let t = String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const urlRe = /(https?:\/\/[^\s<]+|(?<![@\w.\/-])(?:www\.)?(?:optarisbrasil\.com|youtu\.be|youtube\.com|app\.getdemo\.com\.br|lpbr\.deyel\.com)(?:\/[^\s<]*)?)/gi;
+  t = t.replace(urlRe, (m) => {
+    let url = m, tail = '';
+    const trail = url.match(/[.,;:!?)"'”]+$/);
+    if (trail) { tail = trail[0]; url = url.slice(0, -tail.length); }
+    const href = /^https?:\/\//i.test(url) ? url : 'https://' + url;
+    return '<a href="' + href.replace(/"/g, '&quot;') + '" target="_blank" rel="noopener">' + url + '</a>' + tail;
+  });
+  t = t.replace(/(^|[\s(])\*([^*\n]+)\*(?=$|[\s.,;:!?)—-])/g, '$1<b>$2</b>');
+  return t.replace(/\n/g, '<br>');
+}
+
 function addMsg(text, type, annotation, annotationClass) {
   const el = document.createElement('div');
   el.className = 'msg msg-' + type;
-  let html = text.replace(/\n/g, '<br>');
+  let html = formatMsgText(text);
   if (type !== 'system') html += '<div class="msg-time">' + timeNow() + '</div>';
   if (annotation) {
     const cls = annotationClass ? ' ' + annotationClass : '';
