@@ -697,7 +697,7 @@ function updateAIStatus(connected) {
     badge.className = 'ai-badge off';
     label.textContent = 'modo keywords';
   }
-  $('insEngine').textContent = connected ? 'Claude via sample()' : 'Keywords (fallback)';
+  $('insEngine').textContent = connected ? 'Claude (API)' : 'Keywords (fallback)';
 }
 
 
@@ -1200,7 +1200,7 @@ async function handleFreeText(text) {
   }
 
   // ── AI path ──
-  if (aiAvailable && sampleAI) {
+  if (aiAvailable) {
     STATE.isProcessingAI = true;
     $('freeInput').disabled = true;
     showTyping();
@@ -1332,6 +1332,19 @@ function detectJourney(text) {
 
 function handleFreeTextKeyword(text) {
   const lower = text.toLowerCase();
+
+  // Pedido para falar com uma pessoa — tem prioridade sobre tudo e nunca comenta sobre a pessoa citada
+  if (lower.includes('falar com') || lower.includes('humano') || lower.includes('pessoa real') || lower.includes('atendente')) {
+    $('interactionArea').innerHTML = '';
+    const r = 'Você gostaria de falar com alguém da equipe? Posso te conectar agora.';
+    addMsg(r, 'diana', 'Keywords: pedido para falar com pessoa');
+    addToHistory('assistant', r);
+    showButtons([
+      { label: 'Sim, falar com a equipe', action: () => handoffToHuman() },
+      { label: 'Continuar com a Diana', action: () => { addMsg('Continuar com a Diana', 'lead'); addToHistory('user','Continuar com a Diana'); replayCurrentOptions(); } }
+    ]);
+    return;
+  }
 
   // Journey detection (before journey is set, or awaiting choice, or in discovery mode)
   if (!STATE.journey || STATE.awaitingJourneyChoice || STATE.discoveryMode) {
