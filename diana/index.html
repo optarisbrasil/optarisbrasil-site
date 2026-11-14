@@ -135,7 +135,7 @@ html { height: 100%; }
   font-size: 13.5px; line-height: 1.45; position: relative;
   word-break: break-word; animation: msgIn 0.2s ease;
 }
-.msg a { color: #027eb5; text-decoration: underline; word-break: break-all; }
+.msg a { color: #027eb5; text-decoration: underline; word-break: normal; overflow-wrap: anywhere; }
 @keyframes msgIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
@@ -1335,7 +1335,7 @@ function processAIResponse(response) {
 
   // Show Diana's message
   if (msg) {
-    addMsg(msg, 'diana', annotation ? '🤖 ' + annotation : null, 'ai');
+    addMsg(msg, 'diana', annotation ? annotation : null, 'ai');
     addToHistory('assistant', msg);
   }
 
