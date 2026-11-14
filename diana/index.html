@@ -1094,7 +1094,7 @@ function replayCurrentOptions() {
 
 function showJourneyChoice(withGreeting) {
   if (withGreeting) {
-    const greeting = 'Olá! Sou a Diana, assistente da Deyel. Vou te dar algumas opções, mas pode me perguntar qualquer coisa!';
+    const greeting = 'Olá' + (LEAD.name && LEAD.name !== 'Teste' ? ', ' + LEAD.name : '') + '! Sou a Diana, assistente da Deyel. Vou te dar algumas opções, mas pode me perguntar qualquer coisa!';
     addMsg(greeting, 'diana', 'Primeiro contato — seleção de interesse');
     addToHistory('assistant', greeting);
   }
@@ -1683,7 +1683,9 @@ function resetChat() {
 function handleGoogleLogin(response) {
   try {
     // Decode JWT payload (base64url)
-    const payload = JSON.parse(atob(response.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')));
+    // (decodifica como UTF-8 para não estragar nomes com acento)
+    const b64 = response.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
+    const payload = JSON.parse(new TextDecoder('utf-8').decode(Uint8Array.from(atob(b64), c => c.charCodeAt(0))));
     if (!['optaris.com', 'optarisbrasil.com'].includes(payload.hd)) {
       const errEl = document.getElementById('loginError');
       errEl.textContent = 'Acesso restrito a @optaris.com e @optarisbrasil.com. Você entrou com ' + payload.email;
@@ -1692,6 +1694,9 @@ function handleGoogleLogin(response) {
     }
     // Auth OK
     googleIdToken = response.credential;
+    // A Diana trata o lead pelo primeiro nome de quem fez login
+    const firstName = (payload.given_name || (payload.name || '').split(' ')[0] || '').trim();
+    if (firstName) LEAD.name = firstName;
     document.getElementById('loginGate').style.display = 'none';
     document.getElementById('mainApp').classList.remove('locked');
     // Start simulator
