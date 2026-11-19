@@ -381,7 +381,7 @@ function capture(out,sim){
   var box=el('div',null,'cap'); box.id='cap';
   box.appendChild(el('h3','Receba a memória de cálculo por e-mail'));
   box.appendChild(el('p','Enviamos o link que reabre esta simulação com os mesmos dados, a memória de cálculo e a base legal, para você guardar ou encaminhar ao seu contador.'));
-  var f=document.createElement('form'); f.noValidate=true; f.setAttribute('autocomplete','on');
+  var f=document.createElement('form'); f.noValidate=true; f.setAttribute('autocomplete','on'); f.setAttribute('data-hs-do-not-collect','true'); // o envio é feito por nós, pela API de formulários
   var fe=field('cap-email','E-mail corporativo','email','email','email','voce@suaempresa.com.br',120);
   var fc=field('cap-cargo','Cargo (opcional)','text','cargo','organization-title','Ex.: Gerente de Compras',80);
   f.appendChild(fe.w); f.appendChild(fc.w);
