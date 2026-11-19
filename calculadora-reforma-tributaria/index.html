@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPNFCFG29B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SPNFCFG29B');</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z33baql82n");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de CBS e IBS para compras | Optaris do Brasil</title>
+<meta name="description" content="Simule CBS e IBS de um item de compra com o motor de cálculo oficial da Receita Federal (código aberto). Memória de cálculo e base legal em cada resultado.">
+<link rel="canonical" href="https://www.optarisbrasil.com/calculadora-reforma-tributaria/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de CBS e IBS para compras">
+<meta property="og:description" content="Simule CBS e IBS de um item de compra com o motor de cálculo da Receita Federal, com memória de cálculo e base legal.">
+<meta property="og:url" content="https://www.optarisbrasil.com/calculadora-reforma-tributaria/">
+<meta property="og:image" content="https://www.optarisbrasil.com/og-optarisbrasil-ia-v3.png">
+<link rel="icon" href="https://www.optaris.com/wp-content/uploads/2025/07/favicon-25-25.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Roboto,Helvetica,Arial,sans-serif;color:#333;background:#f4f7fb;line-height:1.55}
+h1,h2,h3{font-family:Lato,Helvetica,Arial,sans-serif;margin:0;line-height:1.15;color:#02132d}
+a{color:#0070d6}
+.top{background:#02132d;color:#fff}
+.top .in{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px}
+.top a.logo{display:flex;align-items:center;text-decoration:none;margin-right:auto}
+.top a.logo img{height:28px;width:auto;display:block}
+.top a.logo span{font-weight:400;font-size:15.5px;letter-spacing:.03em;color:#fff;margin-left:-6px}
+.top a.nav{color:#cfe7ff;text-decoration:none;font-size:14px}
+.top a.nav:hover{color:#fff}
+.hero{background:linear-gradient(135deg,#02132d,#07305e);color:#fff;padding:44px 20px 56px}
+.hero .in{max-width:1120px;margin:0 auto}
+.hero h1{color:#fff;font-weight:900;font-size:clamp(28px,4.4vw,42px);max-width:760px}
+.hero p{max-width:720px;color:#cfe0f5;font-size:17px;margin:14px 0 0}
+.wrap{max-width:1120px;margin:-30px auto 0;padding:0 20px 48px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:22px;align-items:start}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:10px;box-shadow:0 2px 14px rgba(2,19,45,.09);padding:24px}
+.card h2{font-size:20px;margin-bottom:16px}
+label,.lbl{display:block;font-size:13px;font-weight:700;color:#02132d;margin:14px 0 5px}
+input,select{width:100%;border:1px solid #c5cfdb;border-radius:6px;padding:10px 12px;font-size:15px;font-family:inherit;min-height:44px;background:#fff;color:#222}
+input:focus,select:focus,button:focus-visible{outline:2px solid #0496ff;outline-offset:1px}
+.seg{display:flex;gap:8px}
+.seg label{flex:1;margin:0;font-weight:500;border:1px solid #c5cfdb;border-radius:6px;padding:10px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;min-height:44px}
+.seg input{width:auto;min-height:0}
+.seg label:has(input:checked){border-color:#0496ff;background:#eaf5ff}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:520px){.row,.row3{grid-template-columns:1fr}}
+.hint{font-size:12.5px;color:#5b6675;margin-top:5px}
+.info{margin-top:8px;font-size:13px;background:#eef4fb;border-left:3px solid #0496ff;padding:8px 10px;border-radius:4px;color:#26384f}
+.warn{background:#fff6e5;border-left-color:#e59a00;color:#5b3d00}
+.err{background:#fdecec;border-left-color:#d33;color:#6a1414}
+.sugg{position:relative}
+.sugg ul{position:absolute;z-index:5;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:#fff;border:1px solid #c5cfdb;border-radius:6px;max-height:260px;overflow:auto;box-shadow:0 8px 20px rgba(2,19,45,.15)}
+.sugg li{padding:9px 12px;cursor:pointer;font-size:14px;border-bottom:1px solid #eef1f5}
+.sugg li:hover,.sugg li[aria-selected=true]{background:#eaf5ff}
+.sugg li b{color:#02132d}
+.btn{margin-top:20px;width:100%;min-height:50px;background:#0496ff;color:#fff;border:0;border-radius:6px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;font-family:inherit}
+.btn:hover{background:#007bff}
+.btn[disabled]{opacity:.6;cursor:wait}
+.empty{color:#5b6675;font-size:15px}
+.badge{display:inline-block;font-size:12px;font-weight:700;border-radius:20px;padding:3px 10px;background:#fff6e5;color:#7a4b00;margin-left:8px;vertical-align:middle}
+.badge.ok{background:#e6f6ec;color:#12622f}
+.totals{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 14px}
+@media(max-width:520px){.totals{grid-template-columns:1fr}}
+.box{background:#f4f7fb;border-radius:8px;padding:14px}
+.box small{display:block;font-size:12px;color:#5b6675;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.box strong{font-family:Lato,sans-serif;font-size:24px;color:#02132d}
+.box.big{background:#02132d}
+.box.big small{color:#9fc4ee}.box.big strong{color:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 6px;border-bottom:1px solid #e6ebf1;vertical-align:top}
+td.n,th.n{text-align:right;white-space:nowrap}
+details{margin-top:14px;border:1px solid #e0e6ee;border-radius:8px;padding:10px 14px;background:#fafbfd}
+summary{cursor:pointer;font-weight:700;color:#02132d}
+details p{font-size:13.5px;margin:8px 0}
+.cta{margin-top:20px;background:#eaf5ff;border-radius:8px;padding:18px}
+.cta h3{font-size:18px;margin-bottom:6px}
+.cta p{margin:0 0 12px;font-size:14.5px}
+.cta a{display:inline-block;margin:0 8px 8px 0;padding:10px 16px;border-radius:6px;text-decoration:none;font-weight:700;font-size:14px}
+.cta a.p{background:#0496ff;color:#fff}.cta a.s{background:#fff;color:#02132d;border:1px solid #b6cfe8}
+.legal{max-width:1120px;margin:0 auto;padding:0 20px 40px;font-size:12.5px;color:#5b6675}
+.foot{background:#02132d;color:#9fb4cf;font-size:13px;padding:22px 20px;text-align:center}
+.foot a{color:#cfe7ff}
+@media print{.top,.hero,form,.cta,.foot,.noprint{display:none!important}.wrap{display:block;margin:0}.card{box-shadow:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="/"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Logo-nuevo.png" alt="Optaris do Brasil" width="140" height="28"><span>BRASIL</span></a>
+  <a class="nav" href="/gestao-de-compras-e-fornecedores/">Gestão de compras e fornecedores</a>
+</div></header>
+
+<section class="hero"><div class="in">
+  <h1>Calculadora de CBS e IBS para compras</h1>
+  <p>Informe o item que você compra e veja quanto de CBS e IBS incide, com a memória de cálculo e a base legal. O cálculo usa o motor oficial da Receita Federal, publicado em código aberto.</p>
+</div></section>
+
+<main class="wrap">
+  <form class="card" id="f" novalidate autocomplete="off">
+    <h2>Dados do item</h2>
+
+    <div class="lbl" id="tipoLbl">O que você está comprando?</div>
+    <div class="seg" role="radiogroup" aria-labelledby="tipoLbl">
+      <label><input type="radio" name="tipo" value="ncm" checked> Produto (NCM)</label>
+      <label><input type="radio" name="tipo" value="nbs"> Serviço (NBS)</label>
+    </div>
+
+    <label for="cod" id="codLbl">Código NCM (8 dígitos)</label>
+    <div class="sugg">
+      <input id="cod" inputmode="numeric" maxlength="8" placeholder="Ex.: 84713012" aria-autocomplete="list" aria-controls="sl">
+      <ul id="sl" role="listbox" hidden></ul>
+    </div>
+    <div class="hint" id="codHint">O NCM está na nota fiscal de compra ou no cadastro do item no seu ERP. Digite o início do código para ver sugestões.</div>
+    <div id="codInfo" aria-live="polite"></div>
+
+    <div class="row">
+      <div><label for="dt">Data da operação</label><input id="dt" type="date" min="2026-01-01" max="2033-12-31"></div>
+      <div><label for="val">Valor do item (R$)</label><input id="val" inputmode="decimal" placeholder="Ex.: 5.000,00"></div>
+    </div>
+    <div class="row">
+      <div><label for="uf">UF do destino</label><select id="uf"><option value="">Carregando…</option></select></div>
+      <div><label for="mun">Município</label><select id="mun" disabled><option value="">Escolha a UF</option></select></div>
+    </div>
+
+    <label for="enq">Enquadramento tributário</label>
+    <select id="enq"><option value="000|000001">Tributação integral (regra geral)</option></select>
+    <div class="hint">Na dúvida, mantenha a regra geral. Itens com redução ou isenção (como cesta básica) têm enquadramento próprio, e o motor valida se o código informado combina com ele.</div>
+
+    <div id="prem" hidden>
+      <div class="info warn">A partir de 2027 as alíquotas precisam ser informadas. Os valores abaixo são <b>premissas de simulação</b> (as do exemplo da Receita), e não alíquotas definitivas: a CBS de 2027 ainda depende de definição.</div>
+      <div class="row3">
+        <div><label for="pcbs">CBS (%)</label><input id="pcbs" inputmode="decimal" value="8,8"></div>
+        <div><label for="pibs">IBS estadual (%)</label><input id="pibs" inputmode="decimal" value="0,05"></div>
+        <div><label for="pmun">IBS municipal (%)</label><input id="pmun" inputmode="decimal" value="0,05"></div>
+      </div>
+    </div>
+
+    <button class="btn" id="go" type="submit">Calcular</button>
+  </form>
+
+  <section class="card" id="res" aria-live="polite">
+    <h2>Resultado</h2>
+    <p class="empty" id="empty">Preencha os dados do item e clique em Calcular. O resultado aparece aqui, com a memória de cálculo.</p>
+    <div id="out" hidden></div>
+  </section>
+</main>
+
+<div class="legal">
+  Simulação informativa feita com o motor de cálculo de código aberto da Receita Federal (licença MIT), versão <span id="ver">…</span>. Esta página não é a calculadora oficial da Receita e não substitui a orientação de contador ou advogado tributarista. Os valores digitados são enviados apenas para o cálculo e não são armazenados.
+</div>
+<footer class="foot">© Optaris do Brasil · <a href="/gestao-de-compras-e-fornecedores/">Gestão de compras e fornecedores</a> · <a href="https://github.com/ReceitaFederal" rel="noopener">Código da Receita Federal</a></footer>
+
+<script>
+(function(){
+'use strict';
+// Endereço do proxy do motor. Para testes, defina window.CALC_API_BASE antes deste script.
+var API = window.CALC_API_BASE || 'https://calculadora-rtc-proxy-ocqi7adrrq-rj.a.run.app/api/calculadora';
+var $ = function(id){return document.getElementById(id);};
+var BRL = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+var state = {tipo:'ncm', cod:'', ncmList:null, nbsList:null, loading:{}};
+
+function num(s){ s=String(s||'').trim(); if(!s) return NaN; if(s.indexOf(',')>-1) s=s.replace(/\./g,'').replace(',','.'); return Number(s); }
+function pct(s){ return Number(s).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:4})+'%'; }
+function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+function el(tag,text,cls){ var e=document.createElement(tag); if(text!=null) e.textContent=text; if(cls) e.className=cls; return e; }
+function get(path){ return fetch(API+path).then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(!r.ok){ var e=new Error(j.detail||j.erro||('HTTP '+r.status)); e.status=r.status; e.title=j.title; throw e; } return j; }); }); }
+function iso(){ return $('dt').value || new Date().toISOString().slice(0,10); }
+function note(box,text,cls){ box.textContent=''; if(text){ box.appendChild(el('div',text,'info '+(cls||''))); } }
+
+// ---- inicialização
+var today=new Date().toISOString().slice(0,10); $('dt').value=today;
+get('/dados-abertos/versao').then(function(v){ $('ver').textContent=v.versaoApp+' (base '+v.versaoDb+')'; }).catch(function(){ $('ver').textContent='indisponível'; });
+get('/dados-abertos/ufs').then(function(l){
+  var s=$('uf'); s.textContent=''; s.appendChild(new Option('Selecione',''));
+  l.sort(function(a,b){return a.sigla<b.sigla?-1:1;}).forEach(function(u){ s.appendChild(new Option(u.sigla+' — '+u.nome, u.sigla)); });
+}).catch(function(){ $('uf').textContent=''; $('uf').appendChild(new Option('Serviço indisponível no momento','')); });
+get('/dados-abertos/situacoes-tributarias/cbs-ibs?data='+today).then(function(l){
+  var s=$('enq'); var g=document.createElement('optgroup'); g.label='Outros enquadramentos';
+  l.forEach(function(c){ (c.classificacoesTributarias||[]).forEach(function(k){ if(k.codigo==='000001') return; g.appendChild(new Option(k.codigo+' — '+k.descricao.slice(0,90), c.codigo+'|'+k.codigo)); }); });
+  s.appendChild(g);
+}).catch(function(){});
+
+$('uf').addEventListener('change',function(){
+  var m=$('mun'); m.disabled=true; m.textContent=''; m.appendChild(new Option('Carregando…',''));
+  if(!this.value){ m.textContent=''; m.appendChild(new Option('Escolha a UF','')); return; }
+  get('/dados-abertos/ufs/municipios?siglaUf='+this.value).then(function(l){
+    m.textContent=''; m.appendChild(new Option('Selecione',''));
+    l.forEach(function(x){ m.appendChild(new Option(x.nome, x.codigo)); }); m.disabled=false;
+  }).catch(function(){ m.textContent=''; m.appendChild(new Option('Não foi possível carregar','')); });
+});
+function togglePrem(){ $('prem').hidden = !(iso() >= '2027-01-01'); }
+$('dt').addEventListener('change',togglePrem); togglePrem();
+
+// ---- tipo e código
+document.querySelectorAll('input[name=tipo]').forEach(function(r){ r.addEventListener('change',function(){
+  state.tipo=this.value; state.cod=''; $('cod').value=''; note($('codInfo'),''); hideS();
+  if(state.tipo==='ncm'){ $('codLbl').textContent='Código NCM (8 dígitos)'; $('cod').maxLength=8; $('cod').inputMode='numeric'; $('cod').placeholder='Ex.: 84713012'; $('codHint').textContent='O NCM está na nota fiscal de compra ou no cadastro do item no seu ERP. Digite o início do código para ver sugestões.'; }
+  else { $('codLbl').textContent='Serviço (código NBS ou nome)'; $('cod').maxLength=60; $('cod').inputMode='text'; $('cod').placeholder='Ex.: consultoria, 115012000'; $('codHint').textContent='Digite o nome do serviço ou o código NBS de 9 dígitos e escolha na lista.'; }
+});});
+function hideS(){ $('sl').hidden=true; $('sl').textContent=''; }
+function showS(items){
+  var ul=$('sl'); ul.textContent=''; if(!items.length){ ul.hidden=true; return; }
+  items.forEach(function(it){ var li=el('li'); li.setAttribute('role','option'); var b=el('b',it.codigo); li.appendChild(b); li.appendChild(document.createTextNode(' — '+it.descricao)); li.addEventListener('mousedown',function(e){ e.preventDefault(); pick(it.codigo); }); ul.appendChild(li); });
+  ul.hidden=false;
+}
+function load(kind){
+  if(state[kind+'List']) return Promise.resolve(state[kind+'List']);
+  if(state.loading[kind]) return state.loading[kind];
+  var p = kind==='ncm' ? get('/dados-abertos/ncm/vigentes?data='+iso()).then(function(l){ return l.map(function(x){return {codigo:x.ncm,descricao:x.descricao};}); }) : get('/dados-abertos/nbs/lista?data='+iso());
+  state.loading[kind]=p.then(function(l){ state[kind+'List']=l; return l; });
+  return state.loading[kind];
+}
+function pick(code){ $('cod').value=code; state.cod=code; hideS(); lookup(code); }
+function lookup(code){
+  var box=$('codInfo'); var ok = state.tipo==='ncm' ? /^\d{8}$/.test(code) : /^\d{9}$/.test(code); if(!ok){ note(box,''); return; }
+  get('/dados-abertos/'+state.tipo+'?'+state.tipo+'='+code+'&data='+iso()).then(function(r){
+    var parts=[r.capitulo,r.posicao,r.subposicao,r.item,r.subitem].filter(Boolean);
+    var t=parts.length? parts[parts.length-1] : ''; var path=parts.slice(0,2).join(' › ');
+    note(box,'Item encontrado: '+(t||path)+(path&&t?' (em: '+path+')':''));
+    if(r.tributadoPeloImpostoSeletivo){ box.appendChild(el('div','Este item também está sujeito ao Imposto Seletivo, que esta simulação não calcula.','info warn')); }
+  }).catch(function(e){ note(box, state.tipo.toUpperCase()+' não encontrado ou fora de vigência na data escolhida.','err'); });
+}
+$('cod').addEventListener('input',function(){
+  var v=this.value;
+  if(state.tipo==='ncm'){ v=v.replace(/\D/g,''); this.value=v; state.cod=v; note($('codInfo'),'');
+    if(v.length===8){ hideS(); lookup(v); }
+    else if(v.length>=2){ load('ncm').then(function(l){ showS(l.filter(function(x){return x.codigo.indexOf(v)===0;}).slice(0,8)); }).catch(function(){}); } else hideS();
+  } else {
+    state.cod=v.trim(); note($('codInfo'),'');
+    if(/^\d{9}$/.test(v.trim())){ hideS(); lookup(v.trim()); return; }
+    var q=norm(v).split(/\s+/).filter(Boolean);
+    if(q.join('').length<3){ hideS(); return; }
+    load('nbs').then(function(l){ showS(l.filter(function(x){ var d=norm(x.descricao)+' '+x.codigo; return q.every(function(w){return d.indexOf(w)>-1;}); }).slice(0,8)); }).catch(function(){});
+  }
+});
+$('cod').addEventListener('blur',function(){ setTimeout(hideS,150); });
+
+// ---- cálculo
+function showErr(msg){ var o=$('out'); o.hidden=false; $('empty').hidden=true; o.textContent=''; o.appendChild(el('div',msg,'info err')); }
+$('f').addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var cod=state.cod, valor=num($('val').value), uf=$('uf').value, mun=$('mun').value, enq=$('enq').value.split('|');
+  var okCod = state.tipo==='ncm' ? /^\d{8}$/.test(cod) : /^\d{9}$/.test(cod);
+  if(!okCod){ return showErr(state.tipo==='ncm' ? 'Informe um NCM de 8 dígitos.' : 'Escolha um serviço na lista ou informe o código NBS de 9 dígitos.'); }
+  if(!(valor>0)){ return showErr('Informe o valor do item.'); }
+  if(!uf||!mun){ return showErr('Escolha a UF e o município de destino.'); }
+  var data=iso(), item={numero:1,cst:enq[0],cClassTrib:enq[1],baseCalculo:Math.round(valor*100)/100};
+  item[state.tipo]=cod;
+  if(data>='2027-01-01'){
+    var c=num($('pcbs').value), a=num($('pibs').value), m=num($('pmun').value);
+    if([c,a,m].some(function(x){return !(x>=0);})){ return showErr('Revise as alíquotas informadas.'); }
+    item.aliquotasNominais={cbs:c,ibsEstadual:a,ibsMunicipal:m};
+  }
+  var id=(window.crypto&&crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2)).replace(/-/g,'').slice(0,32);
+  var body={id:id,versao:'1.0.0',dhFatoGerador:data+'T12:00:00-03:00',municipio:Number(mun),uf:uf,itens:[item]};
+  var btn=$('go'); btn.disabled=true; btn.textContent='Calculando…';
+  fetch(API+'/regime-geral',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+   .then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ return {ok:r.ok,status:r.status,j:j}; }); })
+   .then(function(x){
+     if(!x.ok){
+       var t=x.j.title||''; var d=x.j.detail||x.j.erro||'Não foi possível calcular.';
+       if(x.status===429) d='Muitas consultas seguidas. Aguarde um minuto e tente de novo.';
+       if(/vinculada/i.test(t)) d+=' Use a regra geral (tributação integral) ou outro enquadramento compatível com este código.';
+       return showErr(d);
+     }
+     render(x.j,valor,data);
+     if(window.gtag) gtag('event','calculadora_cbs_ibs',{tipo:state.tipo});
+   }).catch(function(){ showErr('Serviço de cálculo indisponível no momento. Tente novamente em instantes.'); })
+   .then(function(){ btn.disabled=false; btn.textContent='Calcular'; });
+});
+
+function render(j,valor,data){
+  var it=(j.objetos||[])[0]; var out=$('out'); out.hidden=false; $('empty').hidden=true; out.textContent='';
+  if(!it){ return showErr('Resposta inesperada do motor de cálculo.'); }
+  if(it.erros&&it.erros.length){ return showErr(it.erros.map(function(e){return e.detail||e.title;}).join(' ')); }
+  var g=it.tribCalc&&it.tribCalc.IBSCBS&&it.tribCalc.IBSCBS.gIBSCBS;
+  if(!g){ return showErr('O motor não retornou valores de CBS/IBS para este item.'); }
+  var vBC=Number(g.vBC), cbs=Number((g.gCBS||{}).vCBS||0), uf=Number((g.gIBSUF||{}).vIBSUF||0), mu=Number((g.gIBSMun||{}).vIBSMun||0), ibs=Number(g.vIBS!=null?g.vIBS:uf+mu);
+  var tot=Math.round((cbs+ibs)*100)/100;
+  var h=el('h3',''); h.appendChild(document.createTextNode('Tributos sobre o item'));
+  var b=el('span', it.calculoSimulado?'Cálculo simulado':'Alíquotas de referência','badge'+(it.calculoSimulado?'':' ok')); h.appendChild(b); out.appendChild(h);
+  var t=el('div',null,'totals');
+  [['Total CBS + IBS',BRL.format(tot),true],['Sobre o valor do item', vBC? pct(tot/vBC*100):'—',false]].forEach(function(p){ var bx=el('div',null,'box'+(p[2]?' big':'')); bx.appendChild(el('small',p[0])); bx.appendChild(el('strong',p[1])); t.appendChild(bx); });
+  out.appendChild(t);
+  var tb=el('table'); var hd=el('tr'); ['Tributo','Alíquota','Valor'].forEach(function(x,i){ var th=el('th',x); if(i) th.className='n'; hd.appendChild(th); }); tb.appendChild(hd);
+  function row(name,grp,val){ if(!grp) return; var tr=el('tr'); tr.appendChild(el('td',name)); var red=grp.gRed&&grp.gRed.pRedAliq&&Number(grp.gRed.pRedAliq)>0?' (redução de '+Number(grp.gRed.pRedAliq).toLocaleString('pt-BR')+'%)':''; var p=grp.pCBS!=null?grp.pCBS:(grp.pIBSUF!=null?grp.pIBSUF:grp.pIBSMun); tr.appendChild(el('td',pct(p)+red,'n')); tr.appendChild(el('td',BRL.format(val),'n')); tb.appendChild(tr); }
+  row('CBS (União)',g.gCBS,cbs); row('IBS estadual',g.gIBSUF,uf); row('IBS municipal',g.gIBSMun,mu);
+  out.appendChild(tb);
+  var vt=el('p',null); vt.style.margin='12px 0 0'; vt.appendChild(document.createTextNode('Valor do item '+BRL.format(valor)+' + tributos '+BRL.format(tot)+' = ')); vt.appendChild(el('b',BRL.format(valor+tot))); out.appendChild(vt);
+  var dt=el('details'); dt.open=true; dt.appendChild(el('summary','Memória de cálculo e base legal'));
+  [['CBS',g.gCBS],['IBS estadual',g.gIBSUF],['IBS municipal',g.gIBSMun]].forEach(function(p){ if(p[1]&&p[1].memoriaCalculo){ var pp=el('p'); pp.appendChild(el('b',p[0]+': ')); pp.appendChild(document.createTextNode(p[1].memoriaCalculo)); dt.appendChild(pp); } });
+  out.appendChild(dt);
+  out.appendChild(el('div','Em regra, empresas no regime regular recuperam como crédito a CBS e o IBS pagos nas compras. Confirme o seu caso com o contador.','info'));
+  if(data<'2027-01-01') out.appendChild(el('div','Data em 2026 (fase de testes): o motor aplica as alíquotas de referência do período.','info'));
+  var pr=el('button','Imprimir ou salvar em PDF','noprint'); pr.type='button'; pr.style.cssText='margin-top:14px;background:none;border:1px solid #b6cfe8;border-radius:6px;padding:9px 14px;cursor:pointer;font-family:inherit;color:#02132d'; pr.addEventListener('click',function(){ window.print(); }); out.appendChild(pr);
+  var cta=el('div',null,'cta'); cta.appendChild(el('h3','Compras com controle do pedido ao pagamento'));
+  cta.appendChild(el('p','O Vendor Management da Deyel organiza cotação, pedido, nota fiscal, pagamento e homologação de fornecedores em um só fluxo.'));
+  [['Conhecer a solução','/gestao-de-compras-e-fornecedores/','p',false],['Agendar uma demonstração','https://calendly.com/paulocacciari/demo-plataforma-gestao-de-compras','s',true],['Falar pelo WhatsApp','https://wa.me/5511955700002?text='+encodeURIComponent('Olá! Usei a calculadora de CBS e IBS e quero conhecer o Vendor Management.'),'s',true]].forEach(function(l){ var a=el('a',l[0],l[2]); a.href=l[1]; if(l[3]){ a.target='_blank'; a.rel='noopener'; } a.addEventListener('click',function(){ if(window.gtag) gtag('event','calculadora_cta',{destino:l[0]}); }); cta.appendChild(a); });
+  out.appendChild(cta);
+  out.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+})();
+</script>
+</body>
+</html>
