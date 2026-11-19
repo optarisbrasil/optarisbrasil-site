@@ -369,6 +369,133 @@ body{overflow-x:clip}
   </div>
 </section>
 
+<section id="integracao-erp" data-screen-label="01b Integração com o ERP" data-noprint="" style="padding:30px 0;background:#fff;border-bottom:1px solid #e5e7eb">
+  <style>
+    .vx{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:18px 44px;flex-wrap:wrap}
+    .vx-t{flex:1 1 300px;max-width:430px}
+    .vx-c{flex:2 1 480px;display:flex;flex-wrap:wrap;gap:8px 10px}
+    .vx-chip{display:inline-flex;align-items:center;gap:8px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:8px 14px;font-family:Lato,sans-serif;font-weight:700;font-size:14px;line-height:1.2;color:#1f2a3d;white-space:nowrap}
+    .vx-chip i{width:8px;height:8px;border-radius:50%;flex:none}
+    .vx-chip.alt{background:#fff;border-style:dashed;color:#4a5568;font-weight:500;white-space:normal}
+  </style>
+  <div class="vx">
+    <div class="vx-t" data-reveal="">
+      <p style="font-family:Lato,sans-serif;font-weight:900;font-size:19px;line-height:1.25;color:#02132d;text-wrap:balance">Integrada ao ERP que a sua empresa já usa</p>
+      <p style="font-size:14px;color:#555;margin-top:6px;text-wrap:pretty">Pedidos, notas fiscais e pagamentos conversam com o ERP e a contabilidade, por API REST e SOAP.</p>
+    </div>
+    <div class="vx-c" data-reveal="" role="list" aria-label="Sistemas com os quais o Deyel Vendor Management se integra" style="transition-delay:.1s">
+      <span class="vx-chip" role="listitem"><i style="background:#0FAAFF"></i>SAP</span>
+      <span class="vx-chip" role="listitem"><i style="background:#1f8fff"></i>TOTVS</span>
+      <span class="vx-chip" role="listitem"><i style="background:#C74634"></i>Oracle</span>
+      <span class="vx-chip" role="listitem"><i style="background:#1b3a6b"></i>Oracle NetSuite</span>
+      <span class="vx-chip" role="listitem"><i style="background:#0067b8"></i>Dynamics 365</span>
+      <span class="vx-chip" role="listitem"><i style="background:#e30613"></i>Senior</span>
+      <span class="vx-chip" role="listitem"><i style="background:#00a859"></i>Sankhya</span>
+      <span class="vx-chip alt" role="listitem">e outros sistemas, por API</span>
+    </div>
+  </div>
+</section>
+
+<section id="videos" data-screen-label="01c Demo guiada e vídeos" style="position:relative;padding:clamp(64px,7vw,96px) 0;background:radial-gradient(ellipse at 72% 28%,#0b2a55 0%,#02132d 56%,#010a19 100%);color:#fff;overflow:hidden;scroll-margin-top:70px">
+  <style>
+    .vd-top{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,4.5vw,64px);align-items:center}
+    .vd-lap{padding:6px 0 26px}
+    .vd-bez{background:#1b2232;border-radius:14px 14px 0 0;padding:12px 12px 14px;border:1px solid rgba(255,255,255,.12);box-shadow:0 50px 90px -30px rgba(0,0,0,.75)}
+    .vd-scr{position:relative;display:block;aspect-ratio:16/10;border-radius:4px;overflow:hidden;background:#f4f8fd;color:inherit;text-decoration:none}
+    .vd-base{height:16px;margin:0 -6%;background:linear-gradient(180deg,#d3d8e0,#9aa2b1);border-radius:0 0 16px 16px}
+    .vd-ui{position:absolute;inset:0;display:flex;flex-direction:column}
+    .vd-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#02132d;color:#fff;font-size:11px;line-height:1.2}
+    .vd-bar i{width:8px;height:8px;border-radius:50%;background:#0496ff;flex:none}
+    .vd-bar u{margin-left:auto;width:16px;height:16px;border-radius:50%;background:#7cc4ff;opacity:.85}
+    .vd-body{flex:1;display:flex;min-height:0}
+    .vd-side{flex:0 0 34px;background:#fff;border-right:1px solid #e3eaf3;display:flex;flex-direction:column;align-items:center;gap:9px;padding:10px 0}
+    .vd-side i{width:14px;height:14px;border-radius:4px;background:#d5e3f2}
+    .vd-side i:first-child{background:#0496ff}
+    .vd-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding:10px 12px;background:#f4f8fd}
+    .vd-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:Lato,sans-serif;font-weight:900;font-size:11px;color:#02132d}
+    .vd-head em{font-style:normal;font-family:Roboto,sans-serif;font-weight:500;font-size:9px;background:#e6f3ff;color:#0068b4;border-radius:10px;padding:2px 8px}
+    .vd-cols{flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;min-height:0}
+    .vd-col{display:flex;flex-direction:column;gap:5px;background:#e8f0f9;border-radius:6px;padding:6px;min-width:0}
+    .vd-col b{font-family:Lato,sans-serif;font-weight:900;font-size:9.5px;color:#02132d;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .vd-cd{display:flex;flex-direction:column;gap:4px;background:#fff;border-radius:4px;padding:5px 6px;box-shadow:0 2px 6px rgba(2,19,45,.08)}
+    .vd-cd i{display:block;height:5px;width:86%;border-radius:3px;background:#cfe6ff}
+    .vd-cd i+i{width:60%;background:#eef1f5}
+    .vd-cd u{display:block;height:6px;width:24px;border-radius:3px;background:#0496ff;opacity:.9}
+    .vd-cd.o u{background:#f46b45}
+    .vd-cd.g u{background:#9aa6b8}
+    .vd-ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;background:rgba(2,19,45,.55);text-align:center;padding:12px;transition:background .25s}
+    .vd-scr:hover .vd-ov,.vd-scr:focus-visible .vd-ov{background:rgba(2,19,45,.38)}
+    .vd-pl{width:68px;height:68px;border-radius:50%;background:#0496ff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 10px rgba(4,150,255,.25);transition:transform .25s}
+    .vd-scr:hover .vd-pl{transform:scale(1.07)}
+    .vd-ot{font-family:Lato,sans-serif;font-weight:900;font-size:16px;line-height:1.2;color:#fff}
+    .vd-os{font-size:12px;line-height:1.3;color:#dfe6f0}
+    .vd-vid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
+    @media(max-width:900px){.vd-top{grid-template-columns:1fr}}
+    @media(max-width:560px){
+      .vd-side{display:none}
+      .vd-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .vd-col:nth-child(n+4){display:none}
+      .vd-pl{width:52px;height:52px;box-shadow:0 0 0 7px rgba(4,150,255,.25)}
+      .vd-pl svg{width:20px;height:20px}
+      .vd-os{font-size:11px}
+    }
+  </style>
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 200px rgba(0,0,0,.5)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:0 24px">
+    <div class="vd-top">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:14px">
+        <span style="color:#7cc4ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Demo guiada e vídeos</span>
+        <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#fff;text-wrap:balance">Veja o Deyel Vendor Management funcionando</h2>
+        <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">Abra a demo guiada para ver a solução na prática ou assista aos vídeos: a demo completa mostra a solução de ponta a ponta; a versão curta resume a jornada do comprador.</p>
+        <a href="https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:6px;display:inline-flex;align-items:center;gap:10px;background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:14px 24px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#007bff;color:#fff">Abrir a demo guiada<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+        <a href="#assistir" style="align-self:flex-start;color:#7cc4ff;font-size:15px;text-decoration:none" style-hover="color:#fff">Prefere assistir? Veja os vídeos ↓</a>
+      </div>
+      <div class="vd-lap" data-reveal="" style="transition-delay:.12s">
+        <div class="vd-bez">
+          <a class="vd-scr" href="https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4" target="_blank" rel="noopener" aria-label="Abrir demo guiada em nova aba">
+            <span class="vd-ui" aria-hidden="true">
+              <span class="vd-bar"><i></i>Portal de Compras · Deyel Vendor Management<u></u></span>
+              <span class="vd-body">
+                <span class="vd-side"><i></i><i></i><i></i><i></i><i></i></span>
+                <span class="vd-main">
+                  <span class="vd-head">Processos de compra<em>Em andamento</em></span>
+                  <span class="vd-cols">
+                    <span class="vd-col"><b>Requisição</b><span class="vd-cd"><i></i><i></i><u></u></span><span class="vd-cd o"><i></i><i></i><u></u></span><span class="vd-cd g"><i></i><i></i><u></u></span></span>
+                    <span class="vd-col"><b>Cotação</b><span class="vd-cd"><i></i><i></i><u></u></span><span class="vd-cd"><i></i><i></i><u></u></span></span>
+                    <span class="vd-col"><b>Aprovação</b><span class="vd-cd o"><i></i><i></i><u></u></span><span class="vd-cd"><i></i><i></i><u></u></span><span class="vd-cd g"><i></i><i></i><u></u></span></span>
+                    <span class="vd-col"><b>Pedido</b><span class="vd-cd"><i></i><i></i><u></u></span><span class="vd-cd g"><i></i><i></i><u></u></span></span>
+                    <span class="vd-col"><b>Pagamento</b><span class="vd-cd g"><i></i><i></i><u></u></span><span class="vd-cd"><i></i><i></i><u></u></span></span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <span class="vd-ov">
+              <span class="vd-pl"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 16 16 8M9 8h7v7" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+              <span class="vd-ot">Abrir demo guiada</span>
+              <span class="vd-os">Abre em nova aba · pede seu e-mail</span>
+            </span>
+          </a>
+        </div>
+        <div class="vd-base"></div>
+      </div>
+    </div>
+    <h3 id="assistir" data-reveal="" style="scroll-margin-top:90px;margin:64px 0 16px;font-size:15px;font-weight:500;color:#9fd4ff;text-transform:uppercase;letter-spacing:.06em">Vídeos</h3>
+    <div class="vd-vid">
+      <div data-reveal="" style="transition-delay:0.0s;display:flex;flex-direction:column;gap:12px">
+        <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)"><iframe src="https://www.youtube-nocookie.com/embed/_H-JTQysDxo?rel=0" title="Deyel Vendor Management: a demo completa" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>
+        <h3 style="font-size:19px;font-weight:900;color:#fff">Deyel Vendor Management: a demo completa</h3>
+        <p style="font-size:15px;color:#c7d3e3">17 min · a solução ponta a ponta, da solicitação ao pagamento</p>
+      </div>
+      <div data-reveal="" style="transition-delay:0.1s;display:flex;flex-direction:column;gap:12px">
+        <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)"><iframe src="https://www.youtube-nocookie.com/embed/s-B8QkGytHI?rel=0" title="Gestor de compras: do pedido ao pagamento com agentes de IA" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>
+        <h3 style="font-size:19px;font-weight:900;color:#fff">Gestor de compras: do pedido ao pagamento com agentes de IA</h3>
+        <p style="font-size:15px;color:#c7d3e3">1 min 22 · a jornada do comprador em resumo</p>
+      </div>
+    </div>
+    <p data-reveal="" style="margin-top:32px;font-size:15px;color:#c7d3e3">Mais vídeos no <a href="https://www.youtube.com/@deyelbrasil" target="_blank" rel="noopener" style="color:#7cc4ff">canal Deyel Brasil no YouTube</a>.</p>
+  </div>
+</section>
+
 <section id="o-que-resolvemos" data-screen-label="02 O que resolvemos" style="padding:100px 0;background:linear-gradient(180deg,#f4f8fd 0%,#fff 100%)">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;margin-bottom:44px;max-width:800px">
@@ -455,21 +582,90 @@ body{overflow-x:clip}
       <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Da solicitação ao pagamento, no mesmo sistema</h2>
       <p style="font-size:16px;color:#555;text-wrap:pretty">O Deyel Vendor Management une S2P e SRM: controla cada etapa da compra e, ao mesmo tempo, a homologação e a gestão dos fornecedores, conversando com os sistemas que a empresa já usa.</p>
     </div>
-    <h3 data-reveal="" style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Source-to-pay: a jornada da compra</h3>
-    <ol data-reveal="" style="list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:10px;margin:0 0 44px;padding:0">
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Solicitação</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Autorização</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Controle de estoque</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">4</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Compras</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">5</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Cotação</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">6</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Concorrência</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">7</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Mapa de compras</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">8</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Pedido</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">9</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Faturamento</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">10</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Recepção do produto</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">11</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Recebimento da nota fiscal</span></li>
-      <li style="display:flex;align-items:center;gap:10px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:10px 12px"><span style="flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">12</span><span style="font-size:14px;font-weight:500;color:#02132d;line-height:1.25">Pagamento</span></li>
-    </ol>
+    <h3 data-reveal="" style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Source-to-pay: a jornada da compra</h3>
+    <p data-reveal="" style="font-size:15px;color:#555;max-width:760px;margin-bottom:22px;text-wrap:pretty">Doze etapas em quatro momentos, do pedido ao pagamento. Sob elas, o que as sustenta: uma base única de fornecedores, indicadores e IA, e a ligação com o ERP.</p>
+    <style>
+      .vf{display:flex;flex-direction:column;gap:14px;margin:0 0 48px}
+      .vf-sup{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;background:#fff;border:1.5px dashed #f46b45;border-radius:14px;padding:12px 16px}
+      .vf-sup>b{display:inline-flex;align-items:center;gap:9px;font-family:Lato,sans-serif;font-weight:900;font-size:15px;line-height:1.2;color:#02132d}
+      .vf-sup>b svg{color:#f46b45;flex:none}
+      .vf-sup>span{display:inline-flex;align-items:center;background:#fff1ec;border-radius:999px;padding:5px 12px;font-size:13.5px;font-weight:500;line-height:1.2;color:#8a3a1c}
+      .vf-ex{display:flex;justify-content:center;margin:-2px 0;color:#f46b45}
+      .vf-ph{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
+      .vf-card{position:relative;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px}
+      .vf-card:not(:last-child)::after{content:"";position:absolute;top:50%;right:-19px;width:11px;height:11px;border-top:3px solid #0496ff;border-right:3px solid #0496ff;border-radius:1px;transform:translateY(-50%) rotate(45deg)}
+      .vf-hd{display:flex;align-items:center;gap:11px}
+      .vf-ic{flex:none;width:38px;height:38px;border-radius:11px;background:#0496ff;color:#fff;display:flex;align-items:center;justify-content:center}
+      .vf-hd small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#0496ff;line-height:1.2}
+      .vf-hd b{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:17px;line-height:1.2;color:#02132d}
+      .vf-st{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+      .vf-st li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #dbe6f3;border-radius:10px;padding:9px 11px;font-size:14px;font-weight:500;color:#02132d;line-height:1.25}
+      .vf-st li i{flex:none;width:26px;height:26px;border-radius:50%;background:#0496ff;color:#fff;font-style:normal;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+      .vf-ly{display:flex;align-items:center;flex-wrap:wrap;gap:12px 22px;border-radius:14px;padding:14px 18px}
+      .vf-lt{flex:0 0 250px;display:flex;align-items:center;gap:12px}
+      .vf-li{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+      .vf-lt b{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:16px;line-height:1.2}
+      .vf-lt small{display:block;font-size:13px;line-height:1.35;margin-top:2px}
+      .vf-ch{flex:1 1 360px;display:flex;flex-wrap:wrap;gap:8px}
+      .vf-ch span{border-radius:8px;padding:6px 11px;font-size:13.5px;font-weight:500;line-height:1.25}
+      .vf-srm{background:#e6f3ff;border:1px solid #b9dcfb}
+      .vf-srm .vf-li{background:#0496ff;color:#fff}
+      .vf-srm b{color:#02132d}.vf-srm small{color:#3d5a78}
+      .vf-srm .vf-ch span{background:#fff;border:1px solid #b9dcfb;color:#02132d}
+      .vf-ia{background:#f1edfb;border:1px solid #d9cff3}
+      .vf-ia .vf-li{background:#5b3fc4;color:#fff}
+      .vf-ia b{color:#02132d}.vf-ia small{color:#58497d}
+      .vf-ia .vf-ch span{background:#fff;border:1px solid #d9cff3;color:#02132d}
+      .vf-int{background:#02132d;border:1px solid #02132d}
+      .vf-int .vf-li{background:rgba(255,255,255,.14);color:#7cc4ff}
+      .vf-int b{color:#fff}.vf-int small{color:#a9b8cc}
+      .vf-int .vf-ch span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff}
+      @media(max-width:1000px){.vf-ph{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.vf-card:not(:last-child)::after{display:none}}
+      @media(max-width:620px){
+        .vf-ph{grid-template-columns:1fr;gap:30px}
+        .vf-card:not(:last-child)::after{display:block;top:auto;bottom:-21px;right:auto;left:50%;transform:translateX(-50%) rotate(135deg)}
+        .vf-lt{flex:1 1 100%}
+        .vf-st li{font-size:15px}
+        .vf-ch span{font-size:14px}
+      }
+    </style>
+    <div class="vf" data-reveal="" role="group" aria-label="Jornada da compra de ponta a ponta, com o que a sustenta: gestão de fornecedores, indicadores e IA, e integração com o ERP">
+      <div class="vf-sup">
+        <b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M5 21V8l7-4 7 4v13"></path><path d="M9 21v-5h6v5"></path><path d="M9 10h.01M12 10h.01M15 10h.01"></path></svg>Fornecedor, no portal próprio</b>
+        <span>atualiza seus dados</span><span>cadastra a proposta</span><span>acompanha os pedidos</span><span>envia as notas</span>
+      </div>
+      <div class="vf-ex" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v16M8 4 4 8M8 4l4 4"></path><path d="M16 20V4M16 20l-4-4M16 20l4-4"></path></svg></div>
+      <div class="vf-ph">
+        <div class="vf-card">
+          <div class="vf-hd"><span class="vf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg></span><span><small>Etapas 1 a 3</small><b>Pedir e autorizar</b></span></div>
+          <ol class="vf-st"><li><i>1</i>Solicitação</li><li><i>2</i>Autorização</li><li><i>3</i>Controle de estoque</li></ol>
+        </div>
+        <div class="vf-card">
+          <div class="vf-hd"><span class="vf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg></span><span><small>Etapas 4 a 6</small><b>Cotar e concorrer</b></span></div>
+          <ol class="vf-st" start="4"><li><i>4</i>Compras</li><li><i>5</i>Cotação</li><li><i>6</i>Concorrência</li></ol>
+        </div>
+        <div class="vf-card">
+          <div class="vf-hd"><span class="vf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><path d="M14 2v6h6"></path><path d="M16 13H8M16 17H8M10 9H8"></path></svg></span><span><small>Etapas 7 a 9</small><b>Decidir e pedir</b></span></div>
+          <ol class="vf-st" start="7"><li><i>7</i>Mapa de compras</li><li><i>8</i>Pedido</li><li><i>9</i>Faturamento</li></ol>
+        </div>
+        <div class="vf-card">
+          <div class="vf-hd"><span class="vf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg></span><span><small>Etapas 10 a 12</small><b>Receber e pagar</b></span></div>
+          <ol class="vf-st" start="10"><li><i>10</i>Recepção do produto</li><li><i>11</i>Recebimento da nota fiscal</li><li><i>12</i>Pagamento</li></ol>
+        </div>
+      </div>
+      <div class="vf-ly vf-srm">
+        <div class="vf-lt"><span class="vf-li"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span><b>SRM: gestão de fornecedores</b><small>Uma base única de fornecedores, com risco e contratos</small></span></div>
+        <div class="vf-ch"><span>Cadastro e homologação</span><span>Avaliação e seleção</span><span>Riscos e conformidade</span><span>Contratos: geração, assinatura e gestão</span></div>
+      </div>
+      <div class="vf-ly vf-ia">
+        <div class="vf-lt"><span class="vf-li"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5 C12.9 8.2 15.8 11.1 21.5 12 C15.8 12.9 12.9 15.8 12 21.5 C11.1 15.8 8.2 12.9 2.5 12 C8.2 11.1 11.1 8.2 12 2.5 Z"></path></svg></span><span><b>Indicadores e IA</b><small>Para decidir com dados, sem extração manual</small></span></div>
+        <div class="vf-ch"><span>Painel de KPIs e savings</span><span>Relatórios por critério</span><span>VendorBot, em linguagem natural</span><span>Busca ativa de fornecedores</span><span>Agentes de IA opcionais</span></div>
+      </div>
+      <div class="vf-ly vf-int">
+        <div class="vf-lt"><span class="vf-li"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4"></path><path d="M4 7h16"></path><path d="m16 21 4-4-4-4"></path><path d="M20 17H4"></path></svg></span><span><b>Integração com o que você já tem</b><small>Por API REST e SOAP</small></span></div>
+        <div class="vf-ch"><span>ERP</span><span>Contabilidade</span><span>CRM</span><span>Logística</span></div>
+      </div>
+    </div>
     <h3 data-reveal="" style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Em detalhe: S2P e SRM</h3>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px">
       <div data-reveal="" style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
@@ -516,29 +712,7 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section id="videos" data-screen-label="04b Vídeos" style="padding:100px 0;background:#02132d;color:#fff;scroll-margin-top:70px">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;margin-bottom:44px;max-width:800px">
-      <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Demo guiada e vídeos</span>
-      <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#fff;text-wrap:balance">Veja o Deyel Vendor Management funcionando</h2>
-      <p style="font-size:16px;color:#c7d3e3;text-wrap:pretty">Abra a demo guiada para ver a solução na prática ou assista aos vídeos: a demo completa mostra a solução de ponta a ponta; a versão curta resume a jornada do comprador.</p>
-      <a href="https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:6px;background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:13px 24px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#007bff;color:#fff">Abrir a demo guiada</a>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px">
-      <div data-reveal="" style="transition-delay:0.0s;display:flex;flex-direction:column;gap:12px">
-        <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)"><iframe src="https://www.youtube-nocookie.com/embed/_H-JTQysDxo?rel=0" title="Deyel Vendor Management: a demo completa" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>
-        <h3 style="font-size:19px;font-weight:900;color:#fff">Deyel Vendor Management: a demo completa</h3>
-        <p style="font-size:15px;color:#c7d3e3">17 min · a solução ponta a ponta, da solicitação ao pagamento</p>
-      </div>
-      <div data-reveal="" style="transition-delay:0.1s;display:flex;flex-direction:column;gap:12px">
-        <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)"><iframe src="https://www.youtube-nocookie.com/embed/s-B8QkGytHI?rel=0" title="Gestor de compras: do pedido ao pagamento com agentes de IA" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>
-        <h3 style="font-size:19px;font-weight:900;color:#fff">Gestor de compras: do pedido ao pagamento com agentes de IA</h3>
-        <p style="font-size:15px;color:#c7d3e3">1 min 22 · a jornada do comprador em resumo</p>
-      </div>
-    </div>
-    <p data-reveal="" style="margin-top:32px;font-size:15px;color:#c7d3e3">Mais vídeos no <a href="https://www.youtube.com/@deyelbrasil" target="_blank" rel="noopener" style="color:#7cc4ff">canal Deyel Brasil no YouTube</a>.</p>
-  </div>
-</section>
+
 
 <section id="implantacao" data-screen-label="05 Implantação" style="padding:100px 0;background:#f4f8fd;border-top:1px solid #e5e7eb">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
@@ -546,6 +720,50 @@ body{overflow-x:clip}
       <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Implantação</span>
       <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Um sistema que se adapta à sua empresa, não o contrário</h2>
       <p style="font-size:16px;color:#555;text-wrap:pretty">O Deyel Vendor Management é construído sobre a plataforma Deyel: o que precisar mudar depois muda sem reescrever o sistema.</p>
+    </div>
+    <h3 data-reveal="" style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Por dentro: as camadas</h3>
+    <p data-reveal="" style="font-size:15px;color:#555;max-width:760px;margin-bottom:22px;text-wrap:pretty">De quem usa até a infraestrutura. Como o Vendor roda sobre a plataforma Deyel, fluxos, alçadas e integrações mudam na plataforma, sem reescrever o produto.</p>
+    <style>
+      .vs{display:flex;flex-direction:column;gap:10px;margin:0 0 44px;padding:20px;border-radius:20px;background:radial-gradient(ellipse at 88% 0%,rgba(161,35,143,.30),transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(4,150,255,.34),transparent 55%),#02132d;color:#fff;box-shadow:0 30px 60px -34px rgba(2,19,45,.7)}
+      .vs-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px;border-radius:12px;padding:14px 16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16)}
+      .vs-lb{flex:0 0 250px;display:flex;align-items:center;gap:12px}
+      .vs-ic{flex:none;width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.12);color:#7cc4ff;display:flex;align-items:center;justify-content:center}
+      .vs-lb b{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:16px;line-height:1.2;color:#fff}
+      .vs-lb small{display:block;font-size:13px;line-height:1.35;color:#b4c3d8;margin-top:2px}
+      .vs-ch{flex:1 1 360px;display:flex;flex-wrap:wrap;gap:8px}
+      .vs-ch span,.vs-ch a{display:inline-flex;align-items:center;gap:7px;border-radius:8px;padding:6px 11px;font-size:13.5px;font-weight:500;line-height:1.25;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;text-decoration:none}
+      .vs-ch a{border-color:#7cc4ff;color:#7cc4ff}
+      .vs-ch a:hover{background:rgba(124,196,255,.16);color:#fff}
+      .vs-ch .ai{border-color:#f46b45;background:rgba(244,107,69,.14)}
+      .vs-ch .ai svg{color:#f46b45;flex:none}
+      .vs-vm{background:linear-gradient(100deg,#0496ff 0%,#5b3fc4 100%);border-color:transparent}
+      .vs-vm .vs-ic{background:rgba(255,255,255,.2);color:#fff}
+      .vs-vm .vs-lb small{color:#e3ecff}
+      .vs-vm .vs-ch span{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.34)}
+      .vs-pl{background:rgba(124,196,255,.10);border-color:rgba(124,196,255,.42)}
+      @media(max-width:620px){.vs{padding:14px}.vs-lb{flex:1 1 100%}.vs-ch span,.vs-ch a{font-size:14px}}
+    </style>
+    <div class="vs" data-reveal="" role="group" aria-label="Camadas do Deyel Vendor Management, de quem usa até a infraestrutura">
+      <div class="vs-row">
+        <div class="vs-lb"><span class="vs-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span><b>Quem usa</b><small>Web, Android e iOS</small></span></div>
+        <div class="vs-ch"><span>Solicitantes e aprovadores</span><span>Compras e suprimentos</span><span>Almoxarifado e recebimento</span><span>Finanças e contas a pagar</span><span>Jurídico e contratos</span><span>Risco e compliance</span><span>Fornecedores, no portal próprio</span></div>
+      </div>
+      <div class="vs-row vs-vm">
+        <div class="vs-lb"><span class="vs-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg></span><span><b>Deyel Vendor Management</b><small>S2P + SRM: 80% pronto, 20% do seu jeito</small></span></div>
+        <div class="vs-ch"><span>Solicitação e autorização</span><span>Cotação e mapa de compras</span><span>Pedido, nota fiscal e pagamento</span><span>Cadastro e homologação</span><span>Contratos</span><span>Indicadores</span><span>IA aplicada a compras</span></div>
+      </div>
+      <div class="vs-row vs-pl">
+        <div class="vs-lb"><span class="vs-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5-9 5-9-5 9-5Z"></path><path d="m3 12 9 5 9-5"></path><path d="m3 17 9 5 9-5"></path></svg></span><span><b>Plataforma Deyel</b><small>A base sobre a qual o Vendor foi construído</small></span></div>
+        <div class="vs-ch"><span>Processos</span><span>Regras de negócio</span><span>Entidades e dados</span><span>Páginas</span><span>APIs</span><span class="ai"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5 C12.9 8.2 15.8 11.1 21.5 12 C15.8 12.9 12.9 15.8 12 21.5 C11.1 15.8 8.2 12.9 2.5 12 C8.2 11.1 11.1 8.2 12 2.5 Z"></path></svg>AI Runtime e AI Governance</span></div>
+      </div>
+      <div class="vs-row">
+        <div class="vs-lb"><span class="vs-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4"></path><path d="M4 7h16"></path><path d="m16 21 4-4-4-4"></path><path d="M20 17H4"></path></svg></span><span><b>Integração</b><small>Conectores e APIs REST e SOAP</small></span></div>
+        <div class="vs-ch"><span>ERP: SAP, TOTVS, Oracle, Dynamics 365, Senior, Sankhya</span><span>Contabilidade</span><span>CRM</span><span>Logística</span></div>
+      </div>
+      <div class="vs-row">
+        <div class="vs-lb"><span class="vs-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8 4.5 5.6v5.6c0 4.7 3.2 8.6 7.5 10 4.3-1.4 7.5-5.3 7.5-10V5.6Z"></path><path d="m8.8 12 2.2 2.2 4.4-4.4"></path></svg></span><span><b>Infraestrutura e segurança</b><small>Nuvem gerenciada pela Optaris</small></span></div>
+        <div class="vs-ch"><span>Perfis e permissões</span><span>Login único (SSO)</span><span>Trilha de auditoria</span><a href="/seguranca/">Ver infraestrutura e segurança →</a></div>
+      </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px">
       <div data-reveal="" style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #5b3fc4">
