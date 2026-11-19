@@ -221,7 +221,7 @@ function lookup(code){
   var box=$('codInfo'); var ok = state.tipo==='ncm' ? /^\d{8}$/.test(code) : /^\d{9}$/.test(code); if(!ok){ note(box,''); return; }
   get('/dados-abertos/'+state.tipo+'?'+state.tipo+'='+code+'&data='+iso()).then(function(r){
     var parts=[r.capitulo,r.posicao,r.subposicao,r.item,r.subitem].filter(Boolean).map(clean);
-    var t=parts.length? parts[parts.length-1] : ''; var path=parts.slice(0,2).join(' › ');
+    var t=parts.length? parts[parts.length-1] : ''; var path=parts.slice(0,2).join(' › '); if(path.length>110) path=path.slice(0,107)+'…';
     note(box,'Item encontrado: '+(t||path)+(path&&t?' (em: '+path+')':''));
     if(r.tributadoPeloImpostoSeletivo){ box.appendChild(el('div','Este item também está sujeito ao Imposto Seletivo, que esta simulação não calcula.','info warn')); }
   }).catch(function(e){ note(box, state.tipo.toUpperCase()+' não encontrado ou fora de vigência na data escolhida.','err'); });
