@@ -166,6 +166,7 @@ var state = {tipo:'ncm', cod:'', ncmList:null, nbsList:null, loading:{}};
 
 function num(s){ s=String(s||'').trim(); if(!s) return NaN; if(s.indexOf(',')>-1) s=s.replace(/\./g,'').replace(',','.'); return Number(s); }
 function pct(s){ return Number(s).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:4})+'%'; }
+function clean(s){ return String(s==null?'':s).replace(/<sup>\s*2\s*<\/sup>/gi,'²').replace(/<sup>\s*3\s*<\/sup>/gi,'³').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim(); }
 function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
 function el(tag,text,cls){ var e=document.createElement(tag); if(text!=null) e.textContent=text; if(cls) e.className=cls; return e; }
 function get(path){ return fetch(API+path).then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(!r.ok){ var e=new Error(j.detail||j.erro||('HTTP '+r.status)); e.status=r.status; e.title=j.title; throw e; } return j; }); }); }
@@ -177,11 +178,11 @@ var today=new Date().toISOString().slice(0,10); $('dt').value=today;
 get('/dados-abertos/versao').then(function(v){ $('ver').textContent=v.versaoApp+' (base '+v.versaoDb+')'; }).catch(function(){ $('ver').textContent='indisponível'; });
 get('/dados-abertos/ufs').then(function(l){
   var s=$('uf'); s.textContent=''; s.appendChild(new Option('Selecione',''));
-  l.sort(function(a,b){return a.sigla<b.sigla?-1:1;}).forEach(function(u){ s.appendChild(new Option(u.sigla+' — '+u.nome, u.sigla)); });
+  l.filter(function(u){return u.sigla!=='EX';}).sort(function(a,b){return a.sigla<b.sigla?-1:1;}).forEach(function(u){ s.appendChild(new Option(u.sigla+' — '+u.nome, u.sigla)); });
 }).catch(function(){ $('uf').textContent=''; $('uf').appendChild(new Option('Serviço indisponível no momento','')); });
 get('/dados-abertos/situacoes-tributarias/cbs-ibs?data='+today).then(function(l){
   var s=$('enq'); var g=document.createElement('optgroup'); g.label='Outros enquadramentos';
-  l.forEach(function(c){ (c.classificacoesTributarias||[]).forEach(function(k){ if(k.codigo==='000001') return; g.appendChild(new Option(k.codigo+' — '+k.descricao.slice(0,90), c.codigo+'|'+k.codigo)); }); });
+  l.forEach(function(c){ (c.classificacoesTributarias||[]).forEach(function(k){ if(k.codigo==='000001') return; g.appendChild(new Option(k.codigo+' — '+clean(k.descricao).slice(0,90), c.codigo+'|'+k.codigo)); }); });
   s.appendChild(g);
 }).catch(function(){});
 
@@ -205,13 +206,13 @@ document.querySelectorAll('input[name=tipo]').forEach(function(r){ r.addEventLis
 function hideS(){ $('sl').hidden=true; $('sl').textContent=''; }
 function showS(items){
   var ul=$('sl'); ul.textContent=''; if(!items.length){ ul.hidden=true; return; }
-  items.forEach(function(it){ var li=el('li'); li.setAttribute('role','option'); var b=el('b',it.codigo); li.appendChild(b); li.appendChild(document.createTextNode(' — '+it.descricao)); li.addEventListener('mousedown',function(e){ e.preventDefault(); pick(it.codigo); }); ul.appendChild(li); });
+  items.forEach(function(it){ var li=el('li'); li.setAttribute('role','option'); var b=el('b',it.codigo); li.appendChild(b); li.appendChild(document.createTextNode(' — '+clean(it.descricao))); li.addEventListener('mousedown',function(e){ e.preventDefault(); pick(it.codigo); }); ul.appendChild(li); });
   ul.hidden=false;
 }
 function load(kind){
   if(state[kind+'List']) return Promise.resolve(state[kind+'List']);
   if(state.loading[kind]) return state.loading[kind];
-  var p = kind==='ncm' ? get('/dados-abertos/ncm/vigentes?data='+iso()).then(function(l){ return l.map(function(x){return {codigo:x.ncm,descricao:x.descricao};}); }) : get('/dados-abertos/nbs/lista?data='+iso());
+  var p = kind==='ncm' ? get('/dados-abertos/ncm/vigentes?data='+iso()).then(function(l){ return l.map(function(x){return {codigo:x.ncm,descricao:clean(x.descricao)};}); }) : get('/dados-abertos/nbs/lista?data='+iso());
   state.loading[kind]=p.then(function(l){ state[kind+'List']=l; return l; });
   return state.loading[kind];
 }
@@ -219,7 +220,7 @@ function pick(code){ $('cod').value=code; state.cod=code; hideS(); lookup(code);
 function lookup(code){
   var box=$('codInfo'); var ok = state.tipo==='ncm' ? /^\d{8}$/.test(code) : /^\d{9}$/.test(code); if(!ok){ note(box,''); return; }
   get('/dados-abertos/'+state.tipo+'?'+state.tipo+'='+code+'&data='+iso()).then(function(r){
-    var parts=[r.capitulo,r.posicao,r.subposicao,r.item,r.subitem].filter(Boolean);
+    var parts=[r.capitulo,r.posicao,r.subposicao,r.item,r.subitem].filter(Boolean).map(clean);
     var t=parts.length? parts[parts.length-1] : ''; var path=parts.slice(0,2).join(' › ');
     note(box,'Item encontrado: '+(t||path)+(path&&t?' (em: '+path+')':''));
     if(r.tributadoPeloImpostoSeletivo){ box.appendChild(el('div','Este item também está sujeito ao Imposto Seletivo, que esta simulação não calcula.','info warn')); }
@@ -235,7 +236,7 @@ $('cod').addEventListener('input',function(){
     if(/^\d{9}$/.test(v.trim())){ hideS(); lookup(v.trim()); return; }
     var q=norm(v).split(/\s+/).filter(Boolean);
     if(q.join('').length<3){ hideS(); return; }
-    load('nbs').then(function(l){ showS(l.filter(function(x){ var d=norm(x.descricao)+' '+x.codigo; return q.every(function(w){return d.indexOf(w)>-1;}); }).slice(0,8)); }).catch(function(){});
+    load('nbs').then(function(l){ showS(l.filter(function(x){ var d=norm(clean(x.descricao))+' '+x.codigo; return q.every(function(w){return d.indexOf(w)>-1;}); }).slice(0,8)); }).catch(function(){});
   }
 });
 $('cod').addEventListener('blur',function(){ setTimeout(hideS,150); });
