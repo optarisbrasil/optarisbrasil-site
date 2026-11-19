@@ -6,6 +6,8 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SPNFCFG29B');</script>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z33baql82n");</script>
+<!-- HubSpot tracking -->
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/45901870.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calculadora de CBS e IBS para compras | Optaris do Brasil</title>
@@ -85,10 +87,20 @@ details p{font-size:13.5px;margin:8px 0}
 .cta p{margin:0 0 12px;font-size:14.5px}
 .cta a{display:inline-block;margin:0 8px 8px 0;padding:10px 16px;border-radius:6px;text-decoration:none;font-weight:700;font-size:14px}
 .cta a.p{background:#0496ff;color:#fff}.cta a.s{background:#fff;color:#02132d;border:1px solid #b6cfe8}
+.cap{margin-top:20px;background:#f7fbff;border:1px solid #cfe0f5;border-radius:8px;padding:18px}
+.cap h3{font-size:18px;margin-bottom:6px}
+.cap p{margin:0 0 4px;font-size:14.5px}
+.cap input[type=email],.cap input[type=text]{font-size:16px}
+.cap .info{margin-top:12px}
+.cap .opt{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;font-weight:400;font-size:13.5px;color:#26384f;cursor:pointer}
+.cap .opt input{width:18px;height:18px;min-height:0;margin:2px 0 0;flex:0 0 18px}
+.cap .btn{margin-top:14px}
+.cap .fine{font-size:12.5px;color:#5b6675;margin:12px 0 0}
+.cap .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
 .legal{max-width:1120px;margin:0 auto;padding:0 20px 40px;font-size:12.5px;color:#5b6675}
 .foot{background:#02132d;color:#9fb4cf;font-size:13px;padding:22px 20px;text-align:center}
 .foot a{color:#cfe7ff}
-@media print{.top,.hero,form,.cta,.foot,.noprint{display:none!important}.wrap{display:block;margin:0}.card{box-shadow:none}}
+@media print{.top,.hero,form,.cta,.cap,.foot,.noprint{display:none!important}.wrap{display:block;margin:0}.card{box-shadow:none}}
 </style>
 </head>
 <body>
@@ -153,7 +165,7 @@ details p{font-size:13.5px;margin:8px 0}
 </main>
 
 <div class="legal">
-  Simulação informativa feita com o motor de cálculo de código aberto da Receita Federal (licença MIT), versão <span id="ver">…</span>. Esta página não é a calculadora oficial da Receita e não substitui a orientação de contador ou advogado tributarista. Os valores digitados são enviados apenas para o cálculo e não são armazenados.
+  Simulação informativa feita com o motor de cálculo de código aberto da Receita Federal (licença MIT), versão <span id="ver">…</span>. Esta página não é a calculadora oficial da Receita e não substitui a orientação de contador ou advogado tributarista. Os valores digitados são enviados ao motor apenas para o cálculo. Se você pedir a memória por e-mail, guardamos seu e-mail, cargo e os dados da simulação, conforme a <a href="https://br.deyel.com/privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>.
 </div>
 <footer class="foot">© Optaris do Brasil · <a href="/gestao-de-compras-e-fornecedores/">Gestão de compras e fornecedores</a> · <a href="https://github.com/ReceitaFederal" rel="noopener">Código da Receita Federal</a></footer>
 
@@ -164,7 +176,24 @@ details p{font-size:13.5px;margin:8px 0}
 var API = window.CALC_API_BASE || 'https://calculadora-rtc-proxy-ocqi7adrrq-rj.a.run.app/api/calculadora';
 var $ = function(id){return document.getElementById(id);};
 var BRL = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
-var state = {tipo:'ncm', cod:'', ncmList:null, nbsList:null, loading:{}};
+var state = {tipo:'ncm', cod:'', ncmList:null, nbsList:null, loading:{}, sim:null, reopened:false, banner:false, autoRun:false, capShown:false};
+
+// ---- captura (memória por e-mail) — formulário "Calculadora CBS e IBS — Memória de cálculo" no HubSpot
+var HS_PORTAL='45901870', HS_FORM='ee02fd0f-ece2-49be-b8e2-79162f129060';
+var SUB_ONE=336630888, SUB_MKT=336630886; // tipos de comunicação: One to One e Marketing Information
+var PRIV='https://br.deyel.com/privacidade/';
+var BASE_URL='https://www.optarisbrasil.com/calculadora-reforma-tributaria/';
+var TXT_CONSENT='Ao enviar, você concorda que a Optaris do Brasil armazene e processe seus dados para enviar a memória de cálculo e responder a este contato, conforme a LGPD e a Política de Privacidade.';
+var TXT_ONE='Quero receber, por e-mail, a memória de cálculo desta simulação.';
+var TXT_MKT='Quero receber conteúdo da Optaris e da Deyel sobre gestão de compras e a reforma tributária.';
+var MSG_CORP='Para receber por e-mail, use o e-mail da empresa. Você pode imprimir ou salvar esta página em PDF sem informar o e-mail.';
+var BLOCKED=['gmail','googlemail','hotmail','outlook','live','msn','yahoo','ymail','icloud','me.com','mac.com','aol','proton','protonmail','gmx','zoho','uol','bol','terra','ig.com.br','globo.com','globomail','r7','oi.com.br','yandex','mail.com'];
+function personal(em){ var d=(em.split('@')[1]||'').toLowerCase().trim(), label=d.split('.')[0]; return BLOCKED.some(function(b){ return b.indexOf('.')>-1 ? (d===b||d.slice(-(b.length+1))==='.'+b) : label===b; }); }
+// campanha: guarda os utm_* da sessão (a página do Vendor guarda os mesmos, para a visita que chega por lá)
+var utm=(function(){ try{ var q=new URLSearchParams(location.search), o={}, any=false; ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){ var v=q.get(k); if(v){ o[k]=v.slice(0,120); any=true; } }); if(any){ sessionStorage.setItem('ob_utm',JSON.stringify(o)); return o; } var s=sessionStorage.getItem('ob_utm'); return s?JSON.parse(s):{}; }catch(e){ return {}; } })();
+function dBR(d){ var p=d.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
+function simLink(s){ var q=['t='+s.tipo,'c='+s.cod,'v='+s.valor,'d='+s.data,'uf='+s.uf,'m='+s.mun,'e='+(s.enq==='000|000001'?'geral':s.enq.replace('|','-'))]; if(s.prem) q.push('pc='+s.prem[0],'pu='+s.prem[1],'pm='+s.prem[2]); return BASE_URL+'?'+q.join('&')+'&utm_medium=email&utm_campaign=calculadora-cbs-ibs'; }
+function simResumo(s){ var k=s.enq.split('|')[1]; return ((s.tipo==='ncm'?'produto NCM ':'serviço NBS ')+s.cod+', '+BRL.format(s.valor)+', '+(k==='000001'?'regime geral':'enquadramento '+k)+', '+s.munNome+'/'+s.uf+', operação em '+dBR(s.data)+'.').replace(/\u00a0/g,' '); }
 
 function num(s){ s=String(s||'').trim(); if(!s) return NaN; if(s.indexOf(',')>-1) s=s.replace(/\./g,'').replace(',','.'); return Number(s); }
 function pct(s){ return Number(s).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:4})+'%'; }
@@ -178,24 +207,29 @@ function note(box,text,cls){ box.textContent=''; if(text){ box.appendChild(el('d
 // ---- inicialização
 var today=new Date().toISOString().slice(0,10); $('dt').value=today;
 get('/dados-abertos/versao').then(function(v){ $('ver').textContent=v.versaoApp+' (base '+v.versaoDb+')'; }).catch(function(){ $('ver').textContent='indisponível'; });
-get('/dados-abertos/ufs').then(function(l){
+var ufsP=get('/dados-abertos/ufs').then(function(l){
   var s=$('uf'); s.textContent=''; s.appendChild(new Option('Selecione',''));
   l.filter(function(u){return u.sigla!=='EX';}).sort(function(a,b){return a.sigla<b.sigla?-1:1;}).forEach(function(u){ s.appendChild(new Option(u.sigla+' — '+u.nome, u.sigla)); });
-}).catch(function(){ $('uf').textContent=''; $('uf').appendChild(new Option('Serviço indisponível no momento','')); });
-get('/dados-abertos/situacoes-tributarias/cbs-ibs?data='+today).then(function(l){
+  return true;
+}).catch(function(){ $('uf').textContent=''; $('uf').appendChild(new Option('Serviço indisponível no momento','')); return false; });
+var enqP=get('/dados-abertos/situacoes-tributarias/cbs-ibs?data='+today).then(function(l){
   var s=$('enq'); var g=document.createElement('optgroup'); g.label='Outros enquadramentos';
   l.forEach(function(c){ (c.classificacoesTributarias||[]).forEach(function(k){ if(k.codigo==='000001') return; g.appendChild(new Option(k.codigo+' — '+clean(k.descricao).slice(0,90), c.codigo+'|'+k.codigo)); }); });
   s.appendChild(g);
-}).catch(function(){});
+  return true;
+}).catch(function(){ return false; });
 
-$('uf').addEventListener('change',function(){
+function loadMun(uf){
   var m=$('mun'); m.disabled=true; m.textContent=''; m.appendChild(new Option('Carregando…',''));
-  if(!this.value){ m.textContent=''; m.appendChild(new Option('Escolha a UF','')); return; }
-  get('/dados-abertos/ufs/municipios?siglaUf='+this.value).then(function(l){
+  if(!uf){ m.textContent=''; m.appendChild(new Option('Escolha a UF','')); return Promise.resolve(false); }
+  return get('/dados-abertos/ufs/municipios?siglaUf='+uf).then(function(l){
+    if($('uf').value!==uf) return false; // a UF mudou enquanto carregava
     m.textContent=''; m.appendChild(new Option('Selecione',''));
     l.forEach(function(x){ m.appendChild(new Option(x.nome, x.codigo)); }); m.disabled=false;
-  }).catch(function(){ m.textContent=''; m.appendChild(new Option('Não foi possível carregar','')); });
-});
+    return true;
+  }).catch(function(){ m.textContent=''; m.appendChild(new Option('Não foi possível carregar','')); return false; });
+}
+$('uf').addEventListener('change',function(){ loadMun(this.value); });
 function togglePrem(){ $('prem').hidden = !(iso() >= '2027-01-01'); }
 $('dt').addEventListener('change',togglePrem); togglePrem();
 
@@ -247,6 +281,8 @@ $('cod').addEventListener('blur',function(){ setTimeout(hideS,150); });
 function showErr(msg){ var o=$('out'); o.hidden=false; $('empty').hidden=true; o.textContent=''; o.appendChild(el('div',msg,'info err')); }
 $('f').addEventListener('submit',function(ev){
   ev.preventDefault();
+  var auto=state.autoRun; state.autoRun=false; // true só quando a página reabre uma simulação pelo link do e-mail
+  if(!auto){ state.reopened=false; state.banner=false; }
   var cod=state.cod, valor=num($('val').value), uf=$('uf').value, mun=$('mun').value, enq=$('enq').value.split('|');
   var okCod = state.tipo==='ncm' ? /^\d{8}$/.test(cod) : /^\d{9}$/.test(cod);
   if(!okCod){ return showErr(state.tipo==='ncm' ? 'Informe um NCM de 8 dígitos.' : 'Escolha um serviço na lista ou informe o código NBS de 9 dígitos.'); }
@@ -259,6 +295,8 @@ $('f').addEventListener('submit',function(ev){
     if([c,a,m].some(function(x){return !(x>=0);})){ return showErr('Revise as alíquotas informadas.'); }
     item.aliquotasNominais={cbs:c,ibsEstadual:a,ibsMunicipal:m};
   }
+  var an=item.aliquotasNominais;
+  var sim={tipo:state.tipo,cod:cod,valor:item.baseCalculo,data:data,uf:uf,mun:mun,munNome:$('mun').selectedOptions[0].text,enq:$('enq').value,prem:an?[an.cbs,an.ibsEstadual,an.ibsMunicipal]:null};
   var id=(window.crypto&&crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2)).replace(/-/g,'').slice(0,32);
   var body={id:id,versao:'1.0.0',dhFatoGerador:data+'T12:00:00-03:00',municipio:Number(mun),uf:uf,itens:[item]};
   var btn=$('go'); btn.disabled=true; btn.textContent='Calculando…';
@@ -271,8 +309,9 @@ $('f').addEventListener('submit',function(ev){
        if(/vinculada/i.test(t)) d+=' Use a regra geral (tributação integral) ou outro enquadramento compatível com este código.';
        return showErr(d);
      }
+     state.sim=sim;
      render(x.j,valor,data);
-     if(window.gtag) gtag('event','calculadora_cbs_ibs',{tipo:state.tipo});
+     if(window.gtag) gtag('event',auto?'calculadora_reaberta':'calculadora_cbs_ibs',{tipo:state.tipo});
    }).catch(function(){ showErr('Serviço de cálculo indisponível no momento. Tente novamente em instantes.'); })
    .then(function(){ btn.disabled=false; btn.textContent='Calcular'; });
 });
@@ -285,6 +324,7 @@ function render(j,valor,data){
   if(!g){ return showErr('O motor não retornou valores de CBS/IBS para este item.'); }
   var vBC=Number(g.vBC), cbs=Number((g.gCBS||{}).vCBS||0), uf=Number((g.gIBSUF||{}).vIBSUF||0), mu=Number((g.gIBSMun||{}).vIBSMun||0), ibs=Number(g.vIBS!=null?g.vIBS:uf+mu);
   var tot=Math.round((cbs+ibs)*100)/100;
+  if(state.banner){ var bn=el('div','Simulação reaberta pelo link do e-mail, com os mesmos dados.','info'); bn.style.margin='0 0 14px'; out.appendChild(bn); }
   var h=el('h3',''); h.appendChild(document.createTextNode('Tributos sobre o item'));
   var b=el('span', it.calculoSimulado?'Cálculo simulado':'Alíquotas de referência','badge'+(it.calculoSimulado?'':' ok')); h.appendChild(b); out.appendChild(h);
   var t=el('div',null,'totals');
@@ -301,12 +341,130 @@ function render(j,valor,data){
   out.appendChild(el('div','Em regra, empresas no regime regular recuperam como crédito a CBS e o IBS pagos nas compras. Confirme o seu caso com o contador.','info'));
   if(data<'2027-01-01') out.appendChild(el('div','Data em 2026 (fase de testes): o motor aplica as alíquotas de referência do período.','info'));
   var pr=el('button','Imprimir ou salvar em PDF','noprint'); pr.type='button'; pr.style.cssText='margin-top:14px;background:none;border:1px solid #b6cfe8;border-radius:6px;padding:9px 14px;cursor:pointer;font-family:inherit;color:#02132d'; pr.addEventListener('click',function(){ window.print(); }); out.appendChild(pr);
+  if(!state.reopened) capture(out, state.sim);
   var cta=el('div',null,'cta'); cta.appendChild(el('h3','Compras com controle do pedido ao pagamento'));
   cta.appendChild(el('p','O Vendor Management da Deyel organiza cotação, pedido, nota fiscal, pagamento e homologação de fornecedores em um só fluxo.'));
   [['Conhecer a solução','/gestao-de-compras-e-fornecedores/','p',false],['Agendar uma demonstração','https://calendly.com/paulocacciari/demo-plataforma-gestao-de-compras','s',true],['Falar pelo WhatsApp','https://wa.me/5511955700002?text='+encodeURIComponent('Olá! Usei a calculadora de CBS e IBS e quero conhecer o Vendor Management.'),'s',true]].forEach(function(l){ var a=el('a',l[0],l[2]); a.href=l[1]; if(l[3]){ a.target='_blank'; a.rel='noopener'; } a.addEventListener('click',function(){ if(window.gtag) gtag('event','calculadora_cta',{destino:l[0]}); }); cta.appendChild(a); });
   out.appendChild(cta);
   out.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
+
+// ---- captura: oferece a memória por e-mail. O resultado e a explicação já estão na tela, sem pedir nada.
+function hutk(){ var m=document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/); return m?m[1]:''; }
+function sendLead(d,sim){
+  var f=[{name:'email',value:d.email}];
+  if(d.cargo) f.push({name:'jobtitle',value:d.cargo});
+  f.push({name:'origem',value:'Calculadora'});
+  if(utm.utm_campaign) f.push({name:'campanha',value:utm.utm_campaign});
+  f.push({name:'calculadora_link',value:simLink(sim)},{name:'calculadora_resumo',value:simResumo(sim)});
+  var ctx={pageUri:location.href,pageName:document.title}, k=hutk(); if(k) ctx.hutk=k;
+  var payload={fields:f,context:ctx,legalConsentOptions:{consent:{consentToProcess:true,text:TXT_CONSENT,communications:[
+    {value:true,subscriptionTypeId:SUB_ONE,text:TXT_ONE},
+    {value:!!d.mkt,subscriptionTypeId:SUB_MKT,text:TXT_MKT}]}}};
+  if(window.CALC_DRY){ try{ console.log('CALC_DRY '+JSON.stringify(payload)); }catch(e){} return Promise.resolve({ok:true,status:200,j:{}}); }
+  return fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HS_PORTAL+'/'+HS_FORM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ return {ok:r.ok,status:r.status,j:j}; }); });
+}
+function field(id,label,type,name,ac,ph,max){
+  var w=el('div'), l=el('label',label); l.htmlFor=id;
+  var i=document.createElement('input'); i.id=id; i.type=type; i.name=name; i.autocomplete=ac; i.placeholder=ph; i.maxLength=max;
+  if(type==='email'){ i.setAttribute('inputmode','email'); i.setAttribute('autocapitalize','off'); i.spellcheck=false; }
+  w.appendChild(l); w.appendChild(i); return {w:w,i:i};
+}
+function check(id,text){
+  var l=el('label',null,'opt'); l.htmlFor=id;
+  var i=document.createElement('input'); i.type='checkbox'; i.id=id; l.appendChild(i); l.appendChild(el('span',text));
+  return {l:l,i:i};
+}
+function capture(out,sim){
+  if(!HS_FORM||!sim) return;
+  var box=el('div',null,'cap'); box.id='cap';
+  box.appendChild(el('h3','Receba a memória de cálculo por e-mail'));
+  box.appendChild(el('p','Enviamos o link que reabre esta simulação com os mesmos dados, a memória de cálculo e a base legal, para você guardar ou encaminhar ao seu contador.'));
+  var f=document.createElement('form'); f.noValidate=true; f.setAttribute('autocomplete','on'); f.setAttribute('data-hs-do-not-collect','true'); // o envio é feito por nós, pela API de formulários
+  var fe=field('cap-email','E-mail corporativo','email','email','email','voce@suaempresa.com.br',120);
+  var fc=field('cap-cargo','Cargo (opcional)','text','cargo','organization-title','Ex.: Gerente de Compras',80);
+  f.appendChild(fe.w); f.appendChild(fc.w);
+  var hp=el('div',null,'hp'); hp.setAttribute('aria-hidden','true');
+  var hpi=document.createElement('input'); hpi.type='text'; hpi.name='ob_hp'; hpi.tabIndex=-1; hpi.autocomplete='off'; hp.appendChild(hpi); f.appendChild(hp);
+  var o1=check('cap-o1',TXT_ONE), o2=check('cap-o2',TXT_MKT);
+  f.appendChild(o1.l); f.appendChild(o2.l);
+  var err=el('div',null,'info err'); err.setAttribute('role','alert'); err.hidden=true; f.appendChild(err);
+  var btn=el('button','Enviar a memória por e-mail','btn'); btn.type='submit'; f.appendChild(btn);
+  var fine=el('p',null,'fine'), cp=TXT_CONSENT.split('Política de Privacidade');
+  fine.appendChild(document.createTextNode(cp[0])); var pa=el('a','Política de Privacidade'); pa.href=PRIV; pa.target='_blank'; pa.rel='noopener'; fine.appendChild(pa);
+  fine.appendChild(document.createTextNode((cp[1]||'')+' Você também pode imprimir ou salvar esta página em PDF sem informar o e-mail.')); f.appendChild(fine);
+  box.appendChild(f); out.appendChild(box);
+  try{ var sv=JSON.parse(sessionStorage.getItem('ob_cap')||'null'); if(sv){ fe.i.value=sv.e||''; fc.i.value=sv.c||''; } }catch(e){}
+  if(!state.capShown){ state.capShown=true; if(window.gtag) gtag('event','calculadora_captura_exibida'); }
+
+  function fail(msg,focus){ err.textContent=msg; err.hidden=false; if(focus===fe.i) fe.i.setAttribute('aria-invalid','true'); if(focus) focus.focus(); }
+  function done(email){
+    var ok=el('div',null,'cap'); ok.id='cap'; ok.setAttribute('role','status');
+    ok.appendChild(el('h3','Memória enviada'));
+    var p=el('p'); p.appendChild(document.createTextNode('Enviamos para ')); p.appendChild(el('b',email));
+    p.appendChild(document.createTextNode(' o link que reabre esta simulação, com a memória de cálculo e a base legal. Se não chegar em alguns minutos, olhe a pasta de spam.'));
+    ok.appendChild(p); box.replaceWith(ok);
+  }
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(btn.disabled) return;
+    err.hidden=true; fe.i.removeAttribute('aria-invalid');
+    var email=fe.i.value.trim(), cargo=fc.i.value.trim();
+    if(hpi.value){ return done(email||'o seu e-mail'); } // preenchido por robô: não envia
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('Informe um e-mail válido.',fe.i);
+    if(personal(email)) return fail(MSG_CORP,fe.i);
+    if(!o1.i.checked) return fail('Marque a caixa para receber a memória de cálculo por e-mail.',o1.i);
+    btn.disabled=true; btn.textContent='Enviando…';
+    sendLead({email:email,cargo:cargo,mkt:o2.i.checked},sim).then(function(x){
+      if(x.ok){
+        try{ sessionStorage.setItem('ob_cap',JSON.stringify({e:email,c:cargo})); }catch(e){}
+        if(window.gtag){ gtag('event','generate_lead',{method:'calculadora_memoria'}); gtag('event','calculadora_memoria_email',{tipo:sim.tipo}); }
+        return done(email);
+      }
+      var blocked=/BLOCKED_EMAIL|FREE_EMAIL|INVALID_EMAIL/i.test(JSON.stringify(x.j||{}));
+      btn.disabled=false; btn.textContent='Enviar a memória por e-mail';
+      fail(blocked?MSG_CORP:'Não conseguimos enviar agora. Tente de novo em instantes. Você pode imprimir ou salvar esta página em PDF enquanto isso.', blocked?fe.i:null);
+    }).catch(function(){
+      btn.disabled=false; btn.textContent='Enviar a memória por e-mail';
+      fail('Não conseguimos enviar agora. Tente de novo em instantes. Você pode imprimir ou salvar esta página em PDF enquanto isso.',null);
+    });
+  });
+}
+
+// ---- reabre a simulação pelo link do e-mail (?t=tipo&c=código&v=valor&d=data&uf=UF&m=município&e=enquadramento[&pc&pu&pm])
+(function reopen(){
+  var q; try{ q=new URLSearchParams(location.search); }catch(e){ return; }
+  if(!q.has('t')) return;
+  var t=q.get('t')||'', c=q.get('c')||'', v=Number(q.get('v')), d=q.get('d')||'', uf=(q.get('uf')||'').toUpperCase(), m=q.get('m')||'', e=q.get('e')||'geral';
+  var prem=[q.get('pc'),q.get('pu'),q.get('pm')].map(Number), need=d>='2027-01-01';
+  var dOk=/^\d{4}-\d{2}-\d{2}$/.test(d)&&d>='2026-01-01'&&d<='2033-12-31'&&!isNaN(Date.parse(d+'T12:00:00Z'))&&new Date(d+'T12:00:00Z').toISOString().slice(0,10)===d;
+  var ok=(t==='ncm'||t==='nbs')&&(t==='ncm'?/^\d{8}$/:/^\d{9}$/).test(c)&&v>0&&v<1e12&&dOk&&/^[A-Z]{2}$/.test(uf)&&/^\d{1,8}$/.test(m)&&/^(geral|\d{1,4}-\d{1,8})$/.test(e)
+    &&(!need||prem.every(function(x,i){ return q.get(['pc','pu','pm'][i])!==null&&x>=0&&x<=100; }));
+  if(!ok) return;
+  state.reopened=true; state.banner=true;
+  if(t==='nbs'){ var r=document.querySelector('input[name=tipo][value=nbs]'); r.checked=true; r.dispatchEvent(new Event('change',{bubbles:true})); }
+  $('cod').value=c; state.cod=c;
+  $('dt').value=d; togglePrem();
+  if(need){ $('pcbs').value=String(prem[0]).replace('.',','); $('pibs').value=String(prem[1]).replace('.',','); $('pmun').value=String(prem[2]).replace('.',','); }
+  $('val').value=v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  Promise.all([ufsP,enqP]).then(function(r){
+    if(!r[0]) throw new Error('uf');
+    $('uf').value=uf; if($('uf').value!==uf) throw new Error('uf');
+    return loadMun(uf);
+  }).then(function(loaded){
+    if(!loaded) throw new Error('mun');
+    $('mun').value=m; if($('mun').value!==m) throw new Error('mun');
+    var key=e==='geral'?'000|000001':e.replace('-','|');
+    $('enq').value=key; if($('enq').value!==key) throw new Error('enq');
+    lookup(c);
+    state.autoRun=true;
+    $('f').dispatchEvent(new Event('submit',{cancelable:true,bubbles:true}));
+  }).catch(function(){
+    state.reopened=false; state.banner=false; state.autoRun=false;
+    showErr('Não foi possível reabrir a simulação automaticamente. Os dados foram preenchidos; clique em Calcular.');
+  });
+})();
 })();
 </script>
 </body>
