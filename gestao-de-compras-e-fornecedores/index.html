@@ -343,7 +343,13 @@ body{overflow-x:clip}
   <div style="position:absolute;inset:0;background:linear-gradient(110deg,#0496ff 0%,#5b3fc4 30%,#a1238f 55%,#e8335a 78%,#f46b45 100%);background-size:240% 240%;animation:gradMove 14s ease-in-out infinite;opacity:.85"></div>
   <div style="position:absolute;width:460px;height:460px;border-radius:50%;right:-120px;top:-120px;background:radial-gradient(circle,rgba(4,150,255,.5),transparent 65%);animation:floaty 11s ease-in-out infinite"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,19,45,.6),rgba(2,19,45,.85))"></div>
-  <div style="position:relative;max-width:1200px;margin:0 auto;padding:0 24px;padding-top:130px;padding-bottom:80px;display:flex;flex-direction:column;gap:20px">
+  <style>
+    .vh{display:grid;grid-template-columns:minmax(0,1fr) 340px;column-gap:48px;row-gap:20px;align-items:start}
+    .vh>*{grid-column:1}
+    .vh>.vh-card{grid-column:2;grid-row:1/span 5;align-self:center}
+    @media(max-width:960px){.vh{display:flex;flex-direction:column}.vh>.vh-card{align-self:stretch;margin-top:8px}}
+  </style>
+  <div class="vh" style="position:relative;max-width:1200px;margin:0 auto;padding:0 24px;padding-top:130px;padding-bottom:80px">
     <nav aria-label="Trilha" data-reveal="" style="display:flex;gap:8px;flex-wrap:wrap;font-size:13px;color:#c7d3e3">
       <a href="../" style="color:#c7d3e3;text-decoration:none" style-hover="color:#fff">Início</a><span>›</span><span style="color:#fff">Gestão de compras e fornecedores</span>
     </nav>
@@ -355,10 +361,11 @@ body{overflow-x:clip}
       <a href="https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4" target="_blank" rel="noopener" style="border:2px solid #fff;color:#fff;text-decoration:none;border-radius:4px;padding:11px 22px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#fff;color:#02132d">Ver a demo guiada</a>
       <a href="#videos" style="border:2px solid rgba(255,255,255,.55);color:#fff;text-decoration:none;border-radius:4px;padding:11px 22px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#fff;color:#02132d">Ver vídeos</a>
     </div>
-    <a data-reveal="" href="/calculadora-reforma-tributaria/" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:10px 16px;color:#fff;text-decoration:none;font-size:14px;transition-delay:.4s" style-hover="background:rgba(255,255,255,.22)">
-      <span style="background:#0496ff;color:#fff;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;letter-spacing:.06em">NOVO</span>
-      <span>Calcule os novos impostos das suas compras: CBS e IBS com o motor de cálculo da Receita Federal</span>
-      <span aria-hidden="true">→</span>
+    <a class="vh-card" data-reveal="" href="/calculadora-reforma-tributaria/" style="display:flex;flex-direction:column;gap:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:24px;color:#fff;text-decoration:none;transition-delay:.3s" style-hover="background:rgba(255,255,255,.17)">
+      <span style="align-self:flex-start;background:#0496ff;color:#fff;border-radius:6px;padding:3px 9px;font-size:11px;font-weight:700;letter-spacing:.06em">NOVO · FERRAMENTA GRATUITA</span>
+      <strong style="font-size:22px;font-weight:900;line-height:1.2;text-wrap:balance">Quanto de CBS e IBS incide nas suas compras?</strong>
+      <span style="font-size:15px;color:#e8eef7;text-wrap:pretty">Consulte por NCM ou NBS e veja a memória de cálculo e a base legal, com o motor de cálculo da Receita Federal, em código aberto.</span>
+      <span style="margin-top:4px;align-self:flex-start;background:#fff;color:#02132d;font-weight:700;font-size:13px;border-radius:6px;padding:11px 18px;text-transform:uppercase;letter-spacing:.04em">Abrir a calculadora →</span>
     </a>
   </div>
 </section>
