@@ -30,8 +30,10 @@ a{color:#0070d6}
 .top a.logo{display:flex;align-items:center;text-decoration:none;margin-right:auto}
 .top a.logo img{height:28px;width:auto;display:block}
 .top a.logo span{font-weight:400;font-size:15.5px;letter-spacing:.03em;color:#fff;margin-left:-6px}
-.top a.nav{color:#cfe7ff;text-decoration:none;font-size:14px}
-.top a.nav:hover{color:#fff}
+.top a.nav{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);border-radius:10px;padding:7px 7px 7px 14px;color:#fff;text-decoration:none;font-size:14px;line-height:1.35}
+.top a.nav b{flex:0 0 auto;background:#0496ff;border-radius:6px;padding:4px 11px;font-size:15px;line-height:1.3}
+.top a.nav:hover{background:rgba(255,255,255,.18)}
+@media(max-width:760px){.top .in{flex-wrap:wrap}.top a.nav{max-width:none;width:100%}}
 .hero{background:linear-gradient(135deg,#02132d,#07305e);color:#fff;padding:44px 20px 56px}
 .hero .in{max-width:1120px;margin:0 auto}
 .hero h1{color:#fff;font-weight:900;font-size:clamp(28px,4.4vw,42px);max-width:760px}
@@ -92,7 +94,7 @@ details p{font-size:13.5px;margin:8px 0}
 <body>
 <header class="top"><div class="in">
   <a class="logo" href="/"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Logo-nuevo.png" alt="Optaris do Brasil" width="140" height="28"><span>BRASIL</span></a>
-  <a class="nav" href="/gestao-de-compras-e-fornecedores/">Gestão de compras e fornecedores</a>
+  <a class="nav" href="/gestao-de-compras-e-fornecedores/"><span>Resolva o problema de gestão de compras com inteligência artificial</span><b>→</b></a>
 </div></header>
 
 <section class="hero"><div class="in">
