@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPNFCFG29B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SPNFCFG29B');</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z33baql82n");</script>
+<!-- HubSpot tracking -->
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/45901870.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><!-- prévia: retirar ao publicar -->
+<title>Seus fornecedores na Reforma Tributária: quanto crédito você perde | Optaris do Brasil</title>
+<meta name="description" content="Suba a lista do que você compra e veja, fornecedor por fornecedor, quanto crédito de CBS e IBS sua empresa recupera em 2027 e quanto perde comprando do Simples Nacional. Cálculo com o motor da Receita Federal.">
+<link rel="canonical" href="https://www.optarisbrasil.com/ferramentas-de-compras/fornecedores-na-reforma/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Seus fornecedores na Reforma Tributária">
+<meta property="og:description" content="Veja quanto crédito de CBS e IBS sua empresa perde, fornecedor por fornecedor, a partir de 2027.">
+<meta property="og:url" content="https://www.optarisbrasil.com/ferramentas-de-compras/fornecedores-na-reforma/">
+<meta property="og:image" content="https://www.optarisbrasil.com/og-vendor-calculadora-v1.jpg">
+<link rel="icon" href="https://www.optaris.com/wp-content/uploads/2025/07/favicon-25-25.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ferramentas.css">
+<!-- Meta Pixel (Deyel_Brasil) -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','915285856819493');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=915285856819493&ev=PageView&noscript=1"></noscript>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="/"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Logo-nuevo.png" alt="Optaris do Brasil" width="140" height="28"><span>BRASIL</span></a>
+  <a class="nav" href="/ferramentas-de-compras/"><span>Outras ferramentas gratuitas para compras</span><b>→</b></a>
+</div></header>
+
+<section class="hero"><div class="in">
+  <span class="kicker">Teste o Vendor com os seus dados</span>
+  <h1>Seus fornecedores na Reforma Tributária</h1>
+  <p>Suba a lista do que você compra e veja, fornecedor por fornecedor, quanto crédito de CBS e IBS sua empresa recupera a partir de 2027 e quanto deixa na mesa ao comprar de fornecedores do Simples Nacional. O cálculo usa o motor de código aberto da Receita Federal.</p>
+</div></section>
+
+<main class="page">
+  <div class="steps" id="entrada">
+    <section class="card">
+      <h2>1. Sua lista de compras</h2>
+      <p class="sub">Uma linha por item ou por fornecedor: nome do fornecedor, regime tributário dele, NCM (produto) ou NBS (serviço) e o valor pago no período, por exemplo nos últimos 12 meses.</p>
+      <label class="drop" id="drop" for="arq">
+        <input type="file" id="arq" accept=".xlsx,.csv,.txt">
+        <strong>Escolha ou arraste a planilha</strong>
+        <span>Excel (.xlsx) ou CSV, até 500 linhas na análise na hora. <a href="../modelos/modelo-fornecedores-na-reforma.xlsx" id="modelo">Baixar o modelo</a></span>
+      </label>
+      <div class="or">ou cole as linhas do Excel</div>
+      <label for="cola" class="sr">Linhas copiadas do Excel</label>
+      <textarea id="cola" placeholder="Fornecedor&#9;CNPJ&#9;Regime&#9;NCM ou NBS&#9;Descrição&#9;Valor pago&#10;Aço Forte Ltda&#9;&#9;Regime regular&#9;72142000&#9;Barra de aço&#9;250000&#10;Papelaria do Bairro&#9;&#9;Simples Nacional&#9;48025610&#9;Papel A4&#9;18000"></textarea>
+      <div class="acts"><button class="btn sec inline" type="button" id="usarCola">Usar as linhas coladas</button><button class="link" type="button" id="exemplo">Ver com dados de exemplo</button></div>
+      <div id="leitura" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>2. Onde e como sua empresa compra</h2>
+      <div class="row">
+        <div><label for="uf">UF de destino</label><select id="uf"><option value="">Carregando…</option></select></div>
+        <div><label for="mun">Município</label><select id="mun" disabled><option value="">Escolha a UF</option></select></div>
+      </div>
+      <div class="hint">Onde sua empresa recebe as compras. O IBS é cobrado no destino.</div>
+      <div class="lbl" id="credLbl">Sua empresa toma crédito de CBS e IBS?</div>
+      <div class="seg" role="radiogroup" aria-labelledby="credLbl">
+        <label><input type="radio" name="cred" value="1" checked> Sim (Lucro Real ou Presumido)</label>
+        <label><input type="radio" name="cred" value="0"> Não (Simples Nacional)</label>
+      </div>
+      <details>
+        <summary>Premissas de 2027 (editáveis)</summary>
+        <div class="info warn">As alíquotas de 2027 ainda dependem de definição. Os valores abaixo são <b>premissas de simulação</b>: CBS e IBS são as do exemplo da Receita; a parcela do Simples é a de CBS dentro do DAS na faixa inicial (Anexo I para produtos e Anexo III para serviços). Se souber a do seu fornecedor, ajuste.</div>
+        <div class="row3">
+          <div><label for="pcbs">CBS (%)</label><input id="pcbs" inputmode="decimal" value="8,8"></div>
+          <div><label for="pibs">IBS estadual (%)</label><input id="pibs" inputmode="decimal" value="0,05"></div>
+          <div><label for="pmun">IBS municipal (%)</label><input id="pmun" inputmode="decimal" value="0,05"></div>
+        </div>
+        <div class="row3">
+          <div><label for="psb">Simples, produtos (%)</label><input id="psb" inputmode="decimal" value="0,62"></div>
+          <div><label for="pss">Simples, serviços (%)</label><input id="pss" inputmode="decimal" value="0,94"></div>
+          <div><label for="pmei">MEI (%)</label><input id="pmei" inputmode="decimal" value="0"></div>
+        </div>
+      </details>
+      <button class="btn" id="go" type="button" disabled>Analisar meus fornecedores</button>
+      <p class="hint">Os dados da planilha são lidos no seu navegador. Para o cálculo, enviamos só código, valor e regime de cada linha, e nada fica guardado.</p>
+    </section>
+  </div>
+
+  <section class="card" id="res" hidden aria-live="polite"></section>
+</main>
+
+<div class="legal">
+  Simulação informativa feita com o motor de cálculo de código aberto da Receita Federal (licença MIT), com as premissas indicadas. Não substitui a orientação de contador ou advogado tributarista. Os avisos de possível redução de alíquota vêm do cadastro oficial de classificações tributárias do motor; o enquadramento depende das condições de cada operação. Se você pedir o relatório completo, guardamos seu e-mail, cargo e um resumo da análise, conforme a <a href="https://br.deyel.com/privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>.
+</div>
+<footer class="foot">© Optaris do Brasil · <a href="/gestao-de-compras-e-fornecedores/">Gestão de compras e fornecedores</a> · <a href="/ferramentas-de-compras/">Ferramentas para compras</a> · <a href="https://github.com/ReceitaFederal" rel="noopener">Código da Receita Federal</a></footer>
+
+<script src="../assets/read-excel-file.min.js" defer></script>
+<script src="../assets/config.js"></script>
+<script src="../assets/comum.js"></script>
+<script src="fornecedores.js" defer></script>
+</body>
+</html>

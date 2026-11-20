@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPNFCFG29B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SPNFCFG29B');</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z33baql82n");</script>
+<!-- HubSpot tracking -->
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/45901870.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><!-- prévia: retirar ao publicar -->
+<title>Comparador de cotações pelo custo real (CBS e IBS) | Optaris do Brasil</title>
+<meta name="description" content="Compare propostas de fornecedores pelo custo depois do crédito de CBS e IBS, não pelo preço de face. Veja quando a mais barata no papel sai mais cara e quanto rende dividir a compra.">
+<link rel="canonical" href="https://www.optarisbrasil.com/ferramentas-de-compras/comparador-de-cotacoes/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Comparador de cotações pelo custo real">
+<meta property="og:description" content="A proposta mais barata no papel nem sempre é a mais barata depois do crédito de CBS e IBS. Compare em minutos.">
+<meta property="og:url" content="https://www.optarisbrasil.com/ferramentas-de-compras/comparador-de-cotacoes/">
+<meta property="og:image" content="https://www.optarisbrasil.com/og-vendor-calculadora-v1.jpg">
+<link rel="icon" href="https://www.optaris.com/wp-content/uploads/2025/07/favicon-25-25.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ferramentas.css">
+<!-- Meta Pixel (Deyel_Brasil) -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','915285856819493');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=915285856819493&ev=PageView&noscript=1"></noscript>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="/"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Logo-nuevo.png" alt="Optaris do Brasil" width="140" height="28"><span>BRASIL</span></a>
+  <a class="nav" href="/ferramentas-de-compras/"><span>Outras ferramentas gratuitas para compras</span><b>→</b></a>
+</div></header>
+
+<section class="hero"><div class="in">
+  <span class="kicker">Teste o Vendor com os seus dados</span>
+  <h1>Compare cotações pelo custo real</h1>
+  <p>A partir de 2027, a proposta mais barata no papel pode sair mais cara: depende do crédito de CBS e IBS que cada fornecedor gera para a sua empresa. Coloque as propostas lado a lado e veja o ranking pelo custo depois do crédito, item por item.</p>
+</div></section>
+
+<main class="page">
+  <section class="card" id="entrada">
+    <h2>1. Propostas</h2>
+    <p class="sub">Uma linha por item (com o NCM ou o NBS e a quantidade) e uma coluna por proposta, com o preço unitário. Deixe em branco o item que o fornecedor não cotou. Até 30 itens e 5 propostas.</p>
+    <div class="tbl"><table class="grid-in" id="grade"></table></div>
+    <div class="acts">
+      <button class="btn sec inline" type="button" id="maisItem">+ Item</button>
+      <button class="btn sec inline" type="button" id="maisProp">+ Proposta</button>
+      <button class="link" type="button" id="exemplo">Preencher com um exemplo</button>
+      <button class="link" type="button" id="limpar">Limpar</button>
+    </div>
+  </section>
+
+  <div class="steps">
+    <section class="card">
+      <h2>2. Onde e como sua empresa compra</h2>
+      <div class="row">
+        <div><label for="uf">UF de destino</label><select id="uf"><option value="">Carregando…</option></select></div>
+        <div><label for="mun">Município</label><select id="mun" disabled><option value="">Escolha a UF</option></select></div>
+      </div>
+      <div class="lbl" id="credLbl">Sua empresa toma crédito de CBS e IBS nesta compra?</div>
+      <div class="seg" role="radiogroup" aria-labelledby="credLbl">
+        <label><input type="radio" name="cred" value="1" checked> Sim (Lucro Real ou Presumido)</label>
+        <label><input type="radio" name="cred" value="0"> Não</label>
+      </div>
+      <details>
+        <summary>Premissas de 2027 (editáveis)</summary>
+        <div class="info warn">As alíquotas de 2027 ainda dependem de definição. Os valores abaixo são <b>premissas de simulação</b>: CBS e IBS são as do exemplo da Receita; a parcela do Simples é a de CBS dentro do DAS na faixa inicial (Anexo I para produtos e Anexo III para serviços).</div>
+        <div class="row3">
+          <div><label for="pcbs">CBS (%)</label><input id="pcbs" inputmode="decimal" value="8,8"></div>
+          <div><label for="pibs">IBS estadual (%)</label><input id="pibs" inputmode="decimal" value="0,05"></div>
+          <div><label for="pmun">IBS municipal (%)</label><input id="pmun" inputmode="decimal" value="0,05"></div>
+        </div>
+        <div class="row3">
+          <div><label for="psb">Simples, produtos (%)</label><input id="psb" inputmode="decimal" value="0,62"></div>
+          <div><label for="pss">Simples, serviços (%)</label><input id="pss" inputmode="decimal" value="0,94"></div>
+          <div><label for="pmei">MEI (%)</label><input id="pmei" inputmode="decimal" value="0"></div>
+        </div>
+      </details>
+    </section>
+    <section class="card">
+      <h2>3. Compare</h2>
+      <p class="sub">Para cada proposta, diga o regime do fornecedor e se o preço já inclui CBS e IBS. Fornecedor do Simples cobra o valor total, e o crédito é só a parcela paga no DAS.</p>
+      <button class="btn" id="go" type="button">Comparar pelo custo real</button>
+      <p class="hint">Enviamos para o cálculo só os códigos, quantidades, preços e regimes. Nada fica guardado.</p>
+    </section>
+  </div>
+
+  <section class="card" id="res" hidden aria-live="polite"></section>
+</main>
+
+<div class="legal">
+  Simulação informativa feita com o motor de cálculo de código aberto da Receita Federal (licença MIT), com as premissas indicadas. Não substitui a orientação de contador ou advogado tributarista. Se você pedir o relatório completo, guardamos seu e-mail, cargo e um resumo da análise, conforme a <a href="https://br.deyel.com/privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>.
+</div>
+<footer class="foot">© Optaris do Brasil · <a href="/gestao-de-compras-e-fornecedores/">Gestão de compras e fornecedores</a> · <a href="/ferramentas-de-compras/">Ferramentas para compras</a> · <a href="https://github.com/ReceitaFederal" rel="noopener">Código da Receita Federal</a></footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/comum.js"></script>
+<script src="cotacoes.js" defer></script>
+</body>
+</html>
