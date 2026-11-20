@@ -110,7 +110,7 @@ section{scroll-margin-top:70px}
 [data-motion="off"] [data-reveal]{opacity:1;transform:none;transition:none}
 @keyframes gradMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 @keyframes floaty{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-24px)}}
-@media (max-width:1180px){[data-navlinks]{display:none!important}}
+@media (max-width:1180px){[data-navlinks]{display:none!important}} @media (min-width:1181px) and (max-width:1340px){[data-navlinks]{gap:13px!important}[data-navlinks] a{font-size:11.5px!important;letter-spacing:.02em!important}header > div{gap:14px!important}}
 @media (min-width:1181px){[data-burger]{display:none!important}}
 @media (max-width:760px){
 body{padding-bottom:78px}
@@ -552,7 +552,7 @@ class Component extends DCLogic {
       menuOpen:!!s.menu,menuAria:s.menu?'true':'false',
       openMenu:()=>{document.body.style.overflow='hidden';this.setState({menu:true});},
       closeMenu:()=>{document.body.style.overflow='';this.setState({menu:false});},
-      menuItems:[['Plataforma Deyel', '/plataforma/'], ['Vendor Management', '/gestao-de-compras-e-fornecedores/'], ['Usina de Aplicativos', '/#fabrica'], ['Produtos prontos', '/produtos/'], ['Soluções Consist', '/solucoes-consist/'], ['Quem somos', '/#institucional'], ['Mídia', '/midia/'], ['Publicações', '/publicacoes/'], ['Vídeos', '/#deyel-no-ar'], ['Fale com a gente', '/#contato']].map(x=>({t:x[0],href:x[1],target:x[2]?'_blank':'_self',rel:x[2]?'noopener':'',arrow:x[2]?'↗':'→',color:x[2]?'#ff9fb2':'#fff'})),
+      menuItems:[['Plataforma de Automação Deyel', '/plataforma/'], ['Gestão de Compras e Fornecedores', '/gestao-de-compras-e-fornecedores/'], ['Usina de Aplicativos', '/#fabrica'], ['Produtos prontos', '/produtos/'], ['Soluções Consist', '/solucoes-consist/'], ['Quem somos', '/#institucional'], ['Mídia', '/midia/'], ['Publicações', '/publicacoes/'], ['Vídeos', '/#deyel-no-ar'], ['Fale com a gente', '/#contato']].map(x=>({t:x[0],href:x[1],target:x[2]?'_blank':'_self',rel:x[2]?'noopener':'',arrow:x[2]?'↗':'→',color:x[2]?'#ff9fb2':'#fff'})),
       motionAttr:motion?'on':'off',
       headerBg:s.scrolled?'rgba(2,19,45,.95)':'rgba(2,19,45,.35)',
       ccards:CCARDS.map((c,i)=>({code:c[0],sub:c[1],d:c[2],delay:(i%3*.1)+'s'})),
