@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPNFCFG29B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SPNFCFG29B');</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z33baql82n");</script>
+<!-- HubSpot tracking -->
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/45901870.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><!-- prévia: retirar ao publicar -->
+<title>Gerador de RFQ: monte um pedido de cotação com IA | Optaris do Brasil</title>
+<meta name="description" content="Descreva o que precisa comprar e receba o pedido de cotação pronto: especificação, condições comerciais, critérios com pesos, perguntas e cronograma. Agente de IA gratuito.">
+<link rel="canonical" href="https://www.optarisbrasil.com/ferramentas-de-compras/gerador-de-rfq/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Monte um pedido de cotação (RFQ) em um minuto">
+<meta property="og:description" content="Descreva a necessidade e receba a cotação pronta, com critérios de avaliação e cronograma.">
+<meta property="og:url" content="https://www.optarisbrasil.com/ferramentas-de-compras/gerador-de-rfq/">
+<meta property="og:image" content="https://www.optarisbrasil.com/og-vendor-calculadora-v1.jpg">
+<link rel="icon" href="https://www.optaris.com/wp-content/uploads/2025/07/favicon-25-25.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ferramentas.css">
+<!-- Meta Pixel (Deyel_Brasil) -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','915285856819493');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=915285856819493&ev=PageView&noscript=1"></noscript>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a class="logo" href="/"><img src="https://www.optaris.com/wp-content/uploads/2025/07/Logo-nuevo.png" alt="Optaris do Brasil" width="140" height="28"><span>BRASIL</span></a>
+  <a class="nav" href="/ferramentas-de-compras/"><span>Outras ferramentas gratuitas para compras</span><b>→</b></a>
+</div></header>
+
+<section class="hero"><div class="in">
+  <span class="kicker">Agente de IA · Teste o Vendor com os seus dados</span>
+  <h1>Monte um pedido de cotação (RFQ) em um minuto</h1>
+  <p>Descreva o que você precisa comprar, do jeito que falaria com um colega. O agente devolve a cotação pronta: itens e especificação, condições comerciais, critérios de avaliação com pesos, perguntas aos fornecedores, documentos para homologação e cronograma.</p>
+</div></section>
+
+<main class="page">
+  <section class="card" id="entrada">
+    <h2>O que você precisa comprar?</h2>
+    <label for="nec">Necessidade</label>
+    <textarea id="nec" maxlength="3000" style="min-height:140px;font-family:inherit;font-size:15px" placeholder="Ex.: Contratar serviço de limpeza para uma fábrica de 8.000 m² em Jundiaí, em dois turnos, com fornecimento de materiais e reposição de descartáveis nos banheiros."></textarea>
+    <div class="row">
+      <div><label for="qtd">Quantidade ou volume (opcional)</label><input id="qtd" maxlength="200" placeholder="Ex.: 12 meses, 1.000 resmas por mês"></div>
+      <div><label for="prazo">Prazo (opcional)</label><input id="prazo" maxlength="200" placeholder="Ex.: início em 30 dias"></div>
+    </div>
+    <div class="row">
+      <div><label for="local">Local de entrega ou prestação (opcional)</label><input id="local" maxlength="200" placeholder="Ex.: Jundiaí (SP)"></div>
+      <div><label for="crit">O que mais importa na escolha (opcional)</label><input id="crit" maxlength="400" placeholder="Ex.: preço e equipe fixa"></div>
+    </div>
+    <div class="acts"><button class="link" type="button" id="exemplo">Preencher com um exemplo</button></div>
+    <button class="btn" id="go" type="button">Montar a cotação</button>
+    <p class="hint">O texto é enviado a um modelo de IA do Google Cloud (Vertex AI) só para montar a cotação, e nada fica guardado. Não inclua dados pessoais nem informações sigilosas.</p>
+  </section>
+  <section class="card" id="res" hidden aria-live="polite"></section>
+</main>
+
+<div class="legal">Cotação gerada por agente de IA, para revisão do comprador: confira especificações, quantidades, prazos e exigências antes de enviar aos fornecedores. Se você pedir o arquivo em Word, guardamos seu e-mail, cargo e um resumo, conforme a <a href="https://br.deyel.com/privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>.</div>
+<footer class="foot">© Optaris do Brasil · <a href="/gestao-de-compras-e-fornecedores/">Gestão de compras e fornecedores</a> · <a href="/ferramentas-de-compras/">Ferramentas para compras</a></footer>
+<script src="../assets/config.js"></script>
+<script src="../assets/comum.js"></script>
+<script src="rfq.js" defer></script>
+</body>
+</html>

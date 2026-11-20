@@ -78,6 +78,8 @@ details{margin-top:14px;border:1px solid #e0e6ee;border-radius:8px;padding:10px 
 summary{cursor:pointer;font-weight:700;color:#02132d}
 .grid-in input,.grid-in select{min-height:38px;padding:7px 9px;font-size:14px}
 .grid-in td,.grid-in th{padding:6px 5px;vertical-align:middle}
+.grid-in tr:first-child th{vertical-align:top}
+.grid-in td:first-child{min-width:230px}
 .grid-in th{white-space:normal;min-width:120px}
 .grid-in .del{background:none;border:0;color:#a33;cursor:pointer;font-size:18px;line-height:1;padding:4px}
 .grid-in .chk{display:flex;gap:6px;align-items:center;font-size:12px;font-weight:500;margin:4px 0 0;text-transform:none;letter-spacing:0;color:#26384f}

@@ -401,7 +401,7 @@ body{overflow-x:clip}
 <section id="teste-o-vendor" data-screen-label="01c Teste o Vendor com os seus dados" data-noprint="" style="padding:clamp(48px,6vw,80px) 0;background:linear-gradient(180deg,#f4f8fd 0%,#fff 100%);border-bottom:1px solid #e5e7eb;scroll-margin-top:70px">
   <style>
     .tv{max-width:1200px;margin:0 auto;padding:0 24px}
-    .tv-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+    .tv-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:28px}
     @media(max-width:960px){.tv-g{grid-template-columns:1fr}}
     .tv-c{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid #dbe6f3;border-radius:16px;padding:26px;text-decoration:none;color:#1f2a3d;box-shadow:0 2px 14px rgba(2,19,45,.06);transition:border-color .2s,transform .2s}
     .tv-c:hover{border-color:#0496ff;transform:translateY(-3px)}
@@ -414,7 +414,7 @@ body{overflow-x:clip}
     <div data-reveal="" style="max-width:820px">
       <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Ferramentas gratuitas</span>
       <h2 style="font-size:clamp(26px,3.2vw,40px);font-weight:900;color:#02132d;margin-top:8px;text-wrap:balance">Teste o Vendor com os seus dados</h2>
-      <p style="font-size:17px;color:#4a5568;margin-top:10px;text-wrap:pretty">Funções do Vendor abertas para quem compra, sem cadastro: suba a sua planilha ou cole as propostas e veja o resultado na hora. No Vendor, elas rodam juntas, todos os dias, sobre as suas cotações e fornecedores reais.</p>
+      <p style="font-size:17px;color:#4a5568;margin-top:10px;text-wrap:pretty">Funções do Vendor abertas para quem compra, sem cadastro: suba a sua planilha, cole as propostas ou descreva a compra e veja o resultado na hora, com cálculo pelo motor da Receita Federal e agentes de IA. No Vendor, elas rodam juntas, todos os dias, sobre as suas cotações e fornecedores reais.</p>
     </div>
     <div class="tv-g">
       <a class="tv-c" data-reveal="" href="/ferramentas-de-compras/fornecedores-na-reforma/">
@@ -428,6 +428,18 @@ body{overflow-x:clip}
         <strong>Compare cotações pelo custo real</strong>
         <span class="t">O ranking das propostas pelo custo depois do crédito, não pelo preço de face. Veja quando a mais barata no papel sai mais cara e quanto rende dividir a compra.</span>
         <span class="go">Comparar propostas →</span>
+      </a>
+      <a class="tv-c" data-reveal="" href="/ferramentas-de-compras/spend-analysis/">
+        <span class="k">Agente de IA</span>
+        <strong>Raio-x do seu gasto</strong>
+        <span class="t">Suba o relatório de compras do ERP: o agente classifica cada item e você vê a curva ABC de fornecedores, a concentração por categoria e onde consolidar.</span>
+        <span class="go">Fazer o raio-x →</span>
+      </a>
+      <a class="tv-c" data-reveal="" href="/ferramentas-de-compras/gerador-de-rfq/" style="transition-delay:.1s">
+        <span class="k">Agente de IA</span>
+        <strong>Monte um pedido de cotação</strong>
+        <span class="t">Descreva o que precisa comprar e receba a cotação pronta, com especificação, condições comerciais, critérios com pesos e cronograma.</span>
+        <span class="go">Montar a cotação →</span>
       </a>
       <a class="tv-c" data-reveal="" href="/calculadora-reforma-tributaria/" style="transition-delay:.2s">
         <span class="k">Reforma Tributária</span>

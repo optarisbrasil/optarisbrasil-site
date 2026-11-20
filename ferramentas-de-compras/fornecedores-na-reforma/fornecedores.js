@@ -56,7 +56,7 @@ function mostrarLeitura(m){
   var soma = its.reduce(function(s,i){ return s+(i.valor>0?i.valor:0); },0);
   var ok = el('div',null,'info ok');
   ok.appendChild(el('b', its.length.toLocaleString('pt-BR')+' linhas lidas'));
-  ok.appendChild(document.createTextNode(' de '+estado.origem+': '+Object.keys(forn).length.toLocaleString('pt-BR')+' fornecedores, '+F.brl0(soma)+' em compras.'));
+  ok.appendChild(document.createTextNode(' '+estado.origem+': '+Object.keys(forn).length.toLocaleString('pt-BR')+' fornecedores, '+F.brl0(soma)+' em compras.'));
   box.appendChild(ok);
   if(faltam.length){ box.appendChild(el('div','Não achamos a coluna de '+faltam.map(function(k){ return {fornecedor:'fornecedor',codigo:'NCM/NBS',valor:'valor'}[k]; }).join(', ')+'. Usamos a ordem do modelo; confira o resultado ou ajuste os títulos das colunas.','info warn')); }
   if(semCodigo||semValor){ box.appendChild(el('div',(semCodigo?semCodigo+' linha(s) sem NCM (8 dígitos) ou NBS (9 dígitos)':'')+(semCodigo&&semValor?' e ':'')+(semValor?semValor+' sem valor':'')+': elas aparecem no resultado como não calculadas.','info warn')); }
@@ -74,7 +74,7 @@ function abrirArquivo(file){
   if(!file) return;
   if(file.size > 15*1024*1024) return falhaLeitura(new Error('Arquivo grande demais (máximo 15 MB).'));
   $('leitura').textContent=''; $('leitura').appendChild(el('div','Lendo '+file.name+'…','info'));
-  F.lerArquivo(file).then(function(l){ lerLinhas(l, file.name); F.evento('ferramenta_planilha',{ferramenta:FERRAMENTA,linhas:estado.total}); }).catch(falhaLeitura);
+  F.lerArquivo(file).then(function(l){ lerLinhas(l, 'do arquivo '+file.name); F.evento('ferramenta_planilha',{ferramenta:FERRAMENTA,linhas:estado.total}); }).catch(falhaLeitura);
 }
 
 $('arq').addEventListener('change', function(){ abrirArquivo(this.files[0]); });
@@ -83,8 +83,8 @@ var drop = $('drop');
 ['dragleave','drop'].forEach(function(t){ drop.addEventListener(t,function(e){ e.preventDefault(); drop.classList.remove('over'); }); });
 drop.addEventListener('drop', function(e){ var f=e.dataTransfer&&e.dataTransfer.files[0]; abrirArquivo(f); });
 $('modelo').addEventListener('click', function(e){ e.stopPropagation(); F.evento('ferramenta_modelo',{ferramenta:FERRAMENTA}); });
-$('usarCola').addEventListener('click', function(){ var t=$('cola').value; if(!t.trim()) return falhaLeitura(new Error('Cole as linhas copiadas do Excel, com o cabeçalho.')); lerLinhas(F.lerTexto(t),'as linhas coladas'); });
-$('exemplo').addEventListener('click', function(){ lerLinhas(EXEMPLO,'o exemplo'); F.evento('ferramenta_exemplo',{ferramenta:FERRAMENTA}); });
+$('usarCola').addEventListener('click', function(){ var t=$('cola').value; if(!t.trim()) return falhaLeitura(new Error('Cole as linhas copiadas do Excel, com o cabeçalho.')); lerLinhas(F.lerTexto(t),'das linhas coladas'); });
+$('exemplo').addEventListener('click', function(){ lerLinhas(EXEMPLO,'do exemplo'); F.evento('ferramenta_exemplo',{ferramenta:FERRAMENTA}); });
 
 F.destino($('uf'), $('mun'));
 
