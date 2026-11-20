@@ -160,6 +160,8 @@ F.captura = function(cont, o){
     envio.then(function(r){
       if(!r.ok) throw new Error('hs');
       F.evento('ferramenta_lead',{ferramenta:o.ferramenta});
+      F.evento('generate_lead',{ferramenta:o.ferramenta, lead_source:'ferramentas_de_compras'});
+      try{ if(window.fbq) fbq('track','Lead',{content_name:o.ferramenta, content_category:'ferramentas_de_compras'}); }catch(e){}
       o.depois();
       var ok=F.el('div',null,'cap'); ok.setAttribute('role','status'); ok.appendChild(F.el('h3','Relatório liberado'));
       ok.appendChild(F.el('p','O download começou. Se não começar, use o botão abaixo. Nossa equipe pode ajudar a transformar esta análise em economia: fale com a gente quando quiser.'));
