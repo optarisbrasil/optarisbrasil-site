@@ -582,7 +582,7 @@ body{overflow-x:clip}
     <div class="vg">
       <div class="vg-c">
         <div class="vg-i"><img src="/media/vendor-telas/solicitacao.webp" alt="Tela de solicitação de compra no computador e no celular, com item de catálogo, centro de custo, orçamento da área e foto anexada" width="1200" height="699" loading="lazy" decoding="async"></div>
-        <div class="vg-t"><span class="vg-n">Solicitação</span><h3>O pedido nasce no sistema, até pelo celular</h3><p>O solicitante escolhe o item no catálogo, o orçamento da área é conferido na hora e a aprovação segue a alçada que a sua empresa definiu.</p></div>
+        <div class="vg-t"><span class="vg-n">Solicitação</span><h3>O pedido nasce no sistema, até pelo celular</h3><p>O sistema confere se o item existe em estoque e se há contrato ativo que cubra o produto ou serviço, e segue a decisão que a sua empresa definiu para cada caso. Sem estoque nem contrato, o pedido passa pelas aprovações conforme valor, orçamento e alçada, e só então chega ao comprador.</p></div>
       </div>
       <div class="vg-c">
         <div class="vg-i"><img src="/media/vendor-telas/mapa.webp" alt="Mapa de compras com três propostas, prazo, entrega no prazo, histórico e nota ponderada de cada fornecedor" width="1200" height="499" loading="lazy" decoding="async"></div>
@@ -749,17 +749,17 @@ body{overflow-x:clip}
     <div class="vp-h" data-reveal="">
       <span class="vp-k">Painel de indicadores</span>
       <h2>O painel de compras é a primeira tela do gestor.<span>Ninguém precisa pedir relatório.</span></h2>
-      <p>Saving do ano, cobertura de contrato, compras fora de contrato e prazo de ciclo: os números da área aparecem ao abrir o sistema, recalculados a cada evento, sem consolidação manual.</p><p>É com esse painel que compras mostra resultado para a diretoria.</p>
+      <p>Saving do ano, cobertura de contrato, compras fora de contrato e prazo de ciclo. Pedidos em dia, atrasados e os que requerem a sua atenção. Tudo recalculado a cada evento, sem consolidação manual.</p><p>Ao lado, a agenda do gestor: o que precisa da sua decisão hoje, com criticidade e prazo.</p>
     </div>
-    <figure class="vp-shot" data-reveal="" style="transition-delay:.1s"><svg class="mk" viewBox="0 0 720 470" role="img" aria-label="Exemplo ilustrativo do painel de indicadores de compras: saving do ano, cobertura de contrato, maverick spend, prazo de ciclo, saving acumulado mês a mês, solicitações por área, entrega no prazo e alertas de SLA abertos">
+    <figure class="vp-shot" data-reveal="" style="transition-delay:.1s"><svg class="mk" viewBox="0 0 720 560" role="img" aria-label="Exemplo ilustrativo da tela inicial do gestor de compras: saving do ano, cobertura de contrato, maverick spend, prazo de ciclo, pedidos em andamento divididos em em dia, requerem atenção e atrasados, saving acumulado mês a mês, entrega no prazo, alertas de SLA abertos e, à direita, a agenda do gestor com as tarefas do dia">
       <defs>
         <linearGradient id="vpg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a1238f"/><stop offset=".55" stop-color="#e8335a"/><stop offset="1" stop-color="#f46b45"/></linearGradient>
         <linearGradient id="vpg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8335a" stop-opacity=".32"/><stop offset="1" stop-color="#e8335a" stop-opacity="0"/></linearGradient>
       </defs>
-      <rect x="1" y="1" width="718" height="468" rx="14" fill="#fff" stroke="#dfe5ee"/>
+      <rect x="1" y="1" width="718" height="558" rx="14" fill="#fff" stroke="#dfe5ee"/>
       <path d="M1 15a14 14 0 0 1 14-14h690a14 14 0 0 1 14 14v29H1z" fill="#eef2f7"/>
       <circle cx="24" cy="23" r="5" fill="#c9d2de"/><circle cx="42" cy="23" r="5" fill="#c9d2de"/><circle cx="60" cy="23" r="5" fill="#c9d2de"/>
-      <text x="92" y="28" class="t13 b">Painel de compras · visão do gestor · ano atual</text>
+      <text x="92" y="28" class="t13 b">Painel de compras · tela inicial do gestor</text>
       <rect x="578" y="11" width="122" height="24" rx="12" fill="#fff" stroke="#c9d2de"/><text x="639" y="27.500" class="t11 m" text-anchor="middle">Exemplo ilustrativo</text>
 
       <rect x="24" y="58" width="159" height="88" rx="10" fill="#f6f8fb"/><rect x="38" y="70" width="28" height="4" rx="2" fill="url(#vpg1)"/>
@@ -771,40 +771,56 @@ body{overflow-x:clip}
       <rect x="537" y="58" width="159" height="88" rx="10" fill="#f6f8fb"/><rect x="551" y="70" width="28" height="4" rx="2" fill="#17a673"/>
       <text x="551" y="93" class="t11 m">Prazo de ciclo</text><text x="551" y="119" class="t20 x">9,2 dias</text><text x="551" y="135" class="t10 m">da solicitação ao pedido</text>
 
-      <rect x="24" y="158" width="404" height="176" rx="10" fill="#fff" stroke="#dfe5ee"/>
-      <text x="40" y="182" class="t11 b m">Saving acumulado no ano</text><text x="412" y="182" class="t11 b" fill="#e8335a" text-anchor="end">R$ 4,8 mi</text>
-      <line x1="44" y1="222" x2="408" y2="222" stroke="#eef2f7"/><line x1="44" y1="252" x2="408" y2="252" stroke="#eef2f7"/><line x1="44" y1="282" x2="408" y2="282" stroke="#eef2f7"/><line x1="44" y1="312" x2="408" y2="312" stroke="#dfe5ee"/>
-      <path d="M44 312 L44 308.2 L77.1 303.3 L110.2 294.7 L143.3 288.9 L176.4 278.3 L209.5 267.8 L242.5 262 L275.6 251.4 L308.7 244.7 L341.8 233.2 L374.9 226.4 L408 219.7 L408 312 Z" fill="url(#vpg2)"/>
-      <path d="M44 308.2 L77.1 303.3 L110.2 294.7 L143.3 288.9 L176.4 278.3 L209.5 267.8 L242.5 262 L275.6 251.4 L308.7 244.7 L341.8 233.2 L374.9 226.4 L408 219.7" fill="none" stroke="url(#vpg1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="408" cy="219.7" r="5" fill="#fff" stroke="#f46b45" stroke-width="3"/>
-      <g class="t10 m" text-anchor="middle"><text x="44" y="327">J</text><text x="77.1" y="327">F</text><text x="110.2" y="327">M</text><text x="143.3" y="327">A</text><text x="176.4" y="327">M</text><text x="209.5" y="327">J</text><text x="242.5" y="327">J</text><text x="275.6" y="327">A</text><text x="308.7" y="327">S</text><text x="341.8" y="327">O</text><text x="374.9" y="327">N</text><text x="408" y="327">D</text></g>
-
-      <rect x="440" y="158" width="256" height="176" rx="10" fill="#fff" stroke="#dfe5ee"/>
-      <text x="456" y="182" class="t11 b m">Solicitações por área</text>
-      <g transform="rotate(-90 506 258)" fill="none" stroke-width="15">
-        <circle cx="506" cy="258" r="36" stroke="#0496ff" stroke-dasharray="85.95 226.19" stroke-dashoffset="0"/>
-        <circle cx="506" cy="258" r="36" stroke="#17a673" stroke-dasharray="61.07 226.19" stroke-dashoffset="-85.95"/>
-        <circle cx="506" cy="258" r="36" stroke="#f46b45" stroke-dasharray="47.5 226.19" stroke-dashoffset="-147.02"/>
-        <circle cx="506" cy="258" r="36" stroke="#a1238f" stroke-dasharray="31.67 226.19" stroke-dashoffset="-194.52"/>
+      <rect x="24" y="158" width="452" height="112" rx="10" fill="#fff" stroke="#dfe5ee"/>
+      <text x="40" y="182" class="t11 b m">Pedidos em andamento</text>
+      <g transform="rotate(-90 84 228)" fill="none" stroke-width="12">
+        <circle cx="84" cy="228" r="26" stroke="#17a673" stroke-dasharray="122.52 163.36" stroke-dashoffset="0"/>
+        <circle cx="84" cy="228" r="26" stroke="#e69a00" stroke-dasharray="26.8 163.36" stroke-dashoffset="-122.52"/>
+        <circle cx="84" cy="228" r="26" stroke="#e8335a" stroke-dasharray="14.04 163.36" stroke-dashoffset="-149.32"/>
       </g>
-      <g class="t11">
-        <circle cx="570" cy="222" r="4" fill="#0496ff"/><text x="582" y="226">Manutenção</text><text x="682" y="226" class="b" text-anchor="end">38%</text>
-        <circle cx="570" cy="246" r="4" fill="#17a673"/><text x="582" y="250">Produção</text><text x="682" y="250" class="b" text-anchor="end">27%</text>
-        <circle cx="570" cy="270" r="4" fill="#f46b45"/><text x="582" y="274">Serviços</text><text x="682" y="274" class="b" text-anchor="end">21%</text>
-        <circle cx="570" cy="294" r="4" fill="#a1238f"/><text x="582" y="298">Administrativo</text><text x="682" y="298" class="b" text-anchor="end">14%</text>
-      </g>
+      <text x="84" y="233" class="t13 x" text-anchor="middle">128</text>
+      <text x="144" y="226" class="t20 x" fill="#0f7a54">96</text><text x="144" y="246" class="t11">em dia</text>
+      <line x1="218" y1="204" x2="218" y2="250" stroke="#eef2f7"/>
+      <text x="236" y="226" class="t20 x" fill="#9a6400">21</text><text x="236" y="246" class="t11">requerem sua atenção</text>
+      <line x1="364" y1="204" x2="364" y2="250" stroke="#eef2f7"/>
+      <text x="382" y="226" class="t20 x" fill="#c0263d">11</text><text x="382" y="246" class="t11">atrasados</text>
 
-      <rect x="24" y="346" width="216" height="102" rx="10" fill="#f6f8fb"/>
-      <text x="40" y="370" class="t11 m">Entrega no prazo</text><text x="40" y="399" class="t20 x">96%</text>
-      <rect x="40" y="412" width="184" height="6" rx="3" fill="#dfe5ee"/><rect x="40" y="412" width="176.6" height="6" rx="3" fill="#17a673"/>
-      <text x="40" y="436" class="t10 m">dos pedidos recebidos</text>
-      <rect x="252" y="346" width="216" height="102" rx="10" fill="#fdf1d9"/>
-      <text x="268" y="370" class="t11" fill="#9a6400">Alertas de SLA abertos</text><text x="268" y="399" class="t20 x" fill="#9a6400">7</text>
-      <text x="268" y="420" class="t10" fill="#9a6400">avisados antes do vencimento,</text><text x="268" y="434" class="t10" fill="#9a6400">por e-mail e WhatsApp</text>
-      <rect x="480" y="346" width="216" height="102" rx="10" fill="#02132d"/>
-      <text x="496" y="371" class="t11 b" fill="#7cc4ff">Do indicador ao caso</text>
-      <text x="496" y="394" class="t12 w">Clique no número e abra a lista</text><text x="496" y="411" class="t12 w">de casos, o pedido completo</text><text x="496" y="428" class="t12 w">e as autorizações.</text>
-      <circle cx="674" cy="366" r="10" fill="#0496ff"/><path d="m670.500 366h7m-3-3 3 3-3 3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="24" y="282" width="452" height="150" rx="10" fill="#fff" stroke="#dfe5ee"/>
+      <text x="40" y="306" class="t11 b m">Saving acumulado no ano</text><text x="460" y="306" class="t11 b" fill="#e8335a" text-anchor="end">R$ 4,8 mi</text>
+      <line x1="44" y1="330" x2="456" y2="330" stroke="#eef2f7"/><line x1="44" y1="355" x2="456" y2="355" stroke="#eef2f7"/><line x1="44" y1="380" x2="456" y2="380" stroke="#eef2f7"/><line x1="44" y1="405" x2="456" y2="405" stroke="#dfe5ee"/>
+      <path d="M44 405 L44 401.7 L81.5 397.6 L118.9 390.3 L156.4 385.4 L193.8 376.4 L231.3 367.4 L268.7 362.5 L306.2 353.5 L343.6 347.8 L381.1 338 L418.5 332.3 L456 326.5 L456 405 Z" fill="url(#vpg2)"/>
+      <path d="M44 401.7 L81.5 397.6 L118.9 390.3 L156.4 385.4 L193.8 376.4 L231.3 367.4 L268.7 362.5 L306.2 353.5 L343.6 347.8 L381.1 338 L418.5 332.3 L456 326.5" fill="none" stroke="url(#vpg1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="456" cy="326.5" r="5" fill="#fff" stroke="#f46b45" stroke-width="3"/>
+      <g class="t10 m" text-anchor="middle"><text x="44" y="421">J</text><text x="81.5" y="421">F</text><text x="118.9" y="421">M</text><text x="156.4" y="421">A</text><text x="193.8" y="421">M</text><text x="231.3" y="421">J</text><text x="268.7" y="421">J</text><text x="306.2" y="421">A</text><text x="343.6" y="421">S</text><text x="381.1" y="421">O</text><text x="418.5" y="421">N</text><text x="456" y="421">D</text></g>
+
+      <rect x="24" y="444" width="220" height="92" rx="10" fill="#f6f8fb"/>
+      <text x="40" y="466" class="t11 m">Entrega no prazo</text><text x="40" y="494" class="t20 x">96%</text>
+      <rect x="40" y="504" width="188" height="6" rx="3" fill="#dfe5ee"/><rect x="40" y="504" width="180.5" height="6" rx="3" fill="#17a673"/>
+      <text x="40" y="525" class="t10 m">dos pedidos recebidos</text>
+      <rect x="256" y="444" width="220" height="92" rx="10" fill="#fdf1d9"/>
+      <text x="272" y="466" class="t11" fill="#9a6400">Alertas de SLA abertos</text><text x="272" y="494" class="t20 x" fill="#9a6400">7</text>
+      <text x="272" y="511" class="t10" fill="#9a6400">avisados antes do vencimento,</text><text x="272" y="525" class="t10" fill="#9a6400">por e-mail e WhatsApp</text>
+
+      <rect x="488" y="158" width="208" height="378" rx="12" fill="#02132d"/>
+      <text x="504" y="184" class="t13 x w">Agenda do gestor</text><text x="680" y="184" class="t10" fill="#7cc4ff" text-anchor="end">4 para hoje</text>
+
+      <rect x="500" y="198" width="184" height="70" rx="8" fill="#fff" fill-opacity=".07"/><rect x="500" y="198" width="4" height="70" rx="2" fill="#e8335a"/>
+      <text x="514" y="219" class="t12 b w">Aprovar solicitação nº 21</text><text x="514" y="235" class="t10" fill="#a9b8cc">R$ 148.000 · acima da alçada</text>
+      <rect x="514" y="244" width="122" height="16" rx="8" fill="#e8335a" fill-opacity=".24"/><text x="575" y="255.500" class="t10 b" fill="#ffb3c1" text-anchor="middle">crítico · vence em 2 h</text>
+
+      <rect x="500" y="276" width="184" height="70" rx="8" fill="#fff" fill-opacity=".07"/><rect x="500" y="276" width="4" height="70" rx="2" fill="#e69a00"/>
+      <text x="514" y="297" class="t12 b w">Analisar mapa de compras</text><text x="514" y="313" class="t10" fill="#a9b8cc">Cotação nº 38 · 3 propostas</text>
+      <rect x="514" y="322" width="40" height="16" rx="8" fill="#e69a00" fill-opacity=".24"/><text x="534" y="333.500" class="t10 b" fill="#ffd78a" text-anchor="middle">hoje</text>
+
+      <rect x="500" y="354" width="184" height="70" rx="8" fill="#fff" fill-opacity=".07"/><rect x="500" y="354" width="4" height="70" rx="2" fill="#0496ff"/>
+      <text x="514" y="375" class="t12 b w">Aprovar homologação</text><text x="514" y="391" class="t10" fill="#a9b8cc">Interfix Industrial · nota 78</text>
+      <rect x="514" y="400" width="70" height="16" rx="8" fill="#0496ff" fill-opacity=".24"/><text x="549" y="411.500" class="t10 b" fill="#9fd4ff" text-anchor="middle">até amanhã</text>
+
+      <rect x="500" y="432" width="184" height="70" rx="8" fill="#fff" fill-opacity=".07"/><rect x="500" y="432" width="4" height="70" rx="2" fill="#17a673"/>
+      <text x="514" y="453" class="t12 b w">Renovar contrato nº 12</text><text x="514" y="469" class="t10" fill="#a9b8cc">Rolamentos Tavares · 68% usado</text>
+      <rect x="514" y="478" width="98" height="16" rx="8" fill="#17a673" fill-opacity=".24"/><text x="563" y="489.500" class="t10 b" fill="#8fe3c0" text-anchor="middle">vence em 60 dias</text>
+
+      <text x="504" y="524" class="t11 b" fill="#7cc4ff">Ver a agenda do time →</text>
     </svg></figure>
     <div class="vp-d" data-reveal=""><div><h3>Do indicador ao caso</h3><p>Um clique no número abre a lista de casos, e de lá o pedido completo, com autorizações, documentos e a trilha de quem fez o quê.</p></div><div><h3>Cada área monta o seu</h3><p>Compras, financeiro, compliance e operações escolhem os gráficos que querem acompanhar, sobre o mesmo dado, sem entrar na fila do BI.</p></div><div><h3>Pronto ou do seu jeito</h3><p>Os indicadores chegam configurados e podem ser alterados pelo próprio usuário a qualquer momento.</p></div></div>
   </div>
