@@ -3,7 +3,7 @@
 (function(){
 'use strict';
 var F = window.Ferramentas, $ = F.$, el = F.el;
-var LIMITE = 5000, FERRAMENTA = 'Spend Analysis';
+var LIMITE = 5000, MAX_DESCRICOES = 300, FERRAMENTA = 'Spend Analysis';
 var estado = { linhas: [], total: 0, origem: '', analise: null };
 
 var MAPA = {
@@ -66,6 +66,8 @@ function lerLinhas(linhas, origem){
   if(faltam.length) box.appendChild(el('div','Não achamos a coluna de '+faltam.join(', ')+'. Usamos a ordem descrição, fornecedor, valor; confira ou ajuste os títulos.','info warn'));
   if(validas.length<out.length) box.appendChild(el('div',(out.length-validas.length)+' linha(s) sem descrição ou sem valor ficam de fora.','info warn'));
   if(out.length>LIMITE) box.appendChild(el('div','O relatório tem '+out.length.toLocaleString('pt-BR')+' linhas. A análise na hora considera as '+LIMITE.toLocaleString('pt-BR')+' primeiras.','info warn'));
+  var unicas={}; validas.forEach(function(x){ unicas[F.norm(x.descricao)]=1; }); var nu=Object.keys(unicas).length;
+  if(nu>MAX_DESCRICOES) box.appendChild(el('div','O relatório tem '+nu.toLocaleString('pt-BR')+' descrições diferentes. Na análise na hora, o agente classifica as '+MAX_DESCRICOES+' de maior valor (leva cerca de 30 segundos); as demais entram no total, nos fornecedores e na curva ABC como "não classificado". Para classificar o arquivo inteiro, fale com a nossa equipe no fim do resultado.','info warn'));
   $('go').disabled = !validas.length;
 }
 function falhaLeitura(e){ var b=$('leitura'); b.textContent=''; b.appendChild(el('div',e.message||'Não foi possível ler o arquivo.','info err')); $('go').disabled=true; }
