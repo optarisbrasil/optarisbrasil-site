@@ -95,6 +95,9 @@ summary{cursor:pointer;font-weight:700;color:#02132d}
 .cap p{margin:0 0 4px;font-size:14.5px}
 .cap .opt{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;font-weight:400;font-size:13.5px;color:#26384f;cursor:pointer}
 .cap .opt input{width:18px;height:18px;min-height:0;margin:2px 0 0;flex:0 0 18px}
+.cap .ia{margin:14px 0 4px;padding:12px 14px;background:#fff;border:1px solid #cfe0f5;border-left:4px solid #0496ff;border-radius:6px}
+.cap .ia strong{display:block;font-size:14px;color:#02132d;margin-bottom:4px}
+.cap .ia span{display:block;font-size:13.5px;line-height:1.5;color:#26384f}
 .cap .fine{font-size:12.5px;color:#5b6675;margin:12px 0 0}
 .cap .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
 .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}

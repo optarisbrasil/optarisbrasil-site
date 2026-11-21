@@ -124,8 +124,10 @@ function hutk(){ var m=document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/); re
 F.captura = function(cont, o){
   var TXT_CONSENT='Ao enviar, você concorda que a Optaris do Brasil armazene e processe seus dados para enviar o relatório e responder a este contato, conforme a LGPD e a Política de Privacidade.';
   var TXT_ONE='Quero receber o relatório completo desta análise.';
+  var TXT_IA_T='IA sob a governança da sua empresa';
+  var TXT_IA='A Deyel funciona com a IA que já vem na plataforma ou com o fornecedor de IA que a sua empresa escolher. A camada de controle em tempo de execução da arquitetura Deyel dá governança corporativa a qualquer IA ou agente, e já foi homologada por empresas em vários países. Se o compliance não permitir IA, basta desligá-la: a plataforma segue 100% em automação de workflows e integrações.';
   var TXT_MKT='Quero receber conteúdo da Optaris e da Deyel sobre gestão de compras e a reforma tributária.';
-  var box=F.el('div',null,'cap noprint'); box.appendChild(F.el('h3',o.titulo)); box.appendChild(F.el('p',o.texto));
+  var box=F.el('div',null,'cap noprint'); box.appendChild(F.el('h3',o.titulo)); box.appendChild(F.el('p',o.texto)); var ia=F.el('div',null,'ia'); ia.appendChild(F.el('strong',TXT_IA_T)); ia.appendChild(F.el('span',TXT_IA)); box.appendChild(ia);
   var f=document.createElement('form'); f.noValidate=true; f.setAttribute('data-hs-do-not-collect','true');
   function campo(id,lbl,type,ac,ph,max){ var w=F.el('div'), l=F.el('label',lbl); l.htmlFor=id; var i=document.createElement('input'); i.id=id; i.type=type; i.autocomplete=ac; i.placeholder=ph; i.maxLength=max; if(type==='email'){ i.setAttribute('inputmode','email'); i.setAttribute('autocapitalize','off'); i.spellcheck=false; } w.appendChild(l); w.appendChild(i); return {w:w,i:i}; }
   var fe=campo('cap-email','E-mail corporativo','email','email','voce@suaempresa.com.br',120), fc=campo('cap-cargo','Cargo (opcional)','text','organization-title','Ex.: Gerente de Compras',80);
