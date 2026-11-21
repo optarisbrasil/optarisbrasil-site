@@ -54,7 +54,7 @@ Página: https://www.optarisbrasil.com/gestao-de-compras-e-fornecedores/
 - Integra ERP, CRM e logística por API REST e SOAP (SAP, Oracle, DB2, MySQL, AWS, entre outros).
 - 80% pronto e parametrizado para o processo da empresa; implantação em média de 2 a 3 meses; preço mensal fixo em reais, sem cobrança por uso.
 - Clientes: Consigaz, 4Network e MAC Hospitales.
-- Vídeos: demo completa (17 min) https://youtu.be/_H-JTQysDxo e resumo "do pedido ao pagamento" (52 s) https://youtu.be/O0GK5eHx9-8
+- Vídeos: demo completa (18 min) https://youtu.be/5wnLtxx-RJE e resumo "do pedido ao pagamento" (52 s) https://youtu.be/O0GK5eHx9-8
 - Demo: https://calendly.com/paulocacciari/demo-plataforma-gestao-de-compras · demo guiada: https://app.getdemo.com.br/s/d798028f-2997-4bfa-9c25-44f172e16ac4
 
 ## Soluções Consist
