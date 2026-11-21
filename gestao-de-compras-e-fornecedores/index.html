@@ -521,12 +521,96 @@ body{overflow-x:clip}
       <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;max-width:800px">
         <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Como resolvemos</span>
         <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Da solicitação de compra ao pagamento, no mesmo sistema</h2>
-        <p style="font-size:16px;color:#555;text-wrap:pretty">O Deyel Vendor Management une S2P e SRM: controla cada etapa da compra e, ao mesmo tempo, a homologação e a gestão dos fornecedores, conversando com os sistemas que a empresa já usa.</p>
+        <p style="font-size:16px;color:#555;text-wrap:pretty">Veja o que o solicitante, o comprador e o fornecedor têm na tela em cada momento da compra.</p>
       </div>
       
     </div>
-    <h3 data-reveal="" style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Source-to-pay: a jornada da compra</h3>
-    <p data-reveal="" style="font-size:15px;color:#555;max-width:760px;margin-bottom:22px;text-wrap:pretty">Doze etapas em quatro momentos, do pedido ao pagamento. Sob elas, o que as sustenta: uma base única de fornecedores, indicadores e IA, e a ligação com os seus sistemas.</p>
+
+  <style>
+    .vp{padding:clamp(64px,7vw,104px) 0;background:#fff;color:#02132d;scroll-margin-top:70px}
+    .vp-dark{background:radial-gradient(ellipse at 24% 16%,#0b2a55 0%,#02132d 58%,#010a19 100%);color:#fff}
+    .vp-soft{background:#f4f8fd}
+    .vp-w{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px 64px;align-items:center}
+    .vp-flip .vp-w{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+    .vp-flip .vp-h{order:2}
+    .vp-flip .vp-shot{order:1}
+    .vp-h{display:flex;flex-direction:column;gap:14px;min-width:0}
+    .vp-k{font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#0496ff}
+    .vp-dark .vp-k{color:#7cc4ff}
+    .vp-h h2{font-family:Lato,sans-serif;font-weight:900;font-size:clamp(28px,3.2vw,42px);line-height:1.1;margin:0;color:inherit;text-wrap:balance}
+    .vp-h h2 span{display:block;font-weight:400;font-size:.58em;line-height:1.25;margin-top:10px;color:#5d6b82}
+    .vp-dark .vp-h h2 span{color:#9fb1c8}
+    .vp-h p{margin:0;font-size:16.5px;line-height:1.6;color:#3d4a60;text-wrap:pretty}
+    .vp-dark .vp-h p{color:#c7d3e3}
+    .vp-h p b{color:#02132d;font-weight:700}
+    .vp-dark .vp-h p b{color:#fff}
+    .vp-shot{margin:0;min-width:0;border-radius:18px;filter:drop-shadow(0 34px 44px rgba(2,19,45,.2))}
+    .vp-dark .vp-shot{filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}
+    .vp .mk{display:block;width:100%;height:auto;border-radius:14px;fill:#02132d}
+    .vp .mk text{font-family:Roboto,Helvetica,Arial,sans-serif}
+    .vp .mk .x{font-family:Lato,sans-serif;font-weight:900}
+    .vp .mk .b{font-weight:700}
+    .vp .mk .w{fill:#fff}
+    .vp .mk .m{fill:#6b7a90}
+    .vp .mk .t10{font-size:10px}.vp .mk .t11{font-size:11px}.vp .mk .t12{font-size:12px}.vp .mk .t13{font-size:13px}.vp .mk .t16{font-size:16px}.vp .mk .t20{font-size:20px}
+    .vp-d{grid-column:1/-1;order:3;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 48px;margin-top:clamp(8px,2vw,24px)}
+    .vp-d>div{border-top:2px solid #02132d;padding-top:18px}
+    .vp-dark .vp-d>div{border-top-color:rgba(255,255,255,.45)}
+    .vp-d h3{font-family:Lato,sans-serif;font-weight:900;font-size:18px;line-height:1.25;margin:0 0 8px;color:inherit}
+    .vp-d p{margin:0;font-size:15px;line-height:1.55;color:#555;text-wrap:pretty}
+    .vp-dark .vp-d p{color:#c7d3e3}
+    @media(max-width:980px){.vp-w,.vp-flip .vp-w{grid-template-columns:minmax(0,1fr)}.vp-flip .vp-h,.vp-flip .vp-shot{order:0}.vp-d{grid-template-columns:minmax(0,1fr);gap:22px}}
+    @media(max-width:640px){.vp-shot{overflow-x:auto;-webkit-overflow-scrolling:touch;filter:none;border-radius:14px;margin:0 -24px;padding:0 24px 6px}.vp .mk{width:600px;max-width:none}}
+    .vg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:36px}
+    .vg-c{background:#fff;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 18px 36px -26px rgba(2,19,45,.4)}
+    .vg-i{aspect-ratio:2/1;background:#f1f5f9;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:center;padding:14px}
+    .vg-i img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;border-radius:6px}
+    .vg-t{padding:18px 22px 22px}
+    .vg-n{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0496ff}
+    .vg-t h3{font-family:Lato,sans-serif;font-size:19px;font-weight:900;line-height:1.25;color:#02132d;margin:6px 0 6px}
+    .vg-t p{font-size:15px;line-height:1.5;color:#555;margin:0;text-wrap:pretty}
+    .vg-cap{font-size:13px;color:#6b7686;margin-top:16px}
+    @media(max-width:820px){.vg{grid-template-columns:minmax(0,1fr)}}
+    .vj{margin-top:40px;border-top:1px solid #e5e7eb}
+    .vj>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:20px 0;font-family:Lato,sans-serif;font-weight:900;font-size:18px;color:#02132d}
+    .vj>summary::-webkit-details-marker{display:none}
+    .vj>summary::before{content:"+";display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#0496ff;color:#fff;font-size:18px;line-height:1;flex:none}
+    .vj[open]>summary::before{content:"\2013"}
+    .vj>summary small{font-family:Roboto,sans-serif;font-weight:400;font-size:14px;color:#6b7686}
+    .vj-in{padding:10px 0 8px}
+  </style>
+    <div class="vg">
+      <div class="vg-c">
+        <div class="vg-i"><img src="/media/vendor-telas/solicitacao.webp" alt="Tela de solicitação de compra no computador e no celular, com item de catálogo, centro de custo, orçamento da área e foto anexada" width="1200" height="699" loading="lazy" decoding="async"></div>
+        <div class="vg-t"><span class="vg-n">Solicitação</span><h3>O pedido nasce no sistema, até pelo celular</h3><p>O sistema confere se o item existe em estoque e se há contrato ativo que cubra o produto ou serviço, e segue a decisão que a sua empresa definiu para cada caso. Sem estoque nem contrato, o pedido passa pelas aprovações conforme valor, orçamento e alçada, e só então chega ao comprador.</p></div>
+      </div>
+      <div class="vg-c">
+        <div class="vg-i"><img src="/media/vendor-telas/mapa.webp" alt="Mapa de compras com três propostas, prazo, entrega no prazo, histórico e nota ponderada de cada fornecedor" width="1200" height="499" loading="lazy" decoding="async"></div>
+        <div class="vg-t"><span class="vg-n">Cotação</span><h3>Mapa de compras pronto para decidir</h3><p>As propostas entram pelo portal e o mapa compara preço, prazo e histórico de entrega, com os pesos que a sua empresa escolheu.</p></div>
+      </div>
+      <div class="vg-c">
+        <div class="vg-i"><img src="/media/vendor-telas/nota.webp" alt="Tela de conferência automática entre ordem de compra, recebimento e nota fiscal, com a ordem de pagamento enviada ao ERP" width="1200" height="475" loading="lazy" decoding="async"></div>
+        <div class="vg-t"><span class="vg-n">Pedido e pagamento</span><h3>Pedido, recebimento e nota conferidos antes de pagar</h3><p>O pedido nasce da cotação, sem redigitar. Na chegada, o sistema confere pedido, recebimento e nota fiscal e só então libera o pagamento.</p></div>
+      </div>
+      <div class="vg-c">
+        <div class="vg-i"><img src="/media/vendor-telas/homologacao.webp" alt="Documento de homologação de fornecedor com a aprovação de financeiro, jurídico e compliance e o resultado da avaliação" width="1200" height="495" loading="lazy" decoding="async"></div>
+        <div class="vg-t"><span class="vg-n">Fornecedores</span><h3>Homologação num documento só</h3><p>As consultas cadastrais, financeiras e de conformidade viram um único documento, que cada área aprova na sua parte.</p></div>
+      </div>
+      <div class="vg-c">
+        <div class="vg-i"><img src="/media/vendor-telas/portal.webp" alt="Portal de relacionamento com fornecedores, com cotações abertas, pedidos em curso, notas em análise e pagamentos previstos" width="1200" height="467" loading="lazy" decoding="async"></div>
+        <div class="vg-t"><span class="vg-n">Portal do fornecedor</span><h3>O fornecedor se atende sozinho</h3><p>Ele acompanha cotações, pedidos, notas e pagamentos, e mantém as certidões em dia, com aviso antes do vencimento.</p></div>
+      </div>
+      <div class="vg-c">
+        <div class="vg-i"><img src="/media/vendor-telas/contratos.webp" alt="Tela de contrato com valor consumido, pedidos validados contra o saldo e alerta de renovação" width="1200" height="592" loading="lazy" decoding="async"></div>
+        <div class="vg-t"><span class="vg-n">Contratos</span><h3>Contratos com saldo e vencimento à vista</h3><p>Gerados por modelo e assinados dentro do fluxo. Cada pedido é validado contra o saldo do contrato, e a renovação gera alerta.</p></div>
+      </div>
+    </div>
+    <p class="vg-cap">Telas da demo completa de 18 minutos, com dados de uma empresa fictícia. <a href="#videos" style="color:#0496ff;text-decoration:none">Ver a demo ↓</a></p>
+    <details class="vj">
+      <summary>Ver a jornada completa, etapa por etapa <small>S2P + SRM: as 12 etapas e o detalhe de cada função</small></summary>
+      <div class="vj-in">
+    <h3 style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Source-to-pay: a jornada da compra</h3>
+    <p style="font-size:15px;color:#555;max-width:760px;margin-bottom:22px;text-wrap:pretty">O Deyel Vendor Management une S2P e SRM: controla cada etapa da compra e, ao mesmo tempo, a homologação e a gestão dos fornecedores. Doze etapas em quatro momentos, do pedido ao pagamento. Sob elas, o que as sustenta: uma base única de fornecedores, indicadores e IA, e a ligação com os seus sistemas.</p>
     <style>
       .vf{display:flex;flex-direction:column;gap:14px;margin:0 0 48px}
       .vf-sup{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;background:#fff;border:1.5px dashed #f46b45;border-radius:14px;padding:12px 16px}
@@ -574,7 +658,7 @@ body{overflow-x:clip}
         .vf-ch span{font-size:14px}
       }
     </style>
-    <div class="vf" data-reveal="" role="group" aria-label="Jornada da compra de ponta a ponta, com o que a sustenta: gestão de fornecedores, indicadores e IA, e integração com os seus sistemas">
+    <div class="vf" role="group" aria-label="Jornada da compra de ponta a ponta, com o que a sustenta: gestão de fornecedores, indicadores e IA, e integração com os seus sistemas">
       <div class="vf-sup">
         <b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M5 21V8l7-4 7 4v13"></path><path d="M9 21v-5h6v5"></path><path d="M9 10h.01M12 10h.01M15 10h.01"></path></svg>Fornecedor, no portal próprio</b>
         <span>atualiza seus dados</span><span>cadastra a proposta</span><span>acompanha os pedidos</span><span>envia as notas</span>
@@ -612,51 +696,230 @@ body{overflow-x:clip}
         <div class="vf-ch"><span>ERP</span><span>Contabilidade</span><span>CRM</span><span>Logística</span></div>
       </div>
     </div>
-    <h3 data-reveal="" style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Em detalhe: S2P e SRM</h3>
+    <h3 style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Em detalhe: S2P e SRM</h3>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px">
-      <div data-reveal="" style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
+      <div style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
         <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Solicitação e autorização</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">Requisição de compra com alçadas de aprovação definidas pela empresa e controle de estoque ligado ao que se pede.</p>
       </div>
-      <div data-reveal="" style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
+      <div style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
         <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Cadastro e homologação</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">Base única de fornecedores, classificada por categoria, setor e nível de risco, com coleta e validação de documentos.</p>
       </div>
-      <div data-reveal="" style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
+      <div style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
         <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Cotação, concorrência e mapa de compras</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">O fornecedor cadastra a proposta no portal e o comprador recebe o mapa de compras já ranqueado, com critérios com peso, várias rodadas e divisão de volume entre fornecedores.</p>
       </div>
-      <div data-reveal="" style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
+      <div style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
         <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Avaliação e seleção</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">Comparação por custo, qualidade e prazo, com sistema de pontuação e pré-seleção.</p>
       </div>
-      <div data-reveal="" style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
+      <div style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
         <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Riscos e conformidade</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">Avaliações de compliance, TI, financeira e operacional, monitoramento contínuo e planos de contingência.</p>
       </div>
-      <div data-reveal="" style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
+      <div style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
         <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Geração, assinatura e gestão de contratos</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">Contratos gerados a partir de modelos, assinados dentro do fluxo e guardados num repositório central, com alertas de vencimento.</p>
       </div>
-      <div data-reveal="" style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
+      <div style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
         <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Pedido, recebimento e pagamento</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">Pedido, faturamento, recepção do produto, recebimento da nota fiscal eletrônica e pagamento, integrados à contabilidade e ao ERP.</p>
       </div>
-      <div data-reveal="" style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
+      <div style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
         <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Indicadores e relatórios</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">Painel de KPIs, acompanhamento de savings e relatórios por critério, sem extração manual.</p>
       </div>
-      <div data-reveal="" style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
+      <div style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
         <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">IA aplicada a compras</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">Busca ativa de novos fornecedores, apoio à seleção e à precificação, VendorBot para consultas em linguagem natural e agentes de IA opcionais para tarefas do processo.</p>
       </div>
-      <div data-reveal="" style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
+      <div style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
         <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Integração com o que você já tem</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">ERP, CRM e logística conectados por API REST e SOAP: SAP, Oracle, DB2, MySQL, AWS e Google Drive, entre outros.</p>
       </div>
     </div>
+      </div>
+    </details>
   </div>
 </section>
+
+<section id="indicadores" class="vp vp-dark" data-screen-label="03a Painel de indicadores">
+  <div class="vp-w">
+    <div class="vp-h" data-reveal="">
+      <span class="vp-k">Painel de indicadores</span>
+      <h2>O painel de compras é a primeira tela do gestor.<span>Ninguém precisa pedir relatório.</span></h2>
+      <p>Saving do ano, cobertura de contrato, compras fora de contrato e prazo de ciclo. Pedidos em dia, atrasados e os que requerem a sua atenção. Tudo recalculado a cada evento, sem consolidação manual.</p><p>Ao lado, a agenda do gestor: o que precisa da sua decisão hoje, com criticidade e prazo.</p>
+    </div>
+    <figure class="vp-shot" data-reveal="" style="transition-delay:.1s"><svg class="mk" viewBox="0 0 720 560" role="img" aria-label="Exemplo ilustrativo da tela inicial do gestor de compras: saving do ano, cobertura de contrato, maverick spend, prazo de ciclo, pedidos em andamento divididos em em dia, requerem atenção e atrasados, saving acumulado mês a mês, entrega no prazo, alertas de SLA abertos e, à direita, a agenda do gestor com as tarefas do dia">
+      <defs>
+        <linearGradient id="vpg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a1238f"/><stop offset=".55" stop-color="#e8335a"/><stop offset="1" stop-color="#f46b45"/></linearGradient>
+        <linearGradient id="vpg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8335a" stop-opacity=".32"/><stop offset="1" stop-color="#e8335a" stop-opacity="0"/></linearGradient>
+      </defs>
+      <rect x="1" y="1" width="718" height="558" rx="14" fill="#fff" stroke="#dfe5ee"/>
+      <path d="M1 15a14 14 0 0 1 14-14h690a14 14 0 0 1 14 14v29H1z" fill="#eef2f7"/>
+      <circle cx="24" cy="23" r="5" fill="#c9d2de"/><circle cx="42" cy="23" r="5" fill="#c9d2de"/><circle cx="60" cy="23" r="5" fill="#c9d2de"/>
+      <text x="92" y="28" class="t13 b">Painel de compras · tela inicial do gestor</text>
+      <rect x="578" y="11" width="122" height="24" rx="12" fill="#fff" stroke="#c9d2de"/><text x="639" y="27.500" class="t11 m" text-anchor="middle">Exemplo ilustrativo</text>
+
+      <rect x="24" y="58" width="159" height="88" rx="10" fill="#f6f8fb"/><rect x="38" y="70" width="28" height="4" rx="2" fill="url(#vpg1)"/>
+      <text x="38" y="93" class="t11 m">Saving do ano</text><text x="38" y="119" class="t20 x">R$ 4,8 mi</text><text x="38" y="135" class="t10 m">economia negociada</text>
+      <rect x="195" y="58" width="159" height="88" rx="10" fill="#f6f8fb"/><rect x="209" y="70" width="28" height="4" rx="2" fill="#0496ff"/>
+      <text x="209" y="93" class="t11 m">Cobertura de contrato</text><text x="209" y="119" class="t20 x">82%</text><text x="209" y="135" class="t10 m">do gasto sob contrato</text>
+      <rect x="366" y="58" width="159" height="88" rx="10" fill="#f6f8fb"/><rect x="380" y="70" width="28" height="4" rx="2" fill="#e69a00"/>
+      <text x="380" y="93" class="t11 m">Maverick spend</text><text x="380" y="119" class="t20 x">6,4%</text><text x="380" y="135" class="t10 m">compras fora de contrato</text>
+      <rect x="537" y="58" width="159" height="88" rx="10" fill="#f6f8fb"/><rect x="551" y="70" width="28" height="4" rx="2" fill="#17a673"/>
+      <text x="551" y="93" class="t11 m">Prazo de ciclo</text><text x="551" y="119" class="t20 x">9,2 dias</text><text x="551" y="135" class="t10 m">da solicitação ao pedido</text>
+
+      <rect x="24" y="158" width="452" height="112" rx="10" fill="#fff" stroke="#dfe5ee"/>
+      <text x="40" y="182" class="t11 b m">Pedidos em andamento</text>
+      <g transform="rotate(-90 84 228)" fill="none" stroke-width="12">
+        <circle cx="84" cy="228" r="26" stroke="#17a673" stroke-dasharray="122.52 163.36" stroke-dashoffset="0"/>
+        <circle cx="84" cy="228" r="26" stroke="#e69a00" stroke-dasharray="26.8 163.36" stroke-dashoffset="-122.52"/>
+        <circle cx="84" cy="228" r="26" stroke="#e8335a" stroke-dasharray="14.04 163.36" stroke-dashoffset="-149.32"/>
+      </g>
+      <text x="84" y="233" class="t13 x" text-anchor="middle">128</text>
+      <text x="144" y="226" class="t20 x" fill="#0f7a54">96</text><text x="144" y="246" class="t11">em dia</text>
+      <line x1="218" y1="204" x2="218" y2="250" stroke="#eef2f7"/>
+      <text x="236" y="226" class="t20 x" fill="#9a6400">21</text><text x="236" y="246" class="t11">requerem sua atenção</text>
+      <line x1="364" y1="204" x2="364" y2="250" stroke="#eef2f7"/>
+      <text x="382" y="226" class="t20 x" fill="#c0263d">11</text><text x="382" y="246" class="t11">atrasados</text>
+
+      <rect x="24" y="282" width="452" height="150" rx="10" fill="#fff" stroke="#dfe5ee"/>
+      <text x="40" y="306" class="t11 b m">Saving acumulado no ano</text><text x="460" y="306" class="t11 b" fill="#e8335a" text-anchor="end">R$ 4,8 mi</text>
+      <line x1="44" y1="330" x2="456" y2="330" stroke="#eef2f7"/><line x1="44" y1="355" x2="456" y2="355" stroke="#eef2f7"/><line x1="44" y1="380" x2="456" y2="380" stroke="#eef2f7"/><line x1="44" y1="405" x2="456" y2="405" stroke="#dfe5ee"/>
+      <path d="M44 405 L44 401.7 L81.5 397.6 L118.9 390.3 L156.4 385.4 L193.8 376.4 L231.3 367.4 L268.7 362.5 L306.2 353.5 L343.6 347.8 L381.1 338 L418.5 332.3 L456 326.5 L456 405 Z" fill="url(#vpg2)"/>
+      <path d="M44 401.7 L81.5 397.6 L118.9 390.3 L156.4 385.4 L193.8 376.4 L231.3 367.4 L268.7 362.5 L306.2 353.5 L343.6 347.8 L381.1 338 L418.5 332.3 L456 326.5" fill="none" stroke="url(#vpg1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="456" cy="326.5" r="5" fill="#fff" stroke="#f46b45" stroke-width="3"/>
+      <g class="t10 m" text-anchor="middle"><text x="44" y="421">J</text><text x="81.5" y="421">F</text><text x="118.9" y="421">M</text><text x="156.4" y="421">A</text><text x="193.8" y="421">M</text><text x="231.3" y="421">J</text><text x="268.7" y="421">J</text><text x="306.2" y="421">A</text><text x="343.6" y="421">S</text><text x="381.1" y="421">O</text><text x="418.5" y="421">N</text><text x="456" y="421">D</text></g>
+
+      <rect x="24" y="444" width="220" height="92" rx="10" fill="#f6f8fb"/>
+      <text x="40" y="466" class="t11 m">Entrega no prazo</text><text x="40" y="494" class="t20 x">96%</text>
+      <rect x="40" y="504" width="188" height="6" rx="3" fill="#dfe5ee"/><rect x="40" y="504" width="180.5" height="6" rx="3" fill="#17a673"/>
+      <text x="40" y="525" class="t10 m">dos pedidos recebidos</text>
+      <rect x="256" y="444" width="220" height="92" rx="10" fill="#fdf1d9"/>
+      <text x="272" y="466" class="t11" fill="#9a6400">Alertas de SLA abertos</text><text x="272" y="494" class="t20 x" fill="#9a6400">7</text>
+      <text x="272" y="511" class="t10" fill="#9a6400">avisados antes do vencimento,</text><text x="272" y="525" class="t10" fill="#9a6400">por e-mail e WhatsApp</text>
+
+      <rect x="488" y="158" width="208" height="378" rx="12" fill="#02132d"/>
+      <text x="504" y="184" class="t13 x w">Agenda do gestor</text><text x="680" y="184" class="t10" fill="#7cc4ff" text-anchor="end">4 para hoje</text>
+
+      <rect x="500" y="198" width="184" height="70" rx="8" fill="#fff" fill-opacity=".07"/><rect x="500" y="198" width="4" height="70" rx="2" fill="#e8335a"/>
+      <text x="514" y="219" class="t12 b w">Aprovar solicitação nº 21</text><text x="514" y="235" class="t10" fill="#a9b8cc">R$ 148.000 · acima da alçada</text>
+      <rect x="514" y="244" width="122" height="16" rx="8" fill="#e8335a" fill-opacity=".24"/><text x="575" y="255.500" class="t10 b" fill="#ffb3c1" text-anchor="middle">crítico · vence em 2 h</text>
+
+      <rect x="500" y="276" width="184" height="70" rx="8" fill="#fff" fill-opacity=".07"/><rect x="500" y="276" width="4" height="70" rx="2" fill="#e69a00"/>
+      <text x="514" y="297" class="t12 b w">Analisar mapa de compras</text><text x="514" y="313" class="t10" fill="#a9b8cc">Cotação nº 38 · 3 propostas</text>
+      <rect x="514" y="322" width="40" height="16" rx="8" fill="#e69a00" fill-opacity=".24"/><text x="534" y="333.500" class="t10 b" fill="#ffd78a" text-anchor="middle">hoje</text>
+
+      <rect x="500" y="354" width="184" height="70" rx="8" fill="#fff" fill-opacity=".07"/><rect x="500" y="354" width="4" height="70" rx="2" fill="#0496ff"/>
+      <text x="514" y="375" class="t12 b w">Aprovar homologação</text><text x="514" y="391" class="t10" fill="#a9b8cc">Interfix Industrial · nota 78</text>
+      <rect x="514" y="400" width="70" height="16" rx="8" fill="#0496ff" fill-opacity=".24"/><text x="549" y="411.500" class="t10 b" fill="#9fd4ff" text-anchor="middle">até amanhã</text>
+
+      <rect x="500" y="432" width="184" height="70" rx="8" fill="#fff" fill-opacity=".07"/><rect x="500" y="432" width="4" height="70" rx="2" fill="#17a673"/>
+      <text x="514" y="453" class="t12 b w">Renovar contrato nº 12</text><text x="514" y="469" class="t10" fill="#a9b8cc">Rolamentos Tavares · 68% usado</text>
+      <rect x="514" y="478" width="98" height="16" rx="8" fill="#17a673" fill-opacity=".24"/><text x="563" y="489.500" class="t10 b" fill="#8fe3c0" text-anchor="middle">vence em 60 dias</text>
+
+      <text x="504" y="524" class="t11 b" fill="#7cc4ff">Ver a agenda do time →</text>
+    </svg></figure>
+    <div class="vp-d" data-reveal=""><div><h3>Do indicador ao caso</h3><p>Um clique no número abre a lista de casos, e de lá o pedido completo, com autorizações, documentos e a trilha de quem fez o quê.</p></div><div><h3>Cada área monta o seu</h3><p>Compras, financeiro, compliance e operações escolhem os gráficos que querem acompanhar, sobre o mesmo dado, sem entrar na fila do BI.</p></div><div><h3>Pronto ou do seu jeito</h3><p>Os indicadores chegam configurados e podem ser alterados pelo próprio usuário a qualquer momento.</p></div></div>
+  </div>
+</section>
+
+<section id="prazos-sla" class="vp vp-flip" data-screen-label="03b Prazos e SLA">
+  <div class="vp-w">
+    <div class="vp-h" data-reveal="">
+      <span class="vp-k">Prazos e SLA</span>
+      <h2>Compras que andam sozinhas.<span>E avisam antes de atrasar.</span></h2>
+      <p>A solicitação que roda por e-mail, a aprovação na planilha, o status cobrado por telefone. No Vendor, a compra inteira corre num fluxo só, da solicitação ao pagamento.</p><p>Você sempre sabe com quem está cada etapa. E se um prazo vai estourar, o sistema avisa na hora e o caso sobe para quem decide. É o <b>SLA</b>, o prazo combinado de cada etapa, controlado de ponta a ponta.</p>
+    </div>
+    <figure class="vp-shot" data-reveal="" style="transition-delay:.1s"><svg class="mk" viewBox="0 0 720 470" role="img" aria-label="Exemplo ilustrativo de painel de SLA de uma compra: a solicitação passa por manutenção, ERP, agente de IA e gerente; a etapa de aprovação está perto de vencer e o sistema aciona o escalonamento">
+      <rect x="1" y="1" width="718" height="468" rx="14" fill="#fff" stroke="#dfe5ee"/>
+      <path d="M1 15a14 14 0 0 1 14-14h690a14 14 0 0 1 14 14v29H1z" fill="#eef2f7"/>
+      <circle cx="24" cy="23" r="5" fill="#c9d2de"/><circle cx="42" cy="23" r="5" fill="#c9d2de"/><circle cx="60" cy="23" r="5" fill="#c9d2de"/>
+      <text x="92" y="28" class="t13 b">Painel de SLA · Solicitação 21 · da solicitação ao pagamento</text>
+      <rect x="578" y="11" width="122" height="24" rx="12" fill="#fff" stroke="#c9d2de"/><text x="639" y="27.500" class="t11 m" text-anchor="middle">Exemplo ilustrativo</text>
+      <rect x="24" y="62" width="214" height="62" rx="10" fill="#f6f8fb"/><text x="40" y="84" class="t11 m">Prazo total combinado</text><text x="40" y="110" class="t20 x">8 h</text>
+      <rect x="253" y="62" width="214" height="62" rx="10" fill="#f6f8fb"/><text x="269" y="84" class="t11 m">Tempo decorrido</text><text x="269" y="110" class="t20 x">3 h 52 min</text>
+      <rect x="482" y="62" width="214" height="62" rx="10" fill="#fdf1d9"/><text x="498" y="84" class="t11" fill="#9a6400">Etapas em risco</text><text x="498" y="110" class="t20 x" fill="#9a6400">1</text>
+      <g class="t11 b m"><text x="24" y="154">Etapa</text><text x="226" y="154">Com quem está</text><text x="428" y="154">Tempo</text><text x="506" y="154">SLA</text><text x="604" y="154">Status</text></g>
+      <line x1="24" y1="164" x2="696" y2="164" stroke="#dfe5ee"/>
+      <g class="t12">
+        <text x="24" y="189">Solicitação de compra</text><rect x="226" y="174" width="62" height="22" rx="11" fill="#eef2f7"/><text x="257" y="189.500" class="t11" text-anchor="middle">Pessoa</text><text x="298" y="189">Manutenção</text><text x="428" y="189">4 min</text><text x="506" y="189" class="m">30 min</text><rect x="604" y="174" width="80" height="22" rx="11" fill="#e3f6ee"/><text x="644" y="189.500" class="t11" fill="#0f7a54" text-anchor="middle">Concluída</text>
+        <line x1="24" y1="206" x2="696" y2="206" stroke="#eef2f7"/>
+        <text x="24" y="231">Conferência do orçamento</text><rect x="226" y="216" width="66" height="22" rx="11" fill="#e6f3ff"/><text x="259" y="231.500" class="t11" fill="#0068b4" text-anchor="middle">Sistema</text><text x="302" y="231">ERP</text><text x="428" y="231">2 min</text><text x="506" y="231" class="m">15 min</text><rect x="604" y="216" width="80" height="22" rx="11" fill="#e3f6ee"/><text x="644" y="231.500" class="t11" fill="#0f7a54" text-anchor="middle">Concluída</text>
+        <line x1="24" y1="248" x2="696" y2="248" stroke="#eef2f7"/>
+        <text x="24" y="273">Leitura das propostas</text><rect x="226" y="258" width="92" height="22" rx="11" fill="#f3e8f2"/><text x="272" y="273.500" class="t11" fill="#8a1f7a" text-anchor="middle">Agente de IA</text><text x="328" y="273">Compras</text><text x="428" y="273">1 min</text><text x="506" y="273" class="m">10 min</text><rect x="604" y="258" width="80" height="22" rx="11" fill="#e3f6ee"/><text x="644" y="273.500" class="t11" fill="#0f7a54" text-anchor="middle">Concluída</text>
+        <rect x="14" y="290" width="692" height="46" rx="8" fill="#fff8ea"/>
+        <text x="24" y="311" class="b">Aprovação de alçada</text><rect x="24" y="320" width="180" height="5" rx="2.500" fill="#f3dfb4"/><rect x="24" y="320" width="169" height="5" rx="2.500" fill="#e69a00"/>
+        <rect x="226" y="302" width="62" height="22" rx="11" fill="#eef2f7"/><text x="257" y="317.500" class="t11" text-anchor="middle">Pessoa</text><text x="298" y="317">Gerente</text><text x="428" y="317" class="b" fill="#9a6400">3 h 45</text><text x="506" y="317" class="m">4 h</text><rect x="604" y="302" width="80" height="22" rx="11" fill="#fdf1d9"/><text x="644" y="317.500" class="t11 b" fill="#9a6400" text-anchor="middle">Em risco</text>
+        <text x="24" y="361" class="m">Pedido de compra</text><rect x="226" y="346" width="66" height="22" rx="11" fill="#e6f3ff"/><text x="259" y="361.500" class="t11" fill="#0068b4" text-anchor="middle">Sistema</text><text x="302" y="361" class="m">ERP</text><text x="428" y="361" class="m">a iniciar</text><text x="506" y="361" class="m">2 h</text><rect x="604" y="346" width="80" height="22" rx="11" fill="#eef2f7"/><text x="644" y="361.500" class="t11 m" text-anchor="middle">Aguarda</text>
+      </g>
+      <rect x="24" y="384" width="672" height="64" rx="12" fill="#02132d"/>
+      <circle cx="54" cy="416" r="14" fill="#e69a00"/><path d="M54 408v9m0 4.500v.500" stroke="#02132d" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="80" y="410" class="t13 x w">A aprovação vence em 15 minutos.</text>
+      <text x="80" y="431" class="t12" fill="#c7d3e3">O gerente foi avisado por e-mail e WhatsApp. Sem resposta, o caso sobe para a diretoria.</text>
+    </svg></figure>
+    <div class="vp-d" data-reveal=""><div><h3>Cada tarefa tem dono e prazo</h3><p>Pessoa, sistema ou agente de IA: o painel mostra com quem está cada etapa, há quanto tempo e quanto falta para o prazo.</p></div><div><h3>Alerta e escalonamento automáticos</h3><p>O atraso é avisado antes de acontecer, por e-mail e WhatsApp. Se ninguém responde, o caso sobe para o nível seguinte.</p></div><div><h3>A agenda de cada comprador</h3><p>O menu de tarefas mostra o que cada pessoa tem para hoje, com criticidade e prazo, e a agenda do time ao lado.</p></div></div>
+  </div>
+</section>
+
+<section id="agentes-ia" class="vp vp-soft" data-screen-label="03c Agentes de IA">
+  <div class="vp-w">
+    <div class="vp-h" data-reveal="">
+      <span class="vp-k">Agentes de IA, se você quiser</span>
+      <h2>Agentes de IA dentro do processo de compras.<span>Você decide quais tarefas entregar a eles.</span></h2>
+      <p>O agente ocupa uma atividade do fluxo como qualquer pessoa, com prazo, registro e responsável. Ele lê a proposta em PDF e monta o mapa, confere a nota fiscal, cobra a certidão que vai vencer e busca fornecedor novo onde você só tem um.</p><p>Ele trabalha com as regras, as alçadas e as permissões da sua empresa. <b>E se a sua empresa não usa IA, o Vendor funciona igual</b>, só com automação de processos.</p>
+    </div>
+    <figure class="vp-shot" data-reveal="" style="transition-delay:.1s"><svg class="mk" viewBox="0 0 720 470" role="img" aria-label="Ilustração do Modelador de Agentes: um agente definido por identidade, comportamento, conhecimento, ferramentas e modelo de IA, com o AI Runtime conferindo cada ação">
+<rect x="1" y="1" width="718" height="468" rx="14" fill="#fff" stroke="#dfe5ee"/>
+<path d="M1 15a14 14 0 0 1 14-14h690a14 14 0 0 1 14 14v29H1z" fill="#eef2f7"/>
+<circle cx="24" cy="23" r="5" fill="#c9d2de"/><circle cx="42" cy="23" r="5" fill="#c9d2de"/><circle cx="60" cy="23" r="5" fill="#c9d2de"/>
+<text x="92" y="28" class="t13 b">Modelador de Agentes</text>
+<rect x="596" y="11" width="104" height="24" rx="12" fill="#0496ff"/><text x="648" y="27.5" class="t11 b w" text-anchor="middle">Publicar v3</text>
+<!-- agent identity -->
+<rect x="24" y="64" width="400" height="72" rx="10" fill="#02132d"/>
+<rect x="40" y="78" width="44" height="44" rx="12" fill="#0496ff"/>
+<rect x="50" y="93" width="24" height="14" rx="7" fill="#02132d"/><circle cx="57.5" cy="100" r="2.6" fill="#7cfcff"/><circle cx="66.5" cy="100" r="2.6" fill="#7cfcff"/>
+<text x="98" y="96" class="t16 x w">Agente de Compras</text>
+<text x="98" y="116" class="t12" fill="#a9b8cc">Identidade: agente.compras, um usuário da aplicação</text>
+<!-- rows -->
+<text x="24" y="166" class="t11 b m">Comportamento</text>
+<rect x="24" y="174" width="400" height="50" rx="8" fill="#f6f8fb" stroke="#dfe5ee"/>
+<text x="38" y="195" class="t12">Você apoia o time de compras: compara cotações,</text>
+<text x="38" y="212" class="t12">confere a política e prepara o pedido para aprovação.</text>
+<text x="24" y="250" class="t11 b m">Conhecimento</text>
+<rect x="24" y="258" width="150" height="28" rx="14" fill="#e6f3ff"/><text x="99" y="276.5" class="t12" fill="#0068b4" text-anchor="middle">Política de compras.pdf</text>
+<rect x="182" y="258" width="118" height="28" rx="14" fill="#e6f3ff"/><text x="241" y="276.5" class="t12" fill="#0068b4" text-anchor="middle">Contratos vigentes</text>
+<rect x="308" y="258" width="116" height="28" rx="14" fill="#fff" stroke="#c9d2de" stroke-dasharray="4 3"/><text x="366" y="276.5" class="t12 m" text-anchor="middle">+ Adicionar fonte</text>
+<text x="24" y="314" class="t11 b m">Ferramentas</text>
+<g class="t12">
+<rect x="24" y="322" width="400" height="34" rx="8" fill="#fff" stroke="#dfe5ee"/><text x="38" y="343.5">Consultar fornecedor</text><rect x="376" y="331" width="34" height="16" rx="8" fill="#0496ff"/><circle cx="402" cy="339" r="6" fill="#fff"/>
+<rect x="24" y="362" width="400" height="34" rx="8" fill="#fff" stroke="#dfe5ee"/><text x="38" y="383.5">Criar pedido de compra</text><rect x="376" y="371" width="34" height="16" rx="8" fill="#0496ff"/><circle cx="402" cy="379" r="6" fill="#fff"/>
+<rect x="24" y="402" width="400" height="34" rx="8" fill="#fff" stroke="#dfe5ee"/><text x="38" y="423.5" class="m">Busca na web</text><rect x="376" y="411" width="34" height="16" rx="8" fill="#c9d2de"/><circle cx="384" cy="419" r="6" fill="#fff"/>
+</g>
+<!-- right column -->
+<text x="452" y="78" class="t11 b m">Provedor e modelo de IA</text>
+<rect x="452" y="86" width="244" height="36" rx="8" fill="#fff" stroke="#dfe5ee"/><text x="466" y="109" class="t12">Entre os habilitados na aplicação</text><path d="m674 101 6 6 6-6" fill="none" stroke="#6b7a90" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="452" y="142" width="244" height="294" rx="12" fill="#02132d"/>
+<text x="470" y="170" class="t13 x w">AI Runtime</text>
+<text x="470" y="189" class="t11" fill="#a9b8cc">Confere antes de cada ação do agente</text>
+<g class="t12 w">
+<g transform="translate(470 208)"><circle cx="10" cy="10" r="10" fill="#17a673"/><path d="m5.5 10.2 3 3 6-6.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="14.5">Permissões da aplicação</text></g>
+<g transform="translate(470 240)"><circle cx="10" cy="10" r="10" fill="#17a673"/><path d="m5.5 10.2 3 3 6-6.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="14.5">AI Governance Policy</text></g>
+<g transform="translate(470 272)"><circle cx="10" cy="10" r="10" fill="#17a673"/><path d="m5.5 10.2 3 3 6-6.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="14.5">Ferramentas habilitadas</text></g>
+<g transform="translate(470 304)"><circle cx="10" cy="10" r="10" fill="#17a673"/><path d="m5.5 10.2 3 3 6-6.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="30" y="14.5">Limites operacionais</text></g>
+</g>
+<line x1="470" y1="342" x2="678" y2="342" stroke="#fff" stroke-opacity=".14"/>
+<text x="470" y="366" class="t11" fill="#a9b8cc">Última execução</text>
+<text x="470" y="388" class="t12 w">Pedido 4812 preparado</text>
+<text x="470" y="408" class="t11" fill="#a9b8cc">2 fontes consultadas · 1,8 s · auditado</text>
+<rect x="470" y="418" width="208" height="4" rx="2" fill="#fff" fill-opacity=".12"/><rect x="470" y="418" width="150" height="4" rx="2" fill="#0496ff"/>
+</svg></figure>
+    <div class="vp-d" data-reveal=""><div><h3>Os seus agentes ou os nossos</h3><p>Traga os agentes de IA que a sua empresa já usa ou adote os da Deyel. Em qualquer caso, eles operam sob as mesmas regras.</p></div><div><h3>Toda ação é conferida antes</h3><p>Nenhum agente toca os seus sistemas diretamente. O que passa do limite ou da alçada vai para uma pessoa decidir.</p></div><div><h3>Sem IA também funciona</h3><p>Se o compliance não permitir IA, basta desligá-la. O fluxo, os prazos e os indicadores continuam os mesmos.</p></div></div>
+  </div>
+</section>
+
 
 <section id="videos" data-screen-label="03b Demo guiada e vídeos" style="position:relative;padding:clamp(64px,7vw,96px) 0;background:radial-gradient(ellipse at 72% 28%,#0b2a55 0%,#02132d 56%,#010a19 100%);color:#fff;overflow:hidden;scroll-margin-top:70px">
   <style>
