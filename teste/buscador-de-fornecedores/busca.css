@@ -44,3 +44,4 @@
 .efeito{margin:14px 0 4px;padding:16px;border:1px solid #cfe0f5;border-left:4px solid #0496ff;border-radius:8px;background:#f7fbff}
 .efeito h3{font-size:17px;margin-bottom:6px}
 .efeito p{margin:4px 0 0;font-size:14.5px;color:#26384f}
+.efeito .btn.ncm{min-height:46px;height:auto;padding:10px 14px;text-align:left;justify-content:flex-start;line-height:1.35;white-space:normal}

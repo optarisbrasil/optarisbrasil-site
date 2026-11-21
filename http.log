@@ -1,0 +1,14 @@
+127.0.0.1 - - [21/Nov/2026 16:44:57] "GET /teste/buscador-de-fornecedores/ HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:44:57] "GET /ferramentas-de-compras/assets/ferramentas.css HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:44:57] "GET /ferramentas-de-compras/assets/barra.css HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:44:57] "GET /teste/buscador-de-fornecedores/busca.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:44:57] "GET /ferramentas-de-compras/assets/comum.js?v=20261120b HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:44:57] "GET /ferramentas-de-compras/assets/config.js HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:44:57] "GET /teste/buscador-de-fornecedores/busca.js?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:45:02] "GET /teste/buscador-de-fornecedores/ HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:45:02] "GET /ferramentas-de-compras/assets/ferramentas.css HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:45:02] "GET /ferramentas-de-compras/assets/barra.css HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:45:02] "GET /ferramentas-de-compras/assets/comum.js?v=20261120b HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:45:02] "GET /teste/buscador-de-fornecedores/busca.css?v=3 HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:45:02] "GET /ferramentas-de-compras/assets/config.js HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 16:45:02] "GET /teste/buscador-de-fornecedores/busca.js?v=3 HTTP/1.1" 200 -

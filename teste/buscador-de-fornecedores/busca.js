@@ -4,7 +4,7 @@
 (function(){
 'use strict';
 var F = window.Ferramentas, $ = F.$, el = F.el;
-var FERRAMENTA = 'Buscador de fornecedores', dados = null, sel = {}, convite = false;
+var FERRAMENTA = 'Buscador de fornecedores', dados = null, sel = {}, convite = false, ultima = null;
 var PASSO = (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 0 : 450;
 var MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
 function tag(t, cls){ return el('span', t, 'tag' + (cls ? ' ' + cls : '')); }
@@ -38,7 +38,7 @@ function concluirPassos(itens, d, fim){
     d.atividades.map(function(a){ return 'CNAE ' + a.cnae + ', ' + a.descricao.toLowerCase(); }).join(' · '),
     d.total.toLocaleString('pt-BR') + (d.total === 1 ? ' empresa ' : ' empresas ') + regiao(d) + ', na base aberta do CNPJ',
     'Situação cadastral, data de abertura, porte, capital social e regime tributário' + (ref ? ' (base de ' + ref + ')' : ''),
-    custoOk(d) ? 'Alíquota efetiva de ' + F.pct(d.custo.aliquotaEfetiva) + ' em 2027, pelo motor de cálculo da Receita Federal' : (d.custo && d.custo.estado === 'sem_codigo' ? 'Informe o NCM ou o NBS do item para calcular' : 'Não calculado para este item'),
+    custoOk(d) ? 'Alíquota efetiva de ' + F.pct(d.custo.aliquotaEfetiva) + ' em 2027, pelo motor de cálculo da Receita Federal' : (d.custo && d.custo.estado === 'sugestao' ? 'O agente sugeriu o NCM do item: confirme abaixo para calcular' : (d.custo && d.custo.estado === 'sem_codigo' ? 'Informe o NCM ou o NBS do item para calcular' : 'Não calculado para este item')),
     'Nesta demonstração não há consulta a cartórios',
     'Critérios: ' + d.criterios
   ];
@@ -60,7 +60,8 @@ $('go').addEventListener('click', function(){
   if (!$('t-fab').checked && !$('t-dis').checked) return erro('Marque fabricantes, distribuidores ou os dois.');
   btn.disabled = true; btn.textContent = 'Buscando fornecedores…'; res.hidden = true;
   var itens = iniciarPassos();
-  F.post('/fornecedores', { produto: prod, uf: uf, municipio: m.value ? m.options[m.selectedIndex].text : '', destino: m.value || (m.options[1] ? m.options[1].value : ''), valor: $('valor').value.trim(), tipos: { fabricantes: $('t-fab').checked, distribuidores: $('t-dis').checked }, incluirMicro: $('t-mic').checked })
+  ultima = { uf: uf, destino: m.value || (m.options[1] ? m.options[1].value : ''), valor: $('valor').value.trim() };
+  F.post('/fornecedores', { produto: prod, uf: uf, municipio: m.value ? m.options[m.selectedIndex].text : '', destino: ultima.destino, valor: ultima.valor, tipos: { fabricantes: $('t-fab').checked, distribuidores: $('t-dis').checked }, incluirMicro: $('t-mic').checked })
     .then(function(d){
       dados = d; convite = false; sel = {}; d.fornecedores.forEach(function(f){ sel[f.cnpj] = true; });
       F.evento('ferramenta_analise', {ferramenta: FERRAMENTA}); try{ if (window.fbq) fbq('trackCustom', 'FerramentaAnalise', {ferramenta: FERRAMENTA}); }catch(e){}
@@ -134,11 +135,31 @@ function render(){
 function efeito(res, d){
   var c = d.custo || {}, b = el('div', null, 'efeito');
   if (c.estado === 'ok') {
+    b.id = 'efeito';
     var reg = c.regimes.regular, sim = c.regimes.simples;
     b.appendChild(el('h3', 'O regime do fornecedor muda o seu custo'));
     b.appendChild(el('p', 'Em 2027, ' + (d.codigo || 'este item') + ' tem alíquota efetiva de CBS e IBS de ' + F.pct(c.aliquotaEfetiva) + '. Numa compra de ' + F.brl(c.valor) + ' com tributos, de um fornecedor do regime regular você recupera ' + F.brl(reg.credito) + ' e o custo líquido fica em ' + F.brl(reg.custoLiquido) + '. De um fornecedor do Simples Nacional, recupera ' + F.brl(sim.credito) + ' e o custo líquido fica em ' + F.brl(sim.custoLiquido) + ': para empatar, ele precisa cobrar ' + F.pct(sim.descontoEmpate) + ' a menos.'));
+    if (d.ncmConfirmado) b.appendChild(el('p', 'O NCM foi sugerido pelo agente e confirmado por você. Confira o código na nota fiscal ou no cadastro do item antes de decidir.', 'muted'));
     if ((c.possivelReducao || []).length) b.appendChild(el('p', 'Atenção: este item pode ter alíquota reduzida, conforme a classificação tributária da operação (' + c.possivelReducao.map(function(x){ return x.descricao; }).join('; ') + '). O cálculo acima usa a tributação integral.'));
     var n = el('p'); n.appendChild(document.createTextNode('Cálculo pelo motor de código aberto da Receita Federal, com alíquotas de referência de 2027. Quando as propostas chegarem, compare pelo custo líquido no ')); var a = el('a', 'Comparador de cotações'); a.href = '/ferramentas-de-compras/comparador-de-cotacoes/'; n.appendChild(a); n.appendChild(document.createTextNode('.')); n.className = 'muted'; b.appendChild(n);
+  } else if (c.estado === 'sugestao') {
+    b.id = 'efeito';
+    b.appendChild(el('h3', c.sugestoes.length === 1 ? 'Este é o NCM do item?' : 'Qual é o NCM do item?'));
+    b.appendChild(el('p', 'A partir da sua descrição, o agente sugere ' + (c.sugestoes.length === 1 ? 'o código abaixo' : 'os códigos abaixo') + '. Confirme o que corresponde ao item para ver o crédito de CBS e IBS e o custo líquido com cada fornecedor.'));
+    var acts = el('div', null, 'acts'), aviso = el('div', null, 'info err'); aviso.hidden = true;
+    c.sugestoes.forEach(function(sg){
+      var bt = el('button', sg.rotulo + ' · ' + sg.descricao, 'btn sec inline ncm'); bt.type = 'button';
+      bt.addEventListener('click', function(){
+        if (bt.disabled) return; aviso.hidden = true;
+        var todos = acts.querySelectorAll('button'); todos.forEach(function(x){ x.disabled = true; }); bt.textContent = 'Calculando…';
+        F.post('/fornecedores/custo', { codigo: sg.codigo, uf: ultima.uf, destino: ultima.destino, valor: ultima.valor })
+          .then(function(r){ d.custo = r.custo; d.codigo = r.codigo; d.ncmConfirmado = true; F.evento('ferramenta_ncm_confirmado', {ferramenta: FERRAMENTA}); render(); var e = $('efeito'); if (e) rolar(e, 'center'); })
+          .catch(function(e){ todos.forEach(function(x){ x.disabled = false; }); bt.textContent = sg.rotulo + ' · ' + sg.descricao; aviso.textContent = e.message || 'Não foi possível calcular agora.'; aviso.hidden = false; });
+      });
+      acts.appendChild(bt);
+    });
+    b.appendChild(acts); b.appendChild(aviso);
+    var q = el('p', null, 'muted'); q.appendChild(document.createTextNode('Nenhum destes? Consulte o código na ')); var lk = el('a', 'calculadora de CBS e IBS'); lk.href = '/calculadora-reforma-tributaria/'; q.appendChild(lk); q.appendChild(document.createTextNode(' e busque de novo com o NCM.')); b.appendChild(q);
   } else if (c.estado === 'sem_codigo') {
     b.appendChild(el('h3', 'Quer ver o efeito de CBS e IBS no custo?'));
     var p = el('p'); p.appendChild(document.createTextNode('Inclua o NCM (mercadoria) ou o NBS (serviço) do item na busca e mostramos o crédito e o custo líquido com cada fornecedor. Não sabe o código? Consulte na ')); var l = el('a', 'calculadora de CBS e IBS'); l.href = '/calculadora-reforma-tributaria/'; p.appendChild(l); p.appendChild(document.createTextNode('.')); b.appendChild(p);
