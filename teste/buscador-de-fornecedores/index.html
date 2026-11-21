@@ -28,7 +28,7 @@
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','915285856819493');fbq('init','897747875326962');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=915285856819493&ev=PageView&noscript=1"></noscript>
 <link rel="stylesheet" href="/ferramentas-de-compras/assets/barra.css">
-<link rel="stylesheet" href="busca.css">
+<link rel="stylesheet" href="busca.css?v=2">
 </head>
 <body>
 <header class="top"><div class="in">
@@ -52,7 +52,7 @@
 <section class="hero"><div class="in">
   <span class="kicker">Agente de IA · Simule a busca de fornecedores do Vendor</span>
   <h1>Ache 5 fornecedores para cotar, já conferidos na Receita</h1>
-  <p>Diga o que você precisa comprar, pelo código NCM ou NBS ou com as suas palavras. O agente encontra empresas ativas da atividade certa na sua região e traz o cadastro da Receita Federal. Depois você simula a checagem de protestos e o convite para a cotação, sem enviar nada a ninguém.</p>
+  <p>Diga o que você precisa comprar, pelo código NCM ou NBS ou com as suas palavras. O agente encontra empresas ativas da atividade certa na sua região e traz o cadastro da Receita Federal e o efeito de CBS e IBS no custo com cada um. Depois você simula a checagem de protestos e o convite para a cotação, sem enviar nada a ninguém.</p>
 </div></section>
 
 <main class="page">
@@ -65,6 +65,9 @@
       <div><label for="uf">Estado</label><select id="uf"><option value="">Carregando…</option></select></div>
       <div><label for="mun">Município (opcional)</label><select id="mun" disabled><option value="">Escolha a UF</option></select></div>
     </div>
+    <label for="valor">Valor da compra de referência (opcional)</label>
+    <input id="valor" inputmode="decimal" maxlength="20" placeholder="Ex.: 10.000,00">
+    <p class="hint">Com o NCM ou o NBS do item, mostramos o crédito de CBS e IBS e o custo líquido com cada fornecedor em 2027. Sem valor, o cálculo usa R$ 10.000.</p>
     <span class="lbl" id="tipo-l">Quem pode fornecer</span>
     <div class="seg" role="group" aria-labelledby="tipo-l">
       <label><input type="checkbox" id="t-fab" checked> Fabricantes</label>
@@ -83,6 +86,6 @@
 <footer class="foot">© Optaris do Brasil · <a href="/gestao-de-compras-e-fornecedores/">Gestão de compras e fornecedores</a> · <a href="/gestao-de-compras-e-fornecedores/#ferramentas">Ferramentas gratuitas</a></footer>
 <script src="/ferramentas-de-compras/assets/config.js"></script>
 <script src="/ferramentas-de-compras/assets/comum.js?v=20261120b"></script>
-<script src="busca.js" defer></script>
+<script src="busca.js?v=2" defer></script>
 </body>
 </html>

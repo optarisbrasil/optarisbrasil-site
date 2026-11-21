@@ -36,3 +36,11 @@
 .nota{font-size:13px;color:#5b6675;margin:10px 0 0}
 .segue{margin:8px 0 0;padding-left:22px;font-size:14.5px;color:#26384f}
 .segue li{margin:5px 0}
+.forn .custo{margin-top:8px;padding:10px 12px;border-radius:6px;background:#eef4fb;font-size:13.5px;color:#26384f;display:flex;gap:6px 18px;flex-wrap:wrap;align-items:baseline}
+.forn .custo strong{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#5b6675;flex:0 0 100%}
+.forn .custo b{color:#02132d}
+.forn .custo.perde{background:#fff6e5;color:#5b3d00}
+.forn .custo small{flex:0 0 100%;font-size:12.5px}
+.efeito{margin:14px 0 4px;padding:16px;border:1px solid #cfe0f5;border-left:4px solid #0496ff;border-radius:8px;background:#f7fbff}
+.efeito h3{font-size:17px;margin-bottom:6px}
+.efeito p{margin:4px 0 0;font-size:14.5px;color:#26384f}
