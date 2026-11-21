@@ -99,13 +99,13 @@
   },
   {
    "@type": "VideoObject",
-   "name": "Gestor de compras: do pedido ao pagamento com agentes de IA",
-   "description": "1 min 22 · a jornada do comprador em resumo",
-   "thumbnailUrl": "https://i.ytimg.com/vi/s-B8QkGytHI/hqdefault.jpg",
-   "uploadDate": "2026-09-24",
-   "duration": "PT1M22S",
-   "embedUrl": "https://www.youtube.com/embed/s-B8QkGytHI",
-   "contentUrl": "https://www.youtube.com/watch?v=s-B8QkGytHI",
+   "name": "Gestor de Compras: do pedido ao pagamento, em um sistema só",
+   "description": "52 s · a jornada do comprador em resumo",
+   "thumbnailUrl": "https://i.ytimg.com/vi/O0GK5eHx9-8/hqdefault.jpg",
+   "uploadDate": "2026-11-20",
+   "duration": "PT52S",
+   "embedUrl": "https://www.youtube.com/embed/O0GK5eHx9-8",
+   "contentUrl": "https://www.youtube.com/watch?v=O0GK5eHx9-8",
    "inLanguage": "pt-BR"
   },
   {
@@ -446,14 +446,15 @@ body{overflow-x:clip}
 
 <section id="o-que-resolvemos" data-screen-label="02 O que resolvemos" style="padding:clamp(56px,6.5vw,92px) 0;background:linear-gradient(180deg,#f4f8fd 0%,#fff 100%)">
   <style>
-    .oq{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,420px);grid-template-areas:"head tv" "cards tv";column-gap:clamp(32px,4vw,64px);row-gap:34px;align-items:start}
+    .oq{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "cards";row-gap:34px;align-items:start}
     .oq-head{grid-area:head;display:flex;flex-direction:column;gap:12px;max-width:760px}
     .oq-cards{grid-area:cards;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
     .oq-cards>.oq-card:last-child{grid-column:1/-1}
     .oq-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:22px 24px;border-left:4px solid #e8335a}
     .oq-card h3{font-size:18px;font-weight:900;line-height:1.25;color:#02132d;margin-bottom:8px}
     .oq-card p{font-size:15px;color:#555;text-wrap:pretty}
-    .oq-tv{grid-area:tv;position:sticky;top:92px;align-self:start;display:flex;flex-direction:column}
+    .cr-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,420px);column-gap:clamp(32px,4vw,64px);align-items:center;margin-bottom:44px}
+    .cr-tv{display:flex;flex-direction:column}
     .tv-bz{position:relative;background:#101a2c;border-radius:14px;padding:9px 9px 13px;box-shadow:0 0 0 1px rgba(2,19,45,.6),0 34px 60px -30px rgba(2,19,45,.65)}
     .tv-sc{position:relative;aspect-ratio:16/9;border-radius:5px;overflow:hidden;background:#000}
     .tv-sc iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -465,8 +466,9 @@ body{overflow-x:clip}
     .tv-cap a{align-self:flex-start;font-size:14px;color:#0496ff;text-decoration:none}
     @media(max-width:1100px){.oq-cards{grid-template-columns:minmax(0,1fr)}}
     @media(max-width:900px){
-      .oq{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "tv" "cards";row-gap:28px}
-      .oq-tv{position:static;width:100%;max-width:560px}
+      .oq{row-gap:28px}
+      .cr-top{grid-template-columns:minmax(0,1fr);row-gap:28px}
+      .cr-tv{width:100%;max-width:560px}
       .oq-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media(max-width:600px){.oq-cards{grid-template-columns:minmax(0,1fr)}}
@@ -478,18 +480,6 @@ body{overflow-x:clip}
         <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Compras cresce mais rápido do que as ferramentas que a sustentam</h2>
         <p style="font-size:16px;color:#555;text-wrap:pretty">A área de compras entrega com dedicação, mesmo quando o processo depende de planilha e e-mail. O Deyel Vendor Management organiza o que está em volta desse trabalho: informação, risco, prazos e controle.</p>
       </div>
-      <aside class="oq-tv" data-reveal="" style="transition-delay:.12s" aria-label="Demo rápida do Deyel Vendor Management">
-        <div class="tv-bz">
-          <div class="tv-sc"><iframe src="https://www.youtube-nocookie.com/embed/s-B8QkGytHI?rel=0" title="Gestor de compras: do pedido ao pagamento com agentes de IA" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe></div>
-          <span class="tv-led" aria-hidden="true"></span>
-        </div>
-        <div class="tv-nk" aria-hidden="true"></div>
-        <div class="tv-ft" aria-hidden="true"></div>
-        <div class="tv-cap">
-          <strong>Veja a solução em 1 min 22</strong>
-          <a href="#videos">Demo completa e demo guiada ↓</a>
-        </div>
-      </aside>
       <div class="oq-cards">
       <div class="oq-card" data-reveal="" style="transition-delay:0.0s">
         <h3>Informação espalhada em planilhas e e-mails</h3>
@@ -518,10 +508,24 @@ body{overflow-x:clip}
 
 <section id="como" data-screen-label="03 Como resolvemos" style="padding:100px 0;background:#fff">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;margin-bottom:44px;max-width:800px">
-      <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Como resolvemos</span>
-      <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Da solicitação ao pagamento, no mesmo sistema</h2>
-      <p style="font-size:16px;color:#555;text-wrap:pretty">O Deyel Vendor Management une S2P e SRM: controla cada etapa da compra e, ao mesmo tempo, a homologação e a gestão dos fornecedores, conversando com os sistemas que a empresa já usa.</p>
+    <div class="cr-top">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;max-width:800px">
+        <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Como resolvemos</span>
+        <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Da solicitação ao pagamento, no mesmo sistema</h2>
+        <p style="font-size:16px;color:#555;text-wrap:pretty">O Deyel Vendor Management une S2P e SRM: controla cada etapa da compra e, ao mesmo tempo, a homologação e a gestão dos fornecedores, conversando com os sistemas que a empresa já usa.</p>
+      </div>
+      <aside class="cr-tv" data-reveal="" style="transition-delay:.12s" aria-label="Demo rápida do Deyel Vendor Management">
+        <div class="tv-bz">
+          <div class="tv-sc"><iframe src="https://www.youtube-nocookie.com/embed/O0GK5eHx9-8?rel=0" title="Gestor de Compras: do pedido ao pagamento, em um sistema só" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe></div>
+          <span class="tv-led" aria-hidden="true"></span>
+        </div>
+        <div class="tv-nk" aria-hidden="true"></div>
+        <div class="tv-ft" aria-hidden="true"></div>
+        <div class="tv-cap">
+          <strong>Veja a solução em 52 segundos</strong>
+          <a href="#videos">Demo completa e demo guiada ↓</a>
+        </div>
+      </aside>
     </div>
     <h3 data-reveal="" style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Source-to-pay: a jornada da compra</h3>
     <p data-reveal="" style="font-size:15px;color:#555;max-width:760px;margin-bottom:22px;text-wrap:pretty">Doze etapas em quatro momentos, do pedido ao pagamento. Sob elas, o que as sustenta: uma base única de fornecedores, indicadores e IA, e a ligação com os seus sistemas.</p>
