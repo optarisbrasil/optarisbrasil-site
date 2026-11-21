@@ -461,10 +461,9 @@ body{overflow-x:clip}
   <style>
     .oq{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "cards";row-gap:34px;align-items:start}
     .oq-head{grid-area:head;display:flex;flex-direction:column;gap:12px;max-width:760px}
-    .oq-cards{grid-area:cards;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .oq-cards>.oq-card:last-child{grid-column:1/-1}
-    .oq-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:22px 24px;border-left:4px solid #e8335a}
-    .oq-card h3{font-size:18px;font-weight:900;line-height:1.25;color:#02132d;margin-bottom:8px}
+    .oq-cards{grid-area:cards;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+    .oq-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px 18px;border-left:4px solid #e8335a;display:flex;align-items:center}
+    .oq-card h3{font-size:16.5px;font-weight:900;line-height:1.3;color:#02132d;margin:0;text-wrap:balance}
     .oq-card p{font-size:15px;color:#555;text-wrap:pretty}
     .cr-top{display:grid;grid-template-columns:minmax(0,1fr);column-gap:clamp(32px,4vw,64px);align-items:center;margin-bottom:44px}
     .cr-tv{display:flex;flex-direction:column}
@@ -474,42 +473,37 @@ body{overflow-x:clip}
     .tv-cap{margin-top:20px;display:flex;flex-direction:column;gap:6px}
     .tv-cap strong{font-family:Lato,sans-serif;font-weight:900;font-size:20px;line-height:1.25;color:#02132d}
     .tv-cap a{align-self:flex-start;font-size:14px;color:#0496ff;text-decoration:none}
-    @media(max-width:1100px){.oq-cards{grid-template-columns:minmax(0,1fr)}}
+    @media(max-width:1100px){.oq-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:900px){
       .oq{row-gap:28px}
       .cr-top{grid-template-columns:minmax(0,1fr);row-gap:28px}
       .cr-tv{width:100%;max-width:560px}
-      .oq-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
-    @media(max-width:600px){.oq-cards{grid-template-columns:minmax(0,1fr)}}
+    @media(max-width:700px){.oq-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:460px){.oq-cards{grid-template-columns:minmax(0,1fr)}}
   </style>
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <div class="oq">
       <div class="oq-head" data-reveal="">
         <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">O que resolvemos</span>
-        <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Compras cresce mais rápido do que as ferramentas que a sustentam</h2>
-        <p style="font-size:16px;color:#555;text-wrap:pretty">A área de compras entrega com dedicação, mesmo quando o processo depende de planilha e e-mail. O Deyel Vendor Management organiza o que está em volta desse trabalho: informação, risco, prazos e controle.</p>
+        <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Os desafios de compras aparecem mais rápido do que as ferramentas que sustentam a área</h2>
+        <p style="font-size:16px;color:#555;text-wrap:pretty">O Deyel Vendor Management organiza o seu trabalho: informação, riscos, prazos e controle, tudo na sua mão.</p>
       </div>
       <div class="oq-cards">
       <div class="oq-card" data-reveal="" style="transition-delay:0.0s">
         <h3>Informação espalhada em planilhas e e-mails</h3>
-        <p>Cotações, aprovações e históricos de fornecedores acabam distribuídos entre arquivos e caixas de entrada. A equipe dá conta, mas cada consulta vira uma busca.</p>
       </div>
       <div class="oq-card" data-reveal="" style="transition-delay:0.1s">
         <h3>Pouca visibilidade sobre a base de fornecedores</h3>
-        <p>Saber quem fornece o quê, em que condições, com que desempenho e com que documentos em dia fica difícil quando os dados não estão num lugar só.</p>
       </div>
       <div class="oq-card" data-reveal="" style="transition-delay:0.0s">
         <h3>Risco acompanhado de forma pontual</h3>
-        <p>Situação fiscal, financeira e de compliance dos fornecedores muda com o tempo. Sem monitoramento contínuo, o risco aparece quando já virou problema.</p>
       </div>
       <div class="oq-card" data-reveal="" style="transition-delay:0.1s">
         <h3>Cadastro e homologação que tomam tempo</h3>
-        <p>Coletar documentos, validar e aprovar um fornecedor novo envolve várias áreas. Quanto mais manual o fluxo, mais tempo a compra espera.</p>
       </div>
       <div class="oq-card" data-reveal="" style="transition-delay:0.0s">
         <h3>Contratos, pedidos e pagamentos em sistemas diferentes</h3>
-        <p>Vencimentos de contrato, pedidos em aberto e status de pagamento ficam em lugares diferentes, e acompanhar tudo junto exige esforço extra de compras e de finanças.</p>
       </div>
       </div>
     </div>
