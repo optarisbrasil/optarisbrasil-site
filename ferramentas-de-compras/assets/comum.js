@@ -26,7 +26,7 @@ var BRL0 = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximu
 F.brl = function(v){ return BRL.format(v||0).replace(/ /g,' '); };
 F.brl0 = function(v){ return (Math.abs(v)>=100000?BRL0:BRL).format(v||0).replace(/ /g,' '); };
 F.pct = function(v,d){ return Number(v||0).toLocaleString('pt-BR',{minimumFractionDigits:d==null?1:d,maximumFractionDigits:d==null?2:d})+'%'; };
-F.num = function(s){ if(typeof s==='number') return s; s=String(s==null?'':s).replace(/R\$|\s| /g,''); if(!s) return NaN; if(s.indexOf(',')>-1) s=s.replace(/\./g,'').replace(',','.'); else if(/^\d{1,3}(\.\d{3})+$/.test(s)) s=s.replace(/\./g,''); return Number(s); };
+F.num = function(s){ if(typeof s==='number') return s; s=String(s==null?'':s).replace(/R\$|\s| /g,''); if(!s) return NaN; if(s.indexOf(',')>-1 && s.indexOf('.')>-1 && s.lastIndexOf('.')>s.lastIndexOf(',')) s=s.replace(/,/g,''); else if(s.indexOf(',')>-1) s=s.replace(/\./g,'').replace(',','.'); else if(/^\d{1,3}(\.\d{3})+$/.test(s)) s=s.replace(/\./g,''); return Number(s); };
 F.el = function(tag,text,cls){ var e=document.createElement(tag); if(text!=null) e.textContent=text; if(cls) e.className=cls; return e; };
 F.$ = function(id){ return document.getElementById(id); };
 F.REGIMES = {regular:'Regime regular', simples:'Simples Nacional', simples_por_fora:'Simples (CBS/IBS por fora)', mei:'MEI', nao_sei:'Não informado', misto:'Vários'};
@@ -36,6 +36,7 @@ F.tagRegime = function(r){ var t=F.el('span',F.REGIMES[r]||r,'tag '+(r==='simple
 F.getJSON = function(url){ return fetch(url).then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(!r.ok) throw new Error(j.erro||j.detail||('HTTP '+r.status)); return j; }); }); };
 F.post = function(rota, corpo){
   return fetch(F.API+rota,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(corpo)})
+    .catch(function(){ throw new Error('A análise demorou mais do que o esperado ou a conexão caiu. Tente de novo; se o arquivo for grande, envie a planilha para comercial@optarisbrasil.com e devolvemos o resultado.'); })
     .then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(!r.ok){ var e=new Error(j.erro||('Não foi possível concluir a análise (HTTP '+r.status+').')); e.status=r.status; throw e; } return j; }); });
 };
 
@@ -97,7 +98,7 @@ F.lerArquivo = function(file){
     });
   }
   if(/\.xls$/.test(nome)) return Promise.reject(new Error('Arquivos .xls antigos não são lidos. No Excel, use "Salvar como" .xlsx ou .csv.'));
-  return file.text().then(splitCSV);
+  return file.arrayBuffer().then(function(b){ var t; try{ t=new TextDecoder('utf-8',{fatal:true}).decode(b); }catch(e){ t=new TextDecoder('windows-1252').decode(b); } return splitCSV(t.replace(/^\uFEFF/,'')); });
 };
 
 // Descobre a linha de cabeçalho e o papel de cada coluna. mapa: {campo: [regex, ...]}
@@ -109,7 +110,8 @@ F.mapear = function(linhas, mapa, ordemPadrao){
     if(n>=2){ cabIdx=i; cols=achou; break; }
   }
   if(!cols){ cols={}; ordemPadrao.forEach(function(c,j){ cols[c]=j; }); cabIdx=-1; }
-  var dados=linhas.slice(cabIdx+1).filter(function(l){ return l.some(function(c){ return String(c).trim()!==''; }); });
+  var dados=linhas.slice(cabIdx+1).filter(function(l){ return l.some(function(c){ return String(c).trim()!==''; }); })
+    .filter(function(l){ var t=l.filter(function(c){ return typeof c!=='number' && String(c).trim()!==''; }); return !(t.length && t.length<=2 && /^(sub)?tota(l|is)\b|^soma\b/.test(norm(t[0]))); });
   return {colunas:cols, linhas:dados, cabecalho: cabIdx>-1? linhas[cabIdx] : null, linhaInicial: cabIdx+2};
 };
 
@@ -165,7 +167,7 @@ F.captura = function(cont, o){
       F.evento('generate_lead',{ferramenta:o.ferramenta, lead_source:'ferramentas_de_compras'});
       try{ if(window.fbq) fbq('track','Lead',{content_name:o.ferramenta, content_category:'ferramentas_de_compras'}); }catch(e){}
       o.depois();
-      var ok=F.el('div',null,'cap'); ok.setAttribute('role','status'); ok.appendChild(F.el('h3','Relatório liberado'));
+      var ok=F.el('div',null,'cap'); ok.setAttribute('role','status'); ok.appendChild(F.el('h3',o.liberado||'Relatório liberado'));
       ok.appendChild(F.el('p','O download começou. Se não começar, use o botão abaixo. Nossa equipe pode ajudar a transformar esta análise em economia: fale com a gente quando quiser.'));
       var b=F.el('button','Baixar o relatório de novo','btn sec'); b.type='button'; b.addEventListener('click',o.depois); ok.appendChild(b);
       box.replaceWith(ok);
