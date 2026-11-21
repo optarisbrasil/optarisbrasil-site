@@ -280,15 +280,6 @@
    "@type": "VideoObject",
    "name": "Deyel no ar — canal Deyel Brasil (CH 01)",
    "description": "Vídeo do canal Deyel Brasil no YouTube sobre a plataforma low-code Deyel.",
-   "thumbnailUrl": "https://i.ytimg.com/vi/9bJbjmomsnc/hqdefault.jpg",
-   "embedUrl": "https://www.youtube.com/embed/9bJbjmomsnc",
-   "contentUrl": "https://www.youtube.com/watch?v=9bJbjmomsnc",
-   "inLanguage": "pt-BR"
-  },
-  {
-   "@type": "VideoObject",
-   "name": "Deyel no ar — canal Deyel Brasil (CH 02)",
-   "description": "Vídeo do canal Deyel Brasil no YouTube sobre a plataforma low-code Deyel.",
    "thumbnailUrl": "https://i.ytimg.com/vi/O0GK5eHx9-8/hqdefault.jpg",
    "embedUrl": "https://www.youtube.com/embed/O0GK5eHx9-8",
    "contentUrl": "https://www.youtube.com/watch?v=O0GK5eHx9-8",
@@ -296,7 +287,7 @@
   },
   {
    "@type": "VideoObject",
-   "name": "Deyel no ar — canal Deyel Brasil (CH 03)",
+   "name": "Deyel no ar — canal Deyel Brasil (CH 02)",
    "description": "Vídeo do canal Deyel Brasil no YouTube sobre a plataforma low-code Deyel.",
    "thumbnailUrl": "https://i.ytimg.com/vi/eCH_xM86wvw/hqdefault.jpg",
    "embedUrl": "https://www.youtube.com/embed/eCH_xM86wvw",
@@ -305,7 +296,7 @@
   },
   {
    "@type": "VideoObject",
-   "name": "Deyel no ar — canal Deyel Brasil (CH 04)",
+   "name": "Deyel no ar — canal Deyel Brasil (CH 03)",
    "description": "Vídeo do canal Deyel Brasil no YouTube sobre a plataforma low-code Deyel.",
    "thumbnailUrl": "https://i.ytimg.com/vi/SvVFMtFihyU/hqdefault.jpg",
    "embedUrl": "https://www.youtube.com/embed/SvVFMtFihyU",
@@ -1375,7 +1366,7 @@ body{overflow-x:clip}
     </div>
 
     <div data-mcar="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px">
-      <sc-for list="{{ tvs }}" as="tv" hint-placeholder-count="4">
+      <sc-for list="{{ tvs }}" as="tv" hint-placeholder-count="3">
         <div data-reveal="" data-tv="{{ tv.idx }}" style="transition-delay:{{ tv.delay }};display:flex;flex-direction:column;gap:7px">
           <button onClick="{{ tv.open }}" aria-label="Assistir com som" style="all:unset;cursor:pointer;display:block;padding:8px;border-radius:14px;background:linear-gradient(160deg,#16294a,#0a1a33);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 18px 40px -18px rgba(0,0,0,.7);transition:box-shadow .3s,transform .3s" style-hover="box-shadow:0 0 0 2px #0496ff,0 0 32px rgba(4,150,255,.45),0 18px 40px -18px rgba(0,0,0,.7);transform:translateY(-3px)">
             <div style="position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000">
@@ -1667,8 +1658,7 @@ const PROMPT='Quero um processo de pedidos: o cliente pede pelo celular, o SAP a
 const TT=()=>Math.ceil(PROMPT.length/TYPE_SPEED);
 const STEPS=['Interpreta o pedido','Modela as entidades','Gera telas e fluxos','Conecta os sistemas'];
 const NODES=[['App','Pedido'],['SAP','Análise de crédito'],['Gerente','Aprovação'],['WhatsApp','Aviso ao cliente']];
-const TVS=['9bJbjmomsnc','O0GK5eHx9-8','eCH_xM86wvw','SvVFMtFihyU'];
-const TVCAP=[['IA com controle de verdade','Como a Deyel une IA e low-code para empresas que não podem errar: a IA acelera e a TI continua no comando.'],['Do pedido ao pagamento, com agentes de IA','O Deyel Vendor Management na prática: a jornada do gestor de compras, da requisição ao pagamento do fornecedor.'],['Como controlamos a sua IA','O AI Runtime explicado: as regras que definem o que a IA pode e não pode fazer, em cada ação.'],['Aplicativos e processos com IA','Visão geral da Deyel: criar aplicativos e digitalizar processos descrevendo o que você precisa em português.']];
+const TVS=['O0GK5eHx9-8','eCH_xM86wvw','SvVFMtFihyU']; const TVCAP=[['Do pedido ao pagamento, com agentes de IA','O Deyel Vendor Management na prática: a jornada do gestor de compras, da requisição ao pagamento do fornecedor.'],['Como controlamos a sua IA','O AI Runtime explicado: as regras que definem o que a IA pode e não pode fazer, em cada ação.'],['Aplicativos e processos com IA','Visão geral da Deyel: criar aplicativos e digitalizar processos descrevendo o que você precisa em português.']];
 const INST=['PT4j5taGoLk','_mkMrVznFuk','FopE5eMsr5U','5wnLtxx-RJE'];
 const LOGOS=[['aon','AON'],['banesco','Banesco'],['riachuelo','Riachuelo'],['bank-of-china','Bank of China'],['mazda','Mazda'],['sky','SKY'],['banco-nacion','Banco Nación'],['aegea','AEGEA'],['unimed','Unimed'],['sanasa','Sanasa'],['consigaz','Consigaz'],['flybondi','Flybondi'],['unitau','Unitau'],['arba','ARBA']].map(([n,a])=>({src:'https://br.deyel.com/assets/img/cli-'+n+(n==='sky'?'.svg':'.png'),alt:'Logo '+a+', cliente Deyel'}));
 const FAQS=[
@@ -1717,12 +1707,12 @@ const PARTS=[
 const INTERESSES=['Deyel','Deyel · Plataforma','Deyel · Usina de Aplicativos','Deyel · Produtos prontos','Bottomline (Intellinx)','IBM Planning Analytics (TM1)','Glassix','RPA (UiPath / Automation Anywhere)','Outro'];
 const RUN=[['Agente de IA · Conciliação','Consultar saldo no ERP','Permitido','ok'],['Agente de crédito','Aprovar pedido acima de R$ 50 mil','Escalado para aprovação humana','esc'],['Agente da sua empresa · Atendimento','Responder cliente no WhatsApp','Permitido · registrado na trilha','ok'],['Deyel Bot · Atendimento','Exibir dados de outro cliente','Bloqueado pela política','no'],['Agente de leitura de contratos','Gasto do mês em 80% do limite','Alerta de custo ao gestor','sla'],['Agente de IA · Cadastro','Alterar regra de comissão','Bloqueado: exige papel Gestor','no']];
 const VCOL={ok:['rgba(61,220,151,.16)','#5ee6a8'],esc:['rgba(255,194,122,.16)','#ffc27a'],no:['rgba(255,138,158,.16)','#ff9fb2'],sla:['rgba(124,196,255,.16)','#7cc4ff']};
-const RJ_AGENTS=[['Agente Deyel','Digital Worker · Crédito','deyel'],['Agente Deyel','Deyel Bot · Atendimento','deyel'],['Sua empresa · MCP','Agente externo','ext'],['Sua empresa · API','Copiloto corporativo','ext']];
+const RJ_AGENTS=[['Agente Deyel','Agente de IA · Crédito','deyel'],['Agente Deyel','Deyel Bot · Atendimento','deyel'],['Sua empresa · MCP','Agente externo','ext'],['Sua empresa · API','Copiloto corporativo','ext']];
 const RJ_SYS=['ERP SAP','CRM','Banco de dados','WhatsApp','Aprovação humana'];
 const RJ_SC=[
- {a:0,act:'Aprovar pedido de crédito de R$ 87 mil',d:['Digital Worker · papel Analista','Ferramenta de crédito habilitada','Acima da alçada de R$ 50 mil'],f:-1,v:'esc',vt:'Escalado para aprovação humana',sys:4,log:'Aprovar crédito R$ 87 mil'},
+ {a:0,act:'Aprovar pedido de crédito de R$ 87 mil',d:['Agente de IA · papel Analista','Ferramenta de crédito habilitada','Acima da alçada de R$ 50 mil'],f:-1,v:'esc',vt:'Escalado para aprovação humana',sys:4,log:'Aprovar crédito R$ 87 mil'},
  {a:2,act:'Excluir 2.430 registros do CRM',d:['Agente externo via MCP · token válido','Operação destrutiva não permitida','—'],f:1,v:'no',vt:'Bloqueado pela política',sys:1,log:'Excluir 2.430 registros do CRM'},
- {a:0,act:'Ler contrato e atualizar o fornecedor no SAP',d:['Digital Worker · papel Compras','Leitura e atualização permitidas','Parâmetros válidos · custo 0,4% do teto'],f:-1,v:'ok',vt:'Executado e registrado',sys:0,log:'Atualizar fornecedor no SAP'},
+ {a:0,act:'Ler contrato e atualizar o fornecedor no SAP',d:['Agente de IA · papel Compras','Leitura e atualização permitidas','Parâmetros válidos · custo 0,4% do teto'],f:-1,v:'ok',vt:'Executado e registrado',sys:0,log:'Atualizar fornecedor no SAP'},
  {a:3,act:'Exibir dados de outro cliente',d:['Copiloto via API · usuário Atendimento','Dado fora do escopo do usuário (LGPD)','—'],f:1,v:'no',vt:'Bloqueado: dado fora do escopo',sys:2,log:'Ler dados de outro cliente'},
  {a:2,act:'Gerar 400 resumos com modelo premium',d:['Agente externo via MCP · token válido','Ferramenta de resumo permitida','Custo previsto acima do teto mensal'],f:2,v:'no',vt:'Bloqueado: teto de custo',sys:2,log:'400 resumos com modelo premium'},
  {a:1,act:'Responder cliente no WhatsApp',d:['Deyel Bot · canal Atendimento','Resposta dentro do roteiro aprovado','Dentro dos limites'],f:-1,v:'ok',vt:'Executado e registrado',sys:3,log:'Responder cliente no WhatsApp'}];
