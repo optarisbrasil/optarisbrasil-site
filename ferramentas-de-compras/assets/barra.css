@@ -2,7 +2,7 @@
 .ferr-bar{background:#02132d;border-top:1px solid rgba(255,255,255,.12);color:#fff;font-family:inherit}
 .ferr-bar .in{max-width:1180px;margin:0 auto;padding:12px 20px 14px}
 .ferr-bar .fb-t{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9fd4ff;margin:0 0 8px}
-.ferr-bar .fb-g{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.ferr-bar .fb-g{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
 .ferr-bar .fb-c{display:flex;flex-direction:column;gap:3px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;text-decoration:none;min-width:0;transition:background .15s,border-color .15s}
 .ferr-bar a.fb-c:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.45)}
 .ferr-bar a.fb-c:focus-visible{outline:2px solid #9fd4ff;outline-offset:2px}

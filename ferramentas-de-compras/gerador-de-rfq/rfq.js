@@ -65,7 +65,9 @@ function render(r){
   var acts=el('div',null,'acts noprint');
   var cp=el('button','Copiar o texto','btn sec inline'); cp.type='button'; cp.addEventListener('click',function(){ var t=texto(r); (navigator.clipboard? navigator.clipboard.writeText(t) : Promise.reject()).then(function(){ cp.textContent='Texto copiado'; setTimeout(function(){ cp.textContent='Copiar o texto'; },2000); }).catch(function(){ var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); cp.textContent='Texto copiado'; }catch(e){} ta.remove(); }); F.evento('ferramenta_copiar',{ferramenta:FERRAMENTA}); });
   var pr=el('button','Imprimir ou salvar em PDF','btn sec inline'); pr.type='button'; pr.addEventListener('click',function(){ window.print(); });
-  acts.appendChild(cp); acts.appendChild(pr); res.appendChild(acts);
+  var bf=el('a','Achar fornecedores para esta cotação','btn sec inline'); bf.href='/ferramentas-de-compras/buscador-de-fornecedores/';
+  bf.addEventListener('click',function(){ try{ sessionStorage.setItem('ob_busca', String(r.objeto||'').slice(0,280)); }catch(e){} F.evento('ferramenta_cta',{ferramenta:FERRAMENTA,destino:'Buscador de fornecedores'}); });
+  acts.appendChild(cp); acts.appendChild(pr); acts.appendChild(bf); res.appendChild(acts);
   F.captura(res,{ ferramenta:FERRAMENTA, titulo:'Baixe a cotação em Word', botao:'Baixar em Word', liberado:'Cotação liberada',
     texto:'O arquivo editável, com a tabela de itens e os critérios de avaliação, pronto para ajustar e enviar aos fornecedores.',
     resumo:function(){ return FERRAMENTA+': '+r.titulo+' — '+r.objeto.slice(0,300); },

@@ -15,6 +15,8 @@ function custoDe(d, f){ return custoOk(d) ? d.custo.regimes[f.regime === 'Simple
 function regiao(d){ var r = d.regiao; return r.municipio ? ('em ' + r.municipio + ' (' + r.uf + ')' + (r.ampliada ? ' e no restante do estado' : '')) : 'no estado de ' + r.uf; }
 
 F.destino($('uf'), $('mun'));
+// Quem vem do Gerador de RFQ chega com o objeto da cotação preenchido.
+try{ var pre = sessionStorage.getItem('ob_busca'); if (pre) { $('prod').value = pre; sessionStorage.removeItem('ob_busca'); } }catch(e){}
 $('exemplo').addEventListener('click', function(){
   $('prod').value = 'frascos e garrafas de plástico para envase';
   var u = $('uf'); if (!u.value) { u.value = 'SP'; u.dispatchEvent(new Event('change')); }

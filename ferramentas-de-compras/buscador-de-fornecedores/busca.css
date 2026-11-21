@@ -1,5 +1,4 @@
 /* Buscador de fornecedores: complementos ao visual das ferramentas */
-.ferr-bar .fb-g{grid-template-columns:repeat(7,minmax(0,1fr))}
 .passos{list-style:none;margin:10px 0 0;padding:0}
 .passos li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #eef1f5;color:#8a95a3}
 .passos li:last-child{border-bottom:0}
