@@ -84,11 +84,12 @@ function cartao(f, conta){
   var m = el('div');
   m.appendChild(el('h3', f.razaoSocial || f.nomeFantasia || 'Empresa sem nome no cadastro'));
   m.appendChild(el('p', 'CNPJ ' + f.cnpj + ' · ' + f.municipio + ' (' + f.uf + ')' + (f.nomeFantasia && f.nomeFantasia !== f.razaoSocial ? ' · ' + f.nomeFantasia : '') + (f.matriz ? '' : ' · filial'), 'meta'));
-  var tg = el('div', null, 'tags'); tg.appendChild(tag('Receita: cadastro ativo', 'r')); if (f.papel) tg.appendChild(tag(f.papel)); tg.appendChild(tag(f.regime, f.regime === 'Simples Nacional' ? 's' : 'q')); m.appendChild(tg);
+  var tg = el('div', null, 'tags'); tg.appendChild(tag('Receita: cadastro ativo', 'r')); if (f.alerta) tg.appendChild(tag(f.alerta, 's')); if (f.papel) tg.appendChild(tag(f.papel)); tg.appendChild(tag(f.regime, f.regime === 'Simples Nacional' ? 's' : 'q')); m.appendChild(tg);
   var dl = el('dl');
-  dado(dl, 'Abertura', f.abertura ? f.abertura.slice(0, 4) + (f.anos != null ? ' · ' + (f.anos === 1 ? '1 ano' : f.anos + ' anos') : '') : 'Não informada');
+  dado(dl, 'Abertura', f.abertura ? f.abertura.slice(0, 4) + (f.anos != null ? ' · ' + (f.anos === 0 ? 'menos de 1 ano' : f.anos === 1 ? '1 ano' : f.anos + ' anos') : '') : 'Não informada');
   dado(dl, 'Porte', f.porte); dado(dl, 'Capital social', f.capitalSocial != null ? F.brl0(f.capitalSocial) : 'Não informado'); dado(dl, 'CNAE principal', f.cnae);
   m.appendChild(dl);
+  if (f.alerta) m.appendChild(el('p', f.alerta + ', conforme o nome empresarial registrado na Receita. Avalie o risco de fornecimento antes de convidar.', 'obs'));
   var c0 = custoDe(dados, f);
   if (c0) {
     var cu = el('div', null, 'custo' + (c0.creditoPerdido > 0 ? ' perde' : '')); cu.appendChild(el('strong', 'CBS e IBS em 2027, numa compra de ' + F.brl(dados.custo.valor)));
@@ -165,7 +166,7 @@ function efeito(res, d){
     var p = el('p'); p.appendChild(document.createTextNode('Inclua o NCM (mercadoria) ou o NBS (serviço) do item na busca e mostramos o crédito e o custo líquido com cada fornecedor. Não sabe o código? Consulte na ')); var l = el('a', 'calculadora de CBS e IBS'); l.href = '/calculadora-reforma-tributaria/'; p.appendChild(l); p.appendChild(document.createTextNode('.')); b.appendChild(p);
   } else if (c.estado === 'nao_calculado') {
     b.appendChild(el('h3', 'Efeito de CBS e IBS não calculado'));
-    b.appendChild(el('p', 'O motor de cálculo da Receita não reconheceu o código informado. Confira o NCM ou o NBS e busque de novo.'));
+    var pn = el('p'); pn.appendChild(document.createTextNode(c.naoEncontrado ? 'O código ' + (c.codigo || 'informado') + ' não existe na tabela da Receita Federal para 2027: ele pode ter sido desdobrado em outros códigos. Confira o código vigente na ' : 'O motor de cálculo da Receita não calculou o código informado. Confira o NCM ou o NBS na ')); var ln = el('a', 'calculadora de CBS e IBS'); ln.href = '/calculadora-reforma-tributaria/'; pn.appendChild(ln); pn.appendChild(document.createTextNode(' e busque de novo.')); b.appendChild(pn);
   } else { return; }
   res.appendChild(b);
 }
@@ -190,10 +191,10 @@ function montarConvite(){
 function baixar(){
   if (!dados) return;
   var ref = referencia(dados.referencia);
-  var ok = custoOk(dados), cab = ['Razão social', 'Nome fantasia', 'CNPJ', 'Município', 'UF', 'Atividade', 'CNAE principal', 'Abertura', 'Porte', 'Capital social (R$)', 'Regime tributário', 'Situação cadastral', 'Base da Receita'];
+  var ok = custoOk(dados), cab = ['Razão social', 'Nome fantasia', 'CNPJ', 'Município', 'UF', 'Atividade', 'CNAE principal', 'Abertura', 'Porte', 'Capital social (R$)', 'Regime tributário', 'Situação cadastral', 'Alerta', 'Base da Receita'];
   if (ok) cab = cab.concat(['Compra de referência (R$)', 'Crédito de CBS e IBS (R$)', 'Custo líquido (R$)', 'Desconto para empatar (%)']);
   F.baixarCSV('fornecedores-para-cotacao.csv', [cab].concat(dados.fornecedores.map(function(f){
-    var l = [f.razaoSocial, f.nomeFantasia, f.cnpj, f.municipio, f.uf, f.papel, f.cnae, f.abertura, f.porte, f.capitalSocial, f.regime, f.situacao, ref], c = custoDe(dados, f);
+    var l = [f.razaoSocial, f.nomeFantasia, f.cnpj, f.municipio, f.uf, f.papel, f.cnae, f.abertura, f.porte, f.capitalSocial, f.regime, f.situacao, f.alerta || '', ref], c = custoDe(dados, f);
     return ok ? l.concat([dados.custo.valor, c.credito, c.custoLiquido, c.descontoEmpate]) : l; })));
 }
 })();
