@@ -199,7 +199,7 @@
  ]
 }
 </script>
-<script src="../support.js"></script>
+<script src="/support.js"></script>
 <script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/45901870.js"></script>
 <script>(function(){try{var q=new URLSearchParams(location.search),o={},a=0;['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){var v=q.get(k);if(v)a=(o[k]=v.slice(0,120),1);});if(a)sessionStorage.setItem('ob_utm',JSON.stringify(o));}catch(e){};})();</script>
 <!-- Meta Pixel (Deyel_Brasil) -->
@@ -348,18 +348,30 @@ body{overflow-x:clip}
   <div style="position:absolute;width:460px;height:460px;border-radius:50%;right:-120px;top:-120px;background:radial-gradient(circle,rgba(4,150,255,.5),transparent 65%);animation:floaty 11s ease-in-out infinite"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,19,45,.6),rgba(2,19,45,.85))"></div>
   <style>
-    .vh{display:grid;grid-template-columns:minmax(0,1fr);row-gap:20px;align-items:start}
-    @media(max-width:960px){.vh{display:flex;flex-direction:column}}
+    .vh{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,500px);column-gap:clamp(28px,4vw,60px);row-gap:28px;align-items:center}
+    .vh-l{display:flex;flex-direction:column;gap:20px;min-width:0}
+    .vh-v{display:flex;flex-direction:column;gap:10px}
+    .vh-f{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 24px 48px -22px rgba(0,0,0,.7);outline:1px solid rgba(255,255,255,.18)}
+    .vh-f iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    @media(max-width:960px){.vh{grid-template-columns:minmax(0,1fr)}.vh-v{max-width:560px}}
   </style>
   <div class="vh" style="position:relative;max-width:1200px;margin:0 auto;padding:0 24px;padding-top:130px;padding-bottom:80px">
+    <div class="vh-l">
     <nav aria-label="Trilha" data-reveal="" style="display:flex;gap:8px;flex-wrap:wrap;font-size:13px;color:#c7d3e3">
-      <a href="../" style="color:#c7d3e3;text-decoration:none" style-hover="color:#fff">Início</a><span>›</span><span style="color:#fff">Gestão de compras e fornecedores</span>
+      <a href="/" style="color:#c7d3e3;text-decoration:none" style-hover="color:#fff">Início</a><span>›</span><span style="color:#fff">Gestão de compras e fornecedores</span>
     </nav>
-    <h1 data-reveal="" style="font-size:clamp(34px,5vw,60px);font-weight:900;max-width:940px;text-wrap:balance;transition-delay:.1s">Gestão de compras e fornecedores num só sistema, da solicitação ao pagamento</h1>
-    <p data-reveal="" style="font-size:clamp(16px,1.5vw,19px);max-width:720px;color:#e8eef7;text-wrap:pretty;transition-delay:.2s">Automatize e governe suas compras com inteligência artificial.</p>
+    <span data-reveal="" style="color:#7cc4ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em;transition-delay:.05s">Gestão de compras e fornecedores · Deyel Vendor Management</span>
+    <h1 data-reveal="" style="font-size:clamp(32px,4.2vw,54px);font-weight:900;max-width:940px;text-wrap:balance;transition-delay:.1s">Suas compras num sistema só, da solicitação ao pagamento</h1>
+    <p data-reveal="" style="font-size:clamp(16px,1.5vw,19px);max-width:720px;color:#e8eef7;text-wrap:pretty;transition-delay:.2s">Cotação, fornecedores, contratos e pagamentos no mesmo fluxo automatizado, com os processos que a sua empresa definiu.</p>
     <div data-reveal="" style="display:flex;gap:12px;flex-wrap:wrap;transition-delay:.3s">
       <a href="https://calendly.com/paulocacciari/demo-plataforma-gestao-de-compras" target="_blank" rel="noopener" style="background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:13px 24px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#007bff;color:#fff">Agendar uma demo</a>
       <a href="#videos" style="border:2px solid #fff;color:#fff;text-decoration:none;border-radius:4px;padding:11px 22px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#fff;color:#02132d">Ver demo guiada</a>
+    </div>
+    <p data-reveal="" style="margin:0;font-size:14.5px;max-width:720px;color:#c7d3e3;text-wrap:pretty;transition-delay:.35s"><b style="color:#fff;font-weight:500">Funciona com ou sem IA.</b> Você decide onde os agentes entram.</p>
+    </div>
+    <div class="vh-v" data-reveal="" style="transition-delay:.25s">
+      <div class="vh-f"><iframe src="https://www.youtube-nocookie.com/embed/O0GK5eHx9-8?rel=0" title="Gestor de Compras: do pedido ao pagamento, em um sistema só" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;color:#e8eef7"><strong style="font-weight:700">Veja a solução em 52 segundos</strong><a href="#videos" style="color:#7cc4ff;text-decoration:none">Demo completa de 18 minutos ↓</a></div>
     </div>
   </div>
 </section>
@@ -421,15 +433,15 @@ body{overflow-x:clip}
 <section id="integracao-erp" data-screen-label="01b Integração com os sistemas" data-noprint="" style="padding:30px 0;background:#fff;border-bottom:1px solid #e5e7eb">
   <style>
     .vx{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:18px 32px;flex-wrap:wrap}
-    .vx-t{flex:0 1 295px}
-    .vx-c{flex:1 1 520px;display:flex;flex-wrap:wrap;gap:8px}
+    .vx-t{flex:1 1 400px;max-width:470px}
+    .vx-c{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:8px}
     .vx-chip{display:inline-flex;align-items:center;gap:8px;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:10px;padding:8px 12px;font-family:Lato,sans-serif;font-weight:700;font-size:14px;line-height:1.2;color:#1f2a3d;white-space:nowrap}
     .vx-chip i{width:8px;height:8px;border-radius:50%;flex:none}
   </style>
   <div class="vx">
     <div class="vx-t" data-reveal="">
       <p style="font-family:Lato,sans-serif;font-weight:900;font-size:19px;line-height:1.25;color:#02132d;text-wrap:balance">Integração com todos os seus sistemas</p>
-      <p style="font-size:14px;color:#555;margin-top:6px;text-wrap:pretty">ERP, contabilidade, CRM e logística conversam com o Vendor por API REST e SOAP.</p>
+      <p style="font-size:15px;line-height:1.5;color:#555;margin-top:6px;text-wrap:pretty">Capturamos o dado onde ele estiver, no ERP, na contabilidade, no CRM ou na logística, e ele chega ao fluxo de compras na etapa em que é necessário, sem redigitação. A conexão é por API REST e SOAP.</p>
     </div>
     <div class="vx-c" data-reveal="" role="list" aria-label="Sistemas com os quais o Deyel Vendor Management se integra" style="transition-delay:.1s">
       <span class="vx-chip" role="listitem"><i style="background:#0FAAFF"></i>SAP</span>
@@ -448,12 +460,11 @@ body{overflow-x:clip}
   <style>
     .oq{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "cards";row-gap:34px;align-items:start}
     .oq-head{grid-area:head;display:flex;flex-direction:column;gap:12px;max-width:760px}
-    .oq-cards{grid-area:cards;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .oq-cards>.oq-card:last-child{grid-column:1/-1}
-    .oq-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:22px 24px;border-left:4px solid #e8335a}
-    .oq-card h3{font-size:18px;font-weight:900;line-height:1.25;color:#02132d;margin-bottom:8px}
+    .oq-cards{grid-area:cards;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+    .oq-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px 18px;border-left:4px solid #e8335a;display:flex;align-items:center}
+    .oq-card h3{font-size:16.5px;font-weight:900;line-height:1.3;color:#02132d;margin:0;text-wrap:balance}
     .oq-card p{font-size:15px;color:#555;text-wrap:pretty}
-    .cr-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,420px);column-gap:clamp(32px,4vw,64px);align-items:center;margin-bottom:44px}
+    .cr-top{display:grid;grid-template-columns:minmax(0,1fr);column-gap:clamp(32px,4vw,64px);align-items:center;margin-bottom:44px}
     .cr-tv{display:flex;flex-direction:column}
     .tv-bz{position:relative}
     .tv-sc{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 18px 40px -22px rgba(2,19,45,.45)}
@@ -461,42 +472,37 @@ body{overflow-x:clip}
     .tv-cap{margin-top:20px;display:flex;flex-direction:column;gap:6px}
     .tv-cap strong{font-family:Lato,sans-serif;font-weight:900;font-size:20px;line-height:1.25;color:#02132d}
     .tv-cap a{align-self:flex-start;font-size:14px;color:#0496ff;text-decoration:none}
-    @media(max-width:1100px){.oq-cards{grid-template-columns:minmax(0,1fr)}}
+    @media(max-width:1100px){.oq-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:900px){
       .oq{row-gap:28px}
       .cr-top{grid-template-columns:minmax(0,1fr);row-gap:28px}
       .cr-tv{width:100%;max-width:560px}
-      .oq-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
-    @media(max-width:600px){.oq-cards{grid-template-columns:minmax(0,1fr)}}
+    @media(max-width:700px){.oq-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:460px){.oq-cards{grid-template-columns:minmax(0,1fr)}}
   </style>
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <div class="oq">
       <div class="oq-head" data-reveal="">
         <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">O que resolvemos</span>
-        <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Compras cresce mais rápido do que as ferramentas que a sustentam</h2>
-        <p style="font-size:16px;color:#555;text-wrap:pretty">A área de compras entrega com dedicação, mesmo quando o processo depende de planilha e e-mail. O Deyel Vendor Management organiza o que está em volta desse trabalho: informação, risco, prazos e controle.</p>
+        <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Os desafios de compras aparecem mais rápido do que as ferramentas que sustentam a área</h2>
+        <p style="font-size:16px;color:#555;text-wrap:pretty">O Deyel Vendor Management organiza o seu trabalho: informação, riscos, prazos e controle, tudo na sua mão.</p>
       </div>
       <div class="oq-cards">
       <div class="oq-card" data-reveal="" style="transition-delay:0.0s">
         <h3>Informação espalhada em planilhas e e-mails</h3>
-        <p>Cotações, aprovações e históricos de fornecedores acabam distribuídos entre arquivos e caixas de entrada. A equipe dá conta, mas cada consulta vira uma busca.</p>
       </div>
       <div class="oq-card" data-reveal="" style="transition-delay:0.1s">
         <h3>Pouca visibilidade sobre a base de fornecedores</h3>
-        <p>Saber quem fornece o quê, em que condições, com que desempenho e com que documentos em dia fica difícil quando os dados não estão num lugar só.</p>
       </div>
       <div class="oq-card" data-reveal="" style="transition-delay:0.0s">
         <h3>Risco acompanhado de forma pontual</h3>
-        <p>Situação fiscal, financeira e de compliance dos fornecedores muda com o tempo. Sem monitoramento contínuo, o risco aparece quando já virou problema.</p>
       </div>
       <div class="oq-card" data-reveal="" style="transition-delay:0.1s">
         <h3>Cadastro e homologação que tomam tempo</h3>
-        <p>Coletar documentos, validar e aprovar um fornecedor novo envolve várias áreas. Quanto mais manual o fluxo, mais tempo a compra espera.</p>
       </div>
       <div class="oq-card" data-reveal="" style="transition-delay:0.0s">
         <h3>Contratos, pedidos e pagamentos em sistemas diferentes</h3>
-        <p>Vencimentos de contrato, pedidos em aberto e status de pagamento ficam em lugares diferentes, e acompanhar tudo junto exige esforço extra de compras e de finanças.</p>
       </div>
       </div>
     </div>
@@ -508,18 +514,10 @@ body{overflow-x:clip}
     <div class="cr-top">
       <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;max-width:800px">
         <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Como resolvemos</span>
-        <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Da solicitação ao pagamento, no mesmo sistema</h2>
+        <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Da solicitação de compra ao pagamento, no mesmo sistema</h2>
         <p style="font-size:16px;color:#555;text-wrap:pretty">O Deyel Vendor Management une S2P e SRM: controla cada etapa da compra e, ao mesmo tempo, a homologação e a gestão dos fornecedores, conversando com os sistemas que a empresa já usa.</p>
       </div>
-      <aside class="cr-tv" data-reveal="" style="transition-delay:.12s" aria-label="Demo rápida do Deyel Vendor Management">
-        <div class="tv-bz">
-          <div class="tv-sc"><iframe src="https://www.youtube-nocookie.com/embed/O0GK5eHx9-8?rel=0" title="Gestor de Compras: do pedido ao pagamento, em um sistema só" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe></div>
-        </div>
-        <div class="tv-cap">
-          <strong>Veja a solução em 52 segundos</strong>
-          <a href="#videos">Demo completa e demo guiada ↓</a>
-        </div>
-      </aside>
+      
     </div>
     <h3 data-reveal="" style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Source-to-pay: a jornada da compra</h3>
     <p data-reveal="" style="font-size:15px;color:#555;max-width:760px;margin-bottom:22px;text-wrap:pretty">Doze etapas em quatro momentos, do pedido ao pagamento. Sob elas, o que as sustenta: uma base única de fornecedores, indicadores e IA, e a ligação com os seus sistemas.</p>
@@ -832,9 +830,9 @@ body{overflow-x:clip}
     </div>
     <h3 data-reveal="" style="font-size:15px;font-weight:500;color:#9fd4ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Clientes do Deyel Vendor Management</h3>
     <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px">
-      <span style="background:#fff;border-radius:8px;padding:10px 14px;display:inline-flex;align-items:center;justify-content:center;min-height:62px"><img src="../logos/consigaz.webp" alt="Consigaz" loading="lazy" decoding="async" style="height:38px;width:auto;max-width:150px;object-fit:contain"></img></span>
-      <span style="background:#fff;border-radius:8px;padding:10px 14px;display:inline-flex;align-items:center;justify-content:center;min-height:62px"><img src="../logos/4network.webp" alt="4Network" loading="lazy" decoding="async" style="height:38px;width:auto;max-width:150px;object-fit:contain"></img></span>
-      <span style="background:#fff;border-radius:8px;padding:10px 18px;display:inline-flex;align-items:center;justify-content:center;min-height:62px"><img src="../logos/zurich-santander-hd.png" alt="Zurich Santander" loading="lazy" decoding="async" style="height:auto;width:auto;max-height:30px;max-width:210px;object-fit:contain"></img></span>
+      <span style="background:#fff;border-radius:8px;padding:10px 14px;display:inline-flex;align-items:center;justify-content:center;min-height:62px"><img src="/logos/consigaz.webp" alt="Consigaz" loading="lazy" decoding="async" style="height:38px;width:auto;max-width:150px;object-fit:contain"></img></span>
+      <span style="background:#fff;border-radius:8px;padding:10px 14px;display:inline-flex;align-items:center;justify-content:center;min-height:62px"><img src="/logos/4network.webp" alt="4Network" loading="lazy" decoding="async" style="height:38px;width:auto;max-width:150px;object-fit:contain"></img></span>
+      <span style="background:#fff;border-radius:8px;padding:10px 18px;display:inline-flex;align-items:center;justify-content:center;min-height:62px"><img src="/logos/zurich-santander-hd.png" alt="Zurich Santander" loading="lazy" decoding="async" style="height:auto;width:auto;max-height:30px;max-width:210px;object-fit:contain"></img></span>
       <span style="background:#fff;border-radius:8px;padding:10px 14px;display:inline-flex;align-items:center;justify-content:center;min-height:62px"><strong style="font-family:Lato,sans-serif;font-weight:900;font-size:20px;color:#02132d">MAC Hospitales</strong></span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px">
@@ -987,37 +985,37 @@ body{overflow-x:clip}
       </div>
       <nav class="ft-col" aria-label="Deyel">
         <h3>Deyel</h3>
-        <a href="../plataforma/#criar">Automação</a>
-        <a href="../plataforma/#processos-porta">Processos</a>
-        <a href="../#plataforma">Deyel Plataforma</a>
-        <a href="../#fabrica">Usina de Aplicativos</a>
-        <a href="../#produtos-80-20">Produtos prontos</a>
-        <a href="../#demo-vendor">Demos</a>
+        <a href="/plataforma/#criar">Automação</a>
+        <a href="/plataforma/#processos-porta">Processos</a>
+        <a href="/#plataforma">Deyel Plataforma</a>
+        <a href="/#fabrica">Usina de Aplicativos</a>
+        <a href="/#produtos-80-20">Produtos prontos</a>
+        <a href="/#demo-vendor">Demos</a>
       </nav>
       <nav class="ft-col" aria-label="Soluções">
         <h3>Soluções</h3>
-        <a href="../#solucoes">Produtos parceiros</a>
+        <a href="/#solucoes">Produtos parceiros</a>
         <details>
           <summary>Consist <span class="ft-arw" aria-hidden="true"></span></summary>
           <div class="ft-sub">
-            <a href="../solucoes-consist/">Soluções Consist</a>
-            <a href="../licencas-consist/">Licenciamento</a>
-            <a href="../ads-dms/">ConsistADS e DMS</a>
-            <a href="../licencas-consist/#precos">Lista de preços</a>
-            <a href="../politica-de-licenciamento/">Política de licenciamento</a>
+            <a href="/solucoes-consist/">Soluções Consist</a>
+            <a href="/licencas-consist/">Licenciamento</a>
+            <a href="/ads-dms/">ConsistADS e DMS</a>
+            <a href="/licencas-consist/#precos">Lista de preços</a>
+            <a href="/politica-de-licenciamento/">Política de licenciamento</a>
           </div>
         </details>
-        <a href="../seguranca/">Infraestrutura e segurança</a>
+        <a href="/seguranca/">Infraestrutura e segurança</a>
         <a href="https://www.deyel.com/documentacion2/" target="_blank" rel="noopener">Documentação técnica ↗</a>
       </nav>
       <nav class="ft-col" aria-label="Empresa">
         <h3>Empresa</h3>
-        <a href="../#deyel-no-ar">Vídeos</a>
-        <a href="../midia/">Mídia</a>
-        <a href="../publicacoes/">Publicações</a>
-        <a href="../parceiros/">Parceiros e canais</a>
-        <a href="../#perguntas">Perguntas frequentes</a>
-        <a href="../#contato">Contato</a>
+        <a href="/#deyel-no-ar">Vídeos</a>
+        <a href="/midia/">Mídia</a>
+        <a href="/publicacoes/">Publicações</a>
+        <a href="/parceiros/">Parceiros e canais</a>
+        <a href="/#perguntas">Perguntas frequentes</a>
+        <a href="/#contato">Contato</a>
       </nav>
       <div class="ft-col ft-tels">
         <h3>Fale conosco</h3>
