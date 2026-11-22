@@ -101,6 +101,23 @@ header.top .wrap{max-width:1280px;height:70px;display:flex;align-items:center;ga
 @media (max-width:900px){.idx{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.idx{grid-template-columns:minmax(0,1fr)}.idx a{padding:16px 0 18px;margin-right:0;border-top:1px solid rgba(255,255,255,.14);margin-top:0}.idx{border-top:0}}
 
+/* topo: texto em cima, desenho embaixo */
+.hero-txt{display:grid;grid-template-columns:minmax(0,11fr) minmax(0,9fr);gap:18px 64px;align-items:end;padding-top:clamp(40px,5vw,72px)}
+.hero .hero-txt .txt{margin:0 0 4px}
+.hero-ft{margin:clamp(34px,4vw,54px) 0 0;font-family:Lato,sans-serif;font-weight:900;font-size:clamp(19px,1.8vw,25px);line-height:1.22;color:#fff;max-width:26em;min-height:2.5em;transition:opacity .4s}
+.hero-net{position:relative;height:clamp(380px,35vw,480px);margin:0 -24px;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 8%,#000 92%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 8%,#000 92%,transparent 100%)}
+.hero-net canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:22px 40px;padding-bottom:clamp(30px,3.6vw,48px)}
+.hero-foot .ctas{margin-top:0}
+.hud{display:flex;flex-direction:column;gap:5px;min-width:0}
+.hud small{display:flex;align-items:center;gap:10px;font-size:13.5px;color:#cfe3ff}
+.hud small i{width:26px;height:2px;border-radius:1px;background:linear-gradient(90deg,#7cfcff,#0496ff,#e04fb0);display:block}
+.hud .pn{font-family:Lato,sans-serif;font-weight:900;font-size:clamp(18px,1.7vw,22px);line-height:1.2;color:#fff;min-height:1.2em}
+.hud .ev{display:flex;align-items:center;gap:9px;font-size:15px;color:#dbe7f7;min-height:1.5em}
+.hud .ev .dot{width:8px;height:8px;border-radius:50%;display:block;flex:0 0 auto}
+@media (max-width:980px){.hero-txt{grid-template-columns:minmax(0,1fr);gap:18px}}
+@media (max-width:700px){.hero-net{height:600px}.hero-ft{min-height:3.75em}}
+
 /* faixa da versão */
 .ver{background:#f6f2ea;border-bottom:1px solid #e9e2d4}
 .ver .wrap{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;padding-top:20px;padding-bottom:20px}
@@ -529,56 +546,16 @@ footer{background:#010a19;color:#9fb1c8;font-size:14px}
 <main>
 <div class="hero" id="top">
   <div class="wrap">
-    <div class="hero-top">
-      <div>
-        <p class="when"><span class="pill">Versão 9.4</span>lançada em outubro de 2026</p>
-        <h1>Plataforma de Automação Deyel<span>A IA constrói e opera os seus processos. A sua empresa governa.</span></h1>
-        <p class="txt">A Deyel é uma poderosa plataforma low-code utilizada por companhias ao redor do mundo para desenhar, automatizar e orquestrar os processos da empresa de ponta a ponta.</p>
-        <div class="ctas"><a class="btn btn-blue" href="#diana">Ver a IA construir</a><a class="btn btn-line" href="#contato">Falar com um especialista</a></div>
-      </div>
-      <div class="hero-fig">
-        <svg class="orq" viewBox="0 0 560 506" role="img" aria-label="A Deyel no centro, orquestrando sistemas como ERP, CRM e legados, pessoas como analista, gestor e cliente, e agentes de IA, todos no mesmo processo">
-          <defs><linearGradient id="gcore" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0496ff"/><stop offset=".55" stop-color="#5b3fc4"/><stop offset="1" stop-color="#a1238f"/></linearGradient></defs>
-          <circle cx="280" cy="240" r="178" fill="none" stroke="#fff" stroke-opacity=".12"/>
-          <circle cx="280" cy="240" r="112" fill="none" stroke="#fff" stroke-opacity=".07"/>
-          <g fill="none" stroke-width="1.8">
-            <path class="flow" d="M280 166V84" stroke="#4db5ff"/>
-            <path class="flow" d="M332 188l56-56" stroke="#4db5ff"/>
-            <path class="flow" d="M354 240h50" stroke="#4db5ff"/>
-            <path class="flow" d="M332 292l56 56" stroke="#f08fd2"/>
-            <path class="flow" d="M280 314v82" stroke="#f08fd2"/>
-            <path class="flow" d="M228 292l-56 56" stroke="#fff" stroke-opacity=".8"/>
-            <path class="flow" d="M206 240h-50" stroke="#fff" stroke-opacity=".8"/>
-            <path class="flow" d="M228 188l-56-56" stroke="#fff" stroke-opacity=".8"/>
-          </g>
-          <circle cx="280" cy="240" r="74" fill="url(#gcore)"/>
-          <circle cx="280" cy="240" r="74" fill="none" stroke="#fff" stroke-opacity=".35"/>
-          <text x="280" y="240" text-anchor="middle" class="x" font-size="30" fill="#fff">Deyel</text>
-          <text x="280" y="262" text-anchor="middle" font-size="12.5" fill="#e6efff">orquestra o processo</text>
-          <g font-size="13">
-            <g><rect x="218" y="40" width="124" height="46" rx="12" fill="#06204a" stroke="#0496ff" stroke-width="1.6"/><text x="280" y="60" text-anchor="middle" class="x" fill="#fff">ERP</text><text x="280" y="76" text-anchor="middle" font-size="11" fill="#a9c8ef">SAP · TOTVS · Oracle</text></g>
-            <g><rect x="352" y="92" width="124" height="46" rx="12" fill="#06204a" stroke="#0496ff" stroke-width="1.6"/><text x="414" y="112" text-anchor="middle" class="x" fill="#fff">CRM</text><text x="414" y="128" text-anchor="middle" font-size="11" fill="#a9c8ef">Salesforce · HubSpot</text></g>
-            <g><rect x="404" y="217" width="124" height="46" rx="12" fill="#06204a" stroke="#0496ff" stroke-width="1.6"/><text x="466" y="237" text-anchor="middle" class="x" fill="#fff">Legados e APIs</text><text x="466" y="253" text-anchor="middle" font-size="11" fill="#a9c8ef">o que já existe</text></g>
-            <g><rect x="352" y="342" width="124" height="46" rx="12" fill="#3a1247" stroke="#e04fb0" stroke-width="1.6"/><text x="414" y="362" text-anchor="middle" class="x" fill="#fff">Agente de IA</text><text x="414" y="378" text-anchor="middle" font-size="11" fill="#f3c3e6">confere o pedido</text></g>
-            <g><rect x="218" y="394" width="124" height="46" rx="12" fill="#3a1247" stroke="#e04fb0" stroke-width="1.6"/><text x="280" y="414" text-anchor="middle" class="x" fill="#fff">Agente de IA</text><text x="280" y="430" text-anchor="middle" font-size="11" fill="#f3c3e6">responde o cliente</text></g>
-            <g><rect x="84" y="342" width="124" height="46" rx="12" fill="#0b2140" stroke="#fff" stroke-opacity=".85" stroke-width="1.6"/><text x="146" y="362" text-anchor="middle" class="x" fill="#fff">Cliente</text><text x="146" y="378" text-anchor="middle" font-size="11" fill="#c7d3e3">portal e aplicativo</text></g>
-            <g><rect x="32" y="217" width="124" height="46" rx="12" fill="#0b2140" stroke="#fff" stroke-opacity=".85" stroke-width="1.6"/><text x="94" y="237" text-anchor="middle" class="x" fill="#fff">Gestor</text><text x="94" y="253" text-anchor="middle" font-size="11" fill="#c7d3e3">aprova</text></g>
-            <g><rect x="84" y="92" width="124" height="46" rx="12" fill="#0b2140" stroke="#fff" stroke-opacity=".85" stroke-width="1.6"/><text x="146" y="112" text-anchor="middle" class="x" fill="#fff">Analista</text><text x="146" y="128" text-anchor="middle" font-size="11" fill="#c7d3e3">abre e acompanha</text></g>
-          </g>
-          <g font-size="12.5" fill="#c7d3e3">
-            <circle cx="124" cy="486" r="6" fill="#0496ff"/><text x="137" y="490.500">Sistemas</text>
-            <circle cx="232" cy="486" r="6" fill="#fff"/><text x="245" y="490.500">Pessoas</text>
-            <circle cx="336" cy="486" r="6" fill="#e04fb0"/><text x="349" y="490.500">Agentes de IA</text>
-          </g>
-        </svg>
-      </div>
+    <div class="hero-txt">
+      <h1>Plataforma de Automação Deyel<span>A IA constrói e opera os seus processos. A sua empresa governa.</span></h1>
+      <p class="txt">A Deyel é uma poderosa plataforma low-code utilizada por companhias ao redor do mundo para desenhar, automatizar e orquestrar os processos da empresa de ponta a ponta.</p>
     </div>
-    <nav class="idx" aria-label="O que a plataforma faz">
-      <a href="#diana"><strong>Construir com IA</strong><small>O analista descreve, a Diana constrói.</small></a>
-      <a href="#operacao"><strong>Operar com IA</strong><small>Agentes de IA dentro dos processos.</small></a>
-      <a href="#governanca"><strong>Governar a IA</strong><small>O AI Runtime confere cada ação.</small></a>
-      <a href="#integracao"><strong>Integrar tudo</strong><small>ERP, CRM, legados e APIs conectados.</small></a>
-    </nav>
+    <p class="hero-ft" aria-live="off">A Deyel conduz cada processo do início ao fim.</p>
+    <div class="hero-net"><canvas role="img" aria-label="Um fio de luz percorre as etapas de um pedido, do portal do cliente ao pagamento. Depois ele gira, encolhe e se junta a outros processos, formando a arquitetura da empresa, com sistemas, pessoas e agentes de IA acendendo a cada evento."></canvas></div>
+    <div class="hero-foot">
+      <div class="hud" aria-hidden="true"><small><i></i>Rede Deyel, agora</small><b class="pn">Do pedido ao pagamento</b><div class="ev"><i class="dot"></i><span></span></div></div>
+      <div class="ctas"><a class="btn btn-blue" href="#diana">Ver a IA construir</a><a class="btn btn-line" href="#contato">Falar com um especialista</a></div>
+    </div>
   </div>
 </div>
 
@@ -1377,6 +1354,130 @@ footer{background:#010a19;color:#9fb1c8;font-size:14px}
   window.addEventListener('hashchange',fecha);
   d.addEventListener('keydown',function(e){if(e.key==='Escape')fecha();});
   window.addEventListener('load',mede);setTimeout(mede,400);
+})();
+</script>
+<script>
+(function(){
+'use strict';
+var d=document,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,loops=[];
+function loop(root,tick){var o={root:root,tick:tick,vis:true};loops.push(o);if('IntersectionObserver' in window)new IntersectionObserver(function(es){o.vis=es[0].isIntersecting;},{rootMargin:'120px'}).observe(root);}
+function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;}
+function clamp(v,a,b){return v<a?a:v>b?b:v;}
+function rng(seed){var s=seed>>>0;return function(){s=(s+0x6D2B79F5)>>>0;var t=s;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};}
+var COL={s:'#4db5ff',p:'#eef3ff',a:'#f07fd0'};
+/* topo: do fio condutor à arquitetura da empresa */
+(function(){
+  var root=d.getElementById('top');if(!root||!root.querySelector('canvas'))return;
+  var cv=root.querySelector('canvas'),ctx=cv.getContext('2d'),capEl=root.querySelector('.hero-ft'),hP=root.querySelector('.pn'),hE=root.querySelector('.ev span'),hD=root.querySelector('.ev .dot'),hKey='';
+  var EV=[['Do pedido ao pagamento','Pagamento liberado pelo financeiro','s','Financeiro'],['Da requisição à compra','Cotação recebida do fornecedor','p','Fornecedor'],['Do sinistro à indenização','Laudo conferido pelo agente de IA','a','Agente de IA'],['Da proposta ao contrato','Contrato emitido no sistema legado','s','Legado'],['Da contratação à folha','Admissão aprovada pela gestora','p','Gestora'],['Do cadastro à conta aberta','Documentos validados pelo agente de IA','a','Agente de IA'],['Da cotação ao pedido','Pedido emitido no SAP','s','SAP'],['Do chamado à solução','Cliente avisado por WhatsApp','p','Cliente'],['Da fatura ao recebimento','Nota fiscal lançada no TOTVS','s','TOTVS'],['Da entrega à avaliação','Fornecedor avaliado pela equipe','p','Equipe']],EVT=1500;
+  function setHud(key,pn,ev,type){if(key===hKey)return;hKey=key;hP.textContent=pn;hE.textContent=ev||'';hD.style.background=type?COL[type]:'transparent';if(hE.animate&&!reduce){hE.animate([{opacity:.15},{opacity:1}],{duration:280});}}
+  var ST=[{t:'p',who:'Cliente',what:'Pedido feito no portal',h:'09:00'},{t:'s',who:'ERP',what:'Crédito analisado',h:'09:02'},{t:'a',who:'Agente de IA',what:'Pedido conferido',h:'09:03'},{t:'p',who:'Gestora',what:'Aprovado no prazo',h:'11:40'},{t:'s',who:'Financeiro',what:'Pagamento liberado',h:'11:41'}];
+  var CAPS=['A Deyel conduz cada processo do início ao fim.','Sua arquitetura empresarial rodando automatizada com inteligência cognitiva.'];
+  var GR=['#7cfcff','#0496ff','#6a45d0','#e04fb0'],labs=[];
+  var NM={s:['SAP','TOTVS','Salesforce','Legado','ERP','Financeiro','CRM','Oracle'],p:['Gestora','Analista','Cliente','Fornecedor','Comprador','Diretoria','Jurídico','Equipe'],a:['Agente de IA','Agente de crédito','Agente de compras','Agente de atendimento']};
+  var W=0,H=0,dpr=1,vert=false,cx=0,cy=0,R=1,stretch=1,main=null,others=[],keys=[],TR=0,S0=0;
+  var MOVE=1200,STAY=600,FIRST=500,HOLD=900,T2=3600,T3=14200,T4=1100,T1=0,TOTAL=1;
+  function serp(n,S,A,lead,tail){var pts=[],len=[],sl=[],si=[],sp=[],L=0,i,k,px=0,py=0,xs=[],ys=[];
+    function add(x,y){if(pts.length)L+=Math.hypot(x-px,y-py);pts.push([x,y]);len.push(L);px=x;py=y;}
+    for(i=0;i<n;i++){xs.push((i-(n-1)/2)*S);ys.push(i%2?A:-A);}
+    for(k=0;k<=8;k++)add(xs[0]-lead+lead*k/8,ys[0]);sl.push(L);si.push(pts.length-1);sp.push([xs[0],ys[0]]);
+    for(i=0;i<n-1;i++){for(k=1;k<=26;k++){var t=k/26,u=1-t;add(u*u*u*xs[i]+3*u*u*t*(xs[i]+S*.5)+3*u*t*t*(xs[i+1]-S*.5)+t*t*t*xs[i+1],u*u*u*ys[i]+3*u*u*t*ys[i]+3*u*t*t*ys[i+1]+t*t*t*ys[i+1]);}
+      sl.push(L);si.push(pts.length-1);sp.push([xs[i+1],ys[i+1]]);}
+    for(k=1;k<=8;k++)add(xs[n-1]+tail*k/8,ys[n-1]);
+    return {pts:pts,len:len,L:L,sl:sl,si:si,sp:sp,n:n,span:(n-1)*S+lead+tail};}
+  function build(){var r=cv.getBoundingClientRect();if(!r.width)return;dpr=Math.min(window.devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+    vert=W<700;cx=W/2;cy=H/2;
+    if(vert){S0=Math.min(98,(H-150)/4.4);main=serp(5,S0,22,44,36);}else{S0=Math.min(226,(W-300)/4);main=serp(5,S0,Math.min(66,H*.14),70,52);}
+    R=vert?Math.min(W*.4,H*.27):H*.37;stretch=vert?1:clamp(W/H*.8,1,2.15);
+    var rr=rng(11);others=[];
+    for(var i=0;i<9;i++){var n=4+Math.floor(rr()*3),S2=R*(.4+rr()*.2),o=serp(n,S2,R*(.2+rr()*.17),S2*.3,S2*.3);
+      o.phi=(rr()-.5)*1.5;o.theta=(rr()-.5)*1.2;o.ox=(rr()-.5)*R*1.05;o.oy=(rr()-.5)*R*.95;o.oz=(rr()-.5)*R*.9;o.sc=1;o.types=[];for(var k=0;k<n;k++)o.types.push(rr()<.42?'s':rr()<.55?'p':'a');
+      o.names=o.types.map(function(tp){var l=NM[tp];return l[Math.floor(rr()*l.length)];});var ev=EV[i+1];o.hk=Math.floor(rr()*n);o.types[o.hk]=ev[2];o.names[o.hk]=ev[3];
+      o.per=5200+rr()*4400;o.ph=rr();o.delay=250+i*340;o.c0=Math.floor(rr()*3);others.push(o);}
+    main.phi=-.44;main.theta=.3;main.ox=0;main.oy=0;main.oz=0;main.sc=(R*1.95)/main.span;main.types=ST.map(function(s){return s.t;});main.names=ST.map(function(s){return s.who;});main.hk=4;main.per=6400;main.ph=.1;main.c0=0;
+    keys=[[0,0]];var t=FIRST;keys.push([t,main.sl[0]]);for(i=0;i<5;i++){t+=STAY;keys.push([t,main.sl[i]]);if(i<4){t+=MOVE;keys.push([t,main.sl[i+1]]);}}t+=420;keys.push([t,main.L]);TR=t;T1=TR+HOLD;TOTAL=T1+T2+T3+T4;}
+  build();window.addEventListener('resize',build);if(window.ResizeObserver)new ResizeObserver(build).observe(cv);
+  function ens(o,x,y,al){x*=o.sc;y*=o.sc;var c=Math.cos(o.phi),s=Math.sin(o.phi),X=x*c-y*s,Y=x*s+y*c,Y2=Y*Math.cos(o.theta)+o.oy,Z=Y*Math.sin(o.theta)+o.oz;X+=o.ox;
+    var cg=Math.cos(al.g),sg=Math.sin(al.g),Xr=X*cg-Y2*sg,Yr=X*sg+Y2*cg,ca=Math.cos(al.w),sa=Math.sin(al.w),X3=Xr*ca+Z*sa,Z3=-Xr*sa+Z*ca,cb=.95,sb=.31;return [X3,Yr*cb-Z3*sb,Yr*sb+Z3*cb];}
+  function scr(P,k,zoom){var fl=R*3.3,s=fl/(fl+P[2])*zoom;return [cx+P[0]*s*(1+(stretch-1)*k),cy+P[1]*s,s,P[2]];}
+  function at(o,Q,sv){var len=o.len,lo=0,hi=len.length-1;if(sv<=0)return Q[0];if(sv>=o.L)return Q[hi];while(hi-lo>1){var m=(lo+hi)>>1;if(len[m]<sv)lo=m;else hi=m;}var f=(sv-len[lo])/((len[hi]-len[lo])||1),p=Q[lo],q=Q[hi];return [p[0]+(q[0]-p[0])*f,p[1]+(q[1]-p[1])*f,p[2]+(q[2]-p[2])*f,p[3]];}
+  function trace(o,Q,s0,s1){var p=at(o,Q,s0);ctx.beginPath();ctx.moveTo(p[0],p[1]);for(var i=0;i<Q.length;i++){if(o.len[i]>s0&&o.len[i]<s1)ctx.lineTo(Q[i][0],Q[i][1]);}p=at(o,Q,s1);ctx.lineTo(p[0],p[1]);}
+  function grad(o,Q){var a=Q[0],b=Q[Q.length-1],g=ctx.createLinearGradient(a[0],a[1],b[0],b[1]);for(var i=0;i<4;i++)g.addColorStop(i/3,GR[(i+o.c0)%4]);return g;}
+  function rgba(hex,a){var n=parseInt(hex.slice(1),16);return 'rgba('+(n>>16)+','+((n>>8)&255)+','+(n&255)+','+a+')';}
+  function spark(x,y,r,a){var g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba(255,255,255,'+a+')');g.addColorStop(.25,'rgba(191,233,255,'+a*.6+')');g.addColorStop(1,'rgba(120,190,255,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,6.2832);ctx.fill();}
+  function rrect(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+  function depthA(z){return clamp(.92-(z/R)*.36,.34,1);}
+  /* um fio do conjunto: já aceso, com a luz dando voltas */
+  function strand(o,Q,grow,alpha,lw,now,hl){var s1=grow*o.L,zm=Q[Q.length>>1][3],sc=Q[Q.length>>1][2],d0=depthA(zm),da=Math.min(1,d0+(hl||0)*.5)*alpha,hs0=((now/o.per+o.ph)%1)*o.L,win=o.L/o.per*1700;if(s1<=0||da<=0)return;
+    ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=grad(o,Q);trace(o,Q,0,s1);
+    ctx.globalAlpha=da*.07;ctx.lineWidth=lw*8*sc;ctx.stroke();ctx.globalAlpha=da*.16;ctx.lineWidth=lw*3.6*sc;ctx.stroke();ctx.globalAlpha=da*.92;ctx.lineWidth=lw*sc;ctx.stroke();
+    var hs=((now/o.per+o.ph)%1)*o.L;if(hs<s1){ctx.strokeStyle='rgba(255,255,255,.9)';trace(o,Q,Math.max(0,hs-o.L*.12),hs);ctx.globalAlpha=da*.7;ctx.lineWidth=lw*1.15*sc;ctx.stroke();ctx.globalAlpha=1;var p=at(o,Q,hs);spark(p[0],p[1],11*sc,da);}
+    ctx.globalAlpha=1;
+    if(hl>0){ctx.strokeStyle='#fff';trace(o,Q,0,s1);ctx.globalAlpha=da*hl*.2;ctx.lineWidth=lw*5.5*sc;ctx.stroke();ctx.globalAlpha=da*hl*.8;ctx.lineWidth=lw*1.15*sc;ctx.stroke();ctx.globalAlpha=1;}
+    o.si.forEach(function(ix,k){if(o.len[ix]>s1)return;var p=Q[ix],c=COL[o.types[k]],la=0,ds=hs0-o.len[ix];if(ds<0)ds+=o.L;
+      if(ds<win&&hs0<s1&&d0>.7){var u=ds/win;la=u<.14?u/.14:u>.62?1-(u-.62)/.38:1;if(u<.36){ctx.strokeStyle=rgba(c,(1-u/.36)*da);ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(p[0],p[1],(7+u*34)*p[2],0,6.2832);ctx.stroke();}}
+      if(hl>0&&k===o.hk){la=Math.max(la,Math.min(1,hl*1.6));ctx.strokeStyle=rgba(c,hl);ctx.lineWidth=1.6;ctx.beginPath();ctx.arc(p[0],p[1],(9+14*(1-hl))*p[2],0,6.2832);ctx.stroke();}
+      if(la>.02&&o.names)labs.push({x:p[0],y:p[1],s:p[2],n:o.names[k],c:c,a:la*alpha,top:hl>0&&k===o.hk,id:o.ph*1000+k});ctx.fillStyle=rgba(c,.18*da);ctx.beginPath();ctx.arc(p[0],p[1],10*p[2],0,6.2832);ctx.fill();ctx.fillStyle='rgba(2,19,45,'+da+')';ctx.beginPath();ctx.arc(p[0],p[1],5.4*p[2],0,6.2832);ctx.fill();ctx.fillStyle=rgba(c,da);ctx.beginPath();ctx.arc(p[0],p[1],3.5*p[2],0,6.2832);ctx.fill();});}
+  var capShown=-1,capT=0;
+  function caption(want,now){if(want===capShown)return;if(!capT){capT=now;capEl.style.opacity=0;}if(now-capT>430||capShown<0){capEl.textContent=CAPS[want];capEl.style.opacity=1;capShown=want;capT=0;}}
+  loop(root,function(now){
+    if(!W)build();if(!W)return;
+    var t=reduce?TR+10:now%TOTAL,k=t<T1?0:ease(clamp((t-T1)/T2,0,1)),al=t<T1?{g:0,w:0}:{g:-(t-T1)*.00006,w:.55*Math.sin((t-T1)*.00042)},zoom=1-.2*clamp((t-T1-T2*.5)/(T3+T2*.5),0,1);
+    var gA=t>TOTAL-T4?1-(t-(TOTAL-T4))/T4:(t<450?t/450:1);
+    caption(t<T1+T2*.45?0:1,performance.now());
+    var hi=-1,hv=0;if(t>=T1+T2*.55&&t<TOTAL-T4){var te=t-T1-T2*.55,e=Math.floor(te/EVT)%EV.length;hi=e;hv=Math.sin(Math.PI*((te%EVT)/EVT));setHud('e'+e,EV[e][0],EV[e][1],EV[e][2]);}
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);labs.length=0;
+    /* os outros processos surgem por trás */
+    var list=[];
+    if(t>T1)others.forEach(function(o){var tA=t-T1-o.delay;if(tA<=0)return;var Q=o.pts.map(function(p){return scr(ens(o,p[0],p[1],al),1,zoom);});list.push({o:o,Q:Q,g:ease(clamp(tA/1900,0,1)),a:clamp(tA/1000,0,1),z:Q[Q.length>>1][3],i:others.indexOf(o)+1});});
+    list.sort(function(a,b){return b.z-a.z;});
+    /* o processo principal: plano no começo, depois gira, encolhe e entra no conjunto */
+    var Qm=main.pts.map(function(p){var F=vert?[58-cx+p[1],p[0],0]:[p[0],p[1],0],E=ens(main,p[0],p[1],al);return scr([F[0]+(E[0]-F[0])*k,F[1]+(E[1]-F[1])*k,E[2]*k],k,1+(zoom-1)*k);});
+    var behind=list.filter(function(x){return k<.999||x.z>=Qm[Qm.length>>1][3];}),front=list.filter(function(x){return behind.indexOf(x)<0;});
+    behind.forEach(function(x){strand(x.o,x.Q,x.g,x.a*gA,2.1,now,x.i===hi?hv:0);});
+    var len=main.L;if(t<TR){for(var i=0;i<keys.length-1;i++){if(t>=keys[i][0]&&t<=keys[i+1][0]){var u=(t-keys[i][0])/((keys[i+1][0]-keys[i][0])||1);len=keys[i][1]+(keys[i+1][1]-keys[i][1])*ease(u);break;}}}
+    if(hi<0&&t<T1+T2*.55){var last=-1;for(var q=0;q<5;q++)if(len>=main.sl[q]-.5)last=q;setHud('m'+last,'Do pedido ao pagamento',last<0?'':ST[last].what+(last<0?'':' '+['pelo cliente','no ERP','pelo agente de IA','pela gestora','pelo financeiro'][last]),last<0?null:ST[last].t);}
+    var ui=clamp(1-k*2.6,0,1)*gA,lw=4.4+(2.3-4.4)*k;
+    if(k<1){ctx.lineCap='round';ctx.strokeStyle='rgba(255,255,255,'+(.16*(1-k)*gA)+')';ctx.lineWidth=2;trace(main,Qm,0,main.L);ctx.stroke();}
+    if(k>.02){strand(main,Qm,1,gA*Math.min(1,k*1.4),lw,now,hi===0?hv:0);}
+    if(k<1){ctx.strokeStyle=grad(main,Qm);ctx.lineCap='round';ctx.lineJoin='round';trace(main,Qm,0,len);var a1=gA*(1-k);
+      ctx.globalAlpha=a1*.1;ctx.lineWidth=lw*5;ctx.stroke();ctx.globalAlpha=a1*.22;ctx.lineWidth=lw*2.6;ctx.stroke();ctx.globalAlpha=a1;ctx.lineWidth=lw;ctx.stroke();ctx.globalAlpha=1;
+      if(t<TR){var hp=at(main,Qm,len);spark(hp[0],hp[1],20,gA);spark(hp[0],hp[1],6,gA);}}
+    front.forEach(function(x){strand(x.o,x.Q,x.g,x.a*gA,2.1,now,x.i===hi?hv:0);});
+    /* o nome de onde a luz está chegando: aparece e some */
+    if(k>.6){var put=[];labs.sort(function(a,b){return (b.top?1:0)-(a.top?1:0)||a.id-b.id;});labs.forEach(function(l){var fs=clamp(12.5*l.s,11.5,14);ctx.font='500 '+fs+'px Roboto,Helvetica,Arial,sans-serif';var tw=ctx.measureText(l.n).width+31,h=23,x=clamp(l.x-tw/2,6,W-tw-6),y=l.y-15*l.s-h,a=l.a*clamp((k-.6)/.3,0,1);
+      for(var z=0;z<put.length;z++){var r=put[z];if(x<r[0]+r[2]+6&&x+tw+6>r[0]&&y<r[1]+h+4&&y+h+4>r[1])return;}put.push([x,y,tw]);
+      ctx.globalAlpha=a;rrect(x,y,tw,h,11.5);ctx.fillStyle='rgba(4,18,42,.86)';ctx.fill();ctx.strokeStyle=rgba(l.c,.75);ctx.lineWidth=1;ctx.stroke();ctx.fillStyle=l.c;ctx.beginPath();ctx.arc(x+12.5,y+h/2,3.6,0,6.2832);ctx.fill();ctx.fillStyle='#fff';ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(l.n,x+21,y+h/2+.5);ctx.globalAlpha=1;});}
+    /* etapas, cartões e o nome de quem conduz: só enquanto o processo está sozinho */
+    if(ui>0){
+      main.si.forEach(function(ix,i){var p=Qm[ix],s=ST[i],c=COL[s.t],on=len>=main.sl[i]-.5,arr=keys[1+i*2][0],dt=t-arr;
+        var w,h,x0,y0;if(vert){x0=112;w=W-x0-14;h=62;y0=p[1]-h/2;}else{w=Math.min(206,2*S0-26);h=68;x0=clamp(p[0]-w/2,8,W-w-8);y0=main.sp[i][1]<0?p[1]-26-h:p[1]+26;}
+        ctx.globalAlpha=ui*(on?1:.42);
+        ctx.strokeStyle='rgba(255,255,255,.22)';ctx.setLineDash([2,4]);ctx.lineWidth=1;ctx.beginPath();if(vert){ctx.moveTo(p[0]+9,p[1]);ctx.lineTo(x0,p[1]);}else{ctx.moveTo(p[0],p[1]+(main.sp[i][1]<0?-9:9));ctx.lineTo(p[0],main.sp[i][1]<0?y0+h:y0);}ctx.stroke();ctx.setLineDash([]);
+        rrect(x0,y0,w,h,12);ctx.fillStyle='rgba(255,255,255,'+(on?.1:.05)+')';ctx.fill();ctx.strokeStyle=on?rgba(c,.8):'rgba(255,255,255,.16)';ctx.lineWidth=1;ctx.stroke();
+        ctx.fillStyle=c;ctx.beginPath();ctx.arc(x0+19,y0+21,4.5,0,6.2832);ctx.fill();
+        ctx.textBaseline='middle';ctx.textAlign='left';ctx.font='400 13px Roboto,Helvetica,Arial,sans-serif';ctx.fillStyle='#c7d3e3';ctx.fillText(s.who,x0+31,y0+21.5);
+        ctx.textAlign='right';ctx.font='400 12.5px Roboto,Helvetica,Arial,sans-serif';ctx.fillStyle='#8094ad';ctx.fillText(s.h,x0+w-14,y0+21.5);
+        ctx.textAlign='left';ctx.font='900 '+(vert?14.5:15.5)+'px Lato,Helvetica,Arial,sans-serif';ctx.fillStyle='#fff';ctx.fillText(s.what,x0+15,y0+46);
+        ctx.globalAlpha=ui;
+        if(on&&dt>=0&&dt<900&&t<TR){ctx.strokeStyle=rgba(c,1-dt/900);ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(p[0],p[1],8+dt*.026,0,6.2832);ctx.stroke();}
+        ctx.fillStyle=on?c:'#02132d';ctx.beginPath();ctx.arc(p[0],p[1],8,0,6.2832);ctx.fill();if(!on){ctx.strokeStyle='rgba(255,255,255,.45)';ctx.lineWidth=2;ctx.stroke();}
+        else{ctx.strokeStyle='#02132d';ctx.lineWidth=2;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();ctx.moveTo(p[0]-3.6,p[1]+.3);ctx.lineTo(p[0]-1,p[1]+2.9);ctx.lineTo(p[0]+3.8,p[1]-2.3);ctx.stroke();}
+      });
+      var p0=Qm[0].slice();if(vert)p0[0]=Math.max(p0[0],58);var pg=ctx.createLinearGradient(p0[0]-40,0,p0[0]+40,0);pg.addColorStop(0,'#0496ff');pg.addColorStop(.6,'#5b3fc4');pg.addColorStop(1,'#b02aa0');
+      ctx.globalAlpha=ui;rrect(p0[0]-40,p0[1]-16,80,32,16);ctx.fillStyle=pg;ctx.fill();ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='900 15.5px Lato,Helvetica,Arial,sans-serif';ctx.fillText('Deyel',p0[0],p0[1]+.5);
+      ctx.font='400 13px Roboto,Helvetica,Arial,sans-serif';ctx.fillStyle='#9fb1c8';if(vert){ctx.textAlign='left';ctx.fillText('conduz do início ao fim',p0[0]+50,p0[1]+.5);}else{ctx.textAlign='left';ctx.fillText('conduz do início',p0[0]-40,p0[1]+34);ctx.fillText('ao fim',p0[0]-40,p0[1]+51);}
+      var pe=Qm[Qm.length-1];ctx.globalAlpha=ui*(t>=TR?1:.35);ctx.fillStyle='#fff';ctx.font='400 14px Roboto,Helvetica,Arial,sans-serif';
+      if(vert){ctx.textAlign='left';ctx.fillText('Concluído em 2 h 41, no prazo',pe[0]+16,pe[1]+2);}else{ctx.textAlign='right';ctx.fillText('Concluído em 2 h 41,',Math.min(W-16,pe[0]+40),pe[1]+34);ctx.fillText('dentro do prazo de 8 h',Math.min(W-16,pe[0]+40),pe[1]+52);}
+      ctx.globalAlpha=1;
+    }
+  });
+})();
+
+var queued=false;
+function frame(){queued=false;var now=performance.now();for(var i=0;i<loops.length;i++)if(loops[i].vis)loops[i].tick(now);if(!reduce&&!d.hidden){queued=true;requestAnimationFrame(frame);}}
+function kick(){if(!queued){queued=true;requestAnimationFrame(frame);}}
+kick();d.addEventListener('visibilitychange',kick);window.addEventListener('resize',kick);if(d.fonts&&d.fonts.ready)d.fonts.ready.then(kick);
 })();
 </script>
 </body>
