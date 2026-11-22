@@ -788,6 +788,7 @@ footer{background:#010a19;color:#9fb1c8;font-size:14px}
  ]
 }
 </script>
+<script>(function(){try{var q=new URLSearchParams(location.search),o={},a=0;['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){var v=q.get(k);if(v)a=(o[k]=v.slice(0,120),1);});if(a)sessionStorage.setItem('ob_utm',JSON.stringify(o));}catch(e){};})();</script>
 <!-- Meta Pixel (Deyel_Brasil) -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','915285856819493');fbq('init','897747875326962');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=915285856819493&ev=PageView&noscript=1"></noscript>
@@ -1738,11 +1739,17 @@ footer{background:#010a19;color:#9fb1c8;font-size:14px}
     if(bad){var fi=f.querySelector('[aria-invalid="true"]');if(fi)fi.focus();return;}
     var btn=f.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Enviando…';
     var m=d.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
-    var vals={firstname:v.firstname,lastname:v.lastname,email:v.email,company:v.company,jobtitle:v.jobtitle,phone:fmt(v.phone),message:('[Interesse: Plataforma] '+v.message).trim()};
+    var camp='';try{camp=String((JSON.parse(sessionStorage.getItem('ob_utm')||'{}')||{}).utm_campaign||'').slice(0,120);}catch(_){camp='';}
+    var vals={firstname:v.firstname,lastname:v.lastname,email:v.email,company:v.company,jobtitle:v.jobtitle,phone:fmt(v.phone),message:('[Interesse: Plataforma] '+(camp?'[Campanha: '+camp+'] ':'')+v.message).trim()};
     var fields=Object.keys(vals).map(function(k){return {name:k,value:String(vals[k]||'').trim()};}).filter(function(x){return x.value;});
     var ctx={pageUri:location.href,pageName:d.title};if(m)ctx.hutk=m[1];
-    var payload={fields:fields,context:ctx,legalConsentOptions:{consent:{consentToProcess:true,text:'Concordo que a Optaris do Brasil armazene e processe meus dados para responder a este contato, conforme a LGPD e a Política de Privacidade.'}}};
-    fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HS+'/'+FG,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){
+    /* a campanha do anúncio vai no campo "campanha"; se o HubSpot recusar o campo, reenvia sem ele (a campanha segue na mensagem) */
+    function envia(comCamp){var payload={fields:comCamp?fields.concat([{name:'campanha',value:camp}]):fields,context:ctx,legalConsentOptions:{consent:{consentToProcess:true,text:'Concordo que a Optaris do Brasil armazene e processe meus dados para responder a este contato, conforme a LGPD e a Política de Privacidade.'}}};
+      return fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HS+'/'+FG,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});}
+    envia(!!camp).then(function(r){
+      if(r.ok||!camp)return r;
+      return r.clone().json().catch(function(){return null;}).then(function(j){return j&&/BLOCKED_EMAIL|FREE_EMAIL|INVALID_EMAIL/i.test(JSON.stringify(j))?r:envia(false);});
+    }).then(function(r){
       if(r.ok)return 'ok';
       return r.json().catch(function(){return null;}).then(function(j){if(j&&/BLOCKED_EMAIL|FREE_EMAIL|INVALID_EMAIL/i.test(JSON.stringify(j)))return 'email';throw new Error('HTTP '+r.status);});
     }).then(function(st){
