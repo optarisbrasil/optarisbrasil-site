@@ -1542,30 +1542,30 @@ class Component extends DCLogic {
   if (document.readyState === 'complete') roda(); else window.addEventListener('load', roda);
 })();
 </script>
-<nav class="vfb" aria-label="Navegador da página">
+<nav class="vfb" aria-label="Navegação na página">
   <style>
-    .vfb{position:fixed;left:max(12px,calc(50vw - 766px));top:50%;transform:translateY(-50%);z-index:45;display:none;flex-direction:column;padding:6px 0}
-    .vfb::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;border-radius:1px;background:linear-gradient(180deg,rgba(111,151,196,0),#6f97c4 10%,#6f97c4 90%,rgba(111,151,196,0))}
-    .vfb a{position:relative;display:flex;align-items:center;height:28px;width:44px;text-decoration:none;color:#4a5568;font-size:12.5px;white-space:nowrap}
-    .vfb a i{position:relative;display:block;height:2px;width:18px;margin-left:6px;background:#6f97c4;border-radius:1px;transform:rotate(-20deg);transform-origin:left center;transition:width .25s,background .25s,height .25s}
-    .vfb a span{position:absolute;left:44px;top:50%;padding:3px 10px;border-radius:12px;background:#fff;border:1px solid #e3e8ef;box-shadow:0 8px 16px -10px rgba(2,19,45,.45);opacity:0;transform:translate(-6px,-50%);transition:opacity .2s,transform .2s;pointer-events:none}
-    .vfb:hover a span,.vfb a.on span{opacity:1;transform:translate(0,-50%);pointer-events:auto}
-    .vfb a:hover i{width:24px;background:#0496ff}
-    .vfb a:hover span{color:#02132d;border-color:#9fd2ff}
-    .vfb a.on i{width:32px;height:3px;background:#0496ff}
-    .vfb a.on i::after{content:"";position:absolute;right:-4px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#7cc4ff;animation:vfbp 2.8s ease-out infinite}
-    .vfb.visto a.on i::after{animation:none}
-    .vfb a.on span{color:#02132d;font-weight:700;border-color:#0496ff}
-    @keyframes vfbp{0%{box-shadow:0 0 0 0 rgba(124,196,255,.75)}70%{box-shadow:0 0 0 11px rgba(124,196,255,0)}100%{box-shadow:0 0 0 0 rgba(124,196,255,0)}}
-    @media(min-width:1340px){.vfb{display:flex}.vcb{display:none}}
-    @media(max-width:1559px){.vfb a span{font-size:11.5px;padding:2px 8px}.vfb a.on span{opacity:0;transform:translate(-6px,-50%);pointer-events:none;animation:vfbl 2.8s ease both}.vfb:hover a.on span{opacity:1;transform:translate(0,-50%);pointer-events:auto;animation:none}}
-    @keyframes vfbl{0%{opacity:0;transform:translate(-6px,-50%)}10%,78%{opacity:1;transform:translate(0,-50%)}100%{opacity:0;transform:translate(-6px,-50%)}}
-    .vfb::after{content:"Nesta página";position:absolute;left:0;top:-16px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7f93ad;white-space:nowrap;display:none}
-    @media(min-width:1560px){.vfb::after{display:block}}
-    @media(prefers-reduced-motion:reduce){.vfb a.on i::after{animation:none}}
+    .vfb{position:fixed;right:max(12px,calc(50vw - 794px));top:22vh;z-index:45;display:none;width:112px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:1px solid #e3e8ef;border-radius:18px;box-shadow:0 14px 30px -18px rgba(2,19,45,.5);overflow:hidden;transition:width .25s ease}
+    .vfb.ab{width:204px}
+    .vfb-b{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:flex-end;gap:8px;width:100%;height:36px;padding:0 13px;cursor:pointer;font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:#02132d;white-space:nowrap}
+    .vfb-b:focus-visible{outline:2px solid #0496ff;outline-offset:-3px;border-radius:18px}
+    .vfb-b i{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:#7cc4ff;animation:vfbp 2.8s ease-out infinite}
+    .vfb.visto .vfb-b i{animation:none;background:#0496ff}
+    .vfb-l{max-height:0;opacity:0;overflow:hidden;margin:0 15px 0 0;border-right:2px solid #d5deea;transition:max-height .35s ease,opacity .25s ease,margin .25s ease}
+    .vfb.ab .vfb-l{max-height:440px;opacity:1;margin:2px 15px 14px 0}
+    .vfb-l a{display:flex;align-items:center;justify-content:flex-end;gap:8px;height:29px;font-size:13px;line-height:1;color:#9aa7b8;text-decoration:none;white-space:nowrap;transition:font-size .16s ease,color .16s ease}
+    .vfb-l a::after{content:"";flex:0 0 auto;width:9px;height:2px;background:#d5deea;transition:width .16s ease,background .16s ease}
+    .vfb-l a:hover + a,.vfb-l a:has(+ a:hover){font-size:14.5px;color:#6fb3ea}
+    .vfb .vfb-l a.on{font-size:15px;font-weight:700;color:#02132d}
+    .vfb .vfb-l a.on::after{width:16px;background:#0496ff}
+    .vfb .vfb-l a:hover{font-size:17px;color:#1f9dff}
+    .vfb .vfb-l a:hover::after{width:16px;background:#1f9dff}
+    @keyframes vfbp{0%{box-shadow:0 0 0 0 rgba(124,196,255,.8)}70%{box-shadow:0 0 0 10px rgba(124,196,255,0)}100%{box-shadow:0 0 0 0 rgba(124,196,255,0)}}
+    @media(min-width:1440px){.vfb{display:block}.vcb{display:none}}
+    @media(prefers-reduced-motion:reduce){.vfb-b i{animation:none}.vfb,.vfb-l,.vfb-l a{transition:none}}
     @media print{.vfb{display:none}}
   </style>
-  <a href="#teste-o-vendor"><i></i><span>Ferramentas</span></a><a href="#o-que-resolvemos"><i></i><span>O que resolvemos</span></a><a href="#como"><i></i><span>Como resolvemos</span></a><a href="#indicadores"><i></i><span>Indicadores</span></a><a href="#prazos-sla"><i></i><span>Prazos e SLA</span></a><a href="#agentes-ia"><i></i><span>Agentes de IA</span></a><a href="#videos"><i></i><span>Demo</span></a><a href="#preco"><i></i><span>Preço</span></a><a href="#manutencao"><i></i><span>Manutenção</span></a><a href="#para-quem"><i></i><span>Para quem</span></a><a href="#perguntas"><i></i><span>Perguntas</span></a>
+  <button type="button" class="vfb-b" data-vfb-t="" aria-expanded="false"><i aria-hidden="true"></i>Navegação</button>
+  <div class="vfb-l"><a href="#teste-o-vendor">Ferramentas</a><a href="#o-que-resolvemos">O que resolvemos</a><a href="#como">Como resolvemos</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
 </nav>
 <script id="vdd-js">
 /* Passo a passo "do indicador ao caso": a mãozinha clica no número, abre a lista, o pedido e o processo. */
@@ -1620,7 +1620,7 @@ class Component extends DCLogic {
   }
   function pede(){if(!tick){tick=true;setTimeout(mede,60);}}
   window.addEventListener('scroll',pede,{passive:true});window.addEventListener('resize',pede);
-  d.addEventListener('mouseover',function(e){var n=e.target&&e.target.closest?e.target.closest('.vfb'):null;if(n)n.classList.add('visto');});
+  d.addEventListener('click',function(e){var b=e.target&&e.target.closest?e.target.closest('[data-vfb-t]'):null;if(!b)return;var n=b.closest('.vfb');if(!n)return;var o=n.classList.toggle('ab');n.classList.add('visto');b.setAttribute('aria-expanded',o?'true':'false');});
   window.addEventListener('load',function(){mede();setTimeout(mede,800);setTimeout(mede,2500);});
   setTimeout(mede,600);
 })();
