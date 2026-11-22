@@ -1335,5 +1335,42 @@ footer{background:#010a19;color:#9fb1c8;font-size:14px}
   });
 })();
 </script>
+<nav class="vfb" aria-label="Navegador da página">
+  <style>
+    .vfb{position:fixed;left:12px;top:50%;transform:translateY(-50%);z-index:45;display:none;flex-direction:column;padding:6px 0}
+    .vfb::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;border-radius:1px;background:linear-gradient(180deg,rgba(127,163,204,0),#7fa3cc 12%,#7fa3cc 88%,rgba(127,163,204,0))}
+    .vfb a{position:relative;display:flex;align-items:center;height:28px;width:44px;text-decoration:none;color:#4a5568;font-size:12.5px;white-space:nowrap}
+    .vfb a i{position:relative;display:block;height:2px;width:15px;margin-left:6px;background:#7fa3cc;border-radius:1px;transform:rotate(-20deg);transform-origin:left center;transition:width .25s,background .25s,height .25s}
+    .vfb a span{position:absolute;left:44px;top:50%;padding:3px 10px;border-radius:12px;background:#fff;border:1px solid #e3e8ef;box-shadow:0 8px 16px -10px rgba(2,19,45,.45);opacity:0;transform:translate(-6px,-50%);transition:opacity .2s,transform .2s;pointer-events:none}
+    .vfb:hover a span,.vfb a.on span{opacity:1;transform:translate(0,-50%);pointer-events:auto}
+    .vfb a:hover i{width:22px;background:#0496ff}
+    .vfb a:hover span{color:#02132d;border-color:#9fd2ff}
+    .vfb a.on i{width:30px;height:3px;background:#0496ff}
+    .vfb a.on i::after{content:"";position:absolute;right:-4px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#7cc4ff;animation:vfbp 2.8s ease-out infinite}
+    .vfb.visto a.on i::after{animation:none}
+    .vfb a.on span{color:#02132d;font-weight:700;border-color:#0496ff}
+    @keyframes vfbp{0%{box-shadow:0 0 0 0 rgba(124,196,255,.75)}70%{box-shadow:0 0 0 11px rgba(124,196,255,0)}100%{box-shadow:0 0 0 0 rgba(124,196,255,0)}}
+    @media(min-width:1560px){.vfb{display:flex}.chapbar{display:none}}
+    @media(prefers-reduced-motion:reduce){.vfb a.on i::after{animation:none}}
+    @media print{.vfb{display:none}}
+  </style>
+  <a href="#ideia"><i></i><span>A ideia</span></a><a href="#diana"><i></i><span>Construir</span></a><a href="#operacao"><i></i><span>Operar</span></a><a href="#governanca"><i></i><span>Governar</span></a><a href="#integracao"><i></i><span>Integrar</span></a><a href="#por-dentro"><i></i><span>Por dentro</span></a><a href="#infraestrutura"><i></i><span>Infraestrutura</span></a><a href="#resultados"><i></i><span>Resultados</span></a><a href="#perguntas"><i></i><span>Perguntas</span></a><a href="/precos/"><i></i><span>Preços</span></a>
+</nav>
+<script id="vfb-js">
+/* Navegador em espinha de peixe: marca a seção em que o leitor está. */
+(function(){
+  var d=document,tick=false;
+  function mede(){
+    tick=false;
+    var fb=[].slice.call(d.querySelectorAll('.vfb a')),y=(window.pageYOffset||0)+150,k=-1;
+    fb.forEach(function(l,i){var h=l.getAttribute('href')||'';if(h.charAt(0)!=='#')return;var s=d.getElementById(h.slice(1));if(s&&s.getBoundingClientRect().top+(window.pageYOffset||0)<=y)k=i;});
+    fb.forEach(function(l,j){l.classList.toggle('on',j===k);});
+  }
+  function pede(){if(!tick){tick=true;setTimeout(mede,60);}}
+  window.addEventListener('scroll',pede,{passive:true});window.addEventListener('resize',pede);
+  d.addEventListener('mouseover',function(e){var n=e.target&&e.target.closest?e.target.closest('.vfb'):null;if(n)n.classList.add('visto');});
+  window.addEventListener('load',mede);setTimeout(mede,400);
+})();
+</script>
 </body>
 </html>
