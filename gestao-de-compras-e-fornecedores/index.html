@@ -166,7 +166,7 @@
      "name": "Quanto tempo leva a implantação?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "O Deyel Vendor Management vem 80% pronto e é parametrizado para o processo da empresa. A implantação leva em média de 2 a 3 meses."
+      "text": "O Deyel Vendor Management vem 80% pronto e é parametrizado para o processo da empresa. A implantação leva em média de 3 a 4 meses."
      }
     },
     {
@@ -1126,6 +1126,7 @@ body{overflow-x:clip}
     .vq-o p{margin:0;font-size:14.5px;line-height:1.55;color:#333}
     .vq-o p+p{margin-top:5px}
     .vq-o b{color:#02132d}
+    .vq-tw sup,.vq-o sup{font-size:11px;font-weight:700;color:#0068b4;line-height:0;margin-left:1px}
     .vq-f{margin:16px 0 0;font-size:13px;color:#6b7686}
     @media(max-width:900px){.vq{grid-template-columns:minmax(0,1fr)}.vq-p{position:static}}
     @media(max-width:560px){.vq-tw th,.vq-tw td{display:block;width:auto;padding:4px 16px}.vq-tw th{padding-top:13px}.vq-tw td{padding-bottom:13px}}
@@ -1151,10 +1152,13 @@ body{overflow-x:clip}
         <div class="vq-cta"><a href="#contato">Pedir proposta</a><a href="/precos/">Ver todos os preços</a></div>
       </div>
       <div data-reveal="" style="transition-delay:.1s">
-        <div class="vq-tw"><h3>O que vem no produto</h3><table><tbody><tr><th scope="row">Compradores e fornecedores</th><td>Até 5 compradores e até 500 fornecedores ativos na base. Requisitantes, autorizantes, visitantes e demais acessos são livres.</td></tr><tr><th scope="row">Requisição e aprovação</th><td>Por alçada, com controle de estoque e orçamento.</td></tr><tr><th scope="row">Cotação e concorrência</th><td>Pelo portal: o fornecedor cadastra a proposta e o comprador recebe o mapa já analisado e ranqueado, com critérios de peso, múltiplas rodadas e divisão de volume.</td></tr><tr><th scope="row">Pedido e pagamento</th><td>Pedido de compra, recebimento, nota fiscal e autorização de pagamento.</td></tr><tr><th scope="row">Fornecedores</th><td>Homologação e gestão: documentos com validade, birôs de crédito e portal do fornecedor.</td></tr><tr><th scope="row">Contratos</th><td>Geração, assinatura e gestão.</td></tr><tr><th scope="row">Busca de fornecedores</th><td>Busca ativa por IA e seleção contínua da base.</td></tr><tr><th scope="row">Integração com o ERP</th><td>SAP, Oracle, TOTVS e outros, por API REST, banco de dados ou arquivo, lendo e gravando nos dois sentidos.</td></tr><tr><th scope="row">Prazos e SLA</th><td>Painel de SLA em tempo real de cada etapa, com alerta antes do prazo estourar.</td></tr><tr><th scope="row">Plataforma Deyel</th><td>Roda sobre a plataforma: a mesma segurança, auditoria e AI Runtime.</td></tr><tr><th scope="row">IA incluída</th><td>Bot de atendimento, que conhece a operação de compras e lê documentos, e bot de desenvolvimento, para os ajustes do produto. Uso livre, sem custo por uso.</td></tr></tbody></table></div>
+        <div class="vq-tw"><h3>O que vem no produto</h3><table><tbody><tr><th scope="row">Compradores e fornecedores</th><td>Até 5 compradores e até 500 fornecedores ativos na base. Requisitantes, autorizantes, visitantes e demais acessos são livres.</td></tr><tr><th scope="row">Requisição e aprovação</th><td>Por alçada, com controle de estoque<sup>1</sup> e orçamento.</td></tr><tr><th scope="row">Cotação e concorrência</th><td>Pelo portal: o fornecedor cadastra a proposta e o comprador recebe o mapa já analisado e ranqueado, com critérios de peso, múltiplas rodadas e divisão de volume.</td></tr><tr><th scope="row">Pedido e pagamento</th><td>Pedido de compra, recebimento, nota fiscal e autorização de pagamento.</td></tr><tr><th scope="row">Fornecedores</th><td>Homologação e gestão: documentos com validade, birôs de crédito<sup>2</sup> e portal do fornecedor.</td></tr><tr><th scope="row">Contratos</th><td>Geração, assinatura eletrônica<sup>2</sup> e gestão.</td></tr><tr><th scope="row">Busca de fornecedores</th><td>Busca ativa por IA<sup>3</sup> e seleção contínua da base.</td></tr><tr><th scope="row">Integração com o ERP</th><td>SAP, Oracle, TOTVS e outros, por API REST, banco de dados ou arquivo, lendo e gravando nos dois sentidos<sup>4</sup>.</td></tr><tr><th scope="row">Prazos e SLA</th><td>Painel de SLA em tempo real de cada etapa, com alerta antes do prazo estourar.</td></tr><tr><th scope="row">Plataforma Deyel</th><td>Roda sobre a plataforma: a mesma segurança, auditoria e AI Runtime.</td></tr><tr><th scope="row">IA incluída</th><td>Bot de desenvolvimento, para os ajustes do produto. Uso livre, sem custo por uso.</td></tr></tbody></table></div>
         <div class="vq-o"><h4>Opcionais e implantação</h4>
-          <p><b>Agente de IA</b> para tarefas cognitivas no processo (conferência de pedidos, triagem de propostas): R$ 1.500 por mês, por agente.</p>
-          <p><b>Implantação</b>: setup e parametrização à parte, após a análise de necessidades. Nos clientes em produção, levou de 2 a 3 meses.</p>
+          <p><sup>1</sup> <b>Controle de estoque</b>: é necessária uma API de conexão com o seu sistema de estoque.</p>
+          <p><sup>2</sup> <b>Conta de consumo do cliente</b>: as consultas a birôs de crédito e a assinatura eletrônica de documentos são cobradas na conta de consumo da sua empresa.</p>
+          <p><sup>3</sup> <b>Agentes de IA contratados à parte</b>, para tarefas cognitivas no processo (busca de fornecedores, conferência de pedidos, triagem de propostas): R$ 1.500 por mês, por agente.</p>
+          <p><sup>4</sup> <b>Integração por API</b>: custo adicional de R$ 300 por mês, por API.</p>
+          <p><b>Implantação</b>: setup e parametrização à parte, a partir de R$ 20 mil, após a análise de necessidades. Nos clientes em produção, levou de 3 a 4 meses.</p>
           <p><b>Customizações e integrações</b> além do incluso são orçadas à parte, com escopo fechado.</p></div>
         <p class="vq-f">Valores de referência para contrato de 24 meses, sujeitos a confirmação comercial.</p>
       </div>
@@ -1225,7 +1229,7 @@ body{overflow-x:clip}
         <p style="font-size:15px;color:#555;text-wrap:pretty">Vem com as melhores práticas de compras e roda desde o início. A parametrização adapta fluxos, alçadas e cadastros à cultura da empresa, sem virar projeto sem fim.</p>
       </div>
       <div data-reveal="" style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #5b3fc4">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Implantação em 2 a 3 meses</h3>
+        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Implantação em 3 a 4 meses</h3>
         <p style="font-size:15px;color:#555;text-wrap:pretty">Em média, da parametrização à operação. O cronograma é definido no início, com base no processo e nas integrações.</p>
       </div>
       <div data-reveal="" style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #5b3fc4">
@@ -1318,7 +1322,7 @@ body{overflow-x:clip}
         </details>
         <details style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:0 22px">
           <summary style="cursor:pointer;padding:18px 0;color:#02132d"><h3 style="display:inline;font-size:18px;font-weight:900">Quanto tempo leva a implantação?</h3></summary>
-          <p style="padding:0 0 20px;font-size:15px;color:#555;text-wrap:pretty">O Deyel Vendor Management vem 80% pronto e é parametrizado para o processo da empresa. A implantação leva em média de 2 a 3 meses.</p>
+          <p style="padding:0 0 20px;font-size:15px;color:#555;text-wrap:pretty">O Deyel Vendor Management vem 80% pronto e é parametrizado para o processo da empresa. A implantação leva em média de 3 a 4 meses.</p>
         </details>
         <details style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:0 22px">
           <summary style="cursor:pointer;padding:18px 0;color:#02132d"><h3 style="display:inline;font-size:18px;font-weight:900">Quem implanta e dá suporte no Brasil?</h3></summary>
