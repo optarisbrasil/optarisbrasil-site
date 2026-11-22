@@ -1542,6 +1542,27 @@ class Component extends DCLogic {
   if (document.readyState === 'complete') roda(); else window.addEventListener('load', roda);
 })();
 </script>
+<!--vfb-->
+<nav class="vfb" aria-label="Navegador da página">
+  <style>
+    .vfb{position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:45;display:flex;flex-direction:column;padding:6px 0}
+    .vfb::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;border-radius:1px;background:linear-gradient(180deg,rgba(124,196,255,0),#9db7d6 12%,#9db7d6 88%,rgba(124,196,255,0))}
+    .vfb a{position:relative;display:flex;align-items:center;height:27px;text-decoration:none;color:#4a5568;font-size:12.500px;white-space:nowrap}
+    .vfb a i{position:relative;display:block;height:2px;width:13px;margin-left:6px;background:#9db7d6;border-radius:1px;transform:rotate(-20deg);transform-origin:left center;transition:width .25s,background .25s,height .25s}
+    .vfb a span{margin-left:10px;padding:3px 10px;border-radius:12px;background:#fff;border:1px solid #e3e8ef;box-shadow:0 8px 16px -10px rgba(2,19,45,.45);opacity:0;transform:translateX(-6px);transition:opacity .2s,transform .2s;pointer-events:none}
+    .vfb:hover a span,.vfb a.on span{opacity:1;transform:none}
+    .vfb a:hover i{width:22px;background:#0496ff}
+    .vfb a.on i{width:30px;height:3px;background:#0496ff}
+    .vfb a.on i::after{content:"";position:absolute;right:-4px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#7cc4ff;animation:vfbp 2.800s ease-out infinite}
+    .vfb.visto a.on i::after{animation:none}
+    .vfb a.on span{color:#02132d;font-weight:700;border-color:#0496ff}
+    @keyframes vfbp{0%{box-shadow:0 0 0 0 rgba(124,196,255,.75)}70%{box-shadow:0 0 0 11px rgba(124,196,255,0)}100%{box-shadow:0 0 0 0 rgba(124,196,255,0)}}
+    @media(max-width:1279px){.vfb{display:none}}
+    @media(prefers-reduced-motion:reduce){.vfb a.on i::after{animation:none}}
+  </style>
+  <a href="#teste-o-vendor"><i></i><span>Ferramentas</span></a><a href="#o-que-resolvemos"><i></i><span>O que resolvemos</span></a><a href="#como"><i></i><span>Como resolvemos</span></a><a href="#indicadores"><i></i><span>Indicadores</span></a><a href="#prazos-sla"><i></i><span>Prazos e SLA</span></a><a href="#agentes-ia"><i></i><span>Agentes de IA</span></a><a href="#videos"><i></i><span>Demo</span></a><a href="#preco"><i></i><span>Preço</span></a><a href="#implantacao"><i></i><span>Implantação</span></a><a href="#para-quem"><i></i><span>Para quem</span></a><a href="#perguntas"><i></i><span>Perguntas</span></a>
+</nav>
+<!--/vfb-->
 <script id="vdd-js">
 /* Passo a passo "do indicador ao caso": a mãozinha clica no número, abre a lista, o pedido e o processo. */
 (function(){
@@ -1587,12 +1608,15 @@ class Component extends DCLogic {
     var y=(window.pageYOffset||0)+150,k=-1;
     links.forEach(function(l,i){var s=d.getElementById((l.getAttribute('href')||'').slice(1));if(s&&s.getBoundingClientRect().top+(window.pageYOffset||0)<=y)k=i;});
     var mudou=(atual!==k)||(k>=0&&!links[k].classList.contains('on'));
-    if(mudou){atual=k;links.forEach(function(l,j){l.classList.toggle('on',j===k);});
+    var fb=[].slice.call(d.querySelectorAll('.vfb a'));
+    if(fb.length&&k>=0&&!fb[k].classList.contains('on'))mudou=true;
+    if(mudou){atual=k;links.forEach(function(l,j){l.classList.toggle('on',j===k);});fb.forEach(function(l,j){l.classList.toggle('on',j===k);});
       if(k>=0&&wrap){var l=links[k];if(l.offsetLeft<wrap.scrollLeft+12||l.offsetLeft+l.offsetWidth>wrap.scrollLeft+wrap.clientWidth-12)wrap.scrollLeft=Math.max(0,l.offsetLeft-24);}}
     var h=d.documentElement.scrollHeight-window.innerHeight;if(bar)bar.style.width=(h>0?Math.min(100,Math.max(0,(window.pageYOffset||0)/h*100)):0)+'%';
   }
   function pede(){if(!tick){tick=true;setTimeout(mede,60);}}
   window.addEventListener('scroll',pede,{passive:true});window.addEventListener('resize',pede);
+  d.addEventListener('mouseover',function(e){var n=e.target&&e.target.closest?e.target.closest('.vfb'):null;if(n)n.classList.add('visto');});
   window.addEventListener('load',function(){mede();setTimeout(mede,800);setTimeout(mede,2500);});
   setTimeout(mede,600);
 })();
