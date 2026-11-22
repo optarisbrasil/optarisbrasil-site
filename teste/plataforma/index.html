@@ -1854,7 +1854,7 @@ var COL={s:'#4db5ff',p:'#eef3ff',a:'#f07fd0'};
       o.names=o.types.map(function(tp){var l=NM[tp];return l[Math.floor(rr()*l.length)];});var ev=EV[i+1];o.hk=Math.floor(rr()*n);o.types[o.hk]=ev[2];o.names[o.hk]=ev[3];
       rr();rr();o.per=6000;o.ph=(i*.37)%1;o.delay=250+i*340;o.c0=Math.floor(rr()*3);others.push(o);}
     main.phi=-.44;main.theta=.3;main.ox=0;main.oy=0;main.oz=0;main.sc=(R*1.95)/main.span;main.types=ST.map(function(s){return s.t;});main.names=ST.map(function(s){return s.who;});main.hk=4;main.per=6000;main.ph=.1;main.c0=0;
-    keys=[[0,0]];var t=FIRST;keys.push([t,main.sl[0]]);for(i=0;i<5;i++){t+=STAY;keys.push([t,main.sl[i]]);if(i<4){t+=MOVE;keys.push([t,main.sl[i+1]]);}}t+=350;keys.push([t,main.L]);TR=t;tC0=TA+TB;tD0=tC0+TR+HOLD;tE0=tD0+LD+(NL-1)*LS;TOTAL=tE0+TE+T4;if(reduce)kick();}
+    keys=[[0,0]];var t=FIRST;keys.push([t,main.sl[0]]);for(i=0;i<5;i++){t+=STAY;keys.push([t,main.sl[i]]);if(i<4){t+=MOVE;keys.push([t,main.sl[i+1]]);}}t+=350;keys.push([t,main.L]);TR=t;tC0=TA+TB;tD0=tC0+500;LS=(TR-500-LD)/(NL-1);tE0=tC0+TR+HOLD;TOTAL=tE0+TE+T4;if(reduce)kick();}
   build();window.addEventListener('resize',build);if(window.ResizeObserver)new ResizeObserver(build).observe(cv);
   function ens(o,x,y,al){x*=o.sc;y*=o.sc;var c=Math.cos(o.phi),s=Math.sin(o.phi),X=x*c-y*s,Y=x*s+y*c,Y2=Y*Math.cos(o.theta)+o.oy,Z=Y*Math.sin(o.theta)+o.oz;X+=o.ox;
     var cg=Math.cos(al.g),sg=Math.sin(al.g),Xr=X*cg-Y2*sg,Yr=X*sg+Y2*cg,ca=Math.cos(al.w),sa=Math.sin(al.w),X3=Xr*ca+Z*sa,Z3=-Xr*sa+Z*ca,cb=.95,sb=.31;return [X3,Yr*cb-Z3*sb,Yr*sb+Z3*cb];}
@@ -1884,7 +1884,7 @@ var COL={s:'#4db5ff',p:'#eef3ff',a:'#f07fd0'};
     if(T0<0)T0=now;
     var raw=now-T0,tEnd=tE0+3300,t=reduce?tE0+600:(raw*1.3<tEnd?raw*1.3:tEnd+raw-tEnd/1.3),k=t<TA?1:1-ease(clamp((t-TA)/TB,0,1)),m=1-k,al={g:-t*.00006,w:.5*Math.sin(t*.00045+.6)},tf=t-tC0,lane=ease(clamp((t-tD0)/LD,0,1)),join=ease(clamp((t-tE0-1500)/1800,0,1));
     var gA=reduce?1:(t<450?t/450:1);
-    caption(reduce?0:(t<TA+TB*.5?0:(t<tD0?1:2)),performance.now());hudEl.style.opacity=reduce?1:clamp((t-TA-TB*.6)/600,0,1)*gA;
+    caption(reduce?0:(t<TA+TB*.5?0:(t<tE0?1:2)),performance.now());hudEl.style.opacity=reduce?1:clamp((t-TA-TB*.6)/600,0,1)*gA;
     var hi=-1,hv=0;if(t>=tE0){var te=t-tE0,e=Math.floor(te/EVT)%(NL+1);hi=e;hv=Math.sin(Math.PI*((te%EVT)/EVT));setHud('e'+e,EV[e][0],EV[e][1],EV[e][2]);}
     ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);labs.length=0;
     /* os outros processos: emaranhados no começo; depois viram um nó embaixo e se desembaraçam, um a um, em linhas com o mesmo ritmo */
