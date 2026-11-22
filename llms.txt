@@ -92,7 +92,7 @@ Página: https://www.optarisbrasil.com/seguranca/
 - Documentação técnica e releases: https://www.deyel.com/documentacion2/ e https://www.deyel.com/novedades/
 
 ## Deyel 9.4 (versão lançada em outubro de 2026)
-Página: https://www.optarisbrasil.com/plataforma/ (as novidades da 9.4 estão integradas à página da Plataforma de Automação Deyel)
+Página: https://www.optarisbrasil.com/plataforma-deyel/ (as novidades da 9.4 estão integradas à página da Plataforma de Automação Deyel)
 - Agentes de IA Empresariais: agentes modelados em Low-Code como parte nativa da aplicação (identidade, comportamento, conhecimento, contexto, ferramentas, provedor e modelo de IA), usando os mesmos dados, regras, processos e permissões; governados pela AI Governance Policy e executados pelo AI Runtime, com auditoria no Console de Execução de Aplicações.
 - DIANA passa a modelar aplicações B2C complexas, além das B2B, em web e mobile; gera páginas com o Sistema de Design atualizado e gerencia o Design de Navegação.
 - Geração de processos com a DIANA a partir de linguagem natural: diagrama completo, execução das raias, gateways por botões, atividades ligadas a páginas e entidades, vínculo automático com entidades.
