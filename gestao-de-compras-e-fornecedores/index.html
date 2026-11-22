@@ -1075,6 +1075,70 @@ body{overflow-x:clip}
   </div>
 </section>
 
+<section id="preco" data-screen-label="03d Preço" style="padding:clamp(64px,7vw,100px) 0;background:#fff;scroll-margin-top:70px">
+  <style>
+    .vq-h{display:flex;flex-direction:column;gap:12px;max-width:800px;margin-bottom:36px}
+    .vq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:28px 40px;align-items:start}
+    .vq-p{position:sticky;top:96px;border-radius:18px;padding:clamp(24px,3vw,34px);color:#fff;background:radial-gradient(ellipse at 80% 12%,#0b2a55 0%,#02132d 60%,#010a19 100%);box-shadow:0 30px 60px -34px rgba(2,19,45,.7)}
+    .vq-p .k{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7cc4ff}
+    .vq-p .n{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+    .vq-p .n b{font-family:Lato,sans-serif;font-weight:900;font-size:clamp(40px,4.4vw,56px);line-height:1;color:#fff}
+    .vq-p .n span{font-size:16px;font-weight:500;color:#fff}
+    .vq-p small{display:block;font-size:13.5px;color:#9fb1c8}
+    .vq-p ul{list-style:none;margin:22px 0 0;padding:20px 0 0;border-top:1px solid rgba(255,255,255,.16);display:grid;gap:11px}
+    .vq-p li{position:relative;padding-left:24px;font-size:15px;line-height:1.45;color:#dbe4f0}
+    .vq-p li::before{content:"\2713";position:absolute;left:0;top:0;color:#7cc4ff;font-weight:700}
+    .vq-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .vq-cta a{display:inline-flex;align-items:center;text-decoration:none;border-radius:4px;padding:12px 18px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;border:2px solid #0496ff;background:#0496ff;color:#fff}
+    .vq-cta a+a{background:transparent;border-color:rgba(255,255,255,.6)}
+    .vq-tw{border:1px solid #e5e7eb;border-radius:14px;overflow:hidden}
+    .vq-tw h3{margin:0;padding:16px 20px;background:#f4f8fd;font-family:Lato,sans-serif;font-weight:900;font-size:18px;color:#02132d;border-bottom:1px solid #e5e7eb}
+    .vq-tw table{width:100%;border-collapse:collapse}
+    .vq-tw th,.vq-tw td{text-align:left;vertical-align:top;padding:13px 20px;font-size:15px;line-height:1.5;border-bottom:1px solid #eef2f7}
+    .vq-tw tr:last-child th,.vq-tw tr:last-child td{border-bottom:0}
+    .vq-tw th{width:32%;font-weight:700;color:#02132d}
+    .vq-tw td{color:#444}
+    .vq-o{margin-top:18px;background:#f4f8fd;border-radius:12px;padding:16px 20px}
+    .vq-o h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;color:#6b7280;font-weight:700;margin:0 0 8px;font-family:Roboto,Helvetica,Arial,sans-serif}
+    .vq-o p{margin:0;font-size:14.5px;line-height:1.55;color:#333}
+    .vq-o p+p{margin-top:5px}
+    .vq-o b{color:#02132d}
+    .vq-f{margin:16px 0 0;font-size:13px;color:#6b7686}
+    @media(max-width:900px){.vq{grid-template-columns:minmax(0,1fr)}.vq-p{position:static}}
+    @media(max-width:560px){.vq-tw th,.vq-tw td{display:block;width:auto;padding:4px 16px}.vq-tw th{padding-top:13px}.vq-tw td{padding-bottom:13px}}
+  </style>
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div class="vq-h" data-reveal="">
+      <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Preço</span>
+      <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;color:#02132d;text-wrap:balance">Preço fechado. Sem conta escondida.</h2>
+      <p style="font-size:16px;color:#555;text-wrap:pretty">Mensal, fixo e em reais. Sem cobrança por hora, por consumo ou por uso da IA: o valor do fim do mês não muda.</p>
+    </div>
+    <div class="vq">
+      <div class="vq-p" data-reveal="">
+        <span class="k">Deyel Vendor Management</span>
+        <div class="n"><b>R$ 2.380</b><span>por mês</span></div>
+        <small>a partir de · contrato de 24 meses</small>
+        <ul>
+          <li>80% pronto e rodando desde o primeiro dia; os outros 20% ajustamos ao jeito da sua empresa</li>
+          <li>Até 5 compradores e até 500 fornecedores ativos</li>
+          <li>Sem tarifação por uso da IA</li>
+          <li>Sem taxa de consumo e sem bilhetagem</li>
+        </ul>
+        <div class="vq-cta"><a href="#contato">Pedir proposta</a><a href="/precos/">Ver todos os preços</a></div>
+      </div>
+      <div data-reveal="" style="transition-delay:.1s">
+        <div class="vq-tw"><h3>O que vem no produto</h3><table><tbody><tr><th scope="row">Compradores e fornecedores</th><td>Até 5 compradores e até 500 fornecedores ativos na base. Requisitantes, autorizantes, visitantes e demais acessos são livres.</td></tr><tr><th scope="row">Requisição e aprovação</th><td>Por alçada, com controle de estoque e orçamento.</td></tr><tr><th scope="row">Cotação e concorrência</th><td>Pelo portal: o fornecedor cadastra a proposta e o comprador recebe o mapa já analisado e ranqueado, com critérios de peso, múltiplas rodadas e divisão de volume.</td></tr><tr><th scope="row">Pedido e pagamento</th><td>Pedido de compra, recebimento, nota fiscal e autorização de pagamento.</td></tr><tr><th scope="row">Fornecedores</th><td>Homologação e gestão: documentos com validade, birôs de crédito e portal do fornecedor.</td></tr><tr><th scope="row">Contratos</th><td>Geração, assinatura e gestão.</td></tr><tr><th scope="row">Busca de fornecedores</th><td>Busca ativa por IA e seleção contínua da base.</td></tr><tr><th scope="row">Integração com o ERP</th><td>SAP, Oracle, TOTVS e outros, por API REST, banco de dados ou arquivo, lendo e gravando nos dois sentidos.</td></tr><tr><th scope="row">Prazos e SLA</th><td>Painel de SLA em tempo real de cada etapa, com alerta antes do prazo estourar.</td></tr><tr><th scope="row">Plataforma Deyel</th><td>Roda sobre a plataforma: a mesma segurança, auditoria e AI Runtime.</td></tr><tr><th scope="row">IA incluída</th><td>Bot de atendimento, que conhece a operação de compras e lê documentos, e bot de desenvolvimento, para os ajustes do produto. Uso livre, sem custo por uso.</td></tr></tbody></table></div>
+        <div class="vq-o"><h4>Opcionais e implantação</h4>
+          <p><b>Agente de IA</b> para tarefas cognitivas no processo (conferência de pedidos, triagem de propostas): R$ 1.500 por mês, por agente.</p>
+          <p><b>Implantação</b>: setup e parametrização à parte, após a análise de necessidades. Nos clientes em produção, levou de 2 a 3 meses.</p>
+          <p><b>Customizações e integrações</b> além do incluso são orçadas à parte, com escopo fechado.</p></div>
+        <p class="vq-f">Valores de referência para contrato de 24 meses, sujeitos a confirmação comercial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section id="implantacao" data-screen-label="04 Implantação" style="padding:100px 0;background:#f4f8fd;border-top:1px solid #e5e7eb">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
     <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;margin-bottom:44px;max-width:800px">
