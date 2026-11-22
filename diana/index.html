@@ -476,7 +476,7 @@ Preço: orçamento sob medida conforme escopo (inclui licença da plataforma).
 Para quem: quem tem uma dor de operação para resolver agora.
 O que é: Vendor Management (compras e fornecedores), CRM, Gestão de RH — já construídos na Deyel, em produção em outros clientes. Conceito 80/20 (McKinsey): 80% pronto com boas práticas, 20% o cliente personaliza.
 Valor: jornada mais curta até o resultado. Porta de entrada para Usina ou Plataforma depois.
-Preço entrada: Vendor Management a partir de R$ 2.380/mês. Contrato 24 meses, setup separado.
+Preço entrada: Vendor Management a partir de R$ 2.880/mês. Contrato 24 meses, setup separado.
 
 COMO ORIENTAR O LEAD ENTRE AS 3 VERTICAIS
 - "Já tenho equipe de TI / quero construir eu mesmo / low-code" → Plataforma (detect_plataforma)
@@ -498,11 +498,11 @@ Low-code com IA; AI Runtime com governança; integrações API (SAP, Oracle, TOT
 
 PREÇOS (só valores de entrada, NUNCA negocie nem cite outros valores)
 Plataforma Professional: R$ 1.840/mês | Power Plan: R$ 3.300/mês | Enterprise: R$ 4.300/mês | Unlimited: R$ 13.300/mês
-Vendor Management: R$ 2.380/mês | Contrato 24 meses, setup separado
+Vendor Management: R$ 2.880/mês | Contrato 24 meses, setup separado
 Usina de Aplicativos: orçamento sob medida (inclui licença da plataforma)
 
 FAQs APROVADAS (sempre inclua o link relevante na resposta)
-1. Preço: "Plataforma a partir de R$ 1.840/mês e Vendor Management a partir de R$ 2.380/mês, contrato de 24 meses. Setup é separado. A Usina é sob medida. Veja todos os planos: https://www.optarisbrasil.com/precos/"
+1. Preço: "Plataforma a partir de R$ 1.840/mês e Vendor Management a partir de R$ 2.880/mês, contrato de 24 meses. Setup é separado. A Usina é sob medida. Veja todos os planos: https://www.optarisbrasil.com/precos/"
 2. O que inclui / funcionalidades: "Licença da plataforma, suporte, atualizações e infraestrutura cloud. Veja tudo o que vem na plataforma: https://www.optarisbrasil.com/plataforma/"
 3. Cobrança por uso: "Não. A mensalidade é fixa."
 4. Prazo implantação: "Depende do escopo, mas projetos iniciais ficam prontos em 2 a 3 meses."
@@ -1611,7 +1611,7 @@ function handleFreeTextKeyword(text) {
 
   // FAQ: price
   if (lower.includes('quanto custa') || lower.includes('preço') || lower.includes('valor') || lower.includes('mensalidade')) {
-    const r = 'A plataforma começa em R$ 1.840/mês (Professional). Produtos Prontos como Vendor Management a R$ 2.380/mês. Usina é orçamento sob medida. Todos em contrato de 24 meses.';
+    const r = 'A plataforma começa em R$ 1.840/mês (Professional). Produtos Prontos como Vendor Management a R$ 2.880/mês. Usina é orçamento sob medida. Todos em contrato de 24 meses.';
     addMsg(r, 'diana', 'FAQ: preço');
     addToHistory('assistant', r);
     const r2 = 'Posso continuar? Falta ' + contextHint() + '.';

@@ -1139,11 +1139,12 @@ body{overflow-x:clip}
     <div class="vq">
       <div class="vq-p" data-reveal="">
         <span class="k">Deyel Vendor Management</span>
-        <div class="n"><b>R$ 2.380</b><span>por mês</span></div>
+        <div class="n"><b>R$ 2.880</b><span>por mês</span></div>
         <small>a partir de · contrato de 24 meses</small>
         <ul>
           <li>80% pronto e rodando desde o primeiro dia; os outros 20% ajustamos ao jeito da sua empresa</li>
           <li>Até 5 compradores e até 500 fornecedores ativos</li>
+          <li>Solicitantes, aprovadores e consultas são de uso livre</li>
           <li>Sem tarifação por uso da IA</li>
           <li>Sem taxa de consumo e sem bilhetagem</li>
         </ul>
@@ -1589,23 +1590,24 @@ class Component extends DCLogic {
 })();
 </script>
 <script id="vcb-js">
-/* Barra "Nesta página": marca a seção em que o leitor está e mostra o avanço na página. */
+/* Barra "Nesta página": marca a seção em que o leitor está e mostra o avanço na página.
+   Os elementos são procurados a cada medida, porque o cabeçalho e o corpo podem ser remontados depois da carga. */
 (function(){
-  var d=document,nav=d.querySelector('.vcb');if(!nav)return;
-  var links=[].slice.call(nav.querySelectorAll('a')),bar=nav.querySelector('.vcb-bar'),wrap=nav.querySelector('.vcb-w');
-  var secs=links.map(function(l){return d.getElementById(l.getAttribute('href').slice(1));});
-  var atual=-1,tick=false;
+  var d=document,atual=null,tick=false;
   function mede(){
-    var y=(window.pageYOffset||0)+150,i,k=-1;
-    for(i=0;i<secs.length;i++){if(secs[i]&&secs[i].getBoundingClientRect().top+window.pageYOffset<=y)k=i;}
-    if(k!==atual){atual=k;links.forEach(function(l,j){l.classList.toggle('on',j===k);});
+    tick=false;
+    var nav=d.querySelector('.vcb');if(!nav)return;
+    var links=[].slice.call(nav.querySelectorAll('a')),bar=nav.querySelector('.vcb-bar'),wrap=nav.querySelector('.vcb-w');
+    var y=(window.pageYOffset||0)+150,k=-1;
+    links.forEach(function(l,i){var s=d.getElementById((l.getAttribute('href')||'').slice(1));if(s&&s.getBoundingClientRect().top+(window.pageYOffset||0)<=y)k=i;});
+    var mudou=(atual!==k)||(k>=0&&!links[k].classList.contains('on'));
+    if(mudou){atual=k;links.forEach(function(l,j){l.classList.toggle('on',j===k);});
       if(k>=0&&wrap){var l=links[k];if(l.offsetLeft<wrap.scrollLeft+12||l.offsetLeft+l.offsetWidth>wrap.scrollLeft+wrap.clientWidth-12)wrap.scrollLeft=Math.max(0,l.offsetLeft-24);}}
     var h=d.documentElement.scrollHeight-window.innerHeight;if(bar)bar.style.width=(h>0?Math.min(100,Math.max(0,(window.pageYOffset||0)/h*100)):0)+'%';
-    tick=false;
   }
-  function pede(){if(!tick){tick=true;(window.requestAnimationFrame||setTimeout)(mede);}}
+  function pede(){if(!tick){tick=true;setTimeout(mede,60);}}
   window.addEventListener('scroll',pede,{passive:true});window.addEventListener('resize',pede);
-  if(d.readyState==='complete')mede();else window.addEventListener('load',mede);
+  window.addEventListener('load',function(){mede();setTimeout(mede,800);setTimeout(mede,2500);});
   setTimeout(mede,600);
 })();
 </script>
