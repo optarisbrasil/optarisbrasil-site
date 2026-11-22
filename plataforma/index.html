@@ -1817,7 +1817,7 @@ var COL={s:'#4db5ff',p:'#eef3ff',a:'#f07fd0'};
   var GR=['#7cfcff','#0496ff','#6a45d0','#e04fb0'],labs=[];
   var NM={s:['SAP','TOTVS','Salesforce','Legado','ERP','Financeiro','CRM','Oracle'],p:['Gestora','Analista','Cliente','Fornecedor','Comprador','Diretoria','Jurídico','Equipe'],a:['Agente de IA','Agente de crédito','Agente de compras','Agente de atendimento']};
   var W=0,H=0,dpr=1,vert=false,cx=0,cy=0,R=1,stretch=1,main=null,others=[],keys=[],TR=0,S0=0;
-  var MOVE=1200,STAY=600,FIRST=500,HOLD=900,T2=3600,T3=14200,T4=1100,T1=0,TOTAL=1;
+  var MOVE=1200,STAY=600,FIRST=500,HOLD=2600,T2=3600,T3=14200,T4=1100,T1=0,TOTAL=1;
   function serp(n,S,A,lead,tail){var pts=[],len=[],sl=[],si=[],sp=[],L=0,i,k,px=0,py=0,xs=[],ys=[];
     function add(x,y){if(pts.length)L+=Math.hypot(x-px,y-py);pts.push([x,y]);len.push(L);px=x;py=y;}
     for(i=0;i<n;i++){xs.push((i-(n-1)/2)*S);ys.push(i%2?A:-A);}
@@ -1908,8 +1908,17 @@ var COL={s:'#4db5ff',p:'#eef3ff',a:'#f07fd0'};
       var p0=Qm[0].slice();if(vert)p0[0]=Math.max(p0[0],58);var pg=ctx.createLinearGradient(p0[0]-40,0,p0[0]+40,0);pg.addColorStop(0,'#0496ff');pg.addColorStop(.6,'#5b3fc4');pg.addColorStop(1,'#b02aa0');
       ctx.globalAlpha=ui;rrect(p0[0]-40,p0[1]-16,80,32,16);ctx.fillStyle=pg;ctx.fill();ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='900 15.5px Lato,Helvetica,Arial,sans-serif';ctx.fillText('Deyel',p0[0],p0[1]+.5);
       ctx.font='400 13px Roboto,Helvetica,Arial,sans-serif';ctx.fillStyle='#9fb1c8';if(vert){ctx.textAlign='left';ctx.fillText('conduz do início ao fim',p0[0]+50,p0[1]+.5);}else{ctx.textAlign='left';ctx.fillText('conduz do início',p0[0]-40,p0[1]+34);ctx.fillText('ao fim',p0[0]-40,p0[1]+51);}
-      var pe=Qm[Qm.length-1];ctx.globalAlpha=ui*(t>=TR?1:.35);ctx.fillStyle='#fff';ctx.font='400 14px Roboto,Helvetica,Arial,sans-serif';
-      if(vert){ctx.textAlign='left';ctx.fillText('Concluído em 2 h 41, no prazo',pe[0]+16,pe[1]+2);}else{ctx.textAlign='right';ctx.fillText('Concluído em 2 h 41,',Math.min(W-16,pe[0]+40),pe[1]+34);ctx.fillText('dentro do prazo de 8 h',Math.min(W-16,pe[0]+40),pe[1]+52);}
+      /* fim do processo: pulsa e ganha o tique verde de concluído no prazo */
+      var pe=Qm[Qm.length-1],dn=t>=TR,d2=reduce?5000:t-TR,GN='#3ddc97';
+      if(dn){var pp=clamp(d2/380,0,1),ps=1+2.70158*Math.pow(pp-1,3)+1.70158*Math.pow(pp-1,2);ctx.globalAlpha=ui;
+        for(var rg=0;rg<3;rg++){var ru=(d2-rg*420)/1150;if(ru>0&&ru<1){ctx.strokeStyle=rgba(GN,(1-ru)*.85);ctx.lineWidth=2.2*(1-ru)+.6;ctx.beginPath();ctx.arc(pe[0],pe[1],15+ru*36,0,6.2832);ctx.stroke();}}
+        var gg=ctx.createRadialGradient(pe[0],pe[1],0,pe[0],pe[1],38);gg.addColorStop(0,rgba(GN,.42*pp));gg.addColorStop(1,rgba(GN,0));ctx.fillStyle=gg;ctx.beginPath();ctx.arc(pe[0],pe[1],38,0,6.2832);ctx.fill();
+        ctx.fillStyle=GN;ctx.beginPath();ctx.arc(pe[0],pe[1],15*ps,0,6.2832);ctx.fill();
+        ctx.strokeStyle='#02132d';ctx.lineWidth=3.1;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();ctx.moveTo(pe[0]-6.4*ps,pe[1]+.5*ps);ctx.lineTo(pe[0]-1.9*ps,pe[1]+4.9*ps);ctx.lineTo(pe[0]+6.7*ps,pe[1]-4.2*ps);ctx.stroke();}
+      else{ctx.globalAlpha=ui*.35;ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(pe[0],pe[1],9,0,6.2832);ctx.stroke();}
+      ctx.globalAlpha=ui*(dn?clamp(.35+d2/300*.65,.35,1):.35);ctx.textBaseline='middle';
+      if(vert){var tx=pe[0]+26,s1='Concluído em 2 h 41, ';ctx.textAlign='left';ctx.font=(dn?'500':'400')+' 14px Roboto,Helvetica,Arial,sans-serif';ctx.fillStyle='#fff';ctx.fillText(s1,tx,pe[1]+1);var w1=ctx.measureText(s1).width;ctx.fillStyle=dn?GN:'#fff';ctx.fillText('no prazo',tx+w1,pe[1]+1);}
+      else{var txr=Math.min(W-16,pe[0]+40),ty=pe[1]+43;ctx.textAlign='right';ctx.font=dn?'900 15.5px Lato,Helvetica,Arial,sans-serif':'400 14px Roboto,Helvetica,Arial,sans-serif';ctx.fillStyle='#fff';ctx.fillText('Concluído em 2 h 41',txr,ty);ctx.font=(dn?'500':'400')+' 14px Roboto,Helvetica,Arial,sans-serif';ctx.fillStyle=dn?GN:'#fff';ctx.fillText('dentro do prazo de 8 h',txr,ty+20);}
       ctx.globalAlpha=1;
     }
   });
