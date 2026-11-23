@@ -1996,19 +1996,23 @@ kick();d.addEventListener('visibilitychange',kick);window.addEventListener('resi
   }
   function clr(){T.forEach(clearTimeout);T=[];}
   function show(n){R.setAttribute('data-step',n);cap.innerHTML=CAP[n-1];if(n===4){links();setTimeout(links,450);}}
-  function point(n){var el=dash.querySelector('.dv'+n+' [data-cur]');if(!el)return;var a=el.getBoundingClientRect(),b=dash.getBoundingClientRect();cur.style.left=(a.left-b.left+a.width*.5)+'px';cur.style.top=(a.top-b.top+a.height*.6)+'px';
-    var o=a.bottom-innerHeight+70;if(o>0)window.scrollBy({top:o,behavior:reduce?'auto':'smooth'});}
+  function point(n,still){var el=dash.querySelector('.dv'+n+' [data-cur]');if(!el)return;var a=el.getBoundingClientRect(),b=dash.getBoundingClientRect();cur.style.left=(a.left-b.left+a.width*.5)+'px';cur.style.top=(a.top-b.top+a.height*.6)+'px';
+    var o=a.bottom-innerHeight+70;if(o>0&&!still)window.scrollBy({top:o,behavior:reduce?'auto':'smooth'});}
   function tap(){cur.classList.remove('tap');void cur.offsetWidth;cur.classList.add('tap');}
   function up(){var t=bar.getBoundingClientRect().top;if(t<90||t>innerHeight*.45)window.scrollTo({top:(window.pageYOffset||0)+t-100,behavior:reduce?'auto':'smooth'});}
-  function play(){clr();R.classList.add('on');bt.textContent='Ver de novo';show(1);up();cur.style.left='86%';cur.style.top='420px';
+  function play(auto){clr();R.classList.add('on');bt.textContent='Ver de novo';show(1);if(!auto)up();cur.style.left='86%';cur.style.top='420px';
     var t=0,q=function(ms,f){t+=ms;T.push(setTimeout(f,t));};
-    q(800,function(){point(1);});q(1300,tap);
-    q(700,function(){show(2);});q(700,function(){point(2);});q(1500,tap);
-    q(700,function(){show(3);});q(700,function(){point(3);});q(1700,tap);
-    q(700,function(){show(4);});q(800,function(){point(4);});q(1300,tap);q(2600,function(){R.classList.remove('on');});}
+    q(800,function(){point(1,auto);});q(1300,tap);
+    q(700,function(){show(2);});q(700,function(){point(2,auto);});q(1500,tap);
+    q(700,function(){show(3);});q(700,function(){point(3,auto);});q(1700,tap);
+    q(700,function(){show(4);});q(800,function(){point(4,auto);});q(1300,tap);q(2600,function(){R.classList.remove('on');});}
   function go(el){var n=+el.getAttribute('data-go');clr();R.classList.remove('on');bt.textContent='Ver de novo';show(n);up();}
+  /* roda sozinha uma vez, quando o painel aparece na tela; sem repetir e sem botão de rever (pedido do Paulo em 23/11) */
+  var pb=R.querySelector('.ctl-play'),feito=false;
+  function auto(){if(feito)return;feito=true;if(pb)pb.style.display='none';play(true);}
+  if(!reduce&&'IntersectionObserver' in window){var ao=new IntersectionObserver(function(es){if(es[0].isIntersecting){ao.disconnect();auto();}},{rootMargin:'0px 0px -40% 0px'});ao.observe(dash);}
   R.addEventListener('click',function(e){var t=e.target;if(!t.closest)return;
-    if(t.closest('.ctl-play')){play();return;}
+    if(t.closest('.ctl-play')){feito=true;if(pb)pb.style.display='none';play();return;}
     var g=t.closest('[data-go]');if(g&&R.contains(g))go(g);});
   R.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;var g=e.target.closest&&e.target.closest('[data-go][role="button"]');if(g){e.preventDefault();go(g);}});
   var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){if(R.getAttribute('data-step')==='4')links();},150);});
