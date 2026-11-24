@@ -164,7 +164,7 @@ F.captura = function(cont, o){
     envio.then(function(r){
       if(!r.ok) throw new Error('hs');
       F.evento('ferramenta_lead',{ferramenta:o.ferramenta});
-      F.evento('generate_lead',{ferramenta:o.ferramenta, lead_source:'ferramentas_de_compras'});
+      (function(){var t=Date.now(); if(!(window.__gl && t-window.__gl<8000)){ window.__gl=t; F.evento('generate_lead',{ferramenta:o.ferramenta, lead_source:'ferramentas_de_compras'}); }})();
       try{ if(window.fbq) fbq('track','Lead',{content_name:o.ferramenta, content_category:'ferramentas_de_compras'}); }catch(e){}
       o.depois();
       var ok=F.el('div',null,'cap'); ok.setAttribute('role','status'); ok.appendChild(F.el('h3',o.liberado||'Relatório liberado'));
