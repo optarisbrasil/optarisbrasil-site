@@ -576,6 +576,7 @@ body{overflow-x:clip}
     .bp-card li:first-child{border-top:0}
     .bp-card li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:8px;border-radius:2px;background:#0496ff}
     .bp-card li.ia::before,.bp-cap.ia::before{background:#e8335a}
+    .bp-ls{display:block;font-style:normal;font-size:13.5px;line-height:1.4;color:#667085;margin-top:2px}
     .bp-tag{display:inline-block;font:900 11px Lato,sans-serif;color:#e8335a;background:#fde8ee;border-radius:6px;padding:2px 6px;margin-left:6px;vertical-align:1px}
     .bp-card a.bp-more{margin-top:auto;font-size:15px;font-weight:700;color:#0496ff;text-decoration:none}
     .bp-leg{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#667085;margin-top:16px}
@@ -616,41 +617,41 @@ body{overflow-x:clip}
       <div class="bp-card">
         <h3>Compras</h3><p class="bp-sub">da requisição ao recebimento</p>
         <ul>
-          <li>Requisição e aprovação por alçada</li>
-          <li>Pedido criado e enviado sem digitação</li>
-          <li>Cotação e ofertas no mesmo fluxo</li>
-          <li>Status de cada pedido em tempo real</li>
-          <li class="ia">Recebimento e nota fiscal lidos por IA<span class="bp-tag">IA</span></li>
+          <li>Requisição e aprovação por alçada<em class="bp-ls">Check de budget da área antes de seguir</em></li>
+          <li>Pedido criado e enviado sem digitação<em class="bp-ls">Recurso empenhado no ERP</em></li>
+          <li>Cotação e ofertas no mesmo fluxo<em class="bp-ls">Pedido de cotação, mapa comparativo e seleção do vencedor</em></li>
+          <li>Status de cada pedido em tempo real<em class="bp-ls">Na web ou no celular, no instante em que acontece</em></li>
+          <li class="ia">Recebimento e nota fiscal lidos por IA<span class="bp-tag">IA</span><em class="bp-ls">Entrega notificada pelo TMS; ordem de pagamento enviada ao ERP</em></li>
         </ul>
       </div>
       <div class="bp-card">
         <h3>Contratos</h3><p class="bp-sub">do modelo à renovação</p>
         <ul>
-          <li>Contrato gerado a partir de modelo</li>
-          <li>Consumo do contrato acompanhado</li>
-          <li>Validação de consumo a cada pedido</li>
-          <li>Alerta de marco, vencimento e renovação</li>
-          <li>Assinatura eletrônica no mesmo fluxo</li>
+          <li>Contrato gerado a partir de modelo<em class="bp-ls">Modelos registrados e acervo histórico digitalizado em minutos</em></li>
+          <li>Consumo do contrato acompanhado<em class="bp-ls">Fluxo mensal de pagamento, garantias e cauções</em></li>
+          <li>Validação de consumo a cada pedido<em class="bp-ls">Cada pedido emitido confere o consumo</em></li>
+          <li>Alerta de marco, vencimento e renovação<em class="bp-ls">Também de cláusulas críticas</em></li>
+          <li>Assinatura eletrônica no mesmo fluxo<em class="bp-ls">DocuSign: criar, enviar e acompanhar sem sair da plataforma</em></li>
         </ul>
       </div>
       <div class="bp-card">
         <h3>Fornecedores</h3><p class="bp-sub">score, não impressão</p>
         <ul>
-          <li>Score de capacidade e desempenho</li>
-          <li>Comparativo e pontuação da base</li>
-          <li>Avaliação ESG e responsabilidade social</li>
-          <li>Identificação de risco por fornecedor</li>
-          <li>Nota da área usuária dentro do score</li>
+          <li>Score de capacidade e desempenho<em class="bp-ls">Liquidez, endividamento e margem calculados sobre o balanço</em></li>
+          <li>Comparativo e pontuação da base<em class="bp-ls">Homologação por Financeiro, Jurídico e Compliance, com parecer, autor e data</em></li>
+          <li>Avaliação ESG e responsabilidade social<em class="bp-ls">Junto da avaliação de criticidade de cada fornecedor</em></li>
+          <li>Identificação de risco por fornecedor<em class="bp-ls">Vigência de documentos com avisos D-30, D-15 e D-3; conformidade monitorada, com plano de contingência</em></li>
+          <li>Nota da área usuária dentro do score<em class="bp-ls">A pesquisa de satisfação vira nota e pode reprovar a renovação</em></li>
         </ul>
       </div>
       <div class="bp-card">
         <h3>Portal do fornecedor</h3><p class="bp-sub">o fornecedor opera</p>
         <ul>
-          <li>Fatura e pagamento acompanhados</li>
-          <li>Comunicação nativa e por WhatsApp</li>
-          <li>Pedidos em andamento e encerrados</li>
-          <li>Oferta enviada pelo próprio fornecedor</li>
-          <li class="ia">Interações monitoradas por IA<span class="bp-tag">IA</span></li>
+          <li>Fatura e pagamento acompanhados<em class="bp-ls">O fornecedor envia a fatura e acompanha o pagamento</em></li>
+          <li>Comunicação nativa e por WhatsApp<em class="bp-ls">Pendências resolvidas sem troca de e-mails soltos</em></li>
+          <li>Pedidos em andamento e encerrados<em class="bp-ls">Cada fornecedor vê os seus pedidos</em></li>
+          <li>Oferta enviada pelo próprio fornecedor<em class="bp-ls">Dados cadastrais também atualizados por ele</em></li>
+          <li class="ia">Interações monitoradas por IA<span class="bp-tag">IA</span><em class="bp-ls">Tudo registrado dentro da plataforma</em></li>
         </ul>
       </div>
     </div>
