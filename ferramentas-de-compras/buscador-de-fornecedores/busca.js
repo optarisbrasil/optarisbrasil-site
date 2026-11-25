@@ -50,7 +50,7 @@ function estado(tipo){
 }
 function cadeado(){ return desenho([['rect', { x: '3', y: '7', width: '10', height: '8', rx: '1.5', fill: 'currentColor' }], ['path', com(TRACO, { d: 'M5.5 7V5a2.5 2.5 0 0 1 5 0v2', 'stroke-width': '1.8' })]], 'cad'); }
 var VENDOR = '/gestao-de-compras-e-fornecedores/?utm_source=ferramenta&utm_medium=buscador&utm_campaign=homologacao#homologacao';
-var TRAVADOS = ['Emitir CND federal', 'Emitir CNDT trabalhista', 'Emitir CRF do FGTS', 'Protestos e processos', 'Pedir balanço e analisar liquidez', 'Controlar a validade dos documentos', 'Dossiê de homologação em PDF'];
+var TRAVADOS = ['Emitir CND federal', 'Emitir CNDT trabalhista', 'Emitir CRF do FGTS', 'Protestos e processos', 'Crédito e score (birô)', 'Pedir balanço e analisar liquidez', 'Controlar a validade dos documentos', 'Dossiê de homologação em PDF'];
 
 F.destino($('uf'), $('mun'));
 // Quem vem do Gerador de RFQ chega com o objeto da cotação preenchido.
@@ -202,6 +202,7 @@ function render(){
   var cont = el('span'), bconv;
   function conta(){ var q = escolhidos().length; cont.textContent = q === 0 ? 'Nenhum fornecedor selecionado' : q === 1 ? '1 fornecedor selecionado' : q + ' fornecedores selecionados'; if (bconv) bconv.disabled = q === 0; if (convite) montarConvite(); }
   d.fornecedores.forEach(function(f){ res.appendChild(cartao(f, conta)); });
+  res.appendChild(el('p', 'Os itens em cinza ficam dentro do Vendor Management. Os que têm custo, como a CND pela API oficial, protestos, processos e birôs de crédito, são contratados pelo cliente e cobrados na conta de consumo dele.', 'custo'));
   var bar = el('div', null, 'selbar'); bar.appendChild(cont);
   bconv = el('button', 'Convidar para a cotação', 'btn'); bconv.type = 'button';
   bconv.addEventListener('click', function(){ convite = true; montarConvite(); rolar($('conv')); F.evento('ferramenta_convite_simulado', {ferramenta: FERRAMENTA, fornecedores: escolhidos().length}); });

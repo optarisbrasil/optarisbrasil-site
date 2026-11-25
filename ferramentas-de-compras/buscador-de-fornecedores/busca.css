@@ -38,7 +38,7 @@
 .hom .est-ok{background:#1a9b4b}
 .hom .est-al{background:#8a4b00}
 .hom .est-nc{background:#c5cfdb}
-.travas{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.travas{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px}
 .trava{flex:1 1 120px;display:flex;gap:8px;align-items:center;min-height:46px;padding:7px 10px;border:1px dashed #b6cfe8;border-radius:6px;background:#fff;color:#26384f;text-decoration:none;font-size:12.5px;line-height:1.25}
 .trava:hover{border-color:#0496ff;background:#eaf5ff}
 .trava:focus-visible{outline:2px solid #0496ff;outline-offset:2px}
@@ -68,3 +68,5 @@
 .efeito h3{font-size:17px;margin-bottom:6px}
 .efeito p{margin:4px 0 0;font-size:14.5px;color:#26384f}
 .efeito .btn.ncm{min-height:46px;height:auto;padding:10px 14px;text-align:left;justify-content:flex-start;line-height:1.35;white-space:normal}
+
+.custo{margin:14px 0 4px;padding:10px 14px;border-left:3px solid #b6cfe8;background:#f6f9fc;color:#3d4a60;font-size:13px;line-height:1.5;border-radius:0 6px 6px 0}
