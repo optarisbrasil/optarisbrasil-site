@@ -1,6 +1,7 @@
 /* Buscador de fornecedores: simulação do sourcing do Vendor.
-   A lista vem da base aberta do CNPJ (Receita Federal). A checagem de protestos e o convite são simulados:
-   nenhuma consulta a cartório e nenhum e-mail a fornecedor. */
+   A lista vem da base aberta do CNPJ (Receita Federal). O quadro de homologação consulta bases públicas oficiais:
+   sanções federais (Portal da Transparência) e lista suja do trabalho escravo (Ministério do Trabalho).
+   O convite é simulado: nenhum e-mail a fornecedor. */
 (function(){
 'use strict';
 var F = window.Ferramentas, $ = F.$, el = F.el;
@@ -13,6 +14,43 @@ function referencia(r){ var m = /^(\d{4})-(\d{2})$/.exec(r || ''); return m ? ME
 function custoOk(d){ return !!(d && d.custo && d.custo.estado === 'ok'); }
 function custoDe(d, f){ return custoOk(d) ? d.custo.regimes[f.regime === 'Simples Nacional' ? 'simples' : 'regular'] : null; }
 function regiao(d){ var r = d.regiao; return r.municipio ? ('em ' + r.municipio + ' (' + r.uf + ')' + (r.ampliada ? ' e no restante do estado' : '')) : 'no estado de ' + r.uf; }
+function dataBR(s){ var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : ''; }
+
+// ---- Homologação: sanções federais e lista suja. Sem o dado (versão antiga do serviço), vale "não consultado".
+function homDe(f){
+  var h = f.homologacao || {};
+  return { sancoes: h.sancoes && h.sancoes.status ? h.sancoes : { status: 'nao_consultado', registros: [] }, listaSuja: h.listaSuja && h.listaSuja.status ? h.listaSuja : { status: 'nao_consultado' } };
+}
+function basesDe(d){ var b = d.bases || {}; return { receita: b.receita || d.referencia || '', sancoes: b.sancoes || '', listaSuja: b.listaSuja || '' }; }
+function registro(r){ return [r.cadastro, r.categoria, r.orgao].filter(function(x){ return x; }).join(' · ') + (r.inicio ? ' · desde ' + dataBR(r.inicio) : ''); }
+function contagem(d){
+  var c = { nada: 0, consta: 0, nc: 0, ls: 0, lsnc: 0, n: d.fornecedores.length };
+  d.fornecedores.forEach(function(f){ var h = homDe(f);
+    if (h.sancoes.status === 'consta') c.consta++; else if (h.sancoes.status === 'nada_consta') c.nada++; else c.nc++;
+    if (h.listaSuja.status === 'consta') c.ls++; else if (h.listaSuja.status !== 'nao_consta') c.lsnc++; });
+  return c;
+}
+function resumoHom(d){
+  var c = contagem(d);
+  if (c.nc === c.n && c.lsnc === c.n) return 'Sanções e lista suja não consultadas nesta busca';
+  var s = c.nc === c.n ? 'Sanções federais: não consultado' : (c.consta ? 'Sanções federais: consta em ' + c.consta + ' de ' + c.n : 'Sanções federais: nada consta em ' + c.nada + ' de ' + c.n);
+  var l = c.lsnc === c.n ? 'lista suja: não consultada' : (c.ls ? 'lista suja: consta em ' + c.ls : 'lista suja: nada consta');
+  return s + ' · ' + l + ', nas bases públicas oficiais';
+}
+var SVG = 'http://www.w3.org/2000/svg';
+function desenho(d, cls){ var s = document.createElementNS(SVG, 'svg'); s.setAttribute('viewBox', '0 0 16 16'); s.setAttribute('aria-hidden', 'true'); s.setAttribute('focusable', 'false'); if (cls) s.setAttribute('class', cls); d.forEach(function(x){ var p = document.createElementNS(SVG, x[0]); for (var k in x[1]) p.setAttribute(k, x[1][k]); s.appendChild(p); }); return s; }
+var TRACO = { fill: 'none', stroke: 'currentColor', 'stroke-width': '2.2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' };
+function com(o, extra){ var r = {}, k; for (k in o) r[k] = o[k]; for (k in extra) r[k] = extra[k]; return r; }
+function estado(tipo){
+  var e = el('span', null, 'est est-' + tipo);
+  e.appendChild(tipo === 'ok' ? desenho([['path', com(TRACO, { d: 'M3.5 8.5l3 3 6-7' })]])
+    : tipo === 'al' ? desenho([['path', com(TRACO, { d: 'M8 3.5v5.5' })], ['circle', { cx: '8', cy: '12.5', r: '1.3', fill: 'currentColor' }]])
+    : desenho([['path', com(TRACO, { d: 'M4 8h8' })]]));
+  return e;
+}
+function cadeado(){ return desenho([['rect', { x: '3', y: '7', width: '10', height: '8', rx: '1.5', fill: 'currentColor' }], ['path', com(TRACO, { d: 'M5.5 7V5a2.5 2.5 0 0 1 5 0v2', 'stroke-width': '1.8' })]], 'cad'); }
+var VENDOR = '/gestao-de-compras-e-fornecedores/?utm_source=ferramenta&utm_medium=buscador&utm_campaign=homologacao';
+var TRAVADOS = ['Emitir CND federal', 'Emitir CNDT trabalhista', 'Emitir CRF do FGTS', 'Protestos e processos', 'Dossiê de homologação em PDF'];
 
 F.destino($('uf'), $('mun'));
 // Quem vem do Gerador de RFQ chega com o objeto da cotação preenchido.
@@ -24,7 +62,7 @@ $('exemplo').addEventListener('click', function(){
 });
 
 // ---- O que o agente faz, passo a passo
-var TITULOS = ['Item identificado', 'Atividades de quem fornece', 'Empresas ativas na região', 'Cadastro na base da Receita Federal', 'Efeito de CBS e IBS no custo', 'Checagem de protestos simulada', 'Fornecedores selecionados'];
+var TITULOS = ['Item identificado', 'Atividades de quem fornece', 'Empresas ativas na região', 'Cadastro na base da Receita Federal', 'Efeito de CBS e IBS no custo', 'Homologação: sanções e lista suja', 'Fornecedores selecionados'];
 function iniciarPassos(){
   var box = $('passos'); box.hidden = false; box.textContent = '';
   box.appendChild(el('h2', 'O que o agente está fazendo'));
@@ -41,7 +79,7 @@ function concluirPassos(itens, d, fim){
     d.total.toLocaleString('pt-BR') + (d.total === 1 ? ' empresa ' : ' empresas ') + regiao(d) + ', na base aberta do CNPJ',
     'Situação cadastral, data de abertura, porte, capital social e regime tributário' + (ref ? ' (base de ' + ref + ')' : ''),
     custoOk(d) ? 'Alíquota efetiva de ' + F.pct(d.custo.aliquotaEfetiva) + ' em 2027, pelo motor de cálculo da Receita Federal' : (d.custo && d.custo.estado === 'sugestao' ? 'O agente sugeriu o NCM do item: confirme abaixo para calcular' : (d.custo && d.custo.estado === 'sem_codigo' ? 'Informe o NCM ou o NBS do item para calcular' : 'Não calculado para este item')),
-    'Nesta demonstração não há consulta a cartórios',
+    resumoHom(d),
     'Critérios: ' + d.criterios
   ];
   itens[6].b.textContent = n === 1 ? '1 fornecedor selecionado' : n + ' fornecedores selecionados';
@@ -100,8 +138,48 @@ function cartao(f, conta){
     if (c0.creditoPerdido > 0) { par('Desconto para empatar com o regime regular', F.pct(c0.descontoEmpate)); cu.appendChild(el('small', 'Se esta empresa recolher CBS e IBS por fora do Simples, o crédito é cheio e o custo líquido cai para ' + F.brl(dados.custo.regimes.simples_por_fora.custoLiquido) + '. Vale perguntar na cotação.')); }
     m.appendChild(cu);
   }
-  var p = el('div', null, 'prot'); p.appendChild(el('strong', 'Protestos em cartório')); p.appendChild(tag('Simulado: nenhum protesto', 'q')); p.appendChild(el('span', 'Checagem demonstrativa, sem consulta a cartórios.')); m.appendChild(p);
+  m.appendChild(quadro(f));
   c.appendChild(m); return c;
+}
+
+// Quadro de homologação do cartão: três linhas respondidas e, abaixo, o que só o Vendor faz.
+function quadro(f){
+  var h = homDe(f), b = basesDe(dados), s = h.sancoes, ls = h.listaSuja;
+  var q = el('div', null, 'hom' + (s.status === 'consta' || ls.status === 'consta' ? ' tem' : ''));
+  q.appendChild(el('strong', 'Homologação'));
+  var ul = el('ul');
+  function linha(tipo, rot, txt){ var li = el('li', null, 'h-' + tipo); li.appendChild(estado(tipo)); var w = el('div'); w.appendChild(el('b', rot + ': ')); w.appendChild(document.createTextNode(txt)); li.appendChild(w); ul.appendChild(li); return w; }
+  var ref = referencia(b.receita);
+  linha('ok', 'Receita Federal', (!f.situacao || f.situacao === 'Ativa' ? 'cadastro ativo' : 'situação ' + String(f.situacao).toLowerCase()) + (ref ? ' · base de ' + ref : ''));
+  var rs = 'Sanções federais (CEIS, CNEP, CEPIM e leniência)';
+  if (s.status === 'nada_consta') linha('ok', rs, 'nada consta');
+  else if (s.status === 'consta') {
+    var regs = s.registros || [];
+    var w = linha('al', rs, regs.length === 1 ? 'consta: ' + registro(regs[0]) : 'consta');
+    if (regs.length > 1) {
+      var rl = el('ul', null, 'regs'); regs.slice(0, 3).forEach(function(r){ rl.appendChild(el('li', registro(r))); });
+      if (regs.length > 3) rl.appendChild(el('li', 'e mais ' + (regs.length - 3) + (regs.length - 3 === 1 ? ' registro' : ' registros')));
+      w.appendChild(rl);
+    }
+  } else linha('nc', rs, 'não consultado');
+  var rl2 = 'Lista suja do trabalho escravo';
+  if (ls.status === 'nao_consta') linha('ok', rl2, 'não consta');
+  else if (ls.status === 'consta') linha('al', rl2, 'consta' + (ls.inclusao ? ' desde ' + dataBR(ls.inclusao) : ''));
+  else linha('nc', rl2, 'não consultado');
+  q.appendChild(ul);
+  var fontes = [];
+  if (b.sancoes && s.status !== 'nao_consultado') fontes.push('Sanções: base de ' + dataBR(b.sancoes));
+  if (b.listaSuja && ls.status !== 'nao_consultado') fontes.push('Lista suja: atualizada em ' + dataBR(b.listaSuja));
+  q.appendChild(el('p', s.status === 'nao_consultado' && ls.status === 'nao_consultado' ? 'Sanções e lista suja não consultadas nesta busca.' : 'Consultado nas fontes oficiais.' + (fontes.length ? ' ' + fontes.join(' · ') + '.' : ''), 'fonte'));
+  var tv = el('div', null, 'travas');
+  TRAVADOS.forEach(function(nome){
+    var a = el('a', null, 'trava'); a.href = VENDOR; a.setAttribute('aria-label', nome + ': disponível no Vendor Management');
+    a.appendChild(cadeado()); var t = el('span'); t.appendChild(el('b', nome)); t.appendChild(el('small', 'disponível no Vendor')); a.appendChild(t);
+    a.addEventListener('click', function(){ F.evento('ferramenta_vendor_bloqueado', {item: nome}); });
+    tv.appendChild(a);
+  });
+  q.appendChild(tv);
+  return q;
 }
 
 function render(){
@@ -112,7 +190,10 @@ function render(){
   k.appendChild(box('Empresas ativas na região', d.total.toLocaleString('pt-BR'), d.atividades.length === 1 ? '1 atividade econômica' : d.atividades.length + ' atividades econômicas'));
   k.appendChild(box('Selecionadas pelo agente', String(n), 'Pelos critérios abaixo', 'big'));
   k.appendChild(box('Cadastro na Receita', n + ' de ' + n, 'Situação ativa'));
-  k.appendChild(box('Protestos em cartório', 'Nenhum', 'Checagem simulada'));
+  var hc = contagem(d), lsTxt = hc.lsnc === n ? 'Lista suja: não consultada' : (hc.ls ? 'Lista suja: consta em ' + hc.ls : 'Lista suja: nada consta');
+  if (hc.consta) k.appendChild(box('Sanções federais', 'Consta em ' + hc.consta, 'de ' + n + ' · ' + lsTxt, 'alert'));
+  else if (hc.nc === n) k.appendChild(box('Sanções federais', 'Não consultado', lsTxt, hc.ls ? 'alert' : ''));
+  else k.appendChild(box('Sanções federais', 'Nada consta em ' + hc.nada + ' de ' + n, lsTxt, hc.ls ? 'alert' : ''));
   res.appendChild(k);
   res.appendChild(el('p', 'Como o agente escolheu: ' + d.criterios + '. Marque quem você quer convidar.', 'muted'));
   if (d.regiao.ampliada) res.appendChild(el('div', 'Havia poucas empresas dessa atividade em ' + d.regiao.municipio + ': a lista foi completada com empresas de outros municípios do estado.', 'info'));
@@ -128,7 +209,7 @@ function render(){
   var cv = el('div'); cv.id = 'conv'; res.appendChild(cv);
 
   F.captura(res, { ferramenta: FERRAMENTA, titulo: 'Baixe a lista em Excel', botao: 'Baixar em Excel', liberado: 'Lista liberada',
-    texto: 'Os fornecedores encontrados, com os dados do cadastro na Receita: CNPJ, município, atividade, data de abertura, porte, capital social e regime tributário.',
+    texto: 'Os fornecedores encontrados, com os dados do cadastro na Receita (CNPJ, município, atividade, data de abertura, porte, capital social e regime tributário) e o resultado das sanções federais e da lista suja.',
     resumo: function(){ return FERRAMENTA + ': ' + d.produto + ' ' + regiao(d) + ' — ' + d.total + ' empresas ativas, ' + n + ' selecionadas'; },
     depois: baixar });
   F.cta(res, 'Do convite ao mapa de propostas, sem planilha', 'No Vendor Management, o fornecedor entra pelo portal, envia os documentos de homologação e a proposta, e as respostas chegam ranqueadas no mapa de propostas.', FERRAMENTA);
@@ -193,10 +274,15 @@ function montarConvite(){
 function baixar(){
   if (!dados) return;
   var ref = referencia(dados.referencia);
-  var ok = custoOk(dados), cab = ['Razão social', 'Nome fantasia', 'CNPJ', 'Município', 'UF', 'Atividade', 'CNAE principal', 'Abertura', 'Porte', 'Capital social (R$)', 'Regime tributário', 'Situação cadastral', 'Alerta', 'Base da Receita'];
+  var b = basesDe(dados);
+  var ok = custoOk(dados), cab = ['Razão social', 'Nome fantasia', 'CNPJ', 'Município', 'UF', 'Atividade', 'CNAE principal', 'Abertura', 'Porte', 'Capital social (R$)', 'Regime tributário', 'Situação cadastral', 'Alerta', 'Base da Receita', 'Sanções federais', 'Lista suja', 'Sanções consultadas em', 'Lista suja atualizada em'];
   if (ok) cab = cab.concat(['Compra de referência (R$)', 'Crédito de CBS e IBS (R$)', 'Custo líquido (R$)', 'Desconto para empatar (%)']);
   F.baixarCSV('fornecedores-para-cotacao.csv', [cab].concat(dados.fornecedores.map(function(f){
-    var l = [f.razaoSocial, f.nomeFantasia, f.cnpj, f.municipio, f.uf, f.papel, f.cnae, f.abertura, f.porte, f.capitalSocial, f.regime, f.situacao, f.alerta || '', ref], c = custoDe(dados, f);
+    var h = homDe(f), s = h.sancoes, ls = h.listaSuja;
+    var sTxt = s.status === 'nada_consta' ? 'Nada consta' : s.status === 'consta' ? 'Consta: ' + (s.registros || []).map(registro).join('; ') : 'Não consultado';
+    var lTxt = ls.status === 'nao_consta' ? 'Não consta' : ls.status === 'consta' ? 'Consta' + (ls.inclusao ? ' desde ' + dataBR(ls.inclusao) : '') : 'Não consultado';
+    var l = [f.razaoSocial, f.nomeFantasia, f.cnpj, f.municipio, f.uf, f.papel, f.cnae, f.abertura, f.porte, f.capitalSocial, f.regime, f.situacao, f.alerta || '', ref,
+      sTxt, lTxt, s.status !== 'nao_consultado' ? dataBR(b.sancoes) : '', ls.status !== 'nao_consultado' ? dataBR(b.listaSuja) : ''], c = custoDe(dados, f);
     return ok ? l.concat([dados.custo.valor, c.credito, c.custoLiquido, c.descontoEmpate]) : l; })));
 }
 })();
