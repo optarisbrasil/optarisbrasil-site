@@ -351,7 +351,7 @@ body{overflow-x:clip}
     .vh-an{position:relative;height:clamp(380px,34vw,430px);margin:0 -24px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%)}
     .vh-an canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
     .vh-cta{display:flex;flex-direction:column;gap:14px}
-    .vh-ft{display:grid;grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,1.15fr));gap:12px;align-items:stretch;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
+    .vh-ft{position:relative;display:grid;grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,1.15fr));gap:12px;align-items:stretch;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
     .vh-ft-t{display:flex;flex-direction:column;justify-content:center;gap:8px;padding-right:12px}
     .vh-ft-t b{font-family:Lato,sans-serif;font-weight:900;font-size:clamp(19px,1.8vw,23px);line-height:1.2;color:#fff;text-wrap:balance}
     .vh-ft-t span{font-size:14px;line-height:1.45;color:#c7d3e3;text-wrap:pretty}
@@ -384,7 +384,7 @@ body{overflow-x:clip}
     </div>
     <p data-reveal="" style="margin:0;font-size:14.5px;max-width:720px;color:#c7d3e3;text-wrap:pretty;transition-delay:.35s"><b style="color:#fff;font-weight:500">Funciona com ou sem IA.</b> Você decide onde os agentes entram.</p>
     </div>
-    <div class="vh-ft" data-reveal="" style="transition-delay:.4s"><div class="vh-ft-t"><b>Teste grátis com os seus dados</b><span>Funções do Vendor abertas para quem compra. Sem cadastro, resultado na hora.</span></div><div class="vh-fcol"><a class="vh-fc" href="/calculadora-reforma-tributaria/"><small>Reforma Tributária</small><b>Calculadora CBS e IBS</b><span>Imposto por NCM ou NBS</span><i aria-hidden="true">→</i></a><a class="vh-fc" href="/ferramentas-de-compras/fornecedores-na-reforma/"><small>Reforma Tributária</small><b>Fornecedores na Reforma</b><span>Crédito ganho e perdido em 2027</span><i aria-hidden="true">→</i></a></div><div class="vh-fcol"><a class="vh-fc" href="/ferramentas-de-compras/comparador-de-cotacoes/"><small>Cotação</small><b>Comparador de cotações</b><span>Pelo custo depois do crédito</span><i aria-hidden="true">→</i></a><a class="vh-fc" href="/ferramentas-de-compras/gerador-de-rfq/"><small>Agente de IA</small><b>Pedido de cotação</b><span>A cotação pronta em 1 minuto</span><i aria-hidden="true">→</i></a></div><div class="vh-fcol"><a class="vh-fc" href="/ferramentas-de-compras/buscador-de-fornecedores/"><small>Agente de IA</small><b>Buscador de fornecedores</b><span>5 empresas prontas para cotar</span><i aria-hidden="true">→</i></a><a class="vh-fc" href="/ferramentas-de-compras/spend-analysis/"><small>Agente de IA</small><b>Raio-x do gasto</b><span>Curva ABC e onde consolidar</span><i aria-hidden="true">→</i></a></div></div>
+    <div class="vh-ft" id="teste-o-vendor" data-reveal="" style="transition-delay:.4s;scroll-margin-top:90px"><span id="ferramentas" style="position:absolute"></span><span id="calculadora" style="position:absolute"></span><div class="vh-ft-t"><b>Teste grátis com os seus dados</b><span>Funções do Vendor abertas para quem compra. Sem cadastro, resultado na hora.</span></div><div class="vh-fcol"><a class="vh-fc" href="/calculadora-reforma-tributaria/"><small>Reforma Tributária</small><b>Calculadora CBS e IBS</b><span>Imposto por NCM ou NBS</span><i aria-hidden="true">→</i></a><a class="vh-fc" href="/ferramentas-de-compras/fornecedores-na-reforma/"><small>Reforma Tributária</small><b>Fornecedores na Reforma</b><span>Crédito ganho e perdido em 2027</span><i aria-hidden="true">→</i></a></div><div class="vh-fcol"><a class="vh-fc" href="/ferramentas-de-compras/comparador-de-cotacoes/"><small>Cotação</small><b>Comparador de cotações</b><span>Pelo custo depois do crédito</span><i aria-hidden="true">→</i></a><a class="vh-fc" href="/ferramentas-de-compras/gerador-de-rfq/"><small>Agente de IA</small><b>Pedido de cotação</b><span>A cotação pronta em 1 minuto</span><i aria-hidden="true">→</i></a></div><div class="vh-fcol"><a class="vh-fc" href="/ferramentas-de-compras/buscador-de-fornecedores/"><small>Agente de IA</small><b>Buscador de fornecedores</b><span>5 empresas prontas para cotar</span><i aria-hidden="true">→</i></a><a class="vh-fc" href="/ferramentas-de-compras/spend-analysis/"><small>Agente de IA</small><b>Raio-x do gasto</b><span>Curva ABC e onde consolidar</span><i aria-hidden="true">→</i></a></div></div>
   </div>
 </section>
 
@@ -402,7 +402,7 @@ body{overflow-x:clip}
     section[id]{scroll-margin-top:118px!important}
     @media(max-width:760px){.vcb{top:58px}.vcb a{height:42px;font-size:13.500px}}
   </style>
-  <div class="vcb-w"><a href="#o-que-resolvemos">O que resolvemos</a><a href="#teste-o-vendor">Ferramentas</a><a href="#como">Como resolvemos</a><a href="#homologacao">Homologação</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco" class="vcb-p">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
+  <div class="vcb-w"><a href="#teste-o-vendor">Ferramentas</a><a href="#o-que-resolvemos">O que resolvemos</a><a href="#como">Como resolvemos</a><a href="#homologacao">Homologação</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco" class="vcb-p">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
   <span class="vcb-bar" aria-hidden="true"></span>
 </nav>
 
@@ -505,66 +505,6 @@ body{overflow-x:clip}
       <span class="cv-l" role="listitem"><img src="/logos/flybondi.webp" alt="Flybondi" loading="lazy" decoding="async"><small>Argentina</small></span>
       <span class="cv-l" role="listitem"><img src="/logos/consigaz.webp" alt="Consigaz" loading="lazy" decoding="async"><small>Brasil</small></span>
     </div>
-  </div>
-</section>
-
-<section id="teste-o-vendor" data-screen-label="01c Teste o Vendor com os seus dados" data-noprint="" style="padding:clamp(36px,4.5vw,56px) 0;background:linear-gradient(180deg,#f4f8fd 0%,#fff 100%);border-bottom:1px solid #e5e7eb;scroll-margin-top:70px">
-  <style>
-    .tv{max-width:1200px;margin:0 auto;padding:0 24px}
-    .tv-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:20px}
-    @media(max-width:960px){.tv-g{grid-template-columns:1fr}}
-    .tv-c{display:flex;flex-direction:column;gap:5px;background:#fff;border:1px solid #dbe6f3;border-radius:14px;padding:15px 18px;text-decoration:none;color:#1f2a3d;box-shadow:0 2px 14px rgba(2,19,45,.06);transition:border-color .2s,transform .2s}
-    .tv-c:hover{border-color:#0496ff;transform:translateY(-3px)}
-    .tv-c .k{align-self:flex-start;background:#eaf5ff;color:#0070d6;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-    .tv-c strong{font-family:Lato,sans-serif;font-size:18px;font-weight:900;line-height:1.2;color:#02132d;text-wrap:balance}
-    .tv-c span.t{font-size:14px;line-height:1.42;color:#4a5568;text-wrap:pretty;flex:1}
-    .tv-c span.go{font-weight:700;font-size:14px;color:#0070d6}
-  </style>
-  <div class="tv"><span id="calculadora" style="position:relative;top:-80px"></span><span id="ferramentas" style="position:relative;top:-80px"></span>
-    <div data-reveal="" style="max-width:820px">
-      <span style="color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Ferramentas gratuitas</span>
-      <h2 style="font-size:clamp(26px,3.2vw,40px);font-weight:900;color:#02132d;margin-top:8px;text-wrap:balance">Teste o Vendor com os seus dados</h2>
-      <p style="font-size:17px;color:#4a5568;margin-top:10px;text-wrap:pretty">Funções do Vendor abertas para quem compra, sem cadastro: suba a sua planilha, cole as propostas ou descreva a compra e veja o resultado na hora, com cálculo pelo motor da Receita Federal e agentes de IA. No Vendor, elas rodam juntas, todos os dias, sobre as suas cotações e fornecedores reais.</p>
-    </div>
-    <div class="tv-g">
-      <a class="tv-c" data-reveal="" href="/ferramentas-de-compras/fornecedores-na-reforma/">
-        <span class="k">Reforma Tributária</span>
-        <strong>Seus fornecedores na Reforma</strong>
-        <span class="t">Suba a sua carteira e veja, fornecedor por fornecedor, quanto crédito de CBS e IBS sua empresa recupera em 2027 e quanto perde comprando do Simples Nacional.</span>
-        <span class="go">Analisar meus fornecedores →</span>
-      </a>
-      <a class="tv-c" data-reveal="" href="/ferramentas-de-compras/comparador-de-cotacoes/" style="transition-delay:.1s">
-        <span class="k">Cotação</span>
-        <strong>Compare cotações pelo custo real</strong>
-        <span class="t">O ranking das propostas pelo custo depois do crédito, não pelo preço de face. Veja quando a mais barata no papel sai mais cara e quanto rende dividir a compra.</span>
-        <span class="go">Comparar propostas →</span>
-      </a>
-      <a class="tv-c" data-reveal="" href="/ferramentas-de-compras/spend-analysis/">
-        <span class="k">Agente de IA</span>
-        <strong>Raio-x do seu gasto</strong>
-        <span class="t">Suba o relatório de compras do ERP: o agente classifica cada item e você vê a curva ABC de fornecedores, a concentração por categoria e onde consolidar.</span>
-        <span class="go">Fazer o raio-x →</span>
-      </a>
-      <a class="tv-c" data-reveal="" href="/ferramentas-de-compras/gerador-de-rfq/" style="transition-delay:.1s">
-        <span class="k">Agente de IA</span>
-        <strong>Monte um pedido de cotação</strong>
-        <span class="t">Descreva o que precisa comprar e receba a cotação pronta, com especificação, condições comerciais, critérios com pesos e cronograma.</span>
-        <span class="go">Montar a cotação →</span>
-      </a>
-      <a class="tv-c" data-reveal="" href="/ferramentas-de-compras/buscador-de-fornecedores/">
-        <span class="k">Agente de IA</span>
-        <strong>Ache fornecedores para cotar</strong>
-        <span class="t">Diga o que precisa comprar: o agente lista empresas ativas da sua região na base da Receita Federal e mostra o efeito de CBS e IBS no custo com cada uma.</span>
-        <span class="go">Buscar fornecedores →</span>
-      </a>
-      <a class="tv-c" data-reveal="" href="/calculadora-reforma-tributaria/" style="transition-delay:.2s">
-        <span class="k">Reforma Tributária</span>
-        <strong>Calculadora de CBS e IBS</strong>
-        <span class="t">Consulte por NCM ou NBS quanto de CBS e IBS incide sobre um item, com a memória de cálculo e a base legal. Motor de cálculo da Receita Federal.</span>
-        <span class="go">Abrir a calculadora →</span>
-      </a>
-    </div>
-    <p data-reveal="" style="font-size:13px;color:#6b7686;margin-top:16px">Os dados das planilhas são lidos no seu navegador; para o cálculo, só vão códigos, valores e regimes, e nada fica guardado.</p>
   </div>
 </section>
 
@@ -1730,7 +1670,7 @@ class Component extends DCLogic {
     @media print{.vfb{display:none}}
   </style>
   <button type="button" class="vfb-b" data-vfb-t="" aria-expanded="false"><i aria-hidden="true"></i>Navegação</button>
-  <div class="vfb-l"><a href="#o-que-resolvemos">O que resolvemos</a><a href="#teste-o-vendor">Ferramentas</a><a href="#como">Como resolvemos</a><a href="#homologacao">Homologação</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
+  <div class="vfb-l"><a href="#teste-o-vendor">Ferramentas</a><a href="#o-que-resolvemos">O que resolvemos</a><a href="#como">Como resolvemos</a><a href="#homologacao">Homologação</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
 </nav>
 <script id="sla-an-js">
 /* Animação do SLA em "Processos que andam sozinhos": roda fora do template e se reconecta se a figura for redesenhada.
