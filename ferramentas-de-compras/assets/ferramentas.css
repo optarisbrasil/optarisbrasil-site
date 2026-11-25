@@ -81,6 +81,10 @@ summary{cursor:pointer;font-weight:700;color:#02132d}
 .grid-in tr:first-child th{vertical-align:top}
 .grid-in td:first-child{min-width:230px}
 .grid-in th{white-space:normal;min-width:120px}
+/* faixa vertical das propostas: separa os dados à esquerda (item, código, qtd.) das colunas de cada fornecedor */
+.grid-in th.prop,.grid-in td.prop{background:#eceff4}
+.grid-in th.prop{background:#e4e8ef}
+.grid-in tr:last-child td.prop{border-bottom-color:#e6ebf1}
 .grid-in .del{background:none;border:0;color:#a33;cursor:pointer;font-size:18px;line-height:1;padding:4px}
 .grid-in .chk{display:flex;gap:6px;align-items:center;font-size:12px;font-weight:500;margin:4px 0 0;text-transform:none;letter-spacing:0;color:#26384f}
 .grid-in .chk input{width:16px;height:16px;min-height:0}

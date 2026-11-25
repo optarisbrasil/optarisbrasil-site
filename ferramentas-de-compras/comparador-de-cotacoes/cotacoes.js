@@ -21,7 +21,7 @@ function desenhar(){
   var h=el('tr');
   ['Item','NCM ou NBS','Qtd.'].forEach(function(x){ var th=el('th',x); h.appendChild(th); });
   g.props.forEach(function(p,j){
-    var th=el('th'); th.style.minWidth='170px';
+    var th=el('th'); th.className='prop'; th.style.minWidth='170px';
     var nome=input(p.nome,'Fornecedor',function(v){ p.nome=v; },{'aria-label':'Nome da proposta '+(j+1),maxlength:'80'}); th.appendChild(nome);
     var s=document.createElement('select'); s.setAttribute('aria-label','Regime do fornecedor da proposta '+(j+1)); REG.forEach(function(r){ s.appendChild(new Option(r[1],r[0])); }); s.value=p.regime; s.style.marginTop='6px';
     var lab=el('label',null,'chk'); var cb=document.createElement('input'); cb.type='checkbox'; cb.checked=!!p.comTributos; lab.appendChild(cb); lab.appendChild(el('span','preços já incluem CBS/IBS'));
@@ -38,7 +38,7 @@ function desenhar(){
     var td=el('td'); td.appendChild(input(it.descricao,'Ex.: Papel A4',function(v){ it.descricao=v; },{'aria-label':'Descrição do item '+(i+1),maxlength:'120'})); tr.appendChild(td);
     td=el('td'); td.appendChild(input(it.codigo,'8 ou 9 dígitos',function(v){ it.codigo=v; },{'aria-label':'NCM ou NBS do item '+(i+1),inputmode:'numeric',maxlength:'12'})); td.style.minWidth='130px'; tr.appendChild(td);
     td=el('td'); td.appendChild(input(it.quantidade,'1',function(v){ it.quantidade=v; },{'aria-label':'Quantidade do item '+(i+1),inputmode:'decimal'})); td.style.minWidth='80px'; tr.appendChild(td);
-    g.props.forEach(function(p,j){ td=el('td'); td.appendChild(input(g.precos[i][j],'Preço unitário',function(v){ g.precos[i][j]=v; },{'aria-label':'Preço do item '+(i+1)+' na proposta '+(j+1),inputmode:'decimal'})); tr.appendChild(td); });
+    g.props.forEach(function(p,j){ td=el('td'); td.className='prop'; td.appendChild(input(g.precos[i][j],'Preço unitário',function(v){ g.precos[i][j]=v; },{'aria-label':'Preço do item '+(i+1)+' na proposta '+(j+1),inputmode:'decimal'})); tr.appendChild(td); });
     td=el('td'); if(g.itens.length>1){ var x=el('button','×','del'); x.type='button'; x.title='Remover item'; x.setAttribute('aria-label','Remover item '+(i+1)); x.addEventListener('click',function(){ g.itens.splice(i,1); g.precos.splice(i,1); guardar(); desenhar(); }); td.appendChild(x); } tr.appendChild(td);
     t.appendChild(tr);
   });
