@@ -1039,59 +1039,60 @@ body{overflow-x:clip}
       <p>A solicitação que roda por e-mail, a aprovação na planilha, o status cobrado por telefone. No Vendor, a compra inteira corre num fluxo só, da solicitação ao pagamento.</p><p>Você sempre sabe com quem está cada etapa. E se um prazo vai estourar, o sistema avisa na hora e o caso sobe para quem decide. É o <b>SLA</b>, o prazo combinado de cada etapa, controlado de ponta a ponta.</p>
       <a class="vp-v" href="https://www.youtube.com/watch?v=5wnLtxx-RJE&amp;t=706s" target="_blank" rel="noopener">Veja uma demo da função <span aria-hidden="true">▸</span></a>
     </div>
-    <figure class="vp-shot sla-an" data-reveal="" style="transition-delay:.1s"><svg class="mk" viewBox="0 0 720 470" role="img" aria-label="Animação: a solicitação de compra passa pelas etapas, para na aprovação, o relógio do SLA corre e fica em risco, o sistema avisa a liderança por e-mail e WhatsApp, a aprovação sai pelo celular e a compra fecha dentro do prazo">
+    <figure class="vp-shot sla-an" data-reveal="" style="transition-delay:.1s"><svg class="mk" viewBox="0 0 720 470" role="img" aria-label="Animação: a solicitação de compra para na aprovação; o relógio do SLA corre no verde; ao ficar laranja o sistema avisa o gerente por e-mail e WhatsApp; ao ficar vermelho manda ao diretor um WhatsApp com o link de aprovação; o diretor aprova e a compra fecha no prazo">
       <rect x="1" y="1" width="718" height="468" rx="14" fill="#fff" stroke="#dfe5ee"/>
       <path d="M1 15a14 14 0 0 1 14-14h690a14 14 0 0 1 14 14v29H1z" fill="#eef2f7"/>
       <circle cx="24" cy="23" r="5" fill="#c9d2de"/><circle cx="42" cy="23" r="5" fill="#c9d2de"/><circle cx="60" cy="23" r="5" fill="#c9d2de"/>
       <text x="92" y="28" class="t13 b">Solicitação 21 · Rolamentos linha 3 · da solicitação ao pagamento</text>
-      <!-- status -->
-      <g id="sa-pill"><rect x="566" y="58" width="134" height="26" rx="13" fill="#e3f6ee"/><text x="633" y="75.500" class="t11 b" fill="#0f7a54" text-anchor="middle">No prazo</text></g>
+      <g id="sa-pill"><rect x="600" y="58" width="100" height="26" rx="13" fill="#e3f6ee"/><text x="650" y="75.500" class="t11 b" fill="#0f7a54" text-anchor="middle">No prazo</text></g>
       <text x="24" y="76" class="t11 m">Prazo total combinado <tspan class="b" fill="#02132d">8 h</tspan> · decorrido <tspan id="sa-tot" class="b" fill="#02132d">0 h 00</tspan></text>
-      <!-- trilho -->
       <line x1="80" y1="140" x2="640" y2="140" stroke="#e3e9f1" stroke-width="6" stroke-linecap="round"/>
       <line id="sa-prog" x1="80" y1="140" x2="80" y2="140" stroke="#0496ff" stroke-width="6" stroke-linecap="round"/>
       <g id="sa-nodes" class="t11">
-        <g data-x="80"><circle cx="80" cy="140" r="22" fill="#fff" stroke="#c9d2de" stroke-width="2"/><text x="80" y="181" class="b" text-anchor="middle">Solicitação</text><text x="80" y="196" class="m" text-anchor="middle">Manutenção</text></g>
-        <g data-x="220"><circle cx="220" cy="140" r="22" fill="#fff" stroke="#c9d2de" stroke-width="2"/><text x="220" y="181" class="b" text-anchor="middle">Orçamento</text><text x="220" y="196" class="m" text-anchor="middle">ERP</text></g>
-        <g data-x="360"><circle cx="360" cy="140" r="22" fill="#fff" stroke="#c9d2de" stroke-width="2"/><text x="360" y="181" class="b" text-anchor="middle">Propostas</text><text x="360" y="196" class="m" text-anchor="middle">Agente de IA</text></g>
-        <g data-x="500"><circle cx="500" cy="140" r="22" fill="#fff" stroke="#c9d2de" stroke-width="2"/><text x="500" y="181" class="b" text-anchor="middle">Aprovação</text><text x="500" y="196" class="m" text-anchor="middle">Gerente</text></g>
-        <g data-x="640"><circle cx="640" cy="140" r="22" fill="#fff" stroke="#c9d2de" stroke-width="2"/><text x="640" y="181" class="b" text-anchor="middle">Pedido</text><text x="640" y="196" class="m" text-anchor="middle">ERP</text></g>
+        <g><circle cx="80" cy="140" r="22" fill="#fff" stroke="#c9d2de" stroke-width="2"/><text x="80" y="181" class="b" text-anchor="middle">Solicitação</text><text x="80" y="196" class="m" text-anchor="middle">Manutenção</text></g>
+        <g><circle cx="220" cy="140" r="22" fill="#fff" stroke="#c9d2de" stroke-width="2"/><text x="220" y="181" class="b" text-anchor="middle">Orçamento</text><text x="220" y="196" class="m" text-anchor="middle">ERP</text></g>
+        <g><circle cx="360" cy="140" r="22" fill="#fff" stroke="#c9d2de" stroke-width="2"/><text x="360" y="181" class="b" text-anchor="middle">Propostas</text><text x="360" y="196" class="m" text-anchor="middle">Agente de IA</text></g>
+        <g><circle cx="500" cy="140" r="22" fill="#fff" stroke="#c9d2de" stroke-width="2"/><text x="500" y="181" class="b" text-anchor="middle">Aprovação</text><text x="500" y="196" class="m" text-anchor="middle">Gerente</text></g>
+        <g><circle cx="640" cy="140" r="22" fill="#fff" stroke="#c9d2de" stroke-width="2"/><text x="640" y="181" class="b" text-anchor="middle">Pedido</text><text x="640" y="196" class="m" text-anchor="middle">ERP</text></g>
       </g>
-      <!-- documento que anda -->
       <g id="sa-doc" transform="translate(80 140)"><rect x="-11" y="-14" width="22" height="28" rx="3" fill="#02132d"/><path d="M-6 -6h12M-6 0h12M-6 6h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>
-      <!-- relógio do SLA -->
       <g transform="translate(140 330)">
         <circle r="78" fill="#f6f8fb"/>
         <circle r="64" fill="none" stroke="#e3e9f1" stroke-width="12"/>
         <circle id="sa-ring" r="64" fill="none" stroke="#18a874" stroke-width="12" stroke-linecap="round" stroke-dasharray="0 402.1" transform="rotate(-90)"/>
-        <g id="sa-hand"><line x1="0" y1="0" x2="0" y2="-44" stroke="#02132d" stroke-width="4" stroke-linecap="round"/></g>
-        <circle r="6" fill="#02132d"/>
+        <g id="sa-hand"><line x1="0" y1="0" x2="0" y2="-50" stroke="#18a874" stroke-width="4" stroke-linecap="round"/></g>
+        <circle id="sa-hc" r="6" fill="#18a874"/>
         <text y="28" class="t11 m" text-anchor="middle">SLA 4 h</text>
       </g>
       <text x="140" y="436" class="t12 b" text-anchor="middle">Aprovação de alçada</text>
-      <text id="sa-time" x="140" y="456" class="t16 x" text-anchor="middle">0 h 00</text>
-      <!-- avisos -->
+      <text id="sa-time" x="140" y="456" class="t16 x" text-anchor="middle">0 h 00 de 4 h</text>
       <text x="262" y="226" class="t11 b m" letter-spacing=".06em">AVISOS AUTOMÁTICOS DO SLA</text>
       <g id="sa-c1" opacity="0">
-        <rect x="262" y="236" width="434" height="58" rx="10" fill="#fff" stroke="#dfe5ee"/>
-        <rect x="276" y="250" width="30" height="30" rx="8" fill="#e6f3ff"/><path d="M283 258h16v14h-16zM283 258l8 7 8-7" fill="none" stroke="#0496ff" stroke-width="2" stroke-linejoin="round"/>
-        <text x="318" y="260" class="t11 m">E-mail · para Diretor de Compras</text>
-        <text x="318" y="279" class="t12 b">SLA em risco: Solicitação 21 parada há 3 h</text>
+        <rect x="262" y="234" width="434" height="46" rx="10" fill="#fff" stroke="#f3d9a6"/>
+        <rect x="274" y="242" width="30" height="30" rx="8" fill="#fdf1d9"/><path d="M281 250h16v14h-16zM281 250l8 7 8-7" fill="none" stroke="#c27c00" stroke-width="2" stroke-linejoin="round"/>
+        <text x="314" y="253" class="t10 b" fill="#9a6400">SLA EM ATENÇÃO · E-MAIL PARA O GERENTE</text>
+        <text x="314" y="270" class="t12 b">Solicitação 21 aguarda a sua aprovação há 2 h 24</text>
       </g>
       <g id="sa-c2" opacity="0">
-        <rect x="262" y="304" width="434" height="74" rx="10" fill="#fff" stroke="#bfe9cf"/>
-        <rect x="276" y="318" width="30" height="30" rx="8" fill="#25d366"/><path d="M291 324a9 9 0 0 0-7.800 13.500L282 342l4.700-1.200A9 9 0 1 0 291 324z" fill="#fff"/>
-        <text x="318" y="328" class="t11 m">WhatsApp · para o Gerente</text>
-        <text x="318" y="347" class="t12 b">Faltam 15 min para estourar o prazo. Aprovar agora?</text>
-        <g id="sa-btn"><rect x="318" y="355" width="74" height="17" rx="8.500" fill="#e3f6ee"/><text x="355" y="367.500" class="t10 b" fill="#0f7a54" text-anchor="middle">Aprovar</text></g>
+        <rect x="262" y="286" width="434" height="46" rx="10" fill="#fff" stroke="#f3d9a6"/>
+        <rect x="274" y="294" width="30" height="30" rx="8" fill="#25d366"/><path d="M289 300a9 9 0 0 0-7.800 13.500L280 318l4.700-1.200A9 9 0 1 0 289 300z" fill="#fff"/>
+        <text x="314" y="305" class="t10 b" fill="#9a6400">SLA EM ATENÇÃO · WHATSAPP PARA O GERENTE</text>
+        <text x="314" y="322" class="t12 b">Lembrete: a compra da linha 3 depende de você</text>
       </g>
       <g id="sa-c3" opacity="0">
-        <rect x="262" y="388" width="434" height="58" rx="10" fill="#e3f6ee"/>
-        <circle cx="291" cy="417" r="15" fill="#18a874"/><path d="M284 417l5 5 9-10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="318" y="412" class="t12 b" fill="#0f5c40">Aprovado pelo celular, com 3 h 53 de 4 h</text>
-        <text x="318" y="430" class="t11" fill="#2f6b55">O caso seguiu para o pedido sem estourar o SLA</text>
+        <rect x="262" y="338" width="434" height="56" rx="10" fill="#fff" stroke="#f5b8c6" stroke-width="1.500"/>
+        <rect x="274" y="346" width="30" height="30" rx="8" fill="#25d366"/><path d="M289 352a9 9 0 0 0-7.800 13.500L280 370l4.700-1.200A9 9 0 1 0 289 352z" fill="#fff"/>
+        <text x="314" y="357" class="t10 b" fill="#c0264b">SLA EM RISCO · WHATSAPP PARA O DIRETOR</text>
+        <text x="314" y="374" class="t12 b">O gerente não respondeu. Aprove no lugar dele:</text>
+        <g id="sa-btn"><rect x="314" y="380" width="112" height="9" rx="4.500" fill="none"/><text x="314" y="389" class="t11 b" fill="#0496ff" text-decoration="underline">aprovar a Solicitação 21</text></g>
       </g>
-      <circle id="sa-tap" cx="355" cy="363" r="6" fill="none" stroke="#0496ff" stroke-width="2" opacity="0"/>
+      <g id="sa-c4" opacity="0">
+        <rect x="262" y="400" width="434" height="46" rx="10" fill="#e3f6ee"/>
+        <circle cx="289" cy="423" r="14" fill="#18a874"/><path d="M282 423l5 5 9-10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="314" y="419" class="t12 b" fill="#0f5c40">Aprovado pelo diretor, pelo link, com 3 h 24 de 4 h</text>
+        <text x="314" y="436" class="t11" fill="#2f6b55">O caso seguiu para o pedido sem estourar o SLA</text>
+      </g>
+      <circle id="sa-tap" cx="370" cy="385" r="6" fill="none" stroke="#0496ff" stroke-width="2" opacity="0"/>
     </svg></figure>
     <div class="vp-d" data-reveal=""><div><h3>Cada tarefa tem dono e prazo</h3><p>Pessoa, sistema ou agente de IA: o painel mostra com quem está cada etapa, há quanto tempo e quanto falta para o prazo.</p></div><div><h3>Alerta e escalonamento automáticos</h3><p>O atraso é avisado antes de acontecer, por e-mail e WhatsApp. Se ninguém responde, o caso sobe para o nível seguinte.</p></div><div><h3>A agenda de cada comprador</h3><p>O menu de tarefas mostra o que cada pessoa tem para hoje, com criticidade e prazo, e a agenda do time ao lado.</p></div></div>
   </div>
@@ -1725,62 +1726,56 @@ class Component extends DCLogic {
   <div class="vfb-l"><a href="#teste-o-vendor">Ferramentas</a><a href="#o-que-resolvemos">O que resolvemos</a><a href="#como">Como resolvemos</a><a href="#homologacao">Homologação</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
 </nav>
 <script id="sla-an-js">
-/* Animação do SLA em "Compras que andam sozinhas": roda fora do template e se reconecta se a figura for redesenhada. */
+/* Animação do SLA em "Processos que andam sozinhos": roda fora do template e se reconecta se a figura for redesenhada.
+   Verde: o relógio corre. Laranja: pausa, e-mail e WhatsApp ao gerente. Vermelho: pausa, WhatsApp ao diretor com o link de aprovação. */
 (function(){
   function liga(fig){
-    if(!fig||fig._sa)return; fig._sa=1; var svg=fig.querySelector('svg'); if(!svg)return;
-
-      var $=function(id){return svg.querySelector('#'+id)};
-      var nodes=[].slice.call(svg.querySelectorAll('#sa-nodes>g')), xs=[80,220,360,500,640];
-      var doc=$('sa-doc'),prog=$('sa-prog'),ring=$('sa-ring'),hand=$('sa-hand'),time=$('sa-time'),tot=$('sa-tot');
-      var pill=$('sa-pill'),pr=pill.querySelector('rect'),pt=pill.querySelector('text');
-      var c1=$('sa-c1'),c2=$('sa-c2'),c3=$('sa-c3'),tap=$('sa-tap'),btn=$('sa-btn').querySelector('rect');
-      var C=402.1, L=13;
-      function cl(v){return v<0?0:v>1?1:v} function e(v){v=cl(v);return v<.5?2*v*v:1-Math.pow(-2*v+2,2)/2}
-      function hm(m){m=Math.round(m);return Math.floor(m/60)+' h '+('0'+m%60).slice(-2)}
-      function setPill(bg,fg,t,w){pr.setAttribute('fill',bg);pt.setAttribute('fill',fg);pt.textContent=t;pr.setAttribute('width',w);pr.setAttribute('x',700-w);pt.setAttribute('x',700-w/2)}
-      function node(i,st){var c=nodes[i].querySelector('circle');
-        var s={idle:['#fff','#c9d2de'],done:['#18a874','#18a874'],wait:['#fff','#0496ff'],risk:['#fff7e6','#e69a00']}[st];
-        c.setAttribute('fill',s[0]);c.setAttribute('stroke',s[1]);c.setAttribute('stroke-width',st=='risk'?3:2)}
-      function card(g,a,dy){g.setAttribute('opacity',cl(a));g.setAttribute('transform','translate('+(1-e(a))*30+' 0)')}
-      function draw(t){
-        // 0.4–2.8: anda até a aprovação
-        var x, m=e((t-.4)/2.4);
-        if(t<7.6){x=80+m*420}else{x=500+e((t-7.6)/1.3)*140}
-        doc.setAttribute('transform','translate('+x+' 140)'); prog.setAttribute('x2',x);
-        for(var i=0;i<5;i++){
-          if(i<3) node(i, x>=xs[i]+1? 'done':'idle');
-          if(i==0 && t>.4) node(0,'done');
-        }
-        // relógio: 2.8–7.4
-        var p=cl((t-2.8)/4)*0.97;
-        var min=p*240, risk=p>0.72;
-        ring.setAttribute('stroke-dasharray',(p*C)+' '+C);
-        ring.setAttribute('stroke', t>7.1?'#18a874':p<.55?'#18a874':p<.8?'#e69a00':'#e8335a');
-        hand.setAttribute('transform','rotate('+(p*360*3)+')');
-        time.textContent=hm(min)+' de 4 h'; time.setAttribute('fill',t>7.1?'#0f7a54':risk?'#c2410c':'#02132d');
-        var totm = t<2.8? e((t-.4)/2.4)*40 : t<7.6? 40+min : 40+233+e((t-7.6)/1.3)*28;
-        tot.textContent=hm(Math.max(0,totm));
-        node(3, t<2.8?'idle': t<7.1? (risk?'risk':'wait') : 'done');
-        node(4, t>8.9?'done':'idle');
-        // status
-        if(t>8.9) setPill('#e3f6ee','#0f7a54','Concluído no prazo',150);
-        else if(t>7.1) setPill('#e6f3ff','#0068b4','Aprovado',100);
-        else if(risk) setPill('#fdf1d9','#9a6400','SLA em risco',120);
-        else setPill('#e3f6ee','#0f7a54','No prazo',100);
-        // avisos
-        card(c1,(t-5.9)/.4); card(c2,(t-6.5)/.4); card(c3,(t-7.3)/.4);
-        var tp=(t-7.0)/.5; tap.setAttribute('opacity',tp>0&&tp<1?1-tp:0); tap.setAttribute('r',6+cl(tp)*14);
-        btn.setAttribute('fill',t>7.1?'#18a874':'#e3f6ee'); btn.nextElementSibling.setAttribute('fill',t>7.1?'#fff':'#0f7a54');
-      }
-      var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(reduce){draw(10.5);return}
-      draw(0);
-      var t0=null,run=false;
-      function loop(ts){if(!run){t0=null;return} if(t0==null)t0=ts-((loop.t||0)*1000); var t=((ts-t0)/1000)%L; loop.t=t; draw(t); requestAnimationFrame(loop)}
-      if('IntersectionObserver' in window){new IntersectionObserver(function(en){var v=en[0].isIntersecting; if(v&&!run){run=true;requestAnimationFrame(loop)} else if(!v){run=false}},{threshold:.35}).observe(fig)}
-      else{run=true;requestAnimationFrame(loop)}
-      }
+    if(!fig||fig._sa)return; var svg=fig.querySelector('svg'); if(!svg)return; fig._sa=1;
+    var $=function(id){return svg.querySelector('#'+id)};
+    var nodes=[].slice.call(svg.querySelectorAll('#sa-nodes>g')), xs=[80,220,360,500,640];
+    var doc=$('sa-doc'),prog=$('sa-prog'),ring=$('sa-ring'),hl=$('sa-hand').querySelector('line'),hand=$('sa-hand'),hc=$('sa-hc'),time=$('sa-time'),tot=$('sa-tot');
+    var pill=$('sa-pill'),pr=pill.querySelector('rect'),pt=pill.querySelector('text');
+    var cs=[$('sa-c1'),$('sa-c2'),$('sa-c3'),$('sa-c4')],tap=$('sa-tap'),lk=$('sa-btn').querySelector('text');
+    var C=402.1, L=11, G='#18a874', O='#e69a00', R='#e8335a';
+    function cl(v){return v<0?0:v>1?1:v} function e(v){v=cl(v);return v<.5?2*v*v:1-Math.pow(-2*v+2,2)/2}
+    function hm(m){m=Math.round(m);return Math.floor(m/60)+' h '+('0'+m%60).slice(-2)}
+    function setPill(bg,fg,txt,w){pr.setAttribute('fill',bg);pt.setAttribute('fill',fg);pt.textContent=txt;pr.setAttribute('width',w);pr.setAttribute('x',700-w);pt.setAttribute('x',700-w/2)}
+    function node(i,st){var c=nodes[i].querySelector('circle');
+      var s={idle:['#fff','#c9d2de',2],done:[G,G,2],wait:['#fff','#0496ff',3],warn:['#fff7e6',O,3],crit:['#fdecef',R,3]}[st];
+      c.setAttribute('fill',s[0]);c.setAttribute('stroke',s[1]);c.setAttribute('stroke-width',s[2])}
+    function card(g,a){g.setAttribute('opacity',cl(a));g.setAttribute('transform','translate('+(1-e(a))*24+' 0)')}
+    // relógio: verde 2.0–3.4 (0→60%), pausa, laranja 4.4–5.4 (60→85%), pausa
+    function prc(t){ if(t<2)return 0; if(t<3.4)return .6*e((t-2)/1.4); if(t<4.4)return .6; if(t<5.4)return .6+.25*e((t-4.4)/1); return .85 }
+    function draw(t){
+      var x = t<5.0 ? 80+e((t-.4)/1.6)*420 : 500+e((t-6.6)/1.1)*140;
+      doc.setAttribute('transform','translate('+x+' 140)'); prog.setAttribute('x2',x);
+      for(var i=0;i<3;i++) node(i, (i==0&&t>.4)||x>=xs[i]+1 ? 'done':'idle');
+      var p=prc(t), min=p*240, ok=t>6.2;
+      var col= ok?G : p>=.849?R : p>=.599?O : G;
+      ring.setAttribute('stroke-dasharray',(p*C)+' '+C); ring.setAttribute('stroke',col);
+      hl.setAttribute('stroke',col); hc.setAttribute('fill',col); hand.setAttribute('transform','rotate('+(p*360)+')');
+      time.textContent=hm(min)+' de 4 h'; time.setAttribute('fill', ok?'#0f7a54' : col==R?'#c0264b' : col==O?'#9a6400' : '#02132d');
+      var totm = t<2? e((t-.4)/1.6)*40 : t<6.6? 40+min : 40+204+e((t-6.6)/1.1)*26; tot.textContent=hm(Math.max(0,totm));
+      node(3, t<2?'idle' : ok?'done' : col==R?'crit' : col==O?'warn' : 'wait');
+      node(4, t>7.7?'done':'idle');
+      if(t>7.7) setPill('#e3f6ee','#0f7a54','Concluído no prazo',150);
+      else if(ok) setPill('#e6f3ff','#0068b4','Aprovado',100);
+      else if(col==R) setPill('#fdecef','#c0264b','SLA em risco · escalado',176);
+      else if(col==O) setPill('#fdf1d9','#9a6400','SLA em atenção',126);
+      else setPill('#e3f6ee','#0f7a54','No prazo',100);
+      card(cs[0],(t-3.5)/.35); card(cs[1],(t-3.95)/.35); card(cs[2],(t-5.5)/.35); card(cs[3],(t-6.3)/.35);
+      var tp=(t-6.0)/.5; tap.setAttribute('opacity',tp>0&&tp<1?1-tp:0); tap.setAttribute('r',6+cl(tp)*14);
+      lk.setAttribute('fill', t>6.1?G:'#0496ff');
+    }
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){draw(9);return}
+    draw(0);
+    var t0=null,run=false,last=0;
+    function loop(ts){if(!run){t0=null;return} if(t0==null)t0=ts-last*1000; last=((ts-t0)/1000)%L; draw(last); requestAnimationFrame(loop)}
+    if('IntersectionObserver' in window){new IntersectionObserver(function(en){var v=en[0].isIntersecting; if(v&&!run){run=true;requestAnimationFrame(loop)} else if(!v){run=false}},{threshold:.35}).observe(fig)}
+    else{run=true;requestAnimationFrame(loop)}
+    fig._draw=draw;
+  }
   function procura(){var f=document.querySelectorAll('.sla-an');for(var i=0;i<f.length;i++)liga(f[i]);}
   procura(); document.addEventListener('DOMContentLoaded',procura); window.addEventListener('load',procura); setInterval(procura,800);
 })();
