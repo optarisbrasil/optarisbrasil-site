@@ -20,9 +20,33 @@
 .forn dt{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#5b6675}
 .forn dd{margin:1px 0 0;font-size:14px;color:#02132d;overflow-wrap:anywhere}
 @media(max-width:760px){.forn dl{grid-template-columns:1fr 1fr}}
-.forn .prot{margin-top:13px;padding:10px 12px;border-radius:6px;background:#f4f7fb;font-size:13.5px;color:#26384f;display:flex;gap:8px 12px;align-items:center;flex-wrap:wrap}
-.forn .prot strong{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#5b6675}
-.forn .prot.tem{background:#fff6e5;color:#5b3d00}
+/* Quadro de homologação */
+.forn .hom{margin-top:13px;padding:12px;border-radius:6px;background:#f4f7fb;font-size:13.5px;color:#26384f}
+.forn .hom.tem{background:#fff6e5}
+.forn .hom>strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#5b6675;margin-bottom:4px}
+.forn .hom>ul{list-style:none;margin:0;padding:0}
+.forn .hom>ul>li{display:flex;gap:9px;align-items:flex-start;padding:4px 0;line-height:1.4}
+.forn .hom>ul>li>div{min-width:0;overflow-wrap:anywhere}
+.forn .hom b{color:#02132d;font-weight:700}
+.forn .hom li.h-al{color:#5b3d00}
+.forn .hom li.h-nc{color:#5b6675}
+.forn .hom .regs{margin:3px 0 0;padding-left:16px;font-size:13px}
+.forn .hom .regs li{margin:2px 0}
+.forn .hom .fonte{font-size:12px;color:#5b6675;margin:6px 0 0}
+.hom .est{flex:0 0 18px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;color:#fff}
+.hom .est svg{width:12px;height:12px}
+.hom .est-ok{background:#1a9b4b}
+.hom .est-al{background:#8a4b00}
+.hom .est-nc{background:#c5cfdb}
+.travas{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px}
+.trava{flex:1 1 120px;display:flex;gap:8px;align-items:center;min-height:46px;padding:7px 10px;border:1px dashed #b6cfe8;border-radius:6px;background:#fff;color:#26384f;text-decoration:none;font-size:12.5px;line-height:1.25}
+.trava:hover{border-color:#0496ff;background:#eaf5ff}
+.trava:focus-visible{outline:2px solid #0496ff;outline-offset:2px}
+.trava .cad{flex:0 0 14px;width:14px;height:14px;color:#8a95a3}
+.trava b{display:block;font-weight:700;color:#02132d}
+.trava small{display:block;font-size:11px;color:#5b6675;margin-top:1px}
+@media(max-width:560px){.travas{display:grid;grid-template-columns:1fr 1fr;gap:6px}.trava{min-height:0;padding:6px 8px;font-size:12px}.trava small{font-size:10.5px}}
+.kpis .box.alert em{color:#5b3d00}
 .forn .obs{font-size:13px;color:#5b3d00;margin:8px 0 0}
 .selbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:16px;padding:14px 16px;background:#02132d;border-radius:10px;color:#fff}
 .selbar span{font-size:15px}
@@ -44,3 +68,5 @@
 .efeito h3{font-size:17px;margin-bottom:6px}
 .efeito p{margin:4px 0 0;font-size:14.5px;color:#26384f}
 .efeito .btn.ncm{min-height:46px;height:auto;padding:10px 14px;text-align:left;justify-content:flex-start;line-height:1.35;white-space:normal}
+
+.custo{margin:14px 0 4px;padding:10px 14px;border-left:3px solid #b6cfe8;background:#f6f9fc;color:#3d4a60;font-size:13px;line-height:1.5;border-radius:0 6px 6px 0}

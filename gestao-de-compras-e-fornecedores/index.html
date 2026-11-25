@@ -389,7 +389,7 @@ body{overflow-x:clip}
     section[id]{scroll-margin-top:118px!important}
     @media(max-width:760px){.vcb{top:58px}.vcb a{height:42px;font-size:13.500px}}
   </style>
-  <div class="vcb-w"><a href="#teste-o-vendor">Ferramentas</a><a href="#o-que-resolvemos">O que resolvemos</a><a href="#como">Como resolvemos</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco" class="vcb-p">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
+  <div class="vcb-w"><a href="#teste-o-vendor">Ferramentas</a><a href="#o-que-resolvemos">O que resolvemos</a><a href="#como">Como resolvemos</a><a href="#homologacao">Homologação</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco" class="vcb-p">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
   <span class="vcb-bar" aria-hidden="true"></span>
 </nav>
 <section id="teste-o-vendor" data-screen-label="01c Teste o Vendor com os seus dados" data-noprint="" style="padding:clamp(48px,6vw,80px) 0;background:linear-gradient(180deg,#f4f8fd 0%,#fff 100%);border-bottom:1px solid #e5e7eb;scroll-margin-top:70px">
@@ -827,6 +827,122 @@ body{overflow-x:clip}
     </div>
       </div>
     </details>
+  </div>
+</section>
+
+<section id="homologacao" class="hm" data-screen-label="03-1 Homologação de fornecedores">
+  <style>
+    .hm{padding:clamp(44px,5vw,64px) 0;background:#f4f8fd;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb}
+    .hm-w{max-width:1200px;margin:0 auto;padding:0 24px}
+    .hm-h{display:flex;flex-direction:column;gap:12px;max-width:880px}
+    .hm-k{color:#0496ff;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.08em}
+    .hm-h h2{font-size:clamp(26px,3vw,38px);font-weight:900;color:#02132d;text-wrap:balance}
+    .hm-h p{font-size:16.5px;line-height:1.6;color:#3d4a60;text-wrap:pretty}
+    .hm-h p.hm-sub{font-family:Lato,sans-serif;font-size:clamp(18px,1.8vw,22px);font-weight:700;color:#0070d6;margin-top:-4px}
+    .hm-c{margin-top:10px;font-size:13.5px;line-height:1.5;color:#5b6675;text-wrap:pretty}
+    .hm-g{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:28px 44px;align-items:center;margin-top:26px}
+    .hm-cy{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:44px}
+    .hm-s{position:relative;background:#fff;border:1px solid #dbe6f3;border-radius:16px;padding:16px 16px 18px;display:flex;flex-direction:column;gap:9px;box-shadow:0 2px 14px rgba(2,19,45,.05)}
+    .hm-s1{grid-area:1/1}.hm-s2{grid-area:1/2}.hm-s3{grid-area:2/2}.hm-s4{grid-area:2/1}
+    .hm-sh{display:flex;align-items:center;gap:10px;margin:0}
+    .hm-sh i{flex:none;width:28px;height:28px;border-radius:50%;background:#0496ff;color:#fff;font-style:normal;font-family:Roboto,sans-serif;font-size:13.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+    .hm-sh span{font-family:Lato,sans-serif;font-weight:900;font-size:17px;line-height:1.2;color:#02132d}
+    .hm-s p{font-size:14.5px;line-height:1.5;color:#3d4a60;text-wrap:pretty}
+    .hm-ch{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+    .hm-ch li{background:#eaf5ff;color:#02132d;border-radius:7px;padding:4px 9px;font-size:13px;font-weight:500;line-height:1.3}
+    .hm-s1::after,.hm-s2::after,.hm-s3::after,.hm-ret::before{content:"";position:absolute;width:11px;height:11px;border-top:3px solid #0496ff;border-right:3px solid #0496ff;border-radius:1px}
+    .hm-s1::after{top:50%;right:-28px;transform:translateY(-50%) rotate(45deg)}
+    .hm-s2::after{left:50%;bottom:-28px;transform:translateX(-50%) rotate(135deg)}
+    .hm-s3::after{top:50%;left:-28px;transform:translateY(-50%) rotate(-135deg)}
+    .hm-ret{position:absolute;left:0;top:50%;width:calc(50% - 22px);transform:translateY(-50%);display:flex;align-items:center;justify-content:center;gap:10px;margin:0;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#0070d6;line-height:1.2}
+    .hm-ret::before{position:static;flex:none;transform:translateY(3px) rotate(-45deg)}
+    .hm-hub{position:absolute;left:50%;top:50%;width:66px;height:66px;transform:translate(-50%,-50%);z-index:1}
+    .hm-hub svg{display:block;width:100%;height:100%}
+    .hm-d{background:#fff;border:1px solid #dbe6f3;border-radius:16px;padding:20px 22px 12px;box-shadow:0 18px 36px -26px rgba(2,19,45,.45)}
+    .hm-tag{display:inline-block;background:#eaf5ff;color:#0070d6;border-radius:6px;padding:3px 9px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .hm-dh{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:12px 0 6px}
+    .hm-dh b{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:18px;line-height:1.2;color:#02132d}
+    .hm-dh small{display:block;font-size:13.5px;color:#6b7686;margin-top:2px}
+    .hm-ok{display:inline-flex;align-items:center;gap:6px;background:#e7f6ec;color:#11703a;border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:700}
+    .hm-ok::before{content:"";width:7px;height:7px;border-radius:50%;background:#1a9b4b}
+    .hm-dl{list-style:none;margin:0;padding:0}
+    .hm-dl li{display:flex;align-items:flex-start;gap:11px;padding:9px 0;border-top:1px solid #eef2f7}
+    .hm-dl li div{min-width:0}
+    .hm-dl b{display:block;font-size:14.5px;font-weight:500;line-height:1.3;color:#02132d}
+    .hm-dl small{display:block;font-size:13px;line-height:1.35;color:#5d6b82;margin-top:1px}
+    .hm-dl li.al{background:#fff8eb;margin:0 -10px;padding-left:10px;padding-right:10px;border-radius:8px;border-top-color:transparent}
+    .hm-dl li.al small{color:#995400;font-weight:500}
+    .hm-dl li.al+li{border-top-color:transparent}
+    .hm-e{flex:none;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;color:#fff;background:#1a9b4b}
+    .hm-e.al{background:#e08a00}
+    .hm-e svg{display:block;width:12px;height:12px}
+    .hm-f{display:flex;align-items:flex-start;gap:10px;margin-top:26px;font-size:15.5px;line-height:1.55;color:#3d4a60;text-wrap:pretty}
+    .hm-f svg{flex:none;margin-top:3px;color:#0496ff}
+    .hm-f a{color:#0070d6;font-weight:700;text-decoration:none}
+    .hm-f a:hover{text-decoration:underline}
+    @media(max-width:980px){.hm-g{grid-template-columns:minmax(0,1fr)}.hm-d{max-width:560px;width:100%;justify-self:center}}
+    @media(max-width:640px){
+      .hm-cy{grid-template-columns:minmax(0,1fr);grid-auto-rows:auto;gap:30px}
+      .hm-s1,.hm-s2,.hm-s3,.hm-s4{grid-area:auto}
+      .hm-s1::after,.hm-s2::after,.hm-s3::after,.hm-s4::after{content:"";position:absolute;width:11px;height:11px;border-top:3px solid #0496ff;border-right:3px solid #0496ff;border-radius:1px;top:auto;right:auto;left:50%;bottom:-22px;transform:translateX(-50%) rotate(135deg)}
+      .hm-hub{display:none}
+      .hm-ret{position:static;width:auto;transform:none;justify-content:flex-start;border:1.5px dashed #0496ff;border-radius:12px;background:#fff;padding:11px 14px}
+      .hm-ret::before{transform:translateY(3px) rotate(-45deg)}
+      .hm-s p{font-size:15px}
+      .hm-ch li{font-size:14px}
+      .hm-dl b{font-size:15px}
+      .hm-dl small{font-size:14px}
+      .hm-d{padding:18px 16px 10px}
+      .hm-f{font-size:16px}
+    }
+  </style>
+  <div class="hm-w">
+    <div class="hm-h" data-reveal="">
+      <span class="hm-k">Homologação de fornecedores · SRM</span>
+      <h2>Homologação de fornecedores, do pedido de documentos ao controle de validade</h2>
+      <p class="hm-sub">Um dos pilares centrais do seu compliance.</p>
+      <p>O Vendor pede a documentação ao fornecedor, consulta o que é público, analisa o que chega com as regras da sua empresa e controla a validade de tudo enquanto o fornecedor estiver homologado.</p>
+    </div>
+    <div class="hm-g">
+      <div class="hm-cy" role="group" aria-label="Ciclo de homologação em 4 etapas: pedir, consultar e analisar, aprovar e controlar a validade. Da etapa 4, o ciclo volta à etapa 1." data-reveal="" style="transition-delay:.1s">
+        <div class="hm-s hm-s1">
+          <h3 class="hm-sh"><i>1</i><span>Pedir</span></h3>
+          <p>Pelo portal do fornecedor, o Vendor pede os documentos que cada categoria exige.</p>
+          <ul class="hm-ch"><li>Contrato social</li><li>Balanço e balancetes</li><li>Certidões</li><li>Certificações</li></ul>
+        </div>
+        <div class="hm-s hm-s2">
+          <h3 class="hm-sh"><i>2</i><span>Consultar e analisar</span></h3>
+          <p>Consulta as bases públicas sozinho e calcula, do balanço enviado, os índices de liquidez e de endividamento.</p>
+          <ul class="hm-ch"><li>Receita Federal</li><li>Sanções CEIS e CNEP</li><li>Lista suja do trabalho escravo</li><li>CND federal</li><li>CNDT</li><li>FGTS</li></ul>
+        </div>
+        <div class="hm-s hm-s3">
+          <h3 class="hm-sh"><i>3</i><span>Aprovar</span></h3>
+          <p>A aprovação interna segue as regras de compliance da sua empresa, com o histórico pronto para a auditoria.</p>
+          <ul class="hm-ch"><li>Quem aprovou</li><li>Quando</li><li>Por quê</li></ul>
+        </div>
+        <div class="hm-s hm-s4">
+          <h3 class="hm-sh"><i>4</i><span>Controlar a validade</span></h3>
+          <p>O Vendor acompanha o vencimento de cada documento enquanto o fornecedor estiver homologado.</p>
+          <ul class="hm-ch"><li>Aviso antes de vencer</li><li>Novo pedido automático ao fornecedor</li><li>Suspensão se algo vencer ou mudar</li></ul>
+        </div>
+        <p class="hm-ret">Volta à etapa 1 e renova o ciclo</p>
+        <div class="hm-hub"><svg viewBox="0 0 66 66" role="img" aria-label="Ciclo contínuo de homologação: as 4 etapas se repetem enquanto o fornecedor estiver na base"><circle cx="33" cy="33" r="31.5" fill="#fff" stroke="#b9dcfb" stroke-width="2"></circle><g transform="translate(18 18) scale(1.25)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" stroke="#0496ff" stroke-width="2"></path><path d="M21 3v5h-5" stroke="#0496ff" stroke-width="2"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" stroke="#0496ff" stroke-width="2"></path><path d="M8 16H3v5" stroke="#0496ff" stroke-width="2"></path><path d="M8.5 12.2l2.4 2.4 4.6-4.8" stroke="#1a9b4b" stroke-width="2.2"></path></g></svg></div>
+      </div>
+      <div class="hm-d" role="group" aria-label="Exemplo de dossiê do fornecedor, com dados fictícios" data-reveal="" style="transition-delay:.2s">
+        <span class="hm-tag">Exemplo · dados fictícios</span>
+        <div class="hm-dh"><div><b>Dossiê do fornecedor</b><small>Fornecedor Exemplo Ltda</small></div><span class="hm-ok">Homologado</span></div>
+        <ul class="hm-dl">
+          <li><span class="hm-e" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"></path></svg></span><div><b>CND federal</b><small>Válida · vence em 12/05/2027</small></div></li>
+          <li><span class="hm-e" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"></path></svg></span><div><b>Balanço 2025</b><small>Liquidez corrente 1,8 · aprovado</small></div></li>
+          <li class="al"><span class="hm-e al" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3.5v5.5"></path><circle cx="8" cy="12.5" r="1.2" fill="currentColor" stroke="none"></circle></svg></span><div><b>CNDT</b><small>Vence em 30 dias · novo pedido enviado ao fornecedor</small></div></li>
+          <li><span class="hm-e" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"></path></svg></span><div><b>Sanções federais (CEIS e CNEP)</b><small>Nada consta · consultado hoje</small></div></li>
+          <li><span class="hm-e" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"></path></svg></span><div><b>Lista suja do trabalho escravo</b><small>Não consta · consultado hoje</small></div></li>
+          <li><span class="hm-e" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"></path></svg></span><div><b>Certificação ISO 9001</b><small>Válida · vence em 03/09/2027</small></div></li>
+        </ul>
+      </div>
+    </div>
+    <p class="hm-f"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span>Experimente grátis a consulta pública: o <a href="/ferramentas-de-compras/buscador-de-fornecedores/">Buscador de fornecedores</a> já mostra a situação na Receita, as sanções federais e a lista suja de 5 fornecedores.</span></p>
+    <p class="hm-c">Consultas com custo, como a CND pela API oficial, protestos, processos e birôs de crédito, são contratadas pelo cliente e cobradas na conta de consumo dele.</p>
   </div>
 </section>
 
@@ -1513,6 +1629,20 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script id="ancora-homologacao">
+/* Quem chega por #homologacao (botões travados do Buscador) vai direto à seção, depois que a página termina de montar. */
+(function(){
+  if (location.hash !== '#homologacao') return;
+  var mexeu = false, n = 0;
+  ['wheel', 'touchstart', 'keydown'].forEach(function (ev) { window.addEventListener(ev, function () { mexeu = true; }, { passive: true, once: true }); });
+  (function ir(){
+    if (mexeu || n++ > 40) return;
+    var s = document.getElementById('homologacao');
+    if (s && s.getBoundingClientRect().height > 0) { setTimeout(function(){ if (!mexeu) s.scrollIntoView({ block: 'start' }); }, 300); return; }
+    setTimeout(ir, 200);
+  })();
+})();
+</script>
 <script id="ancora-ferramentas">
 /* Quem chega por #ferramentas (ou #teste-o-vendor / #calculadora) vê o título da página no alto da tela e,
    logo abaixo, o começo da seção de ferramentas; em tela pequena, o fim do título e o cabeçalho da seção. */
@@ -1563,7 +1693,7 @@ class Component extends DCLogic {
     @media print{.vfb{display:none}}
   </style>
   <button type="button" class="vfb-b" data-vfb-t="" aria-expanded="false"><i aria-hidden="true"></i>Navegação</button>
-  <div class="vfb-l"><a href="#teste-o-vendor">Ferramentas</a><a href="#o-que-resolvemos">O que resolvemos</a><a href="#como">Como resolvemos</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
+  <div class="vfb-l"><a href="#teste-o-vendor">Ferramentas</a><a href="#o-que-resolvemos">O que resolvemos</a><a href="#como">Como resolvemos</a><a href="#homologacao">Homologação</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
 </nav>
 <script id="vdd-js">
 /* Passo a passo "do indicador ao caso": a mãozinha clica no número, abre a lista, o pedido e o processo. */
