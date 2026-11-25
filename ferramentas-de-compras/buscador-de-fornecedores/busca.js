@@ -49,7 +49,7 @@ function estado(tipo){
   return e;
 }
 function cadeado(){ return desenho([['rect', { x: '3', y: '7', width: '10', height: '8', rx: '1.5', fill: 'currentColor' }], ['path', com(TRACO, { d: 'M5.5 7V5a2.5 2.5 0 0 1 5 0v2', 'stroke-width': '1.8' })]], 'cad'); }
-var VENDOR = '/gestao-de-compras-e-fornecedores/?utm_source=ferramenta&utm_medium=buscador&utm_campaign=homologacao';
+var VENDOR = '/gestao-de-compras-e-fornecedores/?utm_source=ferramenta&utm_medium=buscador&utm_campaign=homologacao#homologacao';
 var TRAVADOS = ['Emitir CND federal', 'Emitir CNDT trabalhista', 'Emitir CRF do FGTS', 'Protestos e processos', 'Pedir balanço e analisar liquidez', 'Controlar a validade dos documentos', 'Dossiê de homologação em PDF'];
 
 F.destino($('uf'), $('mun'));
