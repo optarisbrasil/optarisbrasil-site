@@ -719,15 +719,16 @@ body{overflow-x:clip}
     @media(max-width:640px){.vp-shot{overflow-x:auto;-webkit-overflow-scrolling:touch;filter:none;border-radius:14px;margin:0 -24px;padding:0 24px 6px}.vp .mk{width:600px;max-width:none}}
     .vg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:36px}
     .vg-c{background:#fff;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 18px 36px -26px rgba(2,19,45,.4)}
-    .vg-i{aspect-ratio:2/1;background:#f1f5f9;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:center;padding:14px}
-    .vg-i img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;border-radius:6px}
-    .vg-t{padding:18px 22px 22px}
+    .vg-i{aspect-ratio:12/5;background:#f1f5f9;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}
+    .vg-i img{display:block;width:100%;height:100%;object-fit:contain;border-radius:6px}
+    .vg-t{padding:18px 22px 22px;flex:1;display:flex;flex-direction:column;align-items:flex-start}
     @media(min-width:821px){.vg-c:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row}.vg-c:last-child:nth-child(odd) .vg-i{flex:0 0 50%;border-bottom:0;border-right:1px solid #e5e7eb}.vg-c:last-child:nth-child(odd) .vg-t{align-self:center;padding:24px 32px}}
     .vg-n{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0496ff}
     .vg-t h3{font-family:Lato,sans-serif;font-size:19px;font-weight:900;line-height:1.25;color:#02132d;margin:6px 0 6px}
     .vg-t p{font-size:15px;line-height:1.5;color:#555;margin:0;text-wrap:pretty}
     .vg-t p.vg-wa{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:13.5px;font-weight:500;color:#0f7a54}
     .vg-wa i{width:8px;height:8px;border-radius:50%;background:#25d366;flex:none}
+    .vg-t .vg-v{margin-top:auto;padding-top:12px}
     .vg-v,.vp-v{display:inline-block;margin-top:12px;font-size:13px;color:#98a2b3;text-decoration:none}
     .vg-v:hover,.vp-v:hover{color:#0496ff}
     .vp-dark .vp-v{color:#8fa0b8}
@@ -798,12 +799,12 @@ body{overflow-x:clip}
     <p class="vg-lead">Veja as telas de cada momento da compra</p>
     <div class="vg">
       <div class="vg-c">
-        <div class="vg-i"><img src="/media/vendor-telas/solicitacao.webp" alt="Tela de solicitação de compra no computador e no celular, com item de catálogo, centro de custo, orçamento da área e foto anexada" width="1200" height="699" loading="lazy" decoding="async"></div>
+        <div class="vg-i"><img src="/media/vendor-telas/solicitacao-v2.webp" alt="Tela de solicitação de compra no computador e no celular, com item de catálogo, centro de custo, orçamento da área e foto anexada" width="1200" height="699" loading="lazy" decoding="async"></div>
         <div class="vg-t"><span class="vg-n">Solicitação</span><h3>O pedido nasce no sistema, até pelo celular</h3><p>O sistema confere se o item existe em estoque e se há contrato ativo que cubra o produto ou serviço, e segue a decisão que a sua empresa definiu para cada caso. Sem estoque nem contrato, o pedido pode passar pelas aprovações conforme valor, orçamento e alçada, a critério da companhia, antes mesmo de chegar ao comprador.</p><a class="vg-v" href="https://www.youtube.com/watch?v=5wnLtxx-RJE&amp;t=138s" target="_blank" rel="noopener">Veja uma demo da função <span aria-hidden="true">▸</span></a></div>
       </div>
       <div class="vg-c">
         <div class="vg-i"><img src="/media/vendor-telas/mapa.webp" alt="Mapa de compras com três propostas, prazo, entrega no prazo, histórico e nota ponderada de cada fornecedor" width="1200" height="499" loading="lazy" decoding="async"></div>
-        <div class="vg-t"><span class="vg-n">Cotação - pesquisa automática de fornecedor</span><h3>Mapa de compras pronto para decidir</h3><p>Dispare o fluxo automatizado para cotar na sua base de fornecedores ou peça a um agente de IA para prospectar o mercado e trazer cinco fornecedores para o produto procurado, já com onboarding, documentação validada e mapa de preços. O mapa compara preço, prazo e histórico de entrega, com os pesos que a sua empresa escolheu.</p><a class="vg-v" href="https://www.youtube.com/watch?v=5wnLtxx-RJE&amp;t=227s" target="_blank" rel="noopener">Veja uma demo da função <span aria-hidden="true">▸</span></a></div>
+        <div class="vg-t"><span class="vg-n">Cotação</span><h3>Mapa de compras pronto para decidir</h3><p>Dispare o fluxo automatizado para cotar na sua base de fornecedores ou peça a um agente de IA para prospectar o mercado e trazer cinco fornecedores para o produto procurado, já com onboarding, documentação validada e mapa de preços. O mapa compara preço, prazo e histórico de entrega, com os pesos que a sua empresa escolheu.</p><a class="vg-v" href="https://www.youtube.com/watch?v=5wnLtxx-RJE&amp;t=227s" target="_blank" rel="noopener">Veja uma demo da função <span aria-hidden="true">▸</span></a></div>
       </div>
       <div class="vg-c">
         <div class="vg-i"><img src="/media/vendor-telas/nota.webp" alt="Tela de conferência automática entre ordem de compra, recebimento e nota fiscal, com a ordem de pagamento enviada ao ERP" width="1200" height="475" loading="lazy" decoding="async"></div>
@@ -814,7 +815,7 @@ body{overflow-x:clip}
         <div class="vg-t"><span class="vg-n">Controle de fornecedores</span><h3>Homologação num documento só</h3><p>As consultas cadastrais, financeiras e de conformidade viram um único documento, que cada área aprova na sua parte.</p><a class="vg-v" href="https://www.youtube.com/watch?v=5wnLtxx-RJE&amp;t=378s" target="_blank" rel="noopener">Veja uma demo da função <span aria-hidden="true">▸</span></a></div>
       </div>
       <div class="vg-c">
-        <div class="vg-i"><img src="/media/vendor-telas/documentos.webp" alt="Controle de validade de uma certidão, com avisos 30, 15 e 3 dias antes do vencimento ao fornecedor e aos responsáveis, pagamentos suspensos no limite e a cobrança pelo WhatsApp" width="1200" height="771" loading="lazy" decoding="async"></div>
+        <div class="vg-i"><img src="/media/vendor-telas/documentos-v2.webp" alt="Controle de validade de uma certidão, com avisos 30, 15 e 3 dias antes do vencimento ao fornecedor e aos responsáveis, pagamentos suspensos no limite e a cobrança pelo WhatsApp" width="1200" height="771" loading="lazy" decoding="async"></div>
         <div class="vg-t"><span class="vg-n">Documentação dos fornecedores</span><h3>Nunca mais perca uma certificação</h3><p>Estabeleça gatilhos automatizados em função de datas e vencimentos de documentos, com cobrança automática junto ao fornecedor e até bloqueio de pagamento, para prevenir problemas e perdas.</p><a class="vg-v" href="https://www.youtube.com/watch?v=5wnLtxx-RJE&amp;t=525s" target="_blank" rel="noopener">Veja uma demo da função <span aria-hidden="true">▸</span></a></div>
       </div>
       <div class="vg-c">
@@ -827,141 +828,6 @@ body{overflow-x:clip}
       </div>
     </div>
     <p class="vg-cap">Telas da demo completa de 18 minutos, com dados de uma empresa fictícia. <a href="#videos" style="color:#0496ff;text-decoration:none">Ver a demo ↓</a></p>
-    <details class="vj">
-      <summary>Ver a jornada completa, etapa por etapa <small>S2P + SRM: as 12 etapas e o detalhe de cada função</small></summary>
-      <div class="vj-in">
-    <h3 style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Source-to-pay: a jornada da compra</h3>
-    <p style="font-size:15px;color:#555;max-width:760px;margin-bottom:22px;text-wrap:pretty">O Deyel Vendor Management une S2P e SRM: controla cada etapa da compra e, ao mesmo tempo, a homologação e a gestão dos fornecedores. Doze etapas em quatro momentos, do pedido ao pagamento. Sob elas, o que as sustenta: uma base única de fornecedores, indicadores e IA, e a ligação com os seus sistemas.</p>
-    <style>
-      .vf{display:flex;flex-direction:column;gap:14px;margin:0 0 48px}
-      .vf-sup{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;background:#fff;border:1.5px dashed #f46b45;border-radius:14px;padding:12px 16px}
-      .vf-sup>b{display:inline-flex;align-items:center;gap:9px;font-family:Lato,sans-serif;font-weight:900;font-size:15px;line-height:1.2;color:#02132d}
-      .vf-sup>b svg{color:#f46b45;flex:none}
-      .vf-sup>span{display:inline-flex;align-items:center;background:#fff1ec;border-radius:999px;padding:5px 12px;font-size:13.5px;font-weight:500;line-height:1.2;color:#8a3a1c}
-      .vf-ex{display:flex;justify-content:center;margin:-2px 0;color:#f46b45}
-      .vf-ph{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
-      .vf-card{position:relative;background:#f4f8fd;border:1px solid #dbe6f3;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px}
-      .vf-card:not(:last-child)::after{content:"";position:absolute;top:50%;right:-19px;width:11px;height:11px;border-top:3px solid #0496ff;border-right:3px solid #0496ff;border-radius:1px;transform:translateY(-50%) rotate(45deg)}
-      .vf-hd{display:flex;align-items:center;gap:11px}
-      .vf-ic{flex:none;width:38px;height:38px;border-radius:11px;background:#0496ff;color:#fff;display:flex;align-items:center;justify-content:center}
-      .vf-hd small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#0496ff;line-height:1.2}
-      .vf-hd b{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:17px;line-height:1.2;color:#02132d}
-      .vf-st{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-      .vf-st li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #dbe6f3;border-radius:10px;padding:9px 11px;font-size:14px;font-weight:500;color:#02132d;line-height:1.25}
-      .vf-st li i{flex:none;width:26px;height:26px;border-radius:50%;background:#0496ff;color:#fff;font-style:normal;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
-      .vf-cap{display:flex;align-items:center;gap:14px;margin:6px 0 -2px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#6b7a90}
-      .vf-cap::before,.vf-cap::after{content:"";flex:1;height:1px;background:#d5dfeb}
-      .vf-ly{display:flex;align-items:center;flex-wrap:wrap;gap:12px 22px;border-radius:14px;padding:14px 18px}
-      .vf-lt{flex:0 0 250px;display:flex;align-items:center;gap:12px}
-      .vf-li{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center}
-      .vf-lt b{display:block;font-family:Lato,sans-serif;font-weight:900;font-size:16px;line-height:1.2}
-      .vf-lt small{display:block;font-size:13px;line-height:1.35;margin-top:2px}
-      .vf-ch{flex:1 1 360px;display:flex;flex-wrap:wrap;gap:8px}
-      .vf-ch span{border-radius:8px;padding:6px 11px;font-size:13.5px;font-weight:500;line-height:1.25}
-      .vf-srm{background:#e6f3ff;border:1px solid #b9dcfb}
-      .vf-srm .vf-li{background:#0496ff;color:#fff}
-      .vf-srm b{color:#02132d}.vf-srm small{color:#3d5a78}
-      .vf-srm .vf-ch span{background:#fff;border:1px solid #b9dcfb;color:#02132d}
-      .vf-ia{background:#f1edfb;border:1px solid #d9cff3}
-      .vf-ia .vf-li{background:#5b3fc4;color:#fff}
-      .vf-ia b{color:#02132d}.vf-ia small{color:#58497d}
-      .vf-ia .vf-ch span{background:#fff;border:1px solid #d9cff3;color:#02132d}
-      .vf-int{background:#02132d;border:1px solid #02132d}
-      .vf-int .vf-li{background:rgba(255,255,255,.14);color:#7cc4ff}
-      .vf-int b{color:#fff}.vf-int small{color:#a9b8cc}
-      .vf-int .vf-ch span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff}
-      @media(max-width:1000px){.vf-ph{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.vf-card:not(:last-child)::after{display:none}}
-      @media(max-width:620px){
-        .vf-ph{grid-template-columns:1fr;gap:30px}
-        .vf-card:not(:last-child)::after{display:block;top:auto;bottom:-21px;right:auto;left:50%;transform:translateX(-50%) rotate(135deg)}
-        .vf-lt{flex:1 1 100%}
-        .vf-st li{font-size:15px}
-        .vf-ch span{font-size:14px}
-      }
-    </style>
-    <div class="vf" role="group" aria-label="Jornada da compra de ponta a ponta, com o que a sustenta: gestão de fornecedores, indicadores e IA, e integração com os seus sistemas">
-      <div class="vf-sup">
-        <b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M5 21V8l7-4 7 4v13"></path><path d="M9 21v-5h6v5"></path><path d="M9 10h.01M12 10h.01M15 10h.01"></path></svg>Fornecedor, no portal próprio</b>
-        <span>atualiza seus dados</span><span>cadastra a proposta</span><span>acompanha os pedidos</span><span>envia as notas</span>
-      </div>
-      <div class="vf-ex" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v16M8 4 4 8M8 4l4 4"></path><path d="M16 20V4M16 20l-4-4M16 20l4-4"></path></svg></div>
-      <div class="vf-ph">
-        <div class="vf-card">
-          <div class="vf-hd"><span class="vf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg></span><span><small>Etapas 1 a 3</small><b>Pedir e autorizar</b></span></div>
-          <ol class="vf-st"><li><i>1</i>Solicitação</li><li><i>2</i>Autorização</li><li><i>3</i>Controle de estoque</li></ol>
-        </div>
-        <div class="vf-card">
-          <div class="vf-hd"><span class="vf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg></span><span><small>Etapas 4 a 6</small><b>Cotar e concorrer</b></span></div>
-          <ol class="vf-st" start="4"><li><i>4</i>Compras</li><li><i>5</i>Cotação</li><li><i>6</i>Concorrência</li></ol>
-        </div>
-        <div class="vf-card">
-          <div class="vf-hd"><span class="vf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><path d="M14 2v6h6"></path><path d="M16 13H8M16 17H8M10 9H8"></path></svg></span><span><small>Etapas 7 a 9</small><b>Decidir e pedir</b></span></div>
-          <ol class="vf-st" start="7"><li><i>7</i>Mapa de compras</li><li><i>8</i>Pedido</li><li><i>9</i>Faturamento</li></ol>
-        </div>
-        <div class="vf-card">
-          <div class="vf-hd"><span class="vf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg></span><span><small>Etapas 10 a 12</small><b>Receber e pagar</b></span></div>
-          <ol class="vf-st" start="10"><li><i>10</i>Recepção do produto</li><li><i>11</i>Recebimento da nota fiscal</li><li><i>12</i>Pagamento</li></ol>
-        </div>
-      </div>
-      <div class="vf-cap" aria-hidden="true"><span>O que sustenta as 12 etapas</span></div>
-      <div class="vf-ly vf-srm">
-        <div class="vf-lt"><span class="vf-li"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span><b>SRM: gestão de fornecedores</b><small>Uma base única de fornecedores, com risco e contratos</small></span></div>
-        <div class="vf-ch"><span>Cadastro e homologação</span><span>Avaliação e seleção</span><span>Riscos e conformidade</span><span>Contratos: geração, assinatura e gestão</span></div>
-      </div>
-      <div class="vf-ly vf-ia">
-        <div class="vf-lt"><span class="vf-li"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5 C12.9 8.2 15.8 11.1 21.5 12 C15.8 12.9 12.9 15.8 12 21.5 C11.1 15.8 8.2 12.9 2.5 12 C8.2 11.1 11.1 8.2 12 2.5 Z"></path></svg></span><span><b>Indicadores e IA</b><small>Para decidir com dados, sem extração manual</small></span></div>
-        <div class="vf-ch"><span>Painel de KPIs e savings</span><span>Relatórios por critério</span><span>VendorBot, em linguagem natural</span><span>Busca ativa de fornecedores</span><span>Agentes de IA opcionais</span></div>
-      </div>
-      <div class="vf-ly vf-int">
-        <div class="vf-lt"><span class="vf-li"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4"></path><path d="M4 7h16"></path><path d="m16 21 4-4-4-4"></path><path d="M20 17H4"></path></svg></span><span><b>Integração com o que você já tem</b><small>Por API REST e SOAP</small></span></div>
-        <div class="vf-ch"><span>ERP</span><span>Contabilidade</span><span>CRM</span><span>Logística</span></div>
-      </div>
-    </div>
-    <h3 style="font-size:15px;font-weight:500;color:#0496ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Em detalhe: S2P e SRM</h3>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px">
-      <div style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Solicitação e autorização</h3>
-        <p style="font-size:15px;color:#555;text-wrap:pretty">Requisição de compra com alçadas de aprovação definidas pela empresa e controle de estoque ligado ao que se pede.</p>
-      </div>
-      <div style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Cadastro e homologação</h3>
-        <p style="font-size:15px;color:#555;text-wrap:pretty">Base única de fornecedores, classificada por categoria, setor e nível de risco, com coleta e validação de documentos.</p>
-      </div>
-      <div style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Cotação, concorrência e mapa de compras</h3>
-        <p style="font-size:15px;color:#555;text-wrap:pretty">O fornecedor cadastra a proposta no portal e o comprador recebe o mapa de compras já ranqueado, com critérios com peso, várias rodadas e divisão de volume entre fornecedores.</p>
-      </div>
-      <div style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Avaliação e seleção</h3>
-        <p style="font-size:15px;color:#555;text-wrap:pretty">Comparação por custo, qualidade e prazo, com sistema de pontuação e pré-seleção.</p>
-      </div>
-      <div style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Riscos e conformidade</h3>
-        <p style="font-size:15px;color:#555;text-wrap:pretty">Avaliações de compliance, TI, financeira e operacional, monitoramento contínuo e planos de contingência.</p>
-      </div>
-      <div style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Geração, assinatura e gestão de contratos</h3>
-        <p style="font-size:15px;color:#555;text-wrap:pretty">Contratos gerados a partir de modelos, assinados dentro do fluxo e guardados num repositório central, com alertas de vencimento.</p>
-      </div>
-      <div style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Pedido, recebimento e pagamento</h3>
-        <p style="font-size:15px;color:#555;text-wrap:pretty">Pedido, faturamento, recepção do produto, recebimento da nota fiscal eletrônica e pagamento, integrados à contabilidade e ao ERP.</p>
-      </div>
-      <div style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Indicadores e relatórios</h3>
-        <p style="font-size:15px;color:#555;text-wrap:pretty">Painel de KPIs, acompanhamento de savings e relatórios por critério, sem extração manual.</p>
-      </div>
-      <div style="transition-delay:0.0s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">IA aplicada a compras</h3>
-        <p style="font-size:15px;color:#555;text-wrap:pretty">Busca ativa de novos fornecedores, apoio à seleção e à precificação, VendorBot para consultas em linguagem natural e agentes de IA opcionais para tarefas do processo.</p>
-      </div>
-      <div style="transition-delay:0.1s;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:26px;border-left:4px solid #0496ff">
-        <h3 style="font-size:20px;font-weight:900;color:#02132d;margin-bottom:10px">Integração com o que você já tem</h3>
-        <p style="font-size:15px;color:#555;text-wrap:pretty">ERP, CRM e logística conectados por API REST e SOAP: SAP, Oracle, DB2, MySQL, AWS e Google Drive, entre outros.</p>
-      </div>
-    </div>
-      </div>
-    </details>
   </div>
 </section>
 
