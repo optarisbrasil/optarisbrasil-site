@@ -351,10 +351,20 @@ body{overflow-x:clip}
     .vh-an{position:relative;height:clamp(380px,34vw,430px);margin:0 -24px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%)}
     .vh-an canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
     .vh-cta{display:flex;flex-direction:column;gap:14px}
-    .vh-ft{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16)}
-    .vh-ft b{font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#fff;margin-right:4px}
-    .vh-ft a{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:6px 13px;font-size:13.5px;color:#e8eef7;text-decoration:none;transition:background .2s,border-color .2s}
-    .vh-ft a:hover{background:#fff;border-color:#fff;color:#02132d}
+    .vh-ft{display:grid;grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,1.15fr));gap:12px;align-items:stretch;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
+    .vh-ft-t{display:flex;flex-direction:column;justify-content:center;gap:8px;padding-right:12px}
+    .vh-ft-t b{font-family:Lato,sans-serif;font-weight:900;font-size:clamp(19px,1.8vw,23px);line-height:1.2;color:#fff;text-wrap:balance}
+    .vh-ft-t span{font-size:14px;line-height:1.45;color:#c7d3e3;text-wrap:pretty}
+    .vh-fcol{display:flex;flex-direction:column;gap:12px}
+    .vh-fc{position:relative;flex:1;display:flex;flex-direction:column;gap:2px;padding:12px 34px 12px 14px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
+    .vh-fc small{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#7cc4ff}
+    .vh-fc b{font-family:Lato,sans-serif;font-weight:900;font-size:16px;line-height:1.25;color:#fff}
+    .vh-fc span{font-size:13px;line-height:1.35;color:#b9c8dc}
+    .vh-fc i{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-style:normal;font-size:16px;color:#7cc4ff;transition:transform .2s}
+    .vh-fc:hover{background:rgba(255,255,255,.12);border-color:#7cc4ff;transform:translateY(-2px)}
+    .vh-fc:hover i{transform:translate(3px,-50%)}
+    @media(max-width:980px){.vh-ft{grid-template-columns:repeat(3,minmax(0,1fr))}.vh-ft-t{grid-column:1/-1;padding:0}}
+    @media(max-width:640px){.vh-ft{grid-template-columns:minmax(0,1fr)}.vh-fcol{display:grid;grid-template-columns:1fr 1fr;gap:10px}.vh-fc{padding:11px 12px}.vh-fc i{display:none}}
     @media(max-width:700px){.vh-an{height:600px;margin:0;-webkit-mask-image:none;mask-image:none}}
   </style>
   <div class="vh" style="position:relative;max-width:1200px;margin:0 auto;padding:0 24px;padding-top:130px;padding-bottom:80px">
@@ -374,7 +384,7 @@ body{overflow-x:clip}
     </div>
     <p data-reveal="" style="margin:0;font-size:14.5px;max-width:720px;color:#c7d3e3;text-wrap:pretty;transition-delay:.35s"><b style="color:#fff;font-weight:500">Funciona com ou sem IA.</b> Você decide onde os agentes entram.</p>
     </div>
-    <div class="vh-ft" data-reveal="" style="transition-delay:.4s"><b>Teste grátis com os seus dados:</b><a href="/calculadora-reforma-tributaria/">Calculadora CBS e IBS</a><a href="/ferramentas-de-compras/comparador-de-cotacoes/">Comparador de cotações</a><a href="/ferramentas-de-compras/spend-analysis/">Raio-x do gasto</a><a href="/ferramentas-de-compras/gerador-de-rfq/">Pedido de cotação</a><a href="/ferramentas-de-compras/buscador-de-fornecedores/">Buscador de fornecedores</a><a href="/ferramentas-de-compras/fornecedores-na-reforma/">Fornecedores na Reforma</a></div>
+    <div class="vh-ft" data-reveal="" style="transition-delay:.4s"><div class="vh-ft-t"><b>Teste grátis com os seus dados</b><span>Funções do Vendor abertas para quem compra. Sem cadastro, resultado na hora.</span></div><div class="vh-fcol"><a class="vh-fc" href="/calculadora-reforma-tributaria/"><small>Reforma Tributária</small><b>Calculadora CBS e IBS</b><span>Imposto por NCM ou NBS</span><i aria-hidden="true">→</i></a><a class="vh-fc" href="/ferramentas-de-compras/fornecedores-na-reforma/"><small>Reforma Tributária</small><b>Fornecedores na Reforma</b><span>Crédito ganho e perdido em 2027</span><i aria-hidden="true">→</i></a></div><div class="vh-fcol"><a class="vh-fc" href="/ferramentas-de-compras/comparador-de-cotacoes/"><small>Cotação</small><b>Comparador de cotações</b><span>Pelo custo depois do crédito</span><i aria-hidden="true">→</i></a><a class="vh-fc" href="/ferramentas-de-compras/gerador-de-rfq/"><small>Agente de IA</small><b>Pedido de cotação</b><span>A cotação pronta em 1 minuto</span><i aria-hidden="true">→</i></a></div><div class="vh-fcol"><a class="vh-fc" href="/ferramentas-de-compras/buscador-de-fornecedores/"><small>Agente de IA</small><b>Buscador de fornecedores</b><span>5 empresas prontas para cotar</span><i aria-hidden="true">→</i></a><a class="vh-fc" href="/ferramentas-de-compras/spend-analysis/"><small>Agente de IA</small><b>Raio-x do gasto</b><span>Curva ABC e onde consolidar</span><i aria-hidden="true">→</i></a></div></div>
   </div>
 </section>
 
