@@ -45,6 +45,7 @@
 .trava .cad{flex:0 0 14px;width:14px;height:14px;color:#8a95a3}
 .trava b{display:block;font-weight:700;color:#02132d}
 .trava small{display:block;font-size:11px;color:#5b6675;margin-top:1px}
+@media(max-width:560px){.travas{display:grid;grid-template-columns:1fr 1fr;gap:6px}.trava{min-height:0;padding:6px 8px;font-size:12px}.trava small{font-size:10.5px}}
 .kpis .box.alert em{color:#5b3d00}
 .forn .obs{font-size:13px;color:#5b3d00;margin:8px 0 0}
 .selbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:16px;padding:14px 16px;background:#02132d;border-radius:10px;color:#fff}
