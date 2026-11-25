@@ -348,13 +348,14 @@ body{overflow-x:clip}
   <style>
     .vh{display:flex;flex-direction:column;gap:26px}
     .vh-l{display:flex;flex-direction:column;gap:18px;min-width:0;max-width:960px}
-    .vh-an-s{min-width:0}
+    .vh-an{position:relative;height:clamp(380px,34vw,430px);margin:0 -24px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%)}
+    .vh-an canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
     .vh-cta{display:flex;flex-direction:column;gap:14px}
     .vh-ft{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16)}
     .vh-ft b{font-family:Lato,sans-serif;font-weight:900;font-size:15px;color:#fff;margin-right:4px}
     .vh-ft a{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:6px 13px;font-size:13.5px;color:#e8eef7;text-decoration:none;transition:background .2s,border-color .2s}
     .vh-ft a:hover{background:#fff;border-color:#fff;color:#02132d}
-    @media(max-width:760px){.vh-an-s{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -24px;padding:0 24px 6px}.vh-an-s svg{width:820px!important;max-width:none}}
+    @media(max-width:700px){.vh-an{height:600px;margin:0;-webkit-mask-image:none;mask-image:none}}
   </style>
   <div class="vh" style="position:relative;max-width:1200px;margin:0 auto;padding:0 24px;padding-top:130px;padding-bottom:80px">
     <div class="vh-l">
@@ -365,22 +366,7 @@ body{overflow-x:clip}
     <h1 data-reveal="" style="font-size:clamp(32px,4.2vw,54px);font-weight:900;max-width:940px;text-wrap:balance;transition-delay:.1s">Seu time de compras para de digitar e volta a negociar</h1>
     <p data-reveal="" style="font-size:clamp(16px,1.5vw,19px);max-width:720px;color:#e8eef7;text-wrap:pretty;transition-delay:.2s">Da solicitação ao pagamento, num fluxo só: cotação, fornecedores, contratos e pagamentos automatizados, com os processos que a sua empresa definiu.</p>
     </div>
-    <div class="vh-an" data-reveal="" style="transition-delay:.25s"><div class="vh-an-s"><svg viewBox="0 0 1100 300" role="img" aria-label="Animação: uma solicitação de compra percorre requisição, aprovação, cotação com agente de IA, pedido, contrato, recebimento com leitura da nota por IA, fatura e pagamento, e fecha no prazo" style="display:block;width:100%;height:auto;font-family:Roboto,Helvetica,Arial,sans-serif">
-      <defs><linearGradient id="hag" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0496ff"/><stop offset=".6" stop-color="#5b3fc4"/><stop offset="1" stop-color="#e8335a"/></linearGradient>
-      <filter id="hagl" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="5"/></filter></defs>
-      <rect x="1" y="1" width="1098" height="298" rx="16" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
-      <text x="28" y="40" font-size="14" font-weight="700" fill="#fff">Solicitação 21 · Rolamentos linha 3</text>
-      <text x="28" y="60" font-size="12.5" fill="#9fb3cc">Prazo combinado 8 h · decorrido <tspan id="ha-tot" fill="#fff" font-weight="700">0 h 00</tspan></text>
-      <g id="ha-pill"><rect x="932" y="26" width="140" height="28" rx="14" fill="rgba(4,150,255,.18)"/><text x="1002" y="44.500" font-size="12.5" font-weight="700" fill="#7cc4ff" text-anchor="middle">Em andamento</text></g>
-      <line x1="70" y1="126" x2="1030" y2="126" stroke="rgba(255,255,255,.14)" stroke-width="4" stroke-linecap="round"/>
-      <line id="ha-prog" x1="70" y1="126" x2="70" y2="126" stroke="url(#hag)" stroke-width="4" stroke-linecap="round"/>
-      <g id="ha-nodes"></g>
-      <g id="ha-tok"><circle r="13" fill="#7cc4ff" opacity=".55" filter="url(#hagl)"/><circle r="7" fill="#fff"/></g>
-      <rect x="28" y="232" width="1044" height="1" fill="rgba(255,255,255,.12)"/>
-      <circle id="ha-dot" cx="36" cy="262" r="5" fill="#0496ff"/>
-      <text id="ha-ev" x="50" y="266.500" font-size="14" fill="#e8eef7">Pedido criado no celular, com foto da peça</text>
-      <text id="ha-who" x="1072" y="266.500" font-size="12.5" fill="#9fb3cc" text-anchor="end">Pessoa · Manutenção</text>
-    </svg></div></div>
+    <div class="vh-an" data-reveal="" style="transition-delay:.25s"><canvas role="img" aria-label="Animação: uma solicitação de compra percorre o fluxo do pedido ao pagamento, numa linha curva em que a luz acende cada etapa com quem a conduziu (pessoa, sistema ou agente de IA) e termina concluída no prazo"></canvas></div>
     <div class="vh-cta">
     <div data-reveal="" style="display:flex;gap:12px;flex-wrap:wrap;transition-delay:.3s">
       <a href="https://calendly.com/paulocacciari/demo-plataforma-gestao-de-compras" target="_blank" rel="noopener" style="background:#0496ff;color:#fff;text-decoration:none;border-radius:4px;padding:13px 24px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em" style-hover="background:#007bff;color:#fff">Agendar uma demo</a>
@@ -1792,69 +1778,106 @@ class Component extends DCLogic {
 })();
 </script>
 <script id="vh-an-js">
-/* Hero de Vendor: a solicitação percorre o fluxo do pedido ao pagamento e fecha no prazo. Roda fora do template. */
+/* Hero de Vendor, no traço da /plataforma-deyel: uma linha curva em degradê, a luz percorre a compra do pedido ao pagamento,
+   cada etapa acende com quem conduz, e no fim o tique verde de concluído no prazo. Roda fora do template. */
 (function(){
-  var S=[
-    ['Requisição','check de budget','Pessoa','Pedido criado no celular, com foto da peça','Pessoa · Manutenção',22],
-    ['Aprovação','por alçada','Pessoa','Aprovado pelo gestor, no celular','Pessoa · Gerente',95],
-    ['Cotação','5 fornecedores','Agente de IA','Agente de IA convidou 5 fornecedores e montou o mapa','Agente de IA · Compras',150],
-    ['Pedido','sem digitação','Sistema','Pedido enviado ao fornecedor e empenhado no ERP','Sistema · ERP',190],
-    ['Contrato','saldo validado','Sistema','Consumo validado contra o saldo do contrato','Sistema · Contratos',205],
-    ['Recebimento','nota lida por IA','Agente de IA','Nota fiscal lida e conferida com o recebimento','Agente de IA · Fiscal',380],
-    ['Fatura','3 vias conferidas','Sistema','Pedido, recebimento e nota batem: fatura aprovada','Sistema · Financeiro',430],
-    ['Pagamento','ordem ao ERP','Sistema','Ordem de pagamento enviada ao ERP','Sistema · ERP',460]
-  ];
-  var AC={'Pessoa':['rgba(255,255,255,.14)','#fff'],'Sistema':['rgba(4,150,255,.22)','#7cc4ff'],'Agente de IA':['rgba(232,51,90,.22)','#ff8aa5']};
-  var NS='http://www.w3.org/2000/svg';
-  function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+  var COL={s:'#4db5ff',p:'#eef3ff',a:'#f07fd0'}, GR=['#7cfcff','#0496ff','#6a45d0','#e04fb0'], GN='#3ddc97';
+  var ST=[{t:'p',who:'Manutenção',what:'Pedido pelo celular',h:'08:12'},{t:'p',who:'Gerente',what:'Aprovado na alçada',h:'09:05'},
+          {t:'a',who:'Agente de IA',what:'5 fornecedores cotados',h:'10:40'},{t:'s',who:'ERP',what:'Pedido sem digitação',h:'11:20'},
+          {t:'s',who:'Contratos',what:'Saldo validado',h:'11:21'},{t:'a',who:'Agente de IA',what:'Nota fiscal lida',h:'14:30'},
+          {t:'s',who:'Financeiro',what:'Fatura conferida',h:'15:10'},{t:'s',who:'ERP',what:'Pagamento liberado',h:'15:52'}];
+  var N=ST.length, STEP=850, FIRST=500, HOLD=2600, FADE=500, TOT=FIRST+STEP*(N-1)+HOLD+FADE;
+  function clamp(v,a,b){return v<a?a:v>b?b:v} function ease(t){t=clamp(t,0,1);return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+  function rgba(hex,a){var n=parseInt(hex.slice(1),16);return 'rgba('+(n>>16)+','+((n>>8)&255)+','+(n&255)+','+a+')'}
   function liga(box){
-    if(!box||box._ha)return; var svg=box.querySelector('svg'); if(!svg)return; box._ha=1;
-    var $=function(id){return svg.querySelector('#'+id)};
-    var g=$('ha-nodes'),tok=$('ha-tok'),prog=$('ha-prog'),ev=$('ha-ev'),who=$('ha-who'),dot=$('ha-dot'),tot=$('ha-tot');
-    var pill=$('ha-pill'),pr=pill.querySelector('rect'),pt=pill.querySelector('text');
-    var X=[],N=[];
-    for(var i=0;i<8;i++){var x=70+i*960/7;X.push(x);
-      var gg=el('g',{},g), c=el('circle',{cx:x,cy:126,r:20,fill:'#02234a',stroke:'rgba(255,255,255,.3)','stroke-width':2},gg);
-      var ck=el('path',{d:'M'+(x-7)+' 126l5 5 9-10',fill:'none',stroke:'#fff','stroke-width':3,'stroke-linecap':'round','stroke-linejoin':'round',opacity:0},gg);
-      var t1=el('text',{x:x,y:170,'font-size':14,'font-weight':700,fill:'#fff','text-anchor':'middle'},gg);t1.textContent=S[i][0];
-      var t2=el('text',{x:x,y:188,'font-size':12,fill:'#9fb3cc','text-anchor':'middle'},gg);t2.textContent=S[i][1];
-      var a=AC[S[i][2]], w=S[i][2].length*6.4+16;
-      var ch=el('rect',{x:x-w/2,y:198,width:w,height:18,rx:9,fill:a[0],opacity:.35},gg);
-      var t3=el('text',{x:x,y:211,'font-size':10.5,'font-weight':700,fill:a[1],'text-anchor':'middle',opacity:.35},gg);t3.textContent=S[i][2];
-      N.push({c:c,ck:ck,ch:ch,t3:t3});
+    if(!box||box._ha)return; var cv=box.querySelector('canvas'); if(!cv)return; box._ha=1;
+    var ctx=cv.getContext('2d'), W=0,H=0,dpr=1,vert=false, P=[],len=[],L=0,node=[],waves=[];
+    function build(){var r=cv.getBoundingClientRect(); if(!r.width)return; dpr=Math.min(window.devicePixelRatio||1,2); W=r.width;H=r.height;
+      cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr); vert=W<700; P=[];len=[];L=0;node=[];
+      var xs=[],ys=[],i,k;
+      for(i=0;i<N;i++){ if(vert){ys.push(46+i*(H-110)/(N-1)); xs.push(34+(i%2?14:-14));} else {xs.push(W*.07+i*W*.86/(N-1)); ys.push(H*.5+(i%2?1:-1)*H*.13);} }
+      function add(x,y){if(P.length)L+=Math.hypot(x-P[P.length-1][0],y-P[P.length-1][1]);P.push([x,y]);len.push(L)}
+      var lead=vert?20:W*.05;
+      for(k=0;k<=8;k++) vert?add(xs[0],ys[0]-lead+lead*k/8):add(xs[0]-lead+lead*k/8,ys[0]); node.push(L);
+      for(i=0;i<N-1;i++){var S=vert?(ys[i+1]-ys[i])*.5:(xs[i+1]-xs[i])*.5;
+        for(k=1;k<=24;k++){var t=k/24,u=1-t;
+          if(vert) add(u*u*u*xs[i]+3*u*u*t*xs[i]+3*u*t*t*xs[i+1]+t*t*t*xs[i+1], u*u*u*ys[i]+3*u*u*t*(ys[i]+S)+3*u*t*t*(ys[i+1]-S)+t*t*t*ys[i+1]);
+          else add(u*u*u*xs[i]+3*u*u*t*(xs[i]+S)+3*u*t*t*(xs[i+1]-S)+t*t*t*xs[i+1], u*u*u*ys[i]+3*u*u*t*ys[i]+3*u*t*t*ys[i+1]+t*t*t*ys[i+1]);}
+        node.push(L);}
+      for(k=1;k<=8;k++) vert?add(xs[N-1],ys[N-1]+lead*k/8):add(xs[N-1]+lead*k/8,ys[N-1]);
+      box._xs=xs; box._ys=ys;
+      waves=[]; if(!vert) for(i=0;i<4;i++) waves.push({y:H*(.16+i*.23),a:H*(.025+.012*i),f:2+i%2,ph:i*1.7,c:i,sp:.00018+i*.00004});
     }
-    var L=10, ST=.85, T0=.4;
-    function e(v){v=v<0?0:v>1?1:v;return v<.5?2*v*v:1-Math.pow(-2*v+2,2)/2}
-    function hm(m){m=Math.round(m);return Math.floor(m/60)+' h '+('0'+m%60).slice(-2)}
-    var cur=-1;
-    function draw(t){
-      var k=(t-T0)/ST, i=Math.floor(k), f=k-i, x;
-      if(k<0){x=X[0];i=0}else if(i>=7){x=X[7];i=7}else{x=X[i]+(X[i+1]-X[i])*e(f/.6)}
-      tok.setAttribute('transform','translate('+x+' 126)'); tok.setAttribute('opacity', t>T0+7*ST+.3?0:1); prog.setAttribute('x2',x);
-      var reached = k<0?-1 : Math.min(7, f>=.6&&i<7? i+1 : i);
-      for(var j=0;j<8;j++){var on=j<=reached;
-        N[j].c.setAttribute('fill', on?(j==reached&&t<T0+7*ST+.3?'#0496ff':'#18a874'):'#02234a');
-        N[j].c.setAttribute('stroke', on?'transparent':'rgba(255,255,255,.3)');
-        N[j].ck.setAttribute('opacity', on&&!(j==reached&&t<T0+7*ST+.3)?1:0);
-        N[j].ch.setAttribute('opacity', on?1:.35); N[j].t3.setAttribute('opacity', on?1:.35);}
-      var r=Math.max(0,reached);
-      if(r!==cur){cur=r; ev.textContent=S[r][3]; who.textContent=S[r][4]; dot.setAttribute('fill',AC[S[r][2]][1]=='#fff'?'#0496ff':AC[S[r][2]][1]);}
-      var prev=r>0?S[r-1][5]:0, m = k<0?0 : r==reached&&i<7&&f<.6 ? prev+(S[r][5]-prev)*e(f/.6) : S[r][5];
-      tot.textContent=hm(m);
-      var done=t>T0+7*ST+.3;
-      pr.setAttribute('fill',done?'rgba(24,168,116,.22)':'rgba(4,150,255,.18)'); pt.setAttribute('fill',done?'#5fe0ae':'#7cc4ff');
-      pt.textContent=done?'Concluído no prazo':'Em andamento';
-      if(done){ev.textContent='Concluído no prazo: 7 h 40 de 8 h, sem ninguém cobrar ninguém'; who.textContent='Trilha auditável · do pedido ao pagamento'; dot.setAttribute('fill','#18a874'); cur=-2;}
+    function at(s){if(s<=0)return P[0]; if(s>=L)return P[P.length-1]; var lo=0,hi=len.length-1; while(hi-lo>1){var m=(lo+hi)>>1; if(len[m]<s)lo=m; else hi=m} var f=(s-len[lo])/((len[hi]-len[lo])||1); return [P[lo][0]+(P[hi][0]-P[lo][0])*f, P[lo][1]+(P[hi][1]-P[lo][1])*f]}
+    function path(s0,s1){var p=at(s0); ctx.beginPath(); ctx.moveTo(p[0],p[1]); for(var i=0;i<P.length;i++) if(len[i]>s0&&len[i]<s1) ctx.lineTo(P[i][0],P[i][1]); p=at(s1); ctx.lineTo(p[0],p[1])}
+    function grad(){var a=P[0],b=P[P.length-1],g=ctx.createLinearGradient(a[0],a[1],b[0],b[1]); for(var i=0;i<4;i++) g.addColorStop(i/3,GR[i]); return g}
+    function spark(x,y,r,a){var g=ctx.createRadialGradient(x,y,0,x,y,r); g.addColorStop(0,'rgba(255,255,255,'+a+')'); g.addColorStop(.25,'rgba(191,233,255,'+a*.6+')'); g.addColorStop(1,'rgba(120,190,255,0)'); ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.fill()}
+    function rr(x,y,w,h,r){ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath()}
+    function frame(t,now){
+      if(!W)build(); if(!W)return;
+      ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
+      var gA = t<300? t/300 : t>TOT-FADE? clamp((TOT-t)/FADE,0,1) : 1;
+      /* fios de fundo, bem leves, com a luz passando devagar */
+      waves.forEach(function(w){ var g=ctx.createLinearGradient(0,0,W,0); for(var i=0;i<4;i++) g.addColorStop(i/3,GR[(i+w.c)%4]);
+        ctx.beginPath(); for(var x=0;x<=W;x+=8){var y=w.y+w.a*Math.sin(x/W*6.2832*w.f+now*w.sp*6+w.ph); x?ctx.lineTo(x,y):ctx.moveTo(x,y)}
+        ctx.strokeStyle=g; ctx.lineWidth=1.2; ctx.globalAlpha=.16; ctx.stroke();
+        var hx=((now*w.sp+w.ph/7)%1)*W, hy=w.y+w.a*Math.sin(hx/W*6.2832*w.f+now*w.sp*6+w.ph); ctx.globalAlpha=1; spark(hx,hy,7,.35); });
+      ctx.globalAlpha=1;
+      /* quanto da compra já andou */
+      var k=(t-FIRST)/STEP, i0=Math.floor(k), s;
+      if(k<0) s=0; else if(i0>=N-1) s=node[N-1]; else s=node[i0]+(node[i0+1]-node[i0])*ease((k-i0)/.7);
+      var done=t>=FIRST+STEP*(N-1);
+      ctx.lineCap='round'; ctx.lineJoin='round';
+      path(0,L); ctx.strokeStyle='rgba(255,255,255,'+(.14*gA)+')'; ctx.lineWidth=2; ctx.stroke();
+      if(s>0){ path(0,s); ctx.strokeStyle=grad(); ctx.globalAlpha=gA*.08; ctx.lineWidth=26; ctx.stroke(); ctx.globalAlpha=gA*.2; ctx.lineWidth=10; ctx.stroke(); ctx.globalAlpha=gA; ctx.lineWidth=3.2; ctx.stroke(); ctx.globalAlpha=1; }
+      if(!done&&s>0){var hp=at(s); spark(hp[0],hp[1],24,gA); spark(hp[0],hp[1],7,gA)}
+      /* etapas e cartões */
+      var sp=vert?0:(box._xs[1]-box._xs[0]);
+      for(var i=0;i<N;i++){
+        var p=at(node[i]), st=ST[i], c=COL[st.t], on=s>=node[i]-.5, arr=FIRST+STEP*i-STEP*.3, dt=t-arr;
+        var w,h,x0,y0,up=!vert&&i%2===0;
+        if(vert){x0=70; w=W-x0-10; h=50; y0=p[1]-h/2} else {w=Math.min(196,2*sp-22); h=64; x0=clamp(p[0]-w/2,6,W-w-6); y0=up? p[1]-30-h : p[1]+30}
+        var ca = gA*(on? clamp(.4+dt/350,.4,1) : .38);
+        ctx.globalAlpha=ca*.5; ctx.strokeStyle='rgba(255,255,255,.35)'; ctx.setLineDash([2,4]); ctx.lineWidth=1; ctx.beginPath();
+        if(vert){ctx.moveTo(p[0]+10,p[1]); ctx.lineTo(x0,p[1])} else {ctx.moveTo(p[0],p[1]+(up?-10:10)); ctx.lineTo(p[0],up?y0+h:y0)} ctx.stroke(); ctx.setLineDash([]);
+        ctx.globalAlpha=ca; rr(x0,y0,w,h,12); ctx.fillStyle='rgba(255,255,255,'+(on?.09:.045)+')'; ctx.fill(); ctx.strokeStyle=on?rgba(c,.7):'rgba(255,255,255,.14)'; ctx.lineWidth=1; ctx.stroke();
+        ctx.fillStyle=c; ctx.beginPath(); ctx.arc(x0+17,y0+(vert?17:20),4,0,6.2832); ctx.fill();
+        ctx.textBaseline='middle'; ctx.textAlign='left'; ctx.font='400 12.5px Roboto,Helvetica,Arial,sans-serif'; ctx.fillStyle='#c7d3e3'; ctx.fillText(st.who,x0+28,y0+(vert?17.5:20.5));
+        ctx.textAlign='right'; ctx.fillStyle='#8094ad'; ctx.font='400 12px Roboto,Helvetica,Arial,sans-serif'; ctx.fillText(st.h,x0+w-12,y0+(vert?17.5:20.5));
+        ctx.textAlign='left'; ctx.font='900 '+(vert?14:14.5)+'px Lato,Helvetica,Arial,sans-serif'; ctx.fillStyle='#fff'; ctx.fillText(st.what,x0+13,y0+(vert?36:44));
+        ctx.globalAlpha=gA;
+        if(on&&dt>0&&dt<900&&!done){ctx.strokeStyle=rgba(c,1-dt/900); ctx.lineWidth=1.5; ctx.beginPath(); ctx.arc(p[0],p[1],8+dt*.028,0,6.2832); ctx.stroke()}
+        if(i<N-1||!done){ ctx.fillStyle=on?c:'#02234a'; ctx.beginPath(); ctx.arc(p[0],p[1],7.5,0,6.2832); ctx.fill();
+          if(!on){ctx.strokeStyle='rgba(255,255,255,.45)'; ctx.lineWidth=2; ctx.stroke()}
+          else{ctx.strokeStyle='#02132d'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(p[0]-3.4,p[1]+.3); ctx.lineTo(p[0]-1,p[1]+2.8); ctx.lineTo(p[0]+3.6,p[1]-2.2); ctx.stroke()} }
+      }
+      /* fim: pulsa e ganha o tique verde */
+      if(done){var pe=at(node[N-1]), d2=t-(FIRST+STEP*(N-1)), pp=clamp(d2/380,0,1), ps=1+2.70158*Math.pow(pp-1,3)+1.70158*Math.pow(pp-1,2);
+        ctx.globalAlpha=gA;
+        for(var g=0;g<3;g++){var ru=(d2-g*420)/1150; if(ru>0&&ru<1){ctx.strokeStyle=rgba(GN,(1-ru)*.85); ctx.lineWidth=2.2*(1-ru)+.6; ctx.beginPath(); ctx.arc(pe[0],pe[1],14+ru*34,0,6.2832); ctx.stroke()}}
+        var gg=ctx.createRadialGradient(pe[0],pe[1],0,pe[0],pe[1],36); gg.addColorStop(0,rgba(GN,.42*pp)); gg.addColorStop(1,rgba(GN,0)); ctx.fillStyle=gg; ctx.beginPath(); ctx.arc(pe[0],pe[1],36,0,6.2832); ctx.fill();
+        ctx.fillStyle=GN; ctx.beginPath(); ctx.arc(pe[0],pe[1],14*ps,0,6.2832); ctx.fill();
+        ctx.strokeStyle='#02132d'; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(pe[0]-6*ps,pe[1]+.5*ps); ctx.lineTo(pe[0]-1.8*ps,pe[1]+4.6*ps); ctx.lineTo(pe[0]+6.3*ps,pe[1]-4*ps); ctx.stroke();
+        ctx.globalAlpha=gA*clamp(d2/400,0,1); ctx.textBaseline='middle'; ctx.font='900 15px Lato,Helvetica,Arial,sans-serif'; ctx.fillStyle=GN;
+        if(vert){ctx.textAlign='left'; ctx.fillText('Concluído no prazo · 7 h 40 de 8 h',pe[0]-20,H-18)}
+        else{ctx.textAlign='right'; ctx.fillText('Concluído no prazo · 7 h 40 de 8 h',Math.min(W-8,pe[0]+30),pe[1]-((N-1)%2?40:-40))}
+        ctx.globalAlpha=1;}
+      /* rótulo e legenda */
+      ctx.globalAlpha=gA*.9; ctx.textBaseline='middle'; ctx.textAlign='left'; ctx.font='500 13px Roboto,Helvetica,Arial,sans-serif'; ctx.fillStyle='#b9c8dc';
+      if(!vert){ctx.fillText('Solicitação 21 · do pedido ao pagamento',W*.02,16);
+        var lx=W*.02, ly=H-14; [['s','Sistema'],['p','Pessoa'],['a','Agente de IA']].forEach(function(l){ctx.fillStyle=COL[l[0]]; ctx.beginPath(); ctx.arc(lx+4,ly,4,0,6.2832); ctx.fill(); ctx.fillStyle='#9fb1c8'; ctx.font='400 12.5px Roboto,Helvetica,Arial,sans-serif'; ctx.fillText(l[1],lx+13,ly+.5); lx+=ctx.measureText(l[1]).width+34});}
+      ctx.globalAlpha=1;
     }
+    build(); window.addEventListener('resize',function(){build()}); if(window.ResizeObserver) new ResizeObserver(function(){build()}).observe(cv);
     var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce){draw(9.5);return}
-    draw(0); box._draw=draw;
-    var t0=null,run=false,last=0;
-    function loop(ts){if(!run){t0=null;return} if(t0==null)t0=ts-last*1000; last=((ts-t0)/1000)%L; draw(last); requestAnimationFrame(loop)}
-    if('IntersectionObserver' in window){new IntersectionObserver(function(en){var v=en[0].isIntersecting; if(v&&!run){run=true;requestAnimationFrame(loop)} else if(!v){run=false}},{threshold:.3}).observe(box)}
-    else{run=true;requestAnimationFrame(loop)}
+    box._frame=frame;
+    if(reduce){frame(FIRST+STEP*(N-1)+1500,0); return}
+    var run=false,T0=null,last=0;
+    function loop(now){ if(!run){T0=null;return} if(T0==null)T0=now-last; last=(now-T0)%TOT; frame(last,now); requestAnimationFrame(loop)}
+    if('IntersectionObserver' in window) new IntersectionObserver(function(en){var v=en[0].isIntersecting; if(v&&!run){run=true;requestAnimationFrame(loop)} else if(!v) run=false},{threshold:.2}).observe(box);
+    else {run=true; requestAnimationFrame(loop)}
   }
-  function procura(){var f=document.querySelectorAll('.vh-an');for(var i=0;i<f.length;i++)liga(f[i]);}
+  function procura(){var f=document.querySelectorAll('.vh-an');for(var i=0;i<f.length;i++)liga(f[i])}
   procura(); document.addEventListener('DOMContentLoaded',procura); window.addEventListener('load',procura); setInterval(procura,800);
 })();
 </script>
