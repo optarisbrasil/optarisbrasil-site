@@ -577,6 +577,11 @@ body{overflow-x:clip}
     .bp-card li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:8px;border-radius:2px;background:#0496ff}
     .bp-card li.ia::before,.bp-cap.ia::before{background:#e8335a}
     .bp-ls{display:block;font-style:normal;font-size:13.5px;line-height:1.4;color:#667085;margin-top:2px}
+    .bp-sla{display:flex;align-items:center;gap:16px;margin-top:22px;padding:18px 22px;border-radius:12px;background:#02132d;color:#fff}
+    .bp-sla-ic{flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:rgba(232,51,90,.18);color:#ff8aa5}
+    .bp-sla p{margin:0;font-size:17px;line-height:1.5;text-wrap:pretty}
+    .bp-sla b{color:#fff;font-weight:900}
+    @media(max-width:600px){.bp-sla{align-items:flex-start;padding:16px}.bp-sla p{font-size:16px}}
     .bp-tag{display:inline-block;font:900 11px Lato,sans-serif;color:#e8335a;background:#fde8ee;border-radius:6px;padding:2px 6px;margin-left:6px;vertical-align:1px}
     .bp-card a.bp-more{margin-top:auto;font-size:15px;font-weight:700;color:#0496ff;text-decoration:none}
     .bp-leg{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#667085;margin-top:16px}
@@ -656,6 +661,10 @@ body{overflow-x:clip}
       </div>
     </div>
     <div class="bp-leg"><span><i style="background:#0496ff"></i>Funcionalidade da plataforma</span><span><i style="background:#e8335a"></i>Com IA aplicada</span></div>
+    <div class="bp-sla" data-reveal="">
+      <span class="bp-sla-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2.5"></path><path d="M9 2h6"></path></svg></span>
+      <p>Todos os eventos do sistema podem ser parametrizados com <b>SLAs de tempo</b> e com <b>planos de contingência disparados automaticamente</b> em caso de risco de ruptura ou de ruptura.</p>
+    </div>
   </div>
 </section>
 
