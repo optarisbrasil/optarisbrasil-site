@@ -1093,61 +1093,6 @@ body{overflow-x:clip}
       </g>
       <circle id="sa-tap" cx="355" cy="363" r="6" fill="none" stroke="#0496ff" stroke-width="2" opacity="0"/>
     </svg></figure>
-    <script>
-    (function(){
-      var fig=document.currentScript.previousElementSibling, svg=fig.querySelector('svg');
-      var $=function(id){return svg.querySelector('#'+id)};
-      var nodes=[].slice.call(svg.querySelectorAll('#sa-nodes>g')), xs=[80,220,360,500,640];
-      var doc=$('sa-doc'),prog=$('sa-prog'),ring=$('sa-ring'),hand=$('sa-hand'),time=$('sa-time'),tot=$('sa-tot');
-      var pill=$('sa-pill'),pr=pill.querySelector('rect'),pt=pill.querySelector('text');
-      var c1=$('sa-c1'),c2=$('sa-c2'),c3=$('sa-c3'),tap=$('sa-tap'),btn=$('sa-btn').querySelector('rect');
-      var C=402.1, L=13;
-      function cl(v){return v<0?0:v>1?1:v} function e(v){v=cl(v);return v<.5?2*v*v:1-Math.pow(-2*v+2,2)/2}
-      function hm(m){m=Math.round(m);return Math.floor(m/60)+' h '+('0'+m%60).slice(-2)}
-      function setPill(bg,fg,t,w){pr.setAttribute('fill',bg);pt.setAttribute('fill',fg);pt.textContent=t;pr.setAttribute('width',w);pr.setAttribute('x',700-w);pt.setAttribute('x',700-w/2)}
-      function node(i,st){var c=nodes[i].querySelector('circle');
-        var s={idle:['#fff','#c9d2de'],done:['#18a874','#18a874'],wait:['#fff','#0496ff'],risk:['#fff7e6','#e69a00']}[st];
-        c.setAttribute('fill',s[0]);c.setAttribute('stroke',s[1]);c.setAttribute('stroke-width',st=='risk'?3:2)}
-      function card(g,a,dy){g.setAttribute('opacity',cl(a));g.setAttribute('transform','translate('+(1-e(a))*30+' 0)')}
-      function draw(t){
-        // 0.4–2.8: anda até a aprovação
-        var x, m=e((t-.4)/2.4);
-        if(t<7.6){x=80+m*420}else{x=500+e((t-7.6)/1.3)*140}
-        doc.setAttribute('transform','translate('+x+' 140)'); prog.setAttribute('x2',x);
-        for(var i=0;i<5;i++){
-          if(i<3) node(i, x>=xs[i]+1? 'done':'idle');
-          if(i==0 && t>.4) node(0,'done');
-        }
-        // relógio: 2.8–7.4
-        var p=cl((t-2.8)/4)*0.97;
-        var min=p*240, risk=p>0.72;
-        ring.setAttribute('stroke-dasharray',(p*C)+' '+C);
-        ring.setAttribute('stroke', t>7.1?'#18a874':p<.55?'#18a874':p<.8?'#e69a00':'#e8335a');
-        hand.setAttribute('transform','rotate('+(p*360*3)+')');
-        time.textContent=hm(min)+' de 4 h'; time.setAttribute('fill',t>7.1?'#0f7a54':risk?'#c2410c':'#02132d');
-        var totm = t<2.8? e((t-.4)/2.4)*40 : t<7.6? 40+min : 40+233+e((t-7.6)/1.3)*28;
-        tot.textContent=hm(Math.max(0,totm));
-        node(3, t<2.8?'idle': t<7.1? (risk?'risk':'wait') : 'done');
-        node(4, t>8.9?'done':'idle');
-        // status
-        if(t>8.9) setPill('#e3f6ee','#0f7a54','Concluído no prazo',150);
-        else if(t>7.1) setPill('#e6f3ff','#0068b4','Aprovado',100);
-        else if(risk) setPill('#fdf1d9','#9a6400','SLA em risco',120);
-        else setPill('#e3f6ee','#0f7a54','No prazo',100);
-        // avisos
-        card(c1,(t-5.9)/.4); card(c2,(t-6.5)/.4); card(c3,(t-7.3)/.4);
-        var tp=(t-7.0)/.5; tap.setAttribute('opacity',tp>0&&tp<1?1-tp:0); tap.setAttribute('r',6+cl(tp)*14);
-        btn.setAttribute('fill',t>7.1?'#18a874':'#e3f6ee'); btn.nextElementSibling.setAttribute('fill',t>7.1?'#fff':'#0f7a54');
-      }
-      var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(reduce){draw(10.5);return}
-      draw(0);
-      var t0=null,run=false;
-      function loop(ts){if(!run){t0=null;return} if(t0==null)t0=ts-((loop.t||0)*1000); var t=((ts-t0)/1000)%L; loop.t=t; draw(t); requestAnimationFrame(loop)}
-      if('IntersectionObserver' in window){new IntersectionObserver(function(en){var v=en[0].isIntersecting; if(v&&!run){run=true;requestAnimationFrame(loop)} else if(!v){run=false}},{threshold:.35}).observe(fig)}
-      else{run=true;requestAnimationFrame(loop)}
-    })();
-    </script>
     <div class="vp-d" data-reveal=""><div><h3>Cada tarefa tem dono e prazo</h3><p>Pessoa, sistema ou agente de IA: o painel mostra com quem está cada etapa, há quanto tempo e quanto falta para o prazo.</p></div><div><h3>Alerta e escalonamento automáticos</h3><p>O atraso é avisado antes de acontecer, por e-mail e WhatsApp. Se ninguém responde, o caso sobe para o nível seguinte.</p></div><div><h3>A agenda de cada comprador</h3><p>O menu de tarefas mostra o que cada pessoa tem para hoje, com criticidade e prazo, e a agenda do time ao lado.</p></div></div>
   </div>
 </section>
@@ -1779,6 +1724,67 @@ class Component extends DCLogic {
   <button type="button" class="vfb-b" data-vfb-t="" aria-expanded="false"><i aria-hidden="true"></i>Navegação</button>
   <div class="vfb-l"><a href="#teste-o-vendor">Ferramentas</a><a href="#o-que-resolvemos">O que resolvemos</a><a href="#como">Como resolvemos</a><a href="#homologacao">Homologação</a><a href="#indicadores">Indicadores</a><a href="#prazos-sla">Prazos e SLA</a><a href="#agentes-ia">Agentes de IA</a><a href="#videos">Demo</a><a href="#preco">Preço</a><a href="#manutencao">Manutenção</a><a href="#para-quem">Para quem</a><a href="#perguntas">Perguntas</a></div>
 </nav>
+<script id="sla-an-js">
+/* Animação do SLA em "Compras que andam sozinhas": roda fora do template e se reconecta se a figura for redesenhada. */
+(function(){
+  function liga(fig){
+    if(!fig||fig._sa)return; fig._sa=1; var svg=fig.querySelector('svg'); if(!svg)return;
+
+      var $=function(id){return svg.querySelector('#'+id)};
+      var nodes=[].slice.call(svg.querySelectorAll('#sa-nodes>g')), xs=[80,220,360,500,640];
+      var doc=$('sa-doc'),prog=$('sa-prog'),ring=$('sa-ring'),hand=$('sa-hand'),time=$('sa-time'),tot=$('sa-tot');
+      var pill=$('sa-pill'),pr=pill.querySelector('rect'),pt=pill.querySelector('text');
+      var c1=$('sa-c1'),c2=$('sa-c2'),c3=$('sa-c3'),tap=$('sa-tap'),btn=$('sa-btn').querySelector('rect');
+      var C=402.1, L=13;
+      function cl(v){return v<0?0:v>1?1:v} function e(v){v=cl(v);return v<.5?2*v*v:1-Math.pow(-2*v+2,2)/2}
+      function hm(m){m=Math.round(m);return Math.floor(m/60)+' h '+('0'+m%60).slice(-2)}
+      function setPill(bg,fg,t,w){pr.setAttribute('fill',bg);pt.setAttribute('fill',fg);pt.textContent=t;pr.setAttribute('width',w);pr.setAttribute('x',700-w);pt.setAttribute('x',700-w/2)}
+      function node(i,st){var c=nodes[i].querySelector('circle');
+        var s={idle:['#fff','#c9d2de'],done:['#18a874','#18a874'],wait:['#fff','#0496ff'],risk:['#fff7e6','#e69a00']}[st];
+        c.setAttribute('fill',s[0]);c.setAttribute('stroke',s[1]);c.setAttribute('stroke-width',st=='risk'?3:2)}
+      function card(g,a,dy){g.setAttribute('opacity',cl(a));g.setAttribute('transform','translate('+(1-e(a))*30+' 0)')}
+      function draw(t){
+        // 0.4–2.8: anda até a aprovação
+        var x, m=e((t-.4)/2.4);
+        if(t<7.6){x=80+m*420}else{x=500+e((t-7.6)/1.3)*140}
+        doc.setAttribute('transform','translate('+x+' 140)'); prog.setAttribute('x2',x);
+        for(var i=0;i<5;i++){
+          if(i<3) node(i, x>=xs[i]+1? 'done':'idle');
+          if(i==0 && t>.4) node(0,'done');
+        }
+        // relógio: 2.8–7.4
+        var p=cl((t-2.8)/4)*0.97;
+        var min=p*240, risk=p>0.72;
+        ring.setAttribute('stroke-dasharray',(p*C)+' '+C);
+        ring.setAttribute('stroke', t>7.1?'#18a874':p<.55?'#18a874':p<.8?'#e69a00':'#e8335a');
+        hand.setAttribute('transform','rotate('+(p*360*3)+')');
+        time.textContent=hm(min)+' de 4 h'; time.setAttribute('fill',t>7.1?'#0f7a54':risk?'#c2410c':'#02132d');
+        var totm = t<2.8? e((t-.4)/2.4)*40 : t<7.6? 40+min : 40+233+e((t-7.6)/1.3)*28;
+        tot.textContent=hm(Math.max(0,totm));
+        node(3, t<2.8?'idle': t<7.1? (risk?'risk':'wait') : 'done');
+        node(4, t>8.9?'done':'idle');
+        // status
+        if(t>8.9) setPill('#e3f6ee','#0f7a54','Concluído no prazo',150);
+        else if(t>7.1) setPill('#e6f3ff','#0068b4','Aprovado',100);
+        else if(risk) setPill('#fdf1d9','#9a6400','SLA em risco',120);
+        else setPill('#e3f6ee','#0f7a54','No prazo',100);
+        // avisos
+        card(c1,(t-5.9)/.4); card(c2,(t-6.5)/.4); card(c3,(t-7.3)/.4);
+        var tp=(t-7.0)/.5; tap.setAttribute('opacity',tp>0&&tp<1?1-tp:0); tap.setAttribute('r',6+cl(tp)*14);
+        btn.setAttribute('fill',t>7.1?'#18a874':'#e3f6ee'); btn.nextElementSibling.setAttribute('fill',t>7.1?'#fff':'#0f7a54');
+      }
+      var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduce){draw(10.5);return}
+      draw(0);
+      var t0=null,run=false;
+      function loop(ts){if(!run){t0=null;return} if(t0==null)t0=ts-((loop.t||0)*1000); var t=((ts-t0)/1000)%L; loop.t=t; draw(t); requestAnimationFrame(loop)}
+      if('IntersectionObserver' in window){new IntersectionObserver(function(en){var v=en[0].isIntersecting; if(v&&!run){run=true;requestAnimationFrame(loop)} else if(!v){run=false}},{threshold:.35}).observe(fig)}
+      else{run=true;requestAnimationFrame(loop)}
+      }
+  function procura(){var f=document.querySelectorAll('.sla-an');for(var i=0;i<f.length;i++)liga(f[i]);}
+  procura(); document.addEventListener('DOMContentLoaded',procura); window.addEventListener('load',procura); setInterval(procura,800);
+})();
+</script>
 <script id="vdd-js">
 /* Passo a passo "do indicador ao caso": a mãozinha clica no número, abre a lista, o pedido e o processo. */
 (function(){
