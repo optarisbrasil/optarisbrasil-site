@@ -48,11 +48,25 @@ function desenhar(){
 $('maisItem').addEventListener('click',function(){ if(g.itens.length>=MAX_ITENS) return; g.itens.push(novoItem()); g.precos.push(g.props.map(function(){ return ''; })); guardar(); desenhar(); });
 $('maisProp').addEventListener('click',function(){ if(g.props.length>=MAX_PROP) return; g.props.push(novaProp(g.props.length+1)); g.precos.forEach(function(l){ l.push(''); }); guardar(); desenhar(); });
 $('limpar').addEventListener('click',function(){ inicial(); guardar(); desenhar(); $('res').hidden=true; });
-$('exemplo').addEventListener('click',function(){
-  g.itens=[{descricao:'Papel A4 (caixa com 10 resmas)',codigo:'48025610',quantidade:'120'},{descricao:'Caixa de papelão',codigo:'48191000',quantidade:'2000'},{descricao:'Palete de madeira',codigo:'44152000',quantidade:'300'},{descricao:'Manutenção das máquinas (mês)',codigo:'120015000',quantidade:'12'}];
-  g.props=[{nome:'Distribuidora Atlas',regime:'regular',comTributos:false},{nome:'Comercial Ipê ME',regime:'simples',comTributos:true},{nome:'Grupo Sul Suprimentos',regime:'regular',comTributos:true}];
-  g.precos=[['245,00','251,00','268,00'],['4,10','4,25','4,49'],['62,00','64,00','69,90'],['8.500,00','8.900,00','9.150,00']];
-  guardar(); desenhar(); F.evento('ferramenta_exemplo',{ferramenta:FERRAMENTA});
+// Dois exemplos: um só com produtos (NCM, 8 dígitos) e outro só com serviços (NBS, 9 dígitos).
+var EXEMPLOS = {
+  produtos: {
+    itens:[{descricao:'Papel A4 (caixa com 10 resmas)',codigo:'48025610',quantidade:'120'},{descricao:'Caixa de papelão',codigo:'48191000',quantidade:'2000'},{descricao:'Palete de madeira',codigo:'44152000',quantidade:'300'},{descricao:'Notebook',codigo:'84713012',quantidade:'15'}],
+    props:[{nome:'Distribuidora Atlas',regime:'regular',comTributos:false},{nome:'Comercial Ipê ME',regime:'simples',comTributos:true},{nome:'Grupo Sul Suprimentos',regime:'regular',comTributos:true}],
+    precos:[['245,00','251,00','268,00'],['4,10','4,25','4,49'],['62,00','64,00','69,90'],['4.350,00','4.480,00','4.790,00']]
+  },
+  servicos: {
+    itens:[{descricao:'Consultoria em gestão (projeto)',codigo:'114011100',quantidade:'1'},{descricao:'Manutenção das máquinas (mês)',codigo:'120015000',quantidade:'12'},{descricao:'Limpeza das instalações (mês)',codigo:'118031000',quantidade:'12'},{descricao:'Frete rodoviário (viagem)',codigo:'105011220',quantidade:'40'}],
+    props:[{nome:'Prestadora Atlas Serviços',regime:'regular',comTributos:false},{nome:'Ipê Serviços ME',regime:'simples',comTributos:true},{nome:'Grupo Sul Facilities',regime:'regular',comTributos:true}],
+    precos:[['86.000,00','88.500,00','94.000,00'],['8.500,00','8.900,00','9.150,00'],['7.800,00','8.100,00','8.600,00'],['2.900,00','3.050,00','3.240,00']]
+  }
+};
+[['exemploProd','produtos'],['exemploServ','servicos']].forEach(function(x){
+  $(x[0]).addEventListener('click',function(){
+    var e=JSON.parse(JSON.stringify(EXEMPLOS[x[1]])); // cópia: a grade é editável
+    g.itens=e.itens; g.props=e.props; g.precos=e.precos;
+    guardar(); desenhar(); F.evento('ferramenta_exemplo',{ferramenta:FERRAMENTA,tipo:x[1]});
+  });
 });
 desenhar();
 F.destino($('uf'), $('mun'));

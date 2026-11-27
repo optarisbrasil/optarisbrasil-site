@@ -55,10 +55,13 @@ var TRAVADOS = ['Emitir CND federal', 'Emitir CNDT trabalhista', 'Emitir CRF do 
 F.destino($('uf'), $('mun'));
 // Quem vem do Gerador de RFQ chega com o objeto da cotação preenchido.
 try{ var pre = sessionStorage.getItem('ob_busca'); if (pre) { $('prod').value = pre; sessionStorage.removeItem('ob_busca'); } }catch(e){}
-$('exemplo').addEventListener('click', function(){
-  $('prod').value = 'frascos e garrafas de plástico para envase';
-  var u = $('uf'); if (!u.value) { u.value = 'SP'; u.dispatchEvent(new Event('change')); }
-  F.evento('ferramenta_exemplo', {ferramenta: FERRAMENTA});
+// Dois exemplos: um produto e um serviço.
+[['exemploProd','produtos','frascos e garrafas de plástico para envase'],['exemploServ','servicos','limpeza e conservação de prédios e fábricas']].forEach(function(x){
+  $(x[0]).addEventListener('click', function(){
+    $('prod').value = x[2];
+    var u = $('uf'); if (!u.value) { u.value = 'SP'; u.dispatchEvent(new Event('change')); }
+    F.evento('ferramenta_exemplo', {ferramenta: FERRAMENTA, tipo: x[1]});
+  });
 });
 
 // ---- O que o agente faz, passo a passo

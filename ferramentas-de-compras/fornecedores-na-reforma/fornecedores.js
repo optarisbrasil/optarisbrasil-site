@@ -18,21 +18,32 @@ var MAPA = {
 };
 var ORDEM = ['fornecedor','cnpj','regime','codigo','descricao','valor','cClassTrib'];
 
-var EXEMPLO = [
-  ['Fornecedor','CNPJ','Regime do fornecedor','NCM ou NBS','Descrição','Valor pago (R$)'],
-  ['Siderúrgica Paulista S.A.','','Regime regular','72142000','Barras de aço','1.250.000'],
-  ['Embalagens Vale Ltda','','Simples Nacional','48191000','Caixas de papelão','186.000'],
-  ['Embalagens Vale Ltda','','Simples Nacional','39232190','Sacos plásticos','42.000'],
-  ['Transportadora Rota Sul','','Regime regular','105011220','Frete rodoviário','310.000'],
-  ['Manutenção Industrial MK','','Simples Nacional','120015000','Manutenção de máquinas','228.000'],
-  ['Paletes Madeira Forte ME','','Simples Nacional','44152000','Paletes de madeira','97.000'],
-  ['Distribuidora Química Brasil','','Lucro Real','29023000','Tolueno (solvente)','415.000'],
-  ['Papelaria Central','','MEI','48025610','Papel A4','12.400'],
-  ['Consultoria Fiscal Prisma','','Simples Nacional','113031000','Consultoria tributária','144.000'],
-  ['Limpeza Total Serviços','','','118031000','Limpeza das instalações','96.000'],
-  ['Cerealista Bom Grão','','Regime regular','10063021','Arroz para o refeitório','38.000'],
-  ['Tech Parts Comércio','','','84713012','Notebooks','264.000'],
-];
+var CABECALHO = ['Fornecedor','CNPJ','Regime do fornecedor','NCM ou NBS','Descrição','Valor pago (R$)'];
+// Dois exemplos: um só com produtos (NCM, 8 dígitos) e outro só com serviços (NBS, 9 dígitos).
+var EXEMPLOS = {
+  produtos: [CABECALHO,
+    ['Siderúrgica Paulista S.A.','','Regime regular','72142000','Barras de aço','1.250.000'],
+    ['Embalagens Vale Ltda','','Simples Nacional','48191000','Caixas de papelão','186.000'],
+    ['Embalagens Vale Ltda','','Simples Nacional','39232190','Sacos plásticos','42.000'],
+    ['Paletes Madeira Forte ME','','Simples Nacional','44152000','Paletes de madeira','97.000'],
+    ['Distribuidora Química Brasil','','Lucro Real','29023000','Tolueno (solvente)','415.000'],
+    ['Móveis Escritório Ideal','','Simples Nacional','94033000','Mesas de escritório','58.000'],
+    ['Papelaria Central','','MEI','48025610','Papel A4','12.400'],
+    ['Cerealista Bom Grão','','Regime regular','10063021','Arroz para o refeitório','38.000'],
+    ['Tech Parts Comércio','','','84713012','Notebooks','264.000'],
+  ],
+  servicos: [CABECALHO,
+    ['Transportadora Rota Sul','','Regime regular','105011220','Frete rodoviário','310.000'],
+    ['Manutenção Industrial MK','','Simples Nacional','120015000','Manutenção de máquinas','228.000'],
+    ['Consultoria Fiscal Prisma','','Simples Nacional','113031000','Consultoria tributária','144.000'],
+    ['Estratégia Gestão Consultores','','Lucro Presumido','114011100','Consultoria em gestão','180.000'],
+    ['Infra TI Consultoria','','Regime regular','115011000','Consultoria em TI','132.000'],
+    ['Contábil Horizonte','','Simples Nacional','113022100','Contabilidade','84.000'],
+    ['Limpeza Total Serviços','','','118031000','Limpeza das instalações','96.000'],
+    ['Alarme Seguro Sistemas','','MEI','118023000','Sistemas de segurança','18.000'],
+    ['Talentos RH Seleção','','','118011200','Recrutamento e seleção','46.000'],
+  ]
+};
 
 function lerLinhas(linhas, origem){
   var m = F.mapear(linhas, MAPA, ORDEM), c = m.colunas;
@@ -84,7 +95,9 @@ var drop = $('drop');
 drop.addEventListener('drop', function(e){ var f=e.dataTransfer&&e.dataTransfer.files[0]; abrirArquivo(f); });
 $('modelo').addEventListener('click', function(e){ e.stopPropagation(); F.evento('ferramenta_modelo',{ferramenta:FERRAMENTA}); });
 $('usarCola').addEventListener('click', function(){ var t=$('cola').value; if(!t.trim()) return falhaLeitura(new Error('Cole as linhas copiadas do Excel, com o cabeçalho.')); lerLinhas(F.lerTexto(t),'das linhas coladas'); });
-$('exemplo').addEventListener('click', function(){ lerLinhas(EXEMPLO,'do exemplo'); F.evento('ferramenta_exemplo',{ferramenta:FERRAMENTA}); });
+[['exemploProd','produtos','do exemplo de produtos'],['exemploServ','servicos','do exemplo de serviços']].forEach(function(x){
+  $(x[0]).addEventListener('click', function(){ lerLinhas(EXEMPLOS[x[1]], x[2]); F.evento('ferramenta_exemplo',{ferramenta:FERRAMENTA,tipo:x[1]}); });
+});
 
 F.destino($('uf'), $('mun'));
 
