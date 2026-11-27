@@ -63,6 +63,11 @@ input:focus,select:focus,button:focus-visible{outline:2px solid #0496ff;outline-
 .sugg li{padding:9px 12px;cursor:pointer;font-size:14px;border-bottom:1px solid #eef1f5}
 .sugg li:hover,.sugg li[aria-selected=true]{background:#eaf5ff}
 .sugg li b{color:#02132d}
+.sugg li small{display:block;font-size:12px;color:#5b6675;margin-top:2px}
+.sugg li.no{cursor:default;color:#5b6675;background:#fff}
+.exs{display:flex;flex-wrap:wrap;gap:6px 14px;margin:-6px 0 6px;font-size:13px}
+.lk{background:none;border:0;padding:0;font:inherit;color:#0070d6;text-decoration:underline;cursor:pointer}
+#enqSel b{color:#02132d}
 .btn{margin-top:20px;width:100%;min-height:50px;background:#0496ff;color:#fff;border:0;border-radius:6px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;font-family:inherit}
 .btn:hover{background:#007bff}
 .btn[disabled]{opacity:.6;cursor:wait}
@@ -134,6 +139,7 @@ details p{font-size:13.5px;margin:8px 0}
 <main class="wrap">
   <form class="card" id="f" novalidate autocomplete="off">
     <h2>Dados do item</h2>
+    <div class="exs"><button class="lk" type="button" id="exProd">Preencher com exemplo de produto</button><button class="lk" type="button" id="exServ">Preencher com exemplo de serviço</button></div>
 
     <div class="lbl" id="tipoLbl">O que você está comprando?</div>
     <div class="seg" role="radiogroup" aria-labelledby="tipoLbl">
@@ -158,9 +164,14 @@ details p{font-size:13.5px;margin:8px 0}
       <div><label for="mun">Município</label><select id="mun" disabled><option value="">Escolha a UF</option></select></div>
     </div>
 
-    <label for="enq">Enquadramento tributário</label>
-    <select id="enq"><option value="000|000001">Tributação integral (regra geral)</option></select>
-    <div class="hint">Na dúvida, mantenha a regra geral. Itens com redução ou isenção (como cesta básica) têm enquadramento próprio, e o motor valida se o código informado combina com ele.</div>
+    <label for="enqB">Enquadramento tributário</label>
+    <div class="sugg">
+      <input id="enqB" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="enqL" value="Tributação integral (regra geral)" placeholder="Digite para buscar: saúde, educação, isenção…">
+      <ul id="enqL" role="listbox" aria-label="Enquadramentos tributários" hidden></ul>
+    </div>
+    <select id="enq" hidden aria-hidden="true" tabindex="-1"><option value="000|000001">Tributação integral (regra geral)</option></select>
+    <div class="hint" id="enqSel" aria-live="polite" hidden></div>
+    <div class="hint">Na dúvida, mantenha a regra geral. Para trocar, clique no campo e digite uma palavra (como saúde, educação ou isenção) ou o código: a lista está em ordem alfabética. Itens com redução ou isenção (como cesta básica) têm enquadramento próprio, e o motor valida se o código informado combina com ele.</div>
 
     <div id="prem" hidden>
       <div class="info warn">A partir de 2027 as alíquotas precisam ser informadas. Os valores abaixo são <b>premissas de simulação</b> (as do exemplo da Receita), e não alíquotas definitivas: a CBS de 2027 ainda depende de definição.</div>
@@ -229,12 +240,60 @@ var ufsP=get('/dados-abertos/ufs').then(function(l){
   l.filter(function(u){return u.sigla!=='EX';}).sort(function(a,b){return a.sigla<b.sigla?-1:1;}).forEach(function(u){ s.appendChild(new Option(u.sigla+' — '+u.nome, u.sigla)); });
   return true;
 }).catch(function(){ $('uf').textContent=''; $('uf').appendChild(new Option('Serviço indisponível no momento','')); return false; });
+// ---- enquadramento: campo de busca por palavra ou código. O <select id="enq"> (oculto) guarda o valor escolhido.
+var GERAL={v:'000|000001',cod:'000001',desc:'Tributação integral (regra geral)',grupo:'Tributação integral'};
+GERAL.n=norm(GERAL.desc+' '+GERAL.cod);
+var ENQ=[], enqAt=-1;
 var enqP=get('/dados-abertos/situacoes-tributarias/cbs-ibs?data='+today).then(function(l){
-  var s=$('enq'); var g=document.createElement('optgroup'); g.label='Outros enquadramentos';
-  l.forEach(function(c){ (c.classificacoesTributarias||[]).forEach(function(k){ if(k.codigo==='000001') return; g.appendChild(new Option(k.codigo+' — '+clean(k.descricao).slice(0,90), c.codigo+'|'+k.codigo)); }); });
-  s.appendChild(g);
+  var s=$('enq'), visto={};
+  l.forEach(function(c){ (c.classificacoesTributarias||[]).forEach(function(k){
+    var v=c.codigo+'|'+k.codigo; if(k.codigo==='000001'||visto[v]) return; visto[v]=1;
+    var d=clean(k.descricao).replace(/\.$/,''), gr=clean(c.descricao);
+    ENQ.push({v:v,cod:k.codigo,desc:d,grupo:gr,n:norm(d+' '+k.codigo+' '+gr)});
+    s.appendChild(new Option(k.codigo+' — '+d, v));
+  }); });
+  ENQ.sort(function(a,b){ return a.desc.localeCompare(b.desc,'pt-BR'); });
   return true;
 }).catch(function(){ return false; });
+function enqAtual(){ var v=$('enq').value; if(v===GERAL.v) return GERAL; for(var i=0;i<ENQ.length;i++){ if(ENQ[i].v===v) return ENQ[i]; } return GERAL; }
+function syncEnq(){ // mostra no campo de busca o que está escolhido
+  var e=enqAtual(), box=$('enqSel'); $('enqB').value=e.desc;
+  box.textContent=''; box.hidden=(e===GERAL);
+  if(e!==GERAL){ box.appendChild(document.createTextNode('Escolhido: ')); box.appendChild(el('b',e.cod)); box.appendChild(document.createTextNode(' — '+e.desc+' ('+e.grupo+'). ')); var b=el('button','Voltar à regra geral','lk'); b.type='button'; b.addEventListener('click',function(){ setEnq(GERAL.v); }); box.appendChild(b); }
+}
+function setEnq(v){ $('enq').value=v; if($('enq').value!==v) $('enq').value=GERAL.v; syncEnq(); }
+function enqFechar(){ var ul=$('enqL'); ul.hidden=true; ul.textContent=''; enqAt=-1; $('enqB').setAttribute('aria-expanded','false'); $('enqB').removeAttribute('aria-activedescendant'); }
+function enqMarcar(i){
+  var its=$('enqL').querySelectorAll('li[role=option]'); if(!its.length) return;
+  enqAt=(i+its.length)%its.length;
+  its.forEach(function(li,k){ li.setAttribute('aria-selected',k===enqAt?'true':'false'); });
+  $('enqB').setAttribute('aria-activedescendant',its[enqAt].id); its[enqAt].scrollIntoView({block:'nearest'});
+}
+function enqAbrir(texto){
+  var q=norm(texto||'').split(/\s+/).filter(Boolean), ul=$('enqL'); ul.textContent=''; enqAt=-1;
+  var achados=ENQ.filter(function(e){ return q.every(function(w){ return e.n.indexOf(w)>-1; }); });
+  function item(e,k){
+    var li=el('li'); li.id='enqO'+k; li.setAttribute('role','option'); li.setAttribute('aria-selected','false');
+    li.appendChild(document.createTextNode(e.desc)); li.appendChild(el('small', e===GERAL ? 'Vale para a maior parte das compras' : e.cod+' · '+e.grupo));
+    li.addEventListener('mousedown',function(ev){ ev.preventDefault(); setEnq(e.v); enqFechar(); });
+    ul.appendChild(li);
+  }
+  item(GERAL,0); // a regra geral fica sempre no topo
+  achados.forEach(function(e,i){ item(e,i+1); });
+  if(q.length&&!achados.length){ ul.appendChild(el('li','Nenhum enquadramento especial com “'+texto.trim()+'”. A lista traz os tratamentos previstos na lei (redução, isenção, regimes específicos); sem um deles, o item segue a regra geral.','no')); }
+  ul.hidden=false; $('enqB').setAttribute('aria-expanded','true');
+}
+$('enqB').addEventListener('focus',function(){ this.select(); enqAbrir(''); });
+$('enqB').addEventListener('click',function(){ if($('enqL').hidden) enqAbrir(''); });
+$('enqB').addEventListener('input',function(){ enqAbrir(this.value); });
+$('enqB').addEventListener('keydown',function(ev){
+  var aberto=!$('enqL').hidden;
+  if(ev.key==='ArrowDown'||ev.key==='ArrowUp'){ ev.preventDefault(); if(!aberto) enqAbrir(''); enqMarcar(ev.key==='ArrowDown'?enqAt+1:(enqAt<0?0:enqAt)-1); }
+  else if(ev.key==='Enter'){ if(aberto){ ev.preventDefault(); var its=$('enqL').querySelectorAll('li[role=option]'); // Enter escolhe o item marcado, ou o único resultado da busca
+      var alvo=enqAt>=0?its[enqAt]:(its.length===2?its[1]:null); if(alvo){ alvo.dispatchEvent(new MouseEvent('mousedown',{bubbles:true,cancelable:true})); } } }
+  else if(ev.key==='Escape'){ if(aberto){ ev.preventDefault(); enqFechar(); syncEnq(); this.select(); } }
+});
+$('enqB').addEventListener('blur',function(){ setTimeout(function(){ enqFechar(); syncEnq(); },150); });
 
 function loadMun(uf){
   var m=$('mun'); m.disabled=true; m.textContent=''; m.appendChild(new Option('Carregando…',''));
@@ -293,6 +352,19 @@ $('cod').addEventListener('input',function(){
   }
 });
 $('cod').addEventListener('blur',function(){ setTimeout(hideS,150); });
+
+// ---- exemplos: preenche o formulário com um produto ou com um serviço; o visitante confere e clica em Calcular
+var EXEMPLOS={ ncm:{cod:'84713012',val:'5.000,00'}, nbs:{cod:'114011100',val:'12.000,00'} }; // notebook; consultoria em gestão estratégica
+function exemplo(tipo){
+  var e=EXEMPLOS[tipo], r=document.querySelector('input[name=tipo][value='+tipo+']');
+  r.checked=true; r.dispatchEvent(new Event('change',{bubbles:true}));
+  $('cod').value=e.cod; state.cod=e.cod; lookup(e.cod);
+  $('val').value=e.val; setEnq(GERAL.v);
+  if(!$('uf').value||!$('mun').value){ ufsP.then(function(ok){ if(!ok) return; $('uf').value='SP'; if($('uf').value!=='SP') return; return loadMun('SP').then(function(l){ if(l) $('mun').value='3550308'; }); }); }
+  if(window.gtag) gtag('event','calculadora_exemplo',{tipo:tipo});
+}
+$('exProd').addEventListener('click',function(){ exemplo('ncm'); });
+$('exServ').addEventListener('click',function(){ exemplo('nbs'); });
 
 // ---- cálculo
 function showErr(msg){ var o=$('out'); o.hidden=false; $('empty').hidden=true; o.textContent=''; o.appendChild(el('div',msg,'info err')); }
@@ -475,6 +547,7 @@ function capture(out,sim){
     $('mun').value=m; if($('mun').value!==m) throw new Error('mun');
     var key=e==='geral'?'000|000001':e.replace('-','|');
     $('enq').value=key; if($('enq').value!==key) throw new Error('enq');
+    syncEnq();
     lookup(c);
     state.autoRun=true;
     $('f').dispatchEvent(new Event('submit',{cancelable:true,bubbles:true}));

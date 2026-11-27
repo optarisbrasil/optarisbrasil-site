@@ -13,41 +13,57 @@ var MAPA = {
 };
 var ORDEM = ['descricao','fornecedor','valor'];
 
-var EXEMPLO = (function(){
-  var l=[['Descrição do item','Fornecedor','Valor (R$)']];
-  function add(d,f,v){ l.push([d,f,v]); }
-  add('Bobina de aço laminado a frio 1,5 mm','Usina Siderúrgica Paulista',1480000);
-  add('Chapa de aço galvanizado 0,9 mm','Usina Siderúrgica Paulista',612000);
-  add('Resina de polipropileno homopolímero','Petroquímica Sul',388000);
+// Dois exemplos: um só com compras de produtos e outro só com contratação de serviços.
+var EXEMPLOS = (function(){
+  var CAB=['Descrição do item','Fornecedor','Valor (R$)'];
+  var p=[CAB], s=[CAB];
+  function prod(d,f,v){ p.push([d,f,v]); }
+  function serv(d,f,v){ s.push([d,f,v]); }
+  prod('Bobina de aço laminado a frio 1,5 mm','Usina Siderúrgica Paulista',1480000);
+  prod('Chapa de aço galvanizado 0,9 mm','Usina Siderúrgica Paulista',612000);
+  prod('Resina de polipropileno homopolímero','Petroquímica Sul',388000);
   ['Caixa de papelão ondulado 40x30x20','Caixa de papelão 60x40x40','Filme stretch 50 cm','Fita adesiva transparente 48 mm','Cantoneira de papelão','Saco plástico 60x90'].forEach(function(d,i){
-    ['Embalagens Vale','Papelão Forte','Embalaminas','Box Center Embalagens','Rio Pack','PlastiFlex'].forEach(function(f,j){ if((i+j)%2===0) add(d,f,8000+((i*7+j*13)%9)*2100); });
+    ['Embalagens Vale','Papelão Forte','Embalaminas','Box Center Embalagens','Rio Pack','PlastiFlex'].forEach(function(f,j){ if((i+j)%2===0) prod(d,f,8000+((i*7+j*13)%9)*2100); });
   });
   ['Luva nitrílica','Óculos de proteção incolor','Protetor auricular plug','Botina de segurança bico composite','Uniforme operacional'].forEach(function(d,i){
-    ['EPI Brasil','Segura Mais','Protege Já','Uniformes Ideal'].forEach(function(f,j){ if((i+j)%2===1) add(d,f,3200+((i*5+j*11)%7)*900); });
+    ['EPI Brasil','Segura Mais','Protege Já','Uniformes Ideal'].forEach(function(f,j){ if((i+j)%2===1) prod(d,f,3200+((i*5+j*11)%7)*900); });
   });
-  add('Frete rodoviário de matéria-prima (carga fechada)','Transportadora Rota Sul',412000);
-  add('Frete de distribuição para clientes','LogBrasil Transportes',356000);
-  add('Coleta e entrega fracionada','Expresso Rápido',48000);
-  add('Manutenção preventiva das prensas','Manutenção Industrial MK',228000);
-  add('Reparo de motores elétricos','Rebobinadora Central',64000);
-  add('Rolamento 6205 2RS','Rolamentos e Cia',18400);
-  add('Correia em V A-48','Rolamentos e Cia',7200);
-  add('Óleo hidráulico ISO 68 (tambor 200 L)','Lubrificantes Norte',42000);
-  add('Serviço de limpeza predial e industrial','Limpeza Total Serviços',196000);
-  add('Vigilância patrimonial 24 horas','Segurança Alfa',288000);
-  add('Refeições do restaurante industrial','Nutri Refeições',344000);
-  add('Licenças de ERP (manutenção anual)','Software Gestão S.A.',186000);
-  add('Notebook i7 16 GB','Tech Parts Comércio',96000);
-  add('Link de internet dedicado 500 Mbps','Telecom Fibra',38400);
-  add('Consultoria tributária para a reforma','Consultoria Fiscal Prisma',144000);
-  add('Auditoria das demonstrações financeiras','Auditores Associados',120000);
-  add('Energia elétrica','Distribuidora de Energia',920000);
-  add('Locação de empilhadeiras','Loca Máquinas',156000);
-  add('Seguro patrimonial','Seguradora Brasil',98000);
-  add('Papel A4 75 g (caixa)','Papelaria Central',12400);
-  add('Café em grãos 1 kg','Café da Serra',9600);
-  add('Passagens aéreas','Agência Viaje Bem',64000);
-  return l;
+  prod('Rolamento 6205 2RS','Rolamentos e Cia',18400);
+  prod('Correia em V A-48','Rolamentos e Cia',7200);
+  prod('Óleo hidráulico ISO 68 (tambor 200 L)','Lubrificantes Norte',42000);
+  prod('Notebook i7 16 GB','Tech Parts Comércio',96000);
+  prod('Monitor 24 polegadas','Tech Parts Comércio',28800);
+  prod('Papel A4 75 g (caixa)','Papelaria Central',12400);
+  prod('Café em grãos 1 kg','Café da Serra',9600);
+
+  serv('Frete rodoviário de matéria-prima (carga fechada)','Transportadora Rota Sul',412000);
+  serv('Frete de distribuição para clientes','LogBrasil Transportes',356000);
+  ['Coleta e entrega fracionada','Frete expresso para clientes','Transporte de amostras e documentos'].forEach(function(d,i){
+    ['Expresso Rápido','Carga Ágil','Motoboy Já','Via Entregas'].forEach(function(f,j){ if((i+j)%2===0) serv(d,f,9000+((i*7+j*5)%8)*4200); });
+  });
+  ['Manutenção preventiva das prensas','Reparo de motores elétricos','Manutenção de empilhadeiras','Manutenção do ar-condicionado','Calibração de instrumentos'].forEach(function(d,i){
+    ['Manutenção Industrial MK','Rebobinadora Central','Técnica Sul Serviços','Clima Frio Assistência'].forEach(function(f,j){ if((i+j)%2===1) serv(d,f,14000+((i*5+j*11)%7)*9500); });
+  });
+  serv('Serviço de limpeza predial e industrial','Limpeza Total Serviços',196000);
+  serv('Limpeza de vidros e fachada','Brilho Fachadas',22000);
+  serv('Jardinagem e conservação das áreas externas','Verde Vivo Jardins',31000);
+  serv('Vigilância patrimonial 24 horas','Segurança Alfa',288000);
+  serv('Portaria e controle de acesso','Segurança Alfa',132000);
+  serv('Refeições do restaurante industrial','Nutri Refeições',344000);
+  serv('Licenças de ERP (manutenção anual)','Software Gestão S.A.',186000);
+  serv('Suporte de TI e atendimento aos usuários','Infra TI Consultoria',118000);
+  serv('Link de internet dedicado 500 Mbps','Telecom Fibra',38400);
+  serv('Consultoria tributária para a reforma','Consultoria Fiscal Prisma',144000);
+  serv('Consultoria em gestão de estoques','Estratégia Gestão Consultores',96000);
+  serv('Auditoria das demonstrações financeiras','Auditores Associados',120000);
+  serv('Serviços de contabilidade','Contábil Horizonte',84000);
+  serv('Assessoria jurídica trabalhista','Advocacia Lima e Prado',72000);
+  serv('Recrutamento e seleção','Talentos RH Seleção',46000);
+  serv('Treinamento de segurança do trabalho (NRs)','Capacita Treinamentos',38000);
+  serv('Locação de empilhadeiras','Loca Máquinas',156000);
+  serv('Seguro patrimonial','Seguradora Brasil',98000);
+  serv('Passagens aéreas','Agência Viaje Bem',64000);
+  return { produtos:p, servicos:s };
 })();
 
 function lerLinhas(linhas, origem){
@@ -78,7 +94,9 @@ var drop=$('drop');
 ['dragleave','drop'].forEach(function(t){ drop.addEventListener(t,function(e){ e.preventDefault(); drop.classList.remove('over'); }); });
 drop.addEventListener('drop',function(e){ abrir(e.dataTransfer&&e.dataTransfer.files[0]); });
 $('usarCola').addEventListener('click',function(){ var t=$('cola').value; if(!t.trim()) return falhaLeitura(new Error('Cole as linhas copiadas do Excel, com a linha de títulos.')); lerLinhas(F.lerTexto(t),'das linhas coladas'); });
-$('exemplo').addEventListener('click',function(){ lerLinhas(EXEMPLO,'do exemplo'); F.evento('ferramenta_exemplo',{ferramenta:FERRAMENTA}); });
+[['exemploProd','produtos','do exemplo de produtos'],['exemploServ','servicos','do exemplo de serviços']].forEach(function(x){
+  $(x[0]).addEventListener('click',function(){ lerLinhas(EXEMPLOS[x[1]], x[2]); F.evento('ferramenta_exemplo',{ferramenta:FERRAMENTA,tipo:x[1]}); });
+});
 
 $('go').addEventListener('click',function(){
   var btn=this, res=$('res');

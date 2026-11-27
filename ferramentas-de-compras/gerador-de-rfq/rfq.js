@@ -4,10 +4,19 @@
 var F = window.Ferramentas, $ = F.$, el = F.el;
 var FERRAMENTA = 'Gerador de RFQ', rfq = null;
 
-$('exemplo').addEventListener('click', function(){
-  $('nec').value = 'Contratar serviço de limpeza para uma fábrica de 8.000 m² em Jundiaí (SP), com área administrativa de 1.200 m², vestiários e refeitório para 250 pessoas. Dois turnos, de segunda a sábado. A empresa contratada fornece os materiais de limpeza e repõe os descartáveis dos banheiros.';
-  $('qtd').value = 'Contrato de 12 meses'; $('prazo').value = 'Início em 30 dias'; $('local').value = 'Jundiaí (SP)'; $('crit').value = 'Preço, equipe fixa e experiência em indústria';
-  F.evento('ferramenta_exemplo',{ferramenta:FERRAMENTA});
+// Dois exemplos: a compra de um produto e a contratação de um serviço.
+var EXEMPLOS = {
+  produtos: { nec:'Comprar caixas de papelão ondulado para embalar peças automotivas na fábrica de Jundiaí (SP). Caixa de 40 x 30 x 20 cm, parede dupla, com impressão do logotipo em uma cor. Entregas mensais, paletizadas, conforme programação.',
+    qtd:'24.000 caixas por ano (2.000 por mês)', prazo:'Primeira entrega em 20 dias', local:'Jundiaí (SP)', crit:'Preço, prazo de entrega e resistência da caixa' },
+  servicos: { nec:'Contratar serviço de limpeza para uma fábrica de 8.000 m² em Jundiaí (SP), com área administrativa de 1.200 m², vestiários e refeitório para 250 pessoas. Dois turnos, de segunda a sábado. A empresa contratada fornece os materiais de limpeza e repõe os descartáveis dos banheiros.',
+    qtd:'Contrato de 12 meses', prazo:'Início em 30 dias', local:'Jundiaí (SP)', crit:'Preço, equipe fixa e experiência em indústria' }
+};
+[['exemploProd','produtos'],['exemploServ','servicos']].forEach(function(x){
+  $(x[0]).addEventListener('click', function(){
+    var e=EXEMPLOS[x[1]];
+    $('nec').value=e.nec; $('qtd').value=e.qtd; $('prazo').value=e.prazo; $('local').value=e.local; $('crit').value=e.crit;
+    F.evento('ferramenta_exemplo',{ferramenta:FERRAMENTA,tipo:x[1]});
+  });
 });
 
 $('go').addEventListener('click', function(){
