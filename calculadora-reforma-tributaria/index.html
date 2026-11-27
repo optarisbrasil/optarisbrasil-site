@@ -223,7 +223,20 @@ function dBR(d){ var p=d.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
 function simLink(s){ var q=['t='+s.tipo,'c='+s.cod,'v='+s.valor,'d='+s.data,'uf='+s.uf,'m='+s.mun,'e='+(s.enq==='000|000001'?'geral':s.enq.replace('|','-'))]; if(s.prem) q.push('pc='+s.prem[0],'pu='+s.prem[1],'pm='+s.prem[2]); return BASE_URL+'?'+q.join('&')+'&utm_medium=email&utm_campaign=calculadora-cbs-ibs'; }
 function simResumo(s){ var k=s.enq.split('|')[1]; return ((s.tipo==='ncm'?'produto NCM ':'serviço NBS ')+s.cod+', '+BRL.format(s.valor)+', '+(k==='000001'?'regime geral':'enquadramento '+k)+', '+s.munNome+'/'+s.uf+', operação em '+dBR(s.data)+'.').replace(/\u00a0/g,' '); }
 
+// memória do motor vem crua ("R$ 12000.00000000", "0.900000%"): formata no padrão brasileiro
+function fmtMemoria(t){ return String(t)
+  .replace(/R\$\s?(-?\d+(?:\.\d+)?)/g,function(m,n){ return 'R$ '+Number(n).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); })
+  .replace(/(-?\d+(?:\.\d+)?)\s?%/g,function(m,n){ return Number(n).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:4})+'%'; }); }
+// máscara do campo valor: ponto de milhar enquanto digita, ",00" ao sair do campo
+function maskValor(v){ v=String(v).replace(/[^\d,]/g,''); var i=v.indexOf(','); var int=i>-1?v.slice(0,i):v, dec=i>-1?v.slice(i+1).replace(/,/g,'').slice(0,2):null;
+  int=int.replace(/^0+(?=\d)/,''); if(int===''&&dec!==null) int='0'; int=int.replace(/\B(?=(\d{3})+(?!\d))/g,'.'); return dec===null?int:int+','+dec; }
+function bindValor(inp){
+  inp.addEventListener('input',function(){ var pos=inp.selectionStart, before=inp.value.slice(0,pos).replace(/[^\d,]/g,'').length; var nv=maskValor(inp.value); inp.value=nv;
+    var k=0,c=0; while(k<nv.length&&c<before){ if(/[\d,]/.test(nv[k])) c++; k++; } try{ inp.setSelectionRange(k,k); }catch(e){} });
+  inp.addEventListener('blur',function(){ var v=inp.value; if(!v) return; var n=numValor(v); if(!isNaN(n)) inp.value=n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); });
+}
 function num(s){ s=String(s||'').trim(); if(!s) return NaN; if(s.indexOf(',')>-1) s=s.replace(/\./g,'').replace(',','.'); return Number(s); }
+function numValor(s){ s=String(s||'').trim(); if(!s) return NaN; return Number(s.replace(/\./g,'').replace(',','.')); }
 function pct(s){ return Number(s).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:4})+'%'; }
 function clean(s){ return String(s==null?'':s).replace(/<sup>\s*2\s*<\/sup>/gi,'²').replace(/<sup>\s*3\s*<\/sup>/gi,'³').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim(); }
 function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
@@ -366,13 +379,14 @@ function exemplo(tipo){
 $('exProd').addEventListener('click',function(){ exemplo('ncm'); });
 $('exServ').addEventListener('click',function(){ exemplo('nbs'); });
 
+bindValor($('val'));
 // ---- cálculo
 function showErr(msg){ var o=$('out'); o.hidden=false; $('empty').hidden=true; o.textContent=''; o.appendChild(el('div',msg,'info err')); }
 $('f').addEventListener('submit',function(ev){
   ev.preventDefault();
   var auto=state.autoRun; state.autoRun=false; // true só quando a página reabre uma simulação pelo link do e-mail
   if(!auto){ state.reopened=false; state.banner=false; }
-  var cod=state.cod, valor=num($('val').value), uf=$('uf').value, mun=$('mun').value, enq=$('enq').value.split('|');
+  var cod=state.cod, valor=numValor($('val').value), uf=$('uf').value, mun=$('mun').value, enq=$('enq').value.split('|');
   var okCod = state.tipo==='ncm' ? /^\d{8}$/.test(cod) : /^\d{9}$/.test(cod);
   if(!okCod){ return showErr(state.tipo==='ncm' ? 'Informe um NCM de 8 dígitos.' : 'Escolha um serviço na lista ou informe o código NBS de 9 dígitos.'); }
   if(!(valor>0)){ return showErr('Informe o valor do item.'); }
@@ -425,7 +439,7 @@ function render(j,valor,data){
   out.appendChild(tb);
   var vt=el('p',null); vt.style.margin='12px 0 0'; vt.appendChild(document.createTextNode('Valor do item '+BRL.format(valor)+' + tributos '+BRL.format(tot)+' = ')); vt.appendChild(el('b',BRL.format(valor+tot))); out.appendChild(vt);
   var dt=el('details'); dt.open=true; dt.appendChild(el('summary','Memória de cálculo e base legal'));
-  [['CBS',g.gCBS],['IBS estadual',g.gIBSUF],['IBS municipal',g.gIBSMun]].forEach(function(p){ if(p[1]&&p[1].memoriaCalculo){ var pp=el('p'); pp.appendChild(el('b',p[0]+': ')); pp.appendChild(document.createTextNode(p[1].memoriaCalculo)); dt.appendChild(pp); } });
+  [['CBS',g.gCBS],['IBS estadual',g.gIBSUF],['IBS municipal',g.gIBSMun]].forEach(function(p){ if(p[1]&&p[1].memoriaCalculo){ var pp=el('p'); pp.appendChild(el('b',p[0]+': ')); pp.appendChild(document.createTextNode(fmtMemoria(p[1].memoriaCalculo))); dt.appendChild(pp); } });
   out.appendChild(dt);
   out.appendChild(el('div','Em regra, empresas no regime regular recuperam como crédito a CBS e o IBS pagos nas compras. Confirme o seu caso com o contador.','info'));
   if(data<'2027-01-01') out.appendChild(el('div','Data em 2026 (fase de testes): o motor aplica as alíquotas de referência do período.','info'));
